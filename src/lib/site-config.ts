@@ -51,11 +51,11 @@ export const AMCCONFIG = {
 /** Navegación principal — usada en Header y Footer */
 export const NAV_ITEMS = [
   { label: "Inicio", href: "/" },
-  { label: "Productos", href: "#productos" },
-  { label: "Categorías", href: "#categorias" },
-  { label: "Servicio Técnico", href: "#servicio-tecnico" },
-  { label: "Nosotros", href: "#nosotros" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Productos", href: "/productos" },
+  { label: "Categorías", href: "/categorias" },
+  { label: "Servicio Técnico", href: "/servicio-tecnico" },
+  { label: "Nosotros", href: "/nosotros" },
+  { label: "Contacto", href: "/contacto" },
 ] as const;
 
 /** Marcas que AMC representa — extraídas del sitio actual */
