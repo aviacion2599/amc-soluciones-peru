@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -9,7 +9,38 @@ import { Label } from "@/components/ui/label";
 import { ShieldCheck, Loader2, ArrowRight, Eye, EyeOff, AlertCircle } from "lucide-react";
 import Link from "next/link";
 
+/**
+ * LoginPage — Wrapper con Suspense boundary.
+ *
+ * Next.js 16 requiere que useSearchParams() esté envuelto en <Suspense>
+ * para que la página pueda prerenderse estáticamente durante el build.
+ * Sin este boundary, el build de Vercel falla con:
+ *   "useSearchParams() should be wrapped in a suspense boundary"
+ *
+ * El componente interno LoginFormContent es el que realmente usa
+ * useSearchParams; el default export solo provee el Suspense wrapper.
+ */
 export default function LoginPage() {
+  return (
+    <Suspense fallback={<LoginFallback />}>
+      <LoginFormContent />
+    </Suspense>
+  );
+}
+
+/** Fallback mientras carga el boundary (estático, sin hooks). */
+function LoginFallback() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-primary-dark p-4">
+      <div className="flex items-center gap-3 text-white">
+        <Loader2 className="w-5 h-5 animate-spin" />
+        <span className="text-sm">Cargando acceso...</span>
+      </div>
+    </div>
+  );
+}
+
+function LoginFormContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/admin";
