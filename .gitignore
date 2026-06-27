@@ -52,3 +52,31 @@ prompt
 server.log
 # Skills directory
 /skills/
+
+# AMC Soluciones Perú — Seguridad y archivos sensibles
+# Database local (SQLite)
+/db/
+*.db
+*.db-journal
+
+# Uploads locales (no subir binarios)
+/public/uploads/
+/upload/
+
+# Descargas / capturas locales
+/download/
+/tool-results/
+
+# Logs adicionales
+/.zscripts/*.log
+/zscripts/*.log
+
+# Configuración interna del agente
+.zscripts/
+
+# Archivos temporales del cliente (audit del sitio actual)
+amc-current-site.json
+amc-indexed-pages.json
+
+# Imágenes subidas por el usuario (brand colors)
+/pasted_image_*.png
