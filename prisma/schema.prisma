@@ -1,8 +1,9 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+// ============================================================================
+// AMC SOLUCIONES PERÚ — PRISMA SCHEMA
+// Arquitectura aprobada y congelada en Fase 1.
+// Base de datos normalizada en 3FN, sin redundancia.
+// SQLite en desarrollo · preparada para PostgreSQL en producción.
+// ============================================================================
 
 generator client {
   provider = "prisma-client-js"
@@ -13,20 +14,358 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// ============================================================================
+// USUARIOS Y AUTENTICACIÓN
+// ============================================================================
+
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  name      String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id            String    @id @default(cuid())
+  email         String    @unique
+  passwordHash  String
+  name          String
+  role          String    @default("EDITOR") // SUPER_ADMIN | ADMIN | EDITOR | SALES
+  avatar        String?
+  isActive      Boolean   @default(true)
+  failedLoginAttempts Int @default(0)
+  lockedUntil   DateTime?
+  lastLoginAt   DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  quotes        Quote[]
+  contacts      Contact[]
+  auditLogs     AuditLog[]
+  blogPosts     BlogPost[]
+  sessions      Session[]
+
+  @@index([email])
+  @@index([role])
+  @@index([isActive])
 }
 
-model Post {
+model Session {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+// ============================================================================
+// CATÁLOGO DE PRODUCTOS
+// ============================================================================
+
+model Category {
+  id             String   @id @default(cuid())
+  slug            String   @unique
+  name            String
+  description     String?
+  icon            String?  // nombre de icono Lucide
+  image           String?
+  order          Int      @default(0)
+  isActive       Boolean  @default(true)
+  seoTitle       String?
+  seoDescription String?
+  seoKeywords    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  products       Product[]
+  subcategories  Subcategory[]
+
+  @@index([slug])
+  @@index([isActive])
+}
+
+model Subcategory {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  products    Product[]
+
+  @@index([categoryId])
+}
+
+model Brand {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String
+  logo        String?
+  description String?
+  website     String?
+  isActive    Boolean   @default(true)
+  order       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  products    Product[]
+}
+
+model Product {
+  id            String       @id @default(cuid())
+  slug          String       @unique
+  sku           String       @unique
+  name          String
+  summary       String       // 1 línea para cards
+  description   String       // rich text / markdown
+  categoryId    String
+  category      Category     @relation(fields: [categoryId], references: [id])
+  subcategoryId String?
+  subcategory   Subcategory? @relation(fields: [subcategoryId], references: [id])
+  brandId       String?
+  brand         Brand?       @relation(fields: [brandId], references: [id])
+
+  price         Float?       // precio referencial (cotizable)
+  currency      String       @default("PEN")
+  isFeatured    Boolean      @default(false)
+  isNew         Boolean      @default(false)
+  isBestSeller  Boolean      @default(false)
+  isActive      Boolean      @default(true)
+  order         Int          @default(0)
+
+  // SEO independiente por producto
+  seoTitle       String?
+  seoDescription String?
+  seoKeywords    String?
+  ogImage        String?
+  canonicalUrl   String?
+
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  images         ProductImage[]
+  videos         ProductVideo[]
+  documents      ProductDocument[]
+  features       ProductFeature[]
+  specifications ProductSpecification[]
+  applications   ProductApplication[]
+  quotes         Quote[]
+
+  @@index([slug])
+  @@index([categoryId])
+  @@index([brandId])
+  @@index([isActive, isFeatured])
+  @@index([isActive, isNew])
+}
+
+model ProductImage {
+  id          String   @id @default(cuid())
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url         String   // ruta /uploads/products/{id}/img-01.webp
+  alt         String   // accesibilidad + SEO
+  width       Int
+  height      Int
+  order       Int      @default(0)
+  isPrimary   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  @@index([productId])
+}
+
+model ProductVideo {
+  id          String   @id @default(cuid())
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url         String   // mp4 o YouTube/Vimeo ID
+  provider    String   @default("local") // local | youtube | vimeo
+  thumbnail   String?
+  title       String?
+  duration    Int?     // segundos
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  @@index([productId])
+}
+
+model ProductDocument {
+  id          String   @id @default(cuid())
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url         String   // /uploads/products/{id}/ficha.pdf
+  type        String   // ficha | manual | garantia | certificado
+  title       String
+  size        Int?     // bytes
+  createdAt   DateTime @default(now())
+
+  @@index([productId])
+}
+
+model ProductFeature {
+  id          String   @id @default(cuid())
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  title       String
+  description String?
+  icon        String?  // nombre de icono Lucide
+  order       Int      @default(0)
+
+  @@index([productId])
+}
+
+model ProductSpecification {
+  id          String   @id @default(cuid())
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  group       String   @default("General") // General | Técnico | Eléctrico | Dimensional
+  key         String   // "Velocidad de conteo"
+  value       String   // "1000 billetes/min"
+  order       Int      @default(0)
+
+  @@index([productId])
+}
+
+model ProductApplication {
+  id          String   @id @default(cuid())
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  name        String   // "Bancos", "Retail", "Restaurantes"
+  description String?
+  order       Int      @default(0)
+
+  @@index([productId])
+}
+
+// ============================================================================
+// COTIZACIONES Y CONTACTO
+// ============================================================================
+
+model Quote {
+  id              String      @id @default(cuid())
+  reference       String      @unique // Q-2026-000001
+  productId       String?
+  product         Product?    @relation(fields: [productId], references: [id])
+  customerName    String
+  customerEmail   String
+  customerPhone   String
+  customerCompany String?
+  customerRUC     String?
+  message         String
+  quantity        Int         @default(1)
+  status          String      @default("PENDING") // PENDING | CONTACTED | QUOTED | WON | LOST | ARCHIVED
+  assignedTo      String?
+  assignedUser    User?       @relation(fields: [assignedTo], references: [id])
+  notes           String?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([productId])
+  @@index([customerEmail])
+}
+
+model Contact {
   id        String   @id @default(cuid())
-  title     String
-  content   String?
-  published Boolean  @default(false)
-  authorId  String
+  name      String
+  email     String
+  phone     String?
+  company   String?
+  subject   String
+  message   String
+  source    String   @default("contacto") // contacto | servicio-tecnico | nosotros
+  status    String   @default("new") // new | read | replied | archived
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([source])
+}
+
+// ============================================================================
+// CMS / BLOG / FAQ
+// ============================================================================
+
+model BlogPost {
+  id             String    @id @default(cuid())
+  slug           String    @unique
+  title          String
+  excerpt        String
+  content        String    // markdown
+  coverImage     String?
+  authorId       String?
+  author         User?     @relation(fields: [authorId], references: [id])
+  tags           String    // comma-separated
+  isPublished    Boolean   @default(false)
+  publishedAt    DateTime?
+  seoTitle       String?
+  seoDescription String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@index([slug])
+  @@index([isPublished, publishedAt])
+}
+
+model FAQ {
+  id         String   @id @default(cuid())
+  question   String
+  answer     String
+  category   String   @default("General")
+  order      Int      @default(0)
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([isActive])
+  @@index([category])
+}
+
+// ============================================================================
+// CONFIGURACIÓN Y CONTENIDO DEL SITIO
+// ============================================================================
+
+model SiteConfig {
+  id          String   @id @default(cuid())
+  key         String   @unique // whatsapp | phone | email | address | hours | social
+  value       String   // JSON string
+  updatedAt   DateTime @updatedAt
+}
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  name      String
+  position  String?
+  company   String?
+  content   String
+  rating    Int      @default(5) // 1-5
+  avatar    String?
+  isActive  Boolean  @default(true)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@index([isActive])
+}
+
+// ============================================================================
+// AUDITORÍA Y SEGURIDAD
+// ============================================================================
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  action    String   // CREATE_PRODUCT | UPDATE_PRODUCT | DELETE_PRODUCT | LOGIN | ...
+  entity    String   // product | category | quote | user
+  entityId  String?
+  metadata  String?  // JSON string con cambios
+  ip        String?
+  userAgent String?
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([entity, entityId])
+  @@index([createdAt])
 }
