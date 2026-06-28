@@ -70,7 +70,7 @@ export default function NosotrosPage() {
               </div>
               <h2 className="display-3 mb-4">Misión</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Proveer soluciones integrales de manejo de efectivo quecombina tecnología de vanguardia
+                Proveer soluciones integrales de manejo de efectivo que combina tecnología de vanguardia
                 con respaldo técnico especializado, ayudando a las empresas peruanas a operar con
                 precisión, seguridad y eficiencia. Nos comprometemos a ofrecer equipos confiables,
                 mantenimiento preventivo de calidad y soporte técnico oportuno que asegure la

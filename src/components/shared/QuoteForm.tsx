@@ -64,13 +64,22 @@ export function QuoteForm({
   const onSubmit = async (data: QuoteFormData) => {
     setIsSubmitting(true);
     try {
-      // Fase 3: envío mock. En Fase 4 se reemplazará por:
-      // const res = await fetch("/api/quotes", { method: "POST", body: JSON.stringify(data) })
-      await new Promise((resolve) => setTimeout(resolve, 1200));
+      const res = await fetch("/api/quotes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || "Error al enviar la cotización");
+      }
+
+      const result = await res.json();
 
       toast({
         title: "¡Solicitud enviada con éxito!",
-        description: `Nuestro equipo de ventas te contactará en menos de 24 horas hábiles al ${data.customerPhone}.`,
+        description: `Referencia: ${result.data.reference}. Nuestro equipo de ventas te contactará en menos de 24 horas hábiles al ${data.customerPhone}.`,
         duration: 6000,
       });
 

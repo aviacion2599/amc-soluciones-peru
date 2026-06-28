@@ -186,11 +186,10 @@ function LoginFormContent() {
             </Button>
           </form>
 
-          {/* Demo creds */}
-          <div className="mt-6 pt-6 border-t border-white/10 text-xs text-slate-400">
-            <p className="font-semibold text-slate-300 mb-2">Credenciales demo:</p>
-            <p><span className="text-slate-300">SUPER_ADMIN:</span> admin@amcsolucionesperu.com</p>
-            <p><span className="text-slate-300">Password:</span> AdminAMC2026!</p>
+          {/* Security notice */}
+          <div className="mt-6 pt-6 border-t border-white/10 text-xs text-slate-400 flex items-center justify-center gap-2">
+            <ShieldCheck className="w-3.5 h-3.5" />
+            <span>Acceso restringido — Solo personal autorizado</span>
           </div>
         </div>
 

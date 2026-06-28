@@ -105,7 +105,7 @@ export const authOptions: NextAuthOptions = {
           email: user.email,
           name: user.name,
           role: user.role,
-        } as any;
+        };
       },
     }),
   ],
@@ -124,7 +124,7 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
-        token.role = (user as any).role;
+        token.role = user.role;
         token.name = user.name;
         token.email = user.email;
       }
@@ -132,8 +132,8 @@ export const authOptions: NextAuthOptions = {
     },
     async session({ session, token }) {
       if (session.user) {
-        (session.user as any).id = token.id;
-        (session.user as any).role = token.role;
+        session.user.id = token.id;
+        session.user.role = token.role;
       }
       return session;
     },
@@ -144,7 +144,7 @@ export const authOptions: NextAuthOptions = {
     error: "/login?error=true",
   },
 
-  secret: process.env.NEXTAUTH_SECRET || "amc-dev-secret-change-in-production",
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 // Tipos extendidos para sesión con rol

@@ -55,6 +55,7 @@ export const NAV_ITEMS = [
   { label: "Categorías", href: "/categorias" },
   { label: "Servicio Técnico", href: "/servicio-tecnico" },
   { label: "Nosotros", href: "/nosotros" },
+  { label: "Blog", href: "/blog" },
   { label: "Contacto", href: "/contacto" },
 ] as const;
 

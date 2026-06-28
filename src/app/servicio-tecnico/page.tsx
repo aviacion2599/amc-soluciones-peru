@@ -358,7 +358,7 @@ export default function ServicioTecnicoPage() {
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
                 En AMC Soluciones Perú entendemos que tu equipo de manejo de efectivo es crítico para tu operación.
-                Por eso no nos limitamos a reparar fallas: trabajamos en prevenirías, calibrar periódicamente
+                Por eso no nos limitamos a reparar fallas: trabajamos en prevenir las, calibrar periódicamente
                 y extender la vida útil de tus equipos con repuestos originales y técnicos certificados.
               </p>
               <div className="space-y-4">
