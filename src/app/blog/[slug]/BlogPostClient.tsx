@@ -4,7 +4,8 @@ import * as React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Calendar, User, ArrowLeft, Share2, FileText } from "lucide-react";
-import { PageTransition, FadeIn, Skeleton } from "@/components/shared/Motion";
+import { PageTransition, FadeIn } from "@/components/shared/Motion";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 
 export default function BlogPostPage({ slug }: { slug: string }) {
