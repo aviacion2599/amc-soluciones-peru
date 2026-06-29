@@ -1,5 +1,5 @@
 import * as LucideIcons from "lucide-react";
-import { TrendingUp, Headphones, Award, ShieldCheck } from "lucide-react";
+import { type LucideIcon, TrendingUp, Headphones, Award, ShieldCheck } from "lucide-react";
 import { SectionTitle } from "@/components/shared/SectionTitle";
 import { BENEFITS, AMCCONFIG } from "@/lib/site-config";
 
@@ -26,7 +26,7 @@ export function Benefits() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
           {BENEFITS.map((b, i) => {
-            const Icon = (LucideIcons as Record<string, LucideIcons.LucideIcon>)[b.icon];
+            const Icon = (LucideIcons as unknown as Record<string, LucideIcon>)[b.icon];
             return (
               <div
                 key={b.title}
