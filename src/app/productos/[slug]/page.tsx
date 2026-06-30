@@ -54,11 +54,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 /** Generate static params for SSG (pre-renderiza los productos activos). */
 export async function generateStaticParams() {
-  const products = await db.product.findMany({
-    where: { isActive: true },
-    select: { slug: true },
-  });
-  return products.map((p) => ({ slug: p.slug }));
+  try {
+    const products = await db.product.findMany({
+      where: { isActive: true },
+      select: { slug: true },
+    });
+    return products.map((p) => ({ slug: p.slug }));
+  } catch {
+    return [];
+  }
 }
 
 export default async function Page({ params }: PageProps) {

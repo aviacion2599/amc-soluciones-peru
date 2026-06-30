@@ -32,11 +32,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export async function generateStaticParams() {
-  const categories = await db.category.findMany({
-    where: { isActive: true },
-    select: { slug: true },
-  });
-  return categories.map((c) => ({ slug: c.slug }));
+  try {
+    const categories = await db.category.findMany({
+      where: { isActive: true },
+      select: { slug: true },
+    });
+    return categories.map((c) => ({ slug: c.slug }));
+  } catch {
+    return [];
+  }
 }
 
 export default async function Page({ params }: PageProps) {

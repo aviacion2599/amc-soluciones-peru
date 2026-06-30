@@ -2,7 +2,7 @@
 // AMC SOLUCIONES PERÚ — PRISMA SCHEMA
 // Arquitectura aprobada y congelada en Fase 1.
 // Base de datos normalizada en 3FN, sin redundancia.
-// SQLite en desarrollo · preparada para PostgreSQL en producción.
+// PostgreSQL en todos los entornos (Supabase en producción).
 // ============================================================================
 
 generator client {
@@ -10,8 +10,9 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 // ============================================================================

@@ -2,13 +2,12 @@ import { withAuth } from "next-auth/middleware";
 import { NextResponse } from "next/server";
 
 /**
- * Middleware de protección de rutas.
+ * Proxy de protección de rutas (Next.js 16 — convención "proxy").
  * Protege /admin/* — requiere sesión activa.
  * Cualquier rol puede acceder al panel (los permisos finos se validan en cada API).
  */
 export default withAuth(
-  function middleware(_req) {
-    // Aquí se podrían agregar validaciones adicionales (rate limit, headers, etc.)
+  function proxy(_req) {
     return NextResponse.next();
   },
   {

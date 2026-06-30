@@ -38,11 +38,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export async function generateStaticParams() {
-  const posts = await db.blogPost.findMany({
-    where: { isPublished: true },
-    select: { slug: true },
-  });
-  return posts.map((p) => ({ slug: p.slug }));
+  try {
+    const posts = await db.blogPost.findMany({
+      where: { isPublished: true },
+      select: { slug: true },
+    });
+    return posts.map((p) => ({ slug: p.slug }));
+  } catch {
+    return [];
+  }
 }
 
 export default async function Page({ params }: PageProps) {
