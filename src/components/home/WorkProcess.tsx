@@ -1,4 +1,5 @@
 import * as LucideIcons from "lucide-react";
+import { type LucideIcon } from "lucide-react";
 import { SectionTitle } from "@/components/shared/SectionTitle";
 import { WORK_PROCESS } from "@/lib/site-config";
 
@@ -24,7 +25,7 @@ export function WorkProcess() {
 
           <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
             {WORK_PROCESS.map((step) => {
-              const Icon = (LucideIcons as Record<string, LucideIcons.LucideIcon>)[step.icon];
+              const Icon = (LucideIcons as unknown as Record<string, LucideIcon>)[step.icon];
               return (
                 <li key={step.number} className="relative">
                   <div className="relative w-14 h-14 rounded-full bg-surface border-2 border-primary/20 flex items-center justify-center mb-5 group hover:border-primary transition-colors">

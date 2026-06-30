@@ -1,6 +1,6 @@
 import Link from "next/link";
 import * as LucideIcons from "lucide-react";
-import { Banknote, ArrowRight } from "lucide-react";
+import { Banknote, ArrowRight, type LucideIcon } from "lucide-react";
 import { SectionTitle } from "@/components/shared/SectionTitle";
 import { CATEGORIES } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
@@ -24,7 +24,7 @@ export function CategoriesGrid() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-14">
           {CATEGORIES.map((c, i) => {
-            const Icon = (LucideIcons as Record<string, LucideIcons.LucideIcon>)[c.icon] || Banknote;
+            const Icon = (LucideIcons as unknown as Record<string, LucideIcon>)[c.icon] || Banknote;
             const isFeatured = c.featured;
             return (
               <Link

@@ -44,7 +44,9 @@ export function QuoteForm({
   const [isSubmitting, setIsSubmitting] = React.useState(false);
 
   const form = useForm<QuoteFormData>({
-    resolver: zodResolver(quoteSchema),
+    // zod v4 input types differ from output types for fields with .default()
+    // The cast is safe: zodResolver validates correctly and useForm provides defaultValues
+    resolver: zodResolver(quoteSchema) as never,
     defaultValues: {
       customerName: "",
       customerEmail: "",

@@ -1,4 +1,4 @@
-import { Building2, Store, Stethoscope, Factory } from "lucide-react";
+import { Building2, Store, Stethoscope, Factory, type LucideIcon } from "lucide-react";
 import * as LucideIcons from "lucide-react";
 import { TRUSTED_COMPANIES } from "@/lib/site-config";
 
@@ -15,7 +15,7 @@ export function TrustedBy() {
         </p>
         <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
           {TRUSTED_COMPANIES.map((c) => {
-            const Icon = (LucideIcons as Record<string, LucideIcons.LucideIcon>)[c.icon] || Building2;
+            const Icon = (LucideIcons as unknown as Record<string, LucideIcon>)[c.icon] || Building2;
             return (
               <li
                 key={c.name}

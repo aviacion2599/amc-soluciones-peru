@@ -1,6 +1,6 @@
 import Link from "next/link";
 import * as LucideIcons from "lucide-react";
-import { Wrench, CheckCircle2 } from "lucide-react";
+import { Wrench, CheckCircle2, type LucideIcon } from "lucide-react";
 import { TECHNICAL_SERVICES } from "@/lib/site-config";
 
 /**
@@ -82,7 +82,7 @@ export function TechnicalService() {
           {/* Right — services grid */}
           <div className="grid sm:grid-cols-2 gap-4">
             {TECHNICAL_SERVICES.map((s, i) => {
-              const Icon = (LucideIcons as Record<string, LucideIcons.LucideIcon>)[s.icon];
+              const Icon = (LucideIcons as unknown as Record<string, LucideIcon>)[s.icon];
               return (
                 <div
                   key={s.code}
