@@ -79,5 +79,9 @@ server.log
 amc-current-site.json
 amc-indexed-pages.json
 
+# Contenido extra del cliente (logos, assets originales)
+/CONTENIDO EXTRA/
+/LOGO HORIZONTAL.png
+
 # Imágenes subidas por el usuario (brand colors)
 /pasted_image_*.png
