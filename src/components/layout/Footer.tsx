@@ -73,7 +73,7 @@ export function Footer() {
               <img
                 src="/logo-horizontal.png"
                 alt={AMCCONFIG.company.brandName}
-                className="h-9 w-auto object-contain"
+                className="h-14 w-auto object-contain"
               />
               <div>
                 <div className="font-display font-bold text-base text-white">

@@ -52,7 +52,7 @@ export function Header() {
               <img
                 src="/logo-horizontal.png"
                 alt={AMCCONFIG.company.brandName}
-                className="h-10 w-auto object-contain"
+                className="h-16 w-auto object-contain"
               />
             </Link>
 
@@ -168,7 +168,7 @@ export function Header() {
             <img
               src="/logo-horizontal.png"
               alt={AMCCONFIG.company.brandName}
-              className="h-7 w-auto object-contain"
+              className="h-12 w-auto object-contain"
             />
           </Link>
 
