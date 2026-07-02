@@ -61,7 +61,7 @@ export function Footer() {
 
   return (
     <footer
-      className="bg-primary-dark text-slate-200 mt-auto"
+      className="bg-navy text-white/70 mt-auto"
       role="contentinfo"
       aria-label="Pie de página"
     >
@@ -70,17 +70,17 @@ export function Footer() {
           {/* Brand column */}
           <div>
             <Link href="/" className="flex items-center gap-3 mb-5">
-              <div className="w-11 h-11 rounded-md bg-background text-primary font-display font-bold flex items-center justify-center shadow-amc-sm">
+              <div className="w-11 h-11 rounded-md bg-gold text-gold-foreground font-display font-bold flex items-center justify-center shadow-md">
                 AMC
               </div>
               <div>
                 <div className="font-display font-bold text-base text-white">
                   {AMCCONFIG.company.brandName}
                 </div>
-                <div className="overline text-slate-300 mt-0.5">PERÚ · Cash Handling</div>
+                <div className="overline text-gold/70 mt-0.5">Perú · Cash Handling</div>
               </div>
             </Link>
-            <p className="text-sm text-slate-300 leading-relaxed mb-6 max-w-sm">
+            <p className="text-sm text-white/50 leading-relaxed mb-6 max-w-sm">
               {AMCCONFIG.company.description}
             </p>
 
@@ -89,27 +89,27 @@ export function Footer() {
               <li>
                 <a
                   href={`tel:${AMCCONFIG.contact.phoneRaw}`}
-                  className="flex items-center gap-3 hover:text-white transition-colors"
+                  className="flex items-center gap-3 hover:text-gold transition-colors"
                 >
-                  <Phone className="w-4 h-4 text-primary-light flex-shrink-0" />
+                  <Phone className="w-4 h-4 text-gold/70 flex-shrink-0" />
                   <span>{AMCCONFIG.contact.phone}</span>
                 </a>
               </li>
               <li>
                 <a
                   href={`mailto:${AMCCONFIG.contact.email}`}
-                  className="flex items-center gap-3 hover:text-white transition-colors"
+                  className="flex items-center gap-3 hover:text-gold transition-colors"
                 >
-                  <Mail className="w-4 h-4 text-primary-light flex-shrink-0" />
+                  <Mail className="w-4 h-4 text-gold/70 flex-shrink-0" />
                   <span>{AMCCONFIG.contact.email}</span>
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-primary-light flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-gold/70 flex-shrink-0 mt-0.5" />
                 <span>{AMCCONFIG.contact.address}</span>
               </li>
               <li className="flex items-start gap-3">
-                <Clock className="w-4 h-4 text-primary-light flex-shrink-0 mt-0.5" />
+                <Clock className="w-4 h-4 text-gold/70 flex-shrink-0 mt-0.5" />
                 <div>
                   <div>{AMCCONFIG.schedule.weekdays}</div>
                   <div>{AMCCONFIG.schedule.saturday}</div>
@@ -126,7 +126,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`AMC en ${s.label}`}
-                  className="w-9 h-9 rounded-md bg-white/5 hover:bg-primary-light hover:text-white flex items-center justify-center transition-colors"
+                  className="w-9 h-9 rounded-md bg-white/5 hover:bg-gold/20 hover:text-gold flex items-center justify-center transition-colors"
                 >
                   <s.icon className="w-4 h-4" />
                 </a>
@@ -145,7 +145,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-slate-300 hover:text-primary-light hover:translate-x-1 inline-block transition-all"
+                      className="text-sm text-white/50 hover:text-gold hover:translate-x-1 inline-block transition-all"
                     >
                       {link.label}
                     </Link>
@@ -158,19 +158,13 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-white/40">
             © {year} {AMCCONFIG.company.legalName}. Todos los derechos reservados.
           </p>
-          <div className="flex items-center gap-5 text-xs text-slate-400">
-            <Link href="#" className="hover:text-slate-200 transition-colors">
-              Política de Privacidad
-            </Link>
-            <Link href="#" className="hover:text-slate-200 transition-colors">
-              Términos de Servicio
-            </Link>
-            <Link href="#" className="hover:text-slate-200 transition-colors">
-              Política de Garantía
-            </Link>
+          <div className="flex items-center gap-5 text-xs text-white/40">
+            <span>Servicio Técnico Autorizado GLORY · Desde 2010</span>
+            <span className="hidden sm:inline">·</span>
+            <span>+51 984 569 125</span>
           </div>
         </div>
       </div>

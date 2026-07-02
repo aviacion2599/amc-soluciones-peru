@@ -32,6 +32,13 @@
   --color-secondary-light: var(--secondary-light);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-gold: var(--gold);
+  --color-gold-dark: var(--gold-dark);
+  --color-gold-light: var(--gold-light);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-navy: var(--navy);
+  --color-navy-light: var(--navy-light);
+  --color-navy-foreground: var(--navy-foreground);
   --color-neutral: var(--neutral);
   --color-neutral-foreground: var(--neutral-foreground);
   --color-success: var(--success);
@@ -104,6 +111,17 @@
   /* === 3. ACCENT — Azul vibrante para highlights y enlaces === */
   --accent: #0b4db8;
   --accent-foreground: #ffffff;
+
+  /* === GOLD — Dorado Glory premium (#F5B041) === */
+  --gold: #f5b041;
+  --gold-dark: #d4942e;
+  --gold-light: #f8c870;
+  --gold-foreground: #0b132b;
+
+  /* === NAVY — Azul profundo noche (#0B132B) === */
+  --navy: #0b132b;
+  --navy-light: #1a2844;
+  --navy-foreground: #ffffff;
 
   /* === 4. NEUTRAL — Escala slate === */
   --neutral: #475569;

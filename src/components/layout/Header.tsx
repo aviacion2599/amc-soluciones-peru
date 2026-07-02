@@ -2,153 +2,263 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Menu, X, ArrowRight, Phone } from "lucide-react";
+import { Phone, X } from "lucide-react";
 import { NAV_ITEMS, AMCCONFIG } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
 /**
- * Header AMC — Sticky corporativo con blur backdrop on scroll.
- * Drawer para mobile. Logo placeholder hasta que el cliente envíe el SVG oficial.
+ * Header AMC — Menú Off-Canvas Derecha → Izquierda (NUEVO).
+ *
+ * Animaciones premium integradas:
+ * 1. Panel se desliza de derecha a izquierda con cubic-bezier mecánico
+ * 2. Overlay con backdrop-blur sincronizado
+ * 3. Efecto cascada (stagger) en los enlaces del menú
+ * 4. Botón X con rotación 90° al abrir/cerrar
+ *
+ * Paleta: #0B132B (navy) + #F5B041 (gold/dorado Glory)
  */
 export function Header() {
-  const [scrolled, setScrolled] = React.useState(false);
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [menuOpen, setMenuOpen] = React.useState(false);
 
+  // Bloquear scroll del body cuando el menú está abierto
   React.useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
 
-  // Bloquear scroll del body cuando el drawer mobile está abierto
-  React.useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [mobileOpen]);
+  // Cerrar menú al cambiar de ruta (escucha popstate)
+  const closeMenu = React.useCallback(() => setMenuOpen(false), []);
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-background/90 backdrop-blur-xl border-b border-border shadow-amc-sm"
-          : "bg-transparent",
-      )}
-      role="banner"
-    >
-      <div className="container-amc">
-        <div className="flex items-center justify-between h-20">
-          {/* Brand */}
-          <Link
-            href="/"
-            className="flex items-center gap-3 group"
-            aria-label={`${AMCCONFIG.company.brandName} — Inicio`}
-          >
-            <div className="relative">
-              <div className="flex items-center justify-center w-11 h-11 rounded-md bg-primary text-primary-foreground font-display font-bold text-base shadow-amc-sm group-hover:shadow-amc-primary transition-shadow">
+    <>
+      {/* ================================================================
+          HEADER STICKY
+          ================================================================ */}
+      <header
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          menuOpen ? "bg-navy" : "bg-navy/95 backdrop-blur-md",
+        )}
+        role="banner"
+      >
+        <div className="container-amc">
+          <div className="flex items-center justify-between h-20">
+            {/* Brand — Logo AMC dorado */}
+            <Link
+              href="/"
+              className="flex items-center gap-3 group"
+              aria-label={`${AMCCONFIG.company.brandName} — Inicio`}
+            >
+              <div className="flex items-center justify-center w-11 h-11 rounded-md bg-gold text-gold-foreground font-display font-bold text-lg shadow-md group-hover:shadow-gold/30 transition-shadow">
                 AMC
               </div>
-              <div
-                className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-success border-2 border-background"
-                aria-hidden="true"
-              />
+              <div className="hidden sm:flex flex-col leading-none">
+                <span className="font-display font-bold text-base text-white">
+                  {AMCCONFIG.company.brandName}
+                </span>
+                <span className="overline text-gold mt-0.5">
+                  Cash Handling · Perú
+                </span>
+              </div>
+            </Link>
+
+            {/* Desktop nav (oculto en mobile) */}
+            <nav
+              className="hidden lg:flex items-center gap-1"
+              aria-label="Navegación principal"
+            >
+              {NAV_ITEMS.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="px-3.5 py-2 rounded-md text-sm font-medium text-white/80 hover:text-gold hover:bg-white/5 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+
+            {/* Derecha: teléfono + hamburguesa */}
+            <div className="flex items-center gap-3">
+              <a
+                href={`tel:${AMCCONFIG.contact.phoneRaw}`}
+                className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-gold hover:text-gold-light transition-colors"
+                aria-label={`Llamar al ${AMCCONFIG.contact.phone}`}
+              >
+                <Phone className="w-4 h-4" />
+                {AMCCONFIG.contact.phone}
+              </a>
+
+              {/* Hamburguesa / Cerrar — con rotación 90° */}
+              <button
+                className="relative w-10 h-10 flex items-center justify-center rounded-md hover:bg-white/5 text-white transition-colors"
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+                aria-expanded={menuOpen}
+              >
+                {/* Líneas hamburguesa animadas a X */}
+                <div className="w-5 h-4 relative flex flex-col justify-between">
+                  <span
+                    className={cn(
+                      "block h-0.5 w-full bg-current rounded-full transition-all duration-400 origin-center",
+                      menuOpen && "rotate-45 translate-y-[7px]",
+                    )}
+                    style={{ transitionTimingFunction: "cubic-bezier(0.23, 1, 0.32, 1)" }}
+                  />
+                  <span
+                    className={cn(
+                      "block h-0.5 w-full bg-current rounded-full transition-all duration-300",
+                      menuOpen && "opacity-0 scale-x-0",
+                    )}
+                  />
+                  <span
+                    className={cn(
+                      "block h-0.5 w-full bg-current rounded-full transition-all duration-400 origin-center",
+                      menuOpen && "-rotate-45 -translate-y-[7px]",
+                    )}
+                    style={{ transitionTimingFunction: "cubic-bezier(0.23, 1, 0.32, 1)" }}
+                  />
+                </div>
+              </button>
             </div>
-            <div className="hidden sm:flex flex-col leading-none">
-              <span className="font-display font-bold text-base text-foreground">
-                {AMCCONFIG.company.brandName}
-              </span>
-              <span className="overline text-muted-foreground mt-0.5">
-                PERÚ · Cash Handling
-              </span>
+          </div>
+        </div>
+      </header>
+
+      {/* ================================================================
+          OVERLAY (fondo oscuro + blur)
+          Aparece sincronizado con el menú.
+          ================================================================ */}
+      <div
+        className={cn(
+          "fixed inset-0 z-40 transition-opacity duration-500",
+          menuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none",
+        )}
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.6)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
+        onClick={closeMenu}
+        aria-hidden="true"
+      />
+
+      {/* ================================================================
+          OFF-CANVAS MENÚ — PANEL DESLIZABLE DERECHA → IZQUIERDA
+          - translateX(100%) en estado cerrado → translateX(0) al abrir
+          - Transición: 0.5s cubic-bezier(0.23, 1, 0.32, 1)
+          - Stagger en los items (0.1s a 0.7s)
+          ================================================================ */}
+      <nav
+        id="offcanvas-menu"
+        className={cn(
+          "fixed top-0 right-0 z-50 h-full w-full sm:w-80 lg:w-96",
+          "bg-navy border-l border-white/10",
+          "flex flex-col",
+          "transition-transform duration-500",
+          menuOpen ? "translate-x-0" : "translate-x-full",
+        )}
+        style={{
+          transitionTimingFunction: "cubic-bezier(0.23, 1, 0.32, 1)",
+          boxShadow: "-8px 0 30px rgba(0, 0, 0, 0.4)",
+        }}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menú de navegación"
+      >
+        {/* Cabecera del panel — logo + botón X con rotación */}
+        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-white/10">
+          <Link
+            href="/"
+            onClick={closeMenu}
+            className="flex items-center gap-2"
+          >
+            <div className="w-9 h-9 rounded-md bg-gold text-gold-foreground font-display font-bold text-sm flex items-center justify-center">
+              AMC
             </div>
           </Link>
 
-          {/* Desktop nav */}
-          <nav
-            className="hidden lg:flex items-center gap-0.5"
-            aria-label="Navegación principal"
+          {/* Botón X con rotación 90° al abrir */}
+          <button
+            onClick={closeMenu}
+            className={cn(
+              "w-10 h-10 flex items-center justify-center rounded-md hover:bg-white/5 transition-all duration-400",
+            )}
+            aria-label="Cerrar menú"
+            style={{ transitionTimingFunction: "cubic-bezier(0.23, 1, 0.32, 1)" }}
           >
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="px-3.5 py-2 rounded-md text-sm font-medium text-foreground/80 hover:text-primary hover:bg-primary-tint/60 transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* CTA + Phone + mobile toggle */}
-          <div className="flex items-center gap-2">
-            <a
-              href={`tel:${AMCCONFIG.contact.phoneRaw}`}
-              className="hidden xl:inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors px-3 py-2"
-              aria-label={`Llamar al ${AMCCONFIG.contact.phone}`}
-            >
-              <Phone className="w-4 h-4" />
-              {AMCCONFIG.contact.phone}
-            </a>
-            <Link
-              href="#cotizacion"
-              className="hidden md:inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-primary-foreground px-5 py-2.5 rounded-md text-sm font-semibold transition-all shadow-amc-sm hover:shadow-amc-primary hover:-translate-y-0.5"
-            >
-              Solicitar Cotización
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <button
-              className="lg:hidden p-2 rounded-md hover:bg-muted text-foreground"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
-              aria-expanded={mobileOpen}
-              aria-controls="mobile-nav"
-            >
-              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
+            <X
+              className={cn(
+                "w-5 h-5 text-gold transition-transform duration-400",
+                menuOpen ? "rotate-90" : "rotate-0",
+              )}
+              style={{ transitionTimingFunction: "cubic-bezier(0.23, 1, 0.32, 1)" }}
+            />
+          </button>
         </div>
-      </div>
 
-      {/* Mobile drawer */}
-      {mobileOpen && (
-        <div
-          id="mobile-nav"
-          className="lg:hidden border-t border-border bg-background"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Menú de navegación móvil"
-        >
-          <nav className="container-amc flex flex-col py-4">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                className="px-4 py-3 text-sm font-medium text-foreground/80 hover:text-primary hover:bg-primary-tint/60 rounded-md transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <a
-              href={`tel:${AMCCONFIG.contact.phoneRaw}`}
-              className="mx-4 mt-2 inline-flex items-center justify-center gap-2 text-sm font-medium text-foreground border border-border px-5 py-3 rounded-md"
-            >
-              <Phone className="w-4 h-4" />
-              {AMCCONFIG.contact.phone}
-            </a>
-            <Link
-              href="#cotizacion"
-              onClick={() => setMobileOpen(false)}
-              className="mx-4 mt-2 inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-5 py-3 rounded-md text-sm font-semibold"
-            >
-              Solicitar Cotización <ArrowRight className="w-4 h-4" />
-            </Link>
-          </nav>
+        {/* Enlaces del menú con efecto cascada (stagger) */}
+        <div className="flex-1 overflow-y-auto px-6 py-6">
+          <ul className="space-y-1">
+            {NAV_ITEMS.map((item, index) => {
+              /* Stagger: delay = 0.1s * (index + 1) */
+              const staggerDelay = 0.1 + index * 0.1;
+              return (
+                <li
+                  key={item.label}
+                  className={cn(
+                    "transition-all duration-500",
+                    menuOpen
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-4",
+                  )}
+                  style={{
+                    transitionDelay: menuOpen ? `${staggerDelay}s` : "0s",
+                    transitionTimingFunction: "cubic-bezier(0.23, 1, 0.32, 1)",
+                  }}
+                >
+                  <Link
+                    href={item.href}
+                    onClick={closeMenu}
+                    className={cn(
+                      "flex items-center justify-between w-full",
+                      "px-4 py-3.5 rounded-lg",
+                      "text-base font-medium text-white/80 hover:text-gold hover:bg-white/5",
+                      "transition-all duration-200",
+                      "group",
+                    )}
+                  >
+                    <span>{item.label}</span>
+                    {/* Flecha decorativa que aparece al hover */}
+                    <span className="text-gold opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200">
+                      →
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </div>
-      )}
-    </header>
+
+        {/* Footer del menú — datos de contacto */}
+        <div className="px-6 py-6 border-t border-white/10 space-y-4">
+          <a
+            href={`tel:${AMCCONFIG.contact.phoneRaw}`}
+            className="flex items-center gap-3 text-sm text-white/70 hover:text-gold transition-colors"
+          >
+            <Phone className="w-4 h-4 text-gold" />
+            {AMCCONFIG.contact.phone}
+          </a>
+          <Link
+            href="/cotizacion"
+            onClick={closeMenu}
+            className="block w-full text-center py-3 rounded-lg bg-gold text-gold-foreground font-semibold text-sm hover:bg-gold-dark transition-colors shadow-lg shadow-gold/20"
+          >
+            Solicitar Cotización
+          </Link>
+          <p className="text-[10px] text-white/30 text-center">
+            SERVICIO TÉCNICO AUTORIZADO GLORY · DESDE 2010
+          </p>
+        </div>
+      </nav>
+    </>
   );
 }
