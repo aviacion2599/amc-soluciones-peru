@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     template: "%s | AMC Soluciones Perú",
   },
   description: AMCCONFIG.company.description,
-  keywords: AMCCONFIG.company.keywords,
+  keywords: [...AMCCONFIG.company.keywords],
   alternates: {
     canonical: AMCCONFIG.company.domain,
   },

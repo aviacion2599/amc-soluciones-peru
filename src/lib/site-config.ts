@@ -18,7 +18,7 @@ export const AMCCONFIG = {
     domain: "https://amcsolucionesperu.com",
     locale: "es-PE",
     country: "Perú",
-    keywords: ["precisión", "seguridad", "control", "confianza", "respaldo técnico", "contadoras de billetes", "servicio técnico GLORY", "calibración contadoras", "detección de falsos", "manejo de efectivo"],
+    keywords: ["precisión", "seguridad", "control", "confianza", "respaldo técnico", "contadoras de billetes", "servicio técnico GLORY", "calibración contadoras", "detección de falsos", "manejo de efectivo"] as string[],
   },
   contact: {
     phone: "+51 984 569 125",
