@@ -21,7 +21,7 @@ export function HeroPremium() {
   ] as const;
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-navy text-white">
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-navy text-white">
       {/* Background: gradiente + patrón grid */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy" />

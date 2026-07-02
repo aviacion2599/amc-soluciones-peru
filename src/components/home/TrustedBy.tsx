@@ -8,7 +8,7 @@ import { TRUSTED_COMPANIES } from "@/lib/site-config";
  */
 export function TrustedBy() {
   return (
-    <section className="border-y border-border bg-muted/40 py-10" aria-label="Empresas que confían en AMC">
+    <section id="confianza" className="border-y border-border bg-muted/40 py-10" aria-label="Empresas que confían en AMC">
       <div className="container-amc">
         <p className="overline text-muted-foreground text-center mb-6">
           Confianza institucional · Más de 2,500 equipos instalados

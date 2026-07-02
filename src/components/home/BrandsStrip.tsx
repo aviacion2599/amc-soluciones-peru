@@ -5,7 +5,7 @@ import { BRANDS } from "@/lib/site-config";
  */
 export function BrandsStrip() {
   return (
-    <section className="py-16 bg-muted/30 border-y border-border" aria-label="Marcas que representamos">
+    <section id="marcas" className="py-16 bg-muted/30 border-y border-border" aria-label="Marcas que representamos">
       <div className="container-amc">
         <p className="overline text-muted-foreground text-center mb-3">
           Respaldo internacional

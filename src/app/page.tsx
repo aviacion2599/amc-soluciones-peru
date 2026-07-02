@@ -14,6 +14,7 @@ import { BrandsStrip } from "@/components/home/BrandsStrip";
 import { Testimonials } from "@/components/home/Testimonials";
 import { CTASection } from "@/components/home/CTASection";
 import { SectionFade } from "@/components/shared/SectionFade";
+import { ScrollSpyWrapper } from "@/components/layout/ScrollSpyWrapper";
 import { AMCCONFIG } from "@/lib/site-config";
 
 /**
@@ -148,41 +149,43 @@ const jsonLd = {
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-background">
-      {/* JSON-LD structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+    <ScrollSpyWrapper>
+      <div className="min-h-screen flex flex-col bg-background">
+        {/* JSON-LD structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
 
-      <Header />
+        <Header />
 
-      <main className="flex-1">
-        <HeroPremium />
-        <SectionFade />
-        <TrustedBy />
-        <SectionFade />
-        <ProblemSection />
-        <SectionFade />
-        <Benefits />
-        <SectionFade />
-        <CategoriesGrid />
-        <SectionFade />
-        <FeaturedProducts />
-        <SectionFade />
-        <TechnicalService />
-        <SectionFade />
-        <WorkProcess />
-        <SectionFade />
-        <BrandsStrip />
-        <SectionFade />
-        <Testimonials />
-        <SectionFade />
-        <CTASection />
-      </main>
+        <main className="flex-1">
+          <HeroPremium />
+          <SectionFade />
+          <TrustedBy />
+          <SectionFade />
+          <ProblemSection />
+          <SectionFade />
+          <Benefits />
+          <SectionFade />
+          <CategoriesGrid />
+          <SectionFade />
+          <FeaturedProducts />
+          <SectionFade />
+          <TechnicalService />
+          <SectionFade />
+          <WorkProcess />
+          <SectionFade />
+          <BrandsStrip />
+          <SectionFade />
+          <Testimonials />
+          <SectionFade />
+          <CTASection />
+        </main>
 
-      <Footer />
-      <WhatsAppFloat />
-    </div>
+        <Footer />
+        <WhatsAppFloat />
+      </div>
+    </ScrollSpyWrapper>
   );
 }
