@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MessageCircle, ShieldCheck, TrendingUp, Wrench } from "lucide-react";
 import { AMCCONFIG } from "@/lib/site-config";
@@ -118,13 +119,16 @@ export function HeroPremium() {
                 </div>
                 <span className="px-3 py-1 rounded-full text-xs font-semibold bg-gold/20 text-gold border border-gold/30">Más vendido</span>
               </div>
-              <div className="aspect-[4/3] rounded-lg overflow-hidden mb-6 relative">
-                <img
+              <div className="aspect-[3/2] rounded-lg overflow-hidden mb-6 relative bg-navy/80">
+                <Image
                   src="/hero-producto.png"
                   alt="AMC-9100 Contadora de Billetes"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 500px"
+                  className="object-contain"
+                  priority
                 />
-                <div className="absolute -top-2 -right-2 rounded-full p-2 bg-gold/20 border border-gold/30">
+                <div className="absolute -top-2 -right-2 rounded-full p-2 bg-gold/20 border border-gold/30 z-10">
                   <ShieldCheck className="w-5 h-5 text-gold" />
                 </div>
               </div>
