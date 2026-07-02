@@ -14,7 +14,7 @@ export function CategoriesGrid() {
   return (
     <section
       id="categorias"
-      className="py-20 lg:py-28 bg-muted/40 border-y border-border scroll-mt-20"
+      className="py-20 lg:py-28 bg-muted/40 scroll-mt-20"
     >
       <div className="container-amc">
         <SectionTitle

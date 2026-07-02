@@ -31,13 +31,13 @@ export function Benefits() {
             return (
               <div
                 key={b.title}
-                className="group relative card-base card-hover p-6"
+                className="group relative card-base card-hover p-6 text-center"
               >
                 <div
                   className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-primary-light opacity-0 group-hover:opacity-100 transition-opacity"
                   aria-hidden="true"
                 />
-                <div className="w-12 h-12 rounded-lg bg-primary-tint text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                <div className="w-12 h-12 rounded-lg bg-primary-tint text-primary flex items-center justify-center mx-auto mb-5 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                   {Icon && <Icon className="w-6 h-6" strokeWidth={1.75} />}
                 </div>
                 <h3 className="font-display font-semibold text-lg mb-2">{b.title}</h3>
@@ -46,7 +46,7 @@ export function Benefits() {
                 </p>
                 {/* Keyword tag */}
                 {'keyword' in b && b.keyword && (
-                  <div className="mt-4 inline-block text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary-tint px-2 py-1 rounded">
+                  <div className="mt-4 inline-block text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary-tint px-2 py-1 rounded mx-auto">
                     {b.keyword}
                   </div>
                 )}
