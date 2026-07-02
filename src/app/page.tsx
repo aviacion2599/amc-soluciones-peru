@@ -3,6 +3,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { HeroPremium } from "@/components/home/HeroPremium";
+import { ProblemSection } from "@/components/home/ProblemSection";
 import { TrustedBy } from "@/components/home/TrustedBy";
 import { Benefits } from "@/components/home/Benefits";
 import { CategoriesGrid } from "@/components/home/CategoriesGrid";
@@ -15,20 +16,34 @@ import { CTASection } from "@/components/home/CTASection";
 import { AMCCONFIG } from "@/lib/site-config";
 
 /**
- * Home AMC Soluciones Perú — Compone todas las secciones modulares.
- * SEO: metadata dinámica + JSON-LD Organization + LocalBusiness.
+ * Home AMC Soluciones Perú — Renovación Enterprise.
+ * 
+ * Arquitectura narrativa: pain-to-proof + operator-case
+ * 
+ * 1. Hero          → Precisión, Seguridad, Control, Confianza, Respaldo Técnico
+ * 2. TrustedBy     → Prueba social institucional
+ * 3. ProblemSection → "El efectivo mal manejado cuesta caro"
+ * 4. Benefits      → Por qué AMC (4 pilares con keywords)
+ * 5. CategoriesGrid → Catálogo visual organizado
+ * 6. FeaturedProducts → Productos estrella con specs
+ * 7. TechnicalService → Pilar diferenciador (servicio técnico)
+ * 8. WorkProcess   → Cómo trabajamos
+ * 9. BrandsStrip   → Marcas que representamos
+ * 10. Testimonials → Prueba social real
+ * 11. CTASection   → Cierre con conversión
  */
 export const metadata: Metadata = {
   title: {
-    default: `${AMCCONFIG.company.legalName} | Contadoras de Billetes, Monedas y Servicio Técnico GLORY`,
+    default: `${AMCCONFIG.company.legalName} | Contadoras de Billetes, Monedas y Servicio Técnico GLORY — Precisión, Seguridad y Respaldo Técnico`,
     template: "%s | AMC Soluciones Perú",
   },
   description: AMCCONFIG.company.description,
+  keywords: AMCCONFIG.company.keywords,
   alternates: {
     canonical: AMCCONFIG.company.domain,
   },
   openGraph: {
-    title: `${AMCCONFIG.company.legalName} | Contadoras de Billetes y Servicio Técnico`,
+    title: `${AMCCONFIG.company.legalName} | Precisión y Seguridad en Manejo de Efectivo`,
     description: AMCCONFIG.company.description,
     url: AMCCONFIG.company.domain,
     siteName: AMCCONFIG.company.brandName,
@@ -37,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${AMCCONFIG.company.legalName} | Contadoras de Billetes y Servicio Técnico`,
+    title: `${AMCCONFIG.company.legalName} | Precisión y Seguridad en Manejo de Efectivo`,
     description: AMCCONFIG.company.description,
   },
 };
@@ -144,6 +159,7 @@ export default function HomePage() {
       <main className="flex-1">
         <HeroPremium />
         <TrustedBy />
+        <ProblemSection />
         <Benefits />
         <CategoriesGrid />
         <FeaturedProducts />

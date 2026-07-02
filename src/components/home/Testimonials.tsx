@@ -1,18 +1,19 @@
-import { Quote, Star } from "lucide-react";
+import { Quote, Star, MessageCircle } from "lucide-react";
 import { SectionTitle } from "@/components/shared/SectionTitle";
-import { TESTIMONIALS } from "@/lib/site-config";
+import { TESTIMONIALS, AMCCONFIG } from "@/lib/site-config";
 
 /**
  * Testimonials — 3 testimonios de clientes con rating y avatar con iniciales.
+ * Palabras clave: Confianza, Precisión, Respaldo Técnico
  */
 export function Testimonials() {
   return (
-    <section className="py-20 lg:py-28 bg-muted/40 border-y border-border">
+    <section className="py-20 lg:py-28 bg-surface-2 border-y border-border">
       <div className="container-amc">
         <SectionTitle
-          overline="Testimonios"
+          overline="Confianza institucional"
           title="Lo que dicen las empresas que confían en AMC"
-          description="Más de 2,500 equipos instalados en operaciones críticas a lo largo del país."
+          description="Más de 2,500 equipos instalados en operaciones críticas en todo el país. La precisión, seguridad y respaldo técnico hablan por sí solos."
         />
 
         <div className="grid lg:grid-cols-3 gap-6 mt-14">
@@ -23,9 +24,9 @@ export function Testimonials() {
               .join("")
               .slice(0, 2);
             return (
-              <figure key={t.name} className="card-base card-hover p-7">
-                <Quote className="w-8 h-8 text-primary/30 mb-4" aria-hidden="true" />
-                <blockquote className="text-sm text-foreground leading-relaxed mb-6">
+              <figure key={t.name} className="card-base card-hover p-7 flex flex-col">
+                <Quote className="w-8 h-8 text-primary/20 mb-4" aria-hidden="true" />
+                <blockquote className="text-sm text-foreground leading-relaxed mb-6 flex-1">
                   “{t.content}”
                 </blockquote>
 
@@ -54,6 +55,19 @@ export function Testimonials() {
               </figure>
             );
           })}
+        </div>
+
+        {/* Social proof footer */}
+        <div className="text-center mt-10">
+          <a
+            href={`https://wa.me/${AMCCONFIG.contact.whatsapp}?text=${encodeURIComponent("Hola AMC, me gustaría recibir referencias de clientes actuales.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            <MessageCircle className="w-4 h-4" />
+            ¿Quieres conocer casos de éxito similares a tu negocio? Escríbenos
+          </a>
         </div>
       </div>
     </section>

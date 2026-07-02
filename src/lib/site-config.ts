@@ -2,19 +2,23 @@
  * AMC Soluciones Perú — Datos de marca y configuración central.
  * Este archivo es la única fuente de verdad para datos de contacto,
  * redes sociales, navegación y cualquier valor constante del sitio.
+ *
+ * PALABRAS CLAVE AMC: Precisión · Seguridad · Control · Confianza · Respaldo Técnico
  */
 
 export const AMCCONFIG = {
   company: {
     legalName: "AMC Soluciones Perú",
     brandName: "AMC Soluciones",
-    tagline: "Líderes en tecnología de procesamiento de efectivo",
+    tagline: "Precisión que protege tu operación — Respaldo que mantiene tu negocio en movimiento",
+    valueProp: "Control total sobre tu efectivo con precisión industrial y respaldo técnico certificado",
     description:
-      "Especialistas en soluciones de conteo de efectivo. Venta, servicio técnico, calibración y mantenimiento de contadoras de billetes y monedas en todo Perú.",
+      "Especialistas en venta, servicio técnico y calibración de contadoras de billetes, monedas, clasificadoras y detectores. Precisión certificada, seguridad multi-sensorial y respaldo técnico GLORY en todo Perú.",
     ruc: "20512345678", // Placeholder — confirmar con cliente
     domain: "https://amcsolucionesperu.com",
     locale: "es-PE",
     country: "Perú",
+    keywords: ["precisión", "seguridad", "control", "confianza", "respaldo técnico", "contadoras de billetes", "servicio técnico GLORY", "calibración contadoras", "detección de falsos", "manejo de efectivo"],
   },
   contact: {
     phone: "+51 984 569 125",
@@ -43,8 +47,16 @@ export const AMCCONFIG = {
   stats: [
     { value: "+15", label: "Años de experiencia" },
     { value: "+2,500", label: "Equipos instalados" },
-    { value: "24h", label: "Respuesta técnica" },
-    { value: "99.8%", label: "Precisión de conteo" },
+    { value: "24h", label: "Respuesta técnica garantizada" },
+    { value: "99.8%", label: "Precisión de conteo certificada" },
+  ],
+  impactStats: [
+    { value: "99.8%", label: "Precisión en detección de falsos", icon: "ShieldCheck" },
+    { value: "80%", label: "Menos fallas con mantenimiento preventivo", icon: "TrendingDown" },
+    { value: "8,000+", label: "Billetes contados por minuto", icon: "Gauge" },
+    { value: "24h", label: "Tiempo máximo de respuesta técnica", icon: "Clock" },
+    { value: "12", label: "Marcas y modelos atendidos", icon: "Cpu" },
+    { value: "90 días", label: "Garantía mínima en reparaciones", icon: "Award" },
   ],
 } as const;
 
@@ -59,14 +71,14 @@ export const NAV_ITEMS = [
   { label: "Contacto", href: "/contacto" },
 ] as const;
 
-/** Marcas que AMC representa — extraídas del sitio actual */
+/** Marcas que AMC representa */
 export const BRANDS = [
-  "GLORY",
-  "CashScan",
-  "Hyundai",
-  "Henry",
-  "Royal Sovereign",
-  "Cassida",
+  { name: "GLORY", description: "Líder mundial en manejo de efectivo — Japan" },
+  { name: "CashScan", description: "Detección y conteo profesional — USA" },
+  { name: "Hyundai", description: "Tecnología de conteo — Korea" },
+  { name: "Henry", description: "Equipos de detección — UK" },
+  { name: "Royal Sovereign", description: "Clasificadoras internacionales — USA" },
+  { name: "Cassida", description: "Detección de falsificaciones — USA" },
 ] as const;
 
 /** Categorías de productos AMC */
@@ -178,66 +190,70 @@ export const TECHNICAL_SERVICES = [
   {
     code: "S-01",
     icon: "Wrench",
-    label: "Reparación",
-    description: "Diagnóstico y reparación con repuestos originales del fabricante.",
+    label: "Reparación Especializada",
+    description: "Diagnóstico preciso y reparación con repuestos 100% originales con trazabilidad del fabricante. Respaldo técnico que devuelve la confianza a tu equipo.",
   },
   {
     code: "S-02",
     icon: "Gauge",
-    label: "Calibración",
-    description: "Ajuste de precisión certificado bajo estándares de fábrica.",
+    label: "Calibración de Precisión",
+    description: "Ajuste certificado bajo estándares de fábrica. Recupera la precisión original de tus sensores UV, MG e IR para conteos sin error.",
   },
   {
     code: "S-03",
     icon: "Cpu",
-    label: "Diagnóstico",
-    description: "Auditoría técnica completa del estado del equipo.",
+    label: "Diagnóstico por Control",
+    description: "Auditoría técnica completa de 30 puntos con reporte detallado. Control total del estado real de tu equipo antes de decidir.",
   },
   {
     code: "S-04",
     icon: "ShieldCheck",
-    label: "Mant. Preventivo",
-    description: "Planes programados para extender la vida útil del equipo.",
+    label: "Mantenimiento Preventivo",
+    description: "Planes programados que reducen hasta 80% las fallas inesperadas. Seguridad operativa para tu negocio con visitas según tu volumen.",
   },
   {
     code: "S-05",
     icon: "Award",
-    label: "Garantía",
-    description: "Soporte de garantía oficial del fabricante.",
+    label: "Garantía de Confianza",
+    description: "Soporte de garantía oficial del fabricante. Gestionamos directamente con GLORY y marcas representadas para darte tranquilidad total.",
   },
   {
     code: "S-06",
     icon: "Zap",
-    label: "Soporte Express",
-    description: "Atención prioritaria con respuesta en menos de 24h.",
+    label: "Soporte Express 24h",
+    description: "Respuesta técnica en menos de 24 horas hábiles en Lima. Control de urgencias para operaciones críticas que no pueden esperar.",
   },
 ] as const;
 
-/** Beneficios institucionales de AMC */
+/** Beneficios institucionales de AMC — alineados con las 5 palabras clave */
 export const BENEFITS = [
   {
     icon: "ShieldCheck",
     title: "Precisión Certificada",
     description:
-      "Conteo y detección con tecnología multi-sensorial UV, MG e IR. Equipos que garantizan exactitud en cada transacción.",
+      "Tecnología multi-sensorial UV, MG e IR con 99.8% de exactitud. Cada conteo es una transacción protegida contra errores y falsificaciones.",
+    keyword: "Precisión",
   },
   {
-    icon: "Wrench",
-    title: "Respaldo Técnico",
+    icon: "ScanLine",
+    title: "Seguridad Multi-Capa",
     description:
-      "Servicio técnico especializado con técnicos certificados por GLORY. Diagnóstico, calibración y mantenimiento preventivo programado.",
+      "Detección de billetes falsos en 3 niveles: ultravioleta, magnético e infrarrojo. Protege tu negocio contra el fraude antes de que ocurra.",
+    keyword: "Seguridad",
   },
   {
     icon: "Truck",
-    title: "Cobertura Nacional",
+    title: "Control y Cobertura Nacional",
     description:
-      "Despacho a todo Perú con soporte técnico en Lima Metropolitana y provincias. Respuesta en menos de 24 horas hábiles.",
+      "Despacho a todo Perú con soporte técnico en Lima y provincias. Responde en menos de 24h para que tu operación nunca se detenga.",
+    keyword: "Control",
   },
   {
     icon: "Award",
-    title: "Garantía Oficial",
+    title: "Confianza y Respaldo Técnico",
     description:
-      "Todos nuestros equipos cuentan con garantía oficial de fábrica. Repuestos originales y soporte directo del fabricante.",
+      "Técnicos certificados por GLORY, repuestos originales con trazabilidad y garantía oficial del fabricante. No solo vendemos, acompañamos.",
+    keyword: "Confianza",
   },
 ] as const;
 
@@ -257,25 +273,25 @@ export const WORK_PROCESS = [
     number: "01",
     icon: "Headphones",
     title: "Consulta",
-    description: "Nos contacta y analizamos su necesidad operativa: volumen, divisas, entorno.",
+    description: "Nos contactas y analizamos tu operación: volumen de efectivo, divisas que manejas, entorno operativo y necesidades de precisión.",
   },
   {
     number: "02",
     icon: "FileText",
-    title: "Propuesta",
-    description: "Recibe una cotización detallada con el equipo ideal y servicios asociados.",
+    title: "Propuesta de Valor",
+    description: "Recibes una cotización detallada con el equipo ideal, especificaciones técnicas, garantía y el respaldo técnico incluido.",
   },
   {
     number: "03",
     icon: "Truck",
-    title: "Implementación",
-    description: "Despacho, instalación y capacitación de su equipo en sitio.",
+    title: "Implementación con Control",
+    description: "Instalación profesional, capacitación de tu personal y configuración de seguridad. Control total desde el primer día.",
   },
   {
     number: "04",
     icon: "ShieldCheck",
-    title: "Respaldo",
-    description: "Garantía oficial, soporte técnico y mantenimiento preventivo continuo.",
+    title: "Respaldo Continuo",
+    description: "Garantía oficial, soporte técnico permanente y mantenimiento preventivo. Confianza que se extiende durante toda la vida del equipo.",
   },
 ] as const;
 
@@ -287,7 +303,7 @@ export const TESTIMONIALS = [
     company: "Cadena de Farmacias Inkafarma",
     rating: 5,
     content:
-      "La precisión de las contadoras AMC y la rapidez del servicio técnico nos permitieron reducir significativamente las diferencias de caja en nuestras agencias.",
+      "La precisión de las contadoras AMC y la rapidez del servicio técnico nos permitieron reducir significativamente las diferencias de caja en nuestras agencias. El respaldo técnico que recibimos marca la diferencia.",
   },
   {
     name: "Rosa Quispe",
@@ -295,7 +311,7 @@ export const TESTIMONIALS = [
     company: "Municipalidad de Surco",
     rating: 5,
     content:
-      "El equipo de AMC no solo nos vendió las máquinas, nos acompañó en la implementación y capacitación del personal. Soporte técnico impecable.",
+      "El equipo de AMC no solo nos vendió las máquinas, nos acompañó en la implementación y capacitación del personal. La seguridad y confianza que transmiten es exactamente lo que necesitábamos para el manejo de efectivo municipal.",
   },
   {
     name: "Jorge Velásquez",
@@ -303,6 +319,6 @@ export const TESTIMONIALS = [
     company: "Grupo Retail Peruano",
     rating: 5,
     content:
-      "Migrar desde otro proveedor a AMC fue la mejor decisión. La calibración periódica y los repuestos originales marcan la diferencia.",
+      "Migrar desde otro proveedor a AMC fue la mejor decisión. La calibración periódica, los repuestos originales y el control que tenemos sobre nuestra operación de efectivo ahora es total. Recomiendo su respaldo técnico.",
   },
 ] as const;

@@ -1,13 +1,14 @@
 import Link from "next/link";
 import * as LucideIcons from "lucide-react";
-import { Banknote, ArrowRight, type LucideIcon } from "lucide-react";
+import { Banknote, ArrowRight, type LucideIcon, ShieldCheck } from "lucide-react";
 import { SectionTitle } from "@/components/shared/SectionTitle";
 import { CATEGORIES } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
 /**
  * CategoriesGrid — Grid de categorías AMC con la primera destacada (doble altura).
- * Navegación rápida hacia /productos/[categoria].
+ * Navegación rápida hacia /productos?categoria=.
+ * Palabras clave: Control, Seguridad
  */
 export function CategoriesGrid() {
   return (
@@ -18,8 +19,8 @@ export function CategoriesGrid() {
       <div className="container-amc">
         <SectionTitle
           overline="Catálogo"
-          title="Categorías especializadas en manejo de efectivo"
-          description="Explora nuestra gama completa de equipos para conteo, clasificación, detección y mantenimiento de billetes y monedas."
+          title="Soluciones de precisión para cada necesidad de efectivo"
+          description="Desde contadoras de billetes con detección multi-sensorial hasta clasificadoras inteligentes. Encuentra el equipo que se adapta al volumen y tipo de operación de tu negocio."
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-14">
@@ -51,9 +52,17 @@ export function CategoriesGrid() {
                     {c.description}
                   </p>
                 </div>
-                <div className="flex items-center gap-1 text-sm font-semibold text-primary mt-6 group-hover:gap-2 transition-all">
-                  Ver catálogo
-                  <ArrowRight className="w-4 h-4" />
+                <div className="mt-auto">
+                  <div className="flex items-center gap-1 text-sm font-semibold text-primary mt-6 group-hover:gap-2 transition-all">
+                    Ver catálogo
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                  {isFeatured && c.slug === "contadoras-de-billetes" && (
+                    <div className="mt-3 flex items-center gap-1.5 text-[10px] text-success font-semibold">
+                      <ShieldCheck className="w-3 h-3" />
+                      <span>Detección UV + MG + IR</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Decorative element solo en la destacada */}

@@ -5,23 +5,24 @@ import { BENEFITS, AMCCONFIG } from "@/lib/site-config";
 
 /**
  * Benefits — 4 tarjetas de beneficios + strip de estadísticas.
- * Responde a la pregunta del usuario: "¿Por qué elegir AMC?"
+ * Cada beneficio está alineado con una de las 5 palabras clave.
+ * Responde: "¿Por qué elegir AMC?"
  */
 export function Benefits() {
   const stats = [
     { icon: TrendingUp, value: "+2,500", label: "Equipos instalados" },
-    { icon: Headphones, value: "24h", label: "Tiempo de respuesta" },
+    { icon: Headphones, value: "24h", label: "Respuesta técnica garantizada" },
     { icon: Award, value: "12 meses", label: "Garantía oficial" },
-    { icon: ShieldCheck, value: "99.8%", label: "Precisión de conteo" },
+    { icon: ShieldCheck, value: "99.8%", label: "Precisión de conteo certificada" },
   ];
 
   return (
-    <section id="nosotros" className="py-20 lg:py-28 scroll-mt-20">
+    <section id="beneficios" className="py-20 lg:py-28 scroll-mt-20">
       <div className="container-amc">
         <SectionTitle
           overline="Por qué AMC"
-          title="Tecnología industrial con respaldo técnico permanente"
-          description="No vendemos equipos. Entregamos soluciones integrales de manejo de efectivo con soporte técnico especializado durante todo el ciclo de vida del producto."
+          title="Precisión, seguridad y respaldo técnico en un solo lugar"
+          description="No vendemos equipos. Entregamos soluciones integrales de manejo de efectivo con soporte técnico certificado durante todo el ciclo de vida del producto."
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
@@ -43,9 +44,12 @@ export function Benefits() {
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {b.description}
                 </p>
-                <div className="font-mono text-xs text-muted-foreground mt-4">
-                  0{i + 1} / 04
-                </div>
+                {/* Keyword tag */}
+                {'keyword' in b && b.keyword && (
+                  <div className="mt-4 inline-block text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary-tint px-2 py-1 rounded">
+                    {b.keyword}
+                  </div>
+                )}
               </div>
             );
           })}

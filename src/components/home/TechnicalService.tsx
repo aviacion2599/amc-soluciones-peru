@@ -1,18 +1,20 @@
 import Link from "next/link";
 import * as LucideIcons from "lucide-react";
-import { Wrench, CheckCircle2, type LucideIcon } from "lucide-react";
+import { Wrench, CheckCircle2, type LucideIcon, ArrowRight } from "lucide-react";
 import { TECHNICAL_SERVICES } from "@/lib/site-config";
 
 /**
  * TechnicalService — Sección con fondo oscuro (primary-dark) que comunica
  * la oferta de servicio técnico. Grid de 6 servicios + checklist de garantías.
+ * Palabras clave: Respaldo Técnico, Confianza, Seguridad
  */
 export function TechnicalService() {
   const checklist = [
-    "Técnicos certificados por el fabricante",
-    "Repuestos 100% originales con trazabilidad",
-    "Atención en sitio u onsite en Lima y provincias",
-    "Reporte técnico detallado post-servicio",
+    "Técnicos certificados directamente por GLORY y fabricantes",
+    "Repuestos 100% originales con trazabilidad del fabricante",
+    "Atención en sitio y en taller — Lima y provincias",
+    "Reporte técnico detallado post-servicio con garantía",
+    "Planes de mantenimiento preventivo que reducen fallas hasta 80%",
   ];
 
   return (
@@ -26,7 +28,7 @@ export function TechnicalService() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(circle at 80% 50%, rgba(176, 176, 176, 0.15), transparent 50%)",
+            "radial-gradient(circle at 80% 50%, rgba(176, 176, 176, 0.15), transparent 50%), radial-gradient(circle at 20% 80%, rgba(0, 50, 100, 0.2), transparent 40%)",
         }}
         aria-hidden="true"
       />
@@ -41,19 +43,19 @@ export function TechnicalService() {
                 aria-hidden="true"
               />
               <span className="overline text-slate-200">
-                Servicio Técnico Oficial · GLORY
+                Respaldo Técnico Oficial · GLORY
               </span>
             </div>
             <h2 className="display-2 text-white mb-6 text-balance">
-              Respaldo técnico que mantiene
+              Respaldo técnico que protege
               <span className="block bg-gradient-to-r from-sky-200 to-blue-300 bg-clip-text text-transparent">
-                su operación en movimiento
+                tu operación de efectivo
               </span>
             </h2>
             <p className="text-slate-300 leading-relaxed mb-8 max-w-lg">
               Técnicos certificados directamente por GLORY. Atendemos todo tipo de equipos
-              con repuestos originales, calibración certificada y planes preventivos
-              adaptados al volumen de operación de su negocio.
+              de manejo de efectivo con repuestos originales, calibración certificada y
+              planes preventivos adaptados al volumen de tu operación.
             </p>
 
             {/* Checklist */}
@@ -69,14 +71,22 @@ export function TechnicalService() {
               ))}
             </ul>
 
-            <Link
-              href="#contacto"
-              className="btn-primary px-6 py-3.5 text-base bg-white text-primary hover:bg-slate-100"
-              style={{ backgroundColor: "white", color: "var(--primary)" }}
-            >
-              <Wrench className="w-4 h-4" />
-              Solicitar servicio técnico
-            </Link>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/servicio-tecnico"
+                className="btn-primary px-6 py-3.5 text-base bg-white text-primary hover:bg-slate-100 hover:shadow-amc-xl transition-all inline-flex items-center gap-2"
+              >
+                <Wrench className="w-4 h-4" />
+                Ver servicios técnicos
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/contacto"
+                className="btn-glass px-6 py-3.5 text-base inline-flex items-center gap-2"
+              >
+                Solicitar diagnóstico
+              </Link>
+            </div>
           </div>
 
           {/* Right — services grid */}
