@@ -36,7 +36,7 @@ import { AMCCONFIG } from "@/lib/site-config";
  */
 export const metadata: Metadata = {
   title: {
-    default: `${AMCCONFIG.company.legalName} | Contadoras de Billetes, Monedas y Servicio Técnico GLORY — Precisión, Seguridad y Respaldo Técnico`,
+    default: `${AMCCONFIG.company.legalName} | Contadoras de Billetes y Monedas — Venta y Servicio Técnico en Perú`,
     template: "%s | AMC Soluciones Perú",
   },
   description: AMCCONFIG.company.description,

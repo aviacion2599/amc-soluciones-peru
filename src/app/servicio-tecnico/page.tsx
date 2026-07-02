@@ -36,9 +36,9 @@ const SERVICES = [
   {
     code: "S-02",
     icon: Gauge,
-    title: "Calibración",
-    description: "Ajuste de precisión certificado bajo estándares de fábrica. Recomendado cada 6 meses para uso intensivo o cada 12 meses para uso regular.",
-    features: ["Calibración con patrón certificado", "Certificado de calibración", "Ajuste de sensores UV/MG/IR", "Pruebas de validación"],
+    title: "Calibración de Precisión",
+    description: "Ajuste de precisión bajo estándares de fábrica. Recomendado cada 6 meses para uso intensivo o cada 12 meses para uso regular.",
+    features: ["Calibración con patrón de referencia", "Ajuste de sensores UV/MG/IR", "Pruebas de validación", "Reporte técnico"],
   },
   {
     code: "S-03",
@@ -57,8 +57,8 @@ const SERVICES = [
   {
     code: "S-05",
     icon: Award,
-    title: "Garantía Oficial",
-    description: "Soporte de garantía del fabricante durante todo el período vigente. Tramitamos directamente con GLORY u otras marcas representadas.",
+    title: "Garantía",
+    description: "Soporte de garantía del fabricante durante todo el período vigente. Gestionamos directamente con el fabricante para asegurar la continuidad de tu equipo.",
     features: ["Validación de garantía", "Trámite con fabricante", "Reemplazo temporal", "Sin costo para el cliente"],
   },
   {
@@ -71,10 +71,10 @@ const SERVICES = [
 ];
 
 const EQUIPMENT_TYPES = [
-  { icon: Banknote, name: "Contadoras de Billetes", brands: "GLORY, Hyundai, Henry, Cassida, Royal Sovereign" },
-  { icon: Coins, name: "Contadoras de Monedas", brands: "GLORY, Henry, AMC" },
-  { icon: ScanLine, name: "Clasificadoras", brands: "GLORY, CashScan" },
-  { icon: Settings2, name: "Detectores", brands: "Todas las marcas" },
+  { icon: Banknote, name: "Contadoras de Billetes", brands: "GLORY, Hyundai, Henry y otras" },
+  { icon: Coins, name: "Contadoras de Monedas", brands: "GLORY, Henry y otras" },
+  { icon: ScanLine, name: "Clasificadoras", brands: "GLORY, CashScan y otras" },
+  { icon: Settings2, name: "Detectores", brands: "Múltiples marcas" },
 ];
 
 const PROCESS = [
@@ -156,16 +156,16 @@ export default function ServicioTecnicoPage() {
   return (
     <PageTransition>
       <PageHero
-        overline="Servicio Técnico Oficial"
+        overline="Servicio Técnico Especializado"
         title={
           <>
-            Respaldo técnico que mantiene{" "}
+            Servicio técnico que mantiene{" "}
             <span className="bg-gradient-to-r from-sky-200 to-blue-300 bg-clip-text text-transparent">
-              su operación en movimiento
+              tu operación en movimiento
             </span>
           </>
         }
-        description="Técnicos certificados directamente por GLORY. Atendemos todo tipo de equipos de manejo de efectivo con repuestos originales, calibración certificada y planes preventivos adaptados al volumen de su operación."
+        description="Servicio técnico especializado en equipos GLORY y otras marcas de procesamiento de efectivo. Reparación, calibración, mantenimiento preventivo, actualización de divisas y soporte técnico."
         icon={Wrench}
       >
         <div className="flex flex-wrap gap-3">
@@ -196,7 +196,7 @@ export default function ServicioTecnicoPage() {
         <SectionTitle
           overline="Nuestros servicios"
           title="Servicios técnicos especializados"
-          description="Atendemos todas las marcas que representamos con técnicos certificados directamente por los fabricantes. Cada servicio incluye reporte técnico y garantía."
+          description="Atendemos equipos de diversas marcas con experiencia técnica especializada. Cada servicio incluye reporte técnico."
         />
 
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
@@ -240,9 +240,9 @@ export default function ServicioTecnicoPage() {
       <section className="bg-muted/40 border-y border-border py-16">
         <div className="container-amc">
           <SectionTitle
-            overline="Equipos que reparamos"
-            title="Especialistas en todas las marcas"
-            description="Atendemos cualquier equipo de manejo de efectivo, sin importar la marca o el modelo."
+          overline="Equipos que reparamos"
+          title="Experiencia en distintas marcas"
+          description="Tenemos experiencia en el servicio técnico de equipos de procesamiento de efectivo de diversas marcas del mercado."
           />
           <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
             {EQUIPMENT_TYPES.map((e) => (
@@ -363,10 +363,10 @@ export default function ServicioTecnicoPage() {
               </p>
               <div className="space-y-4">
                 {[
-                  { icon: Award, title: "Técnicos certificados por GLORY", desc: "Capacitación oficial del fabricante, no autodidactas." },
-                  { icon: ShieldCheck, title: "Repuestos 100% originales", desc: "Trazabilidad total desde el fabricante." },
-                  { icon: Clock, title: "Respuesta en 24 horas hábiles", desc: "Lima Metropolitana y provincias por coordinación." },
-                  { icon: CheckCircle2, title: "Garantía en todos los servicios", desc: "30 a 90 días según el tipo de servicio." },
+                  { icon: Award, title: "Experiencia en equipos GLORY", desc: "Conocimiento especializado en la marca, no autodidactas." },
+                  { icon: ShieldCheck, title: "Repuestos originales", desc: "Trazabilidad desde el fabricante." },
+                  { icon: Clock, title: "Respuesta oportuna", desc: "Lima Metropolitana y provincias por coordinación." },
+                  { icon: CheckCircle2, title: "Servicio con garantía", desc: "Respaldo en todos los servicios realizados." },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-md bg-primary-tint text-primary flex items-center justify-center flex-shrink-0">

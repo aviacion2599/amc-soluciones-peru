@@ -8,14 +8,13 @@ export function BrandsStrip() {
     <section id="marcas" className="py-16 bg-muted/30" aria-label="Marcas que representamos">
       <div className="container-amc">
         <p className="overline text-muted-foreground text-center mb-3">
-          Respaldo internacional
+          Experiencia técnica
         </p>
         <h2 className="font-display font-bold text-2xl text-center mb-2">
-          Marcas que confían en AMC
+          Diferentes marcas de procesamiento de efectivo
         </h2>
         <p className="text-sm text-muted-foreground text-center mb-10 max-w-xl mx-auto">
-          Representamos a los fabricantes más exigentes del mundo en manejo de efectivo.
-          Cada equipo que instalamos tiene el respaldo del fabricante original.
+          Contamos con experiencia técnica en distintas marcas de equipos de procesamiento de efectivo.
         </p>
         <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {BRANDS.map((b) => (

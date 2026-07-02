@@ -26,11 +26,11 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://amcsolucionesperu.com"),
   title: {
-    default: "AMC Soluciones Perú | Contadoras de Billetes, Monedas y Servicio Técnico GLORY — Precisión, Seguridad y Respaldo Técnico",
+    default: "AMC Soluciones Perú | Contadoras de Billetes y Monedas — Venta y Servicio Técnico en Perú",
     template: "%s | AMC Soluciones Perú",
   },
   description:
-    "Especialistas en venta y servicio técnico de contadoras de billetes, monedas, clasificadoras y detectores. Precisión certificada, seguridad multi-sensorial y respaldo técnico GLORY en todo Perú. +15 años de experiencia.",
+    "AMC Soluciones Perú se especializa en la venta de contadoras profesionales de billetes y monedas, mantenimiento preventivo y correctivo, reparación, calibración, actualización de divisas y soporte técnico para equipos de procesamiento de efectivo.",
   keywords: [
     "precisión",
     "seguridad",

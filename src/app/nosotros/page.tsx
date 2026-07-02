@@ -45,14 +45,14 @@ export default function NosotrosPage() {
         overline="Sobre AMC"
         title={
           <>
-            15 años profesionalizando el{" "}
+            AMC Soluciones Perú —
             <span className="bg-gradient-to-r from-sky-200 to-blue-300 bg-clip-text text-transparent">
-              manejo de efectivo
+              {" "}venta y servicio técnico
             </span>
-            {" "}en Perú
+            {" "}de contadoras en Perú
           </>
         }
-        description="Desde 2010, AMC Soluciones Perú ha sido referente en venta y servicio técnico de equipos para conteo, clasificación y detección de billetes y monedas. Combinamos tecnología de punta con respaldo técnico humano."
+        description="AMC Soluciones Perú (AMC Multimedia Machine Technical Service E.I.R.L.) se especializa en la venta de contadoras profesionales de billetes y monedas, mantenimiento preventivo y correctivo, reparación, calibración, actualización de divisas y soporte técnico para equipos de procesamiento de efectivo."
         icon={Building2}
       />
 

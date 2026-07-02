@@ -10,10 +10,10 @@ import { TECHNICAL_SERVICES } from "@/lib/site-config";
  */
 export function TechnicalService() {
   const checklist = [
-    "Técnicos certificados directamente por GLORY y fabricantes",
-    "Repuestos 100% originales con trazabilidad del fabricante",
+    "Experiencia en servicio técnico de equipos de procesamiento de efectivo",
+    "Repuestos originales con trazabilidad del fabricante",
     "Atención en sitio y en taller — Lima y provincias",
-    "Reporte técnico detallado post-servicio con garantía",
+    "Reporte técnico detallado post-servicio",
     "Planes de mantenimiento preventivo que reducen fallas hasta 80%",
   ];
 
@@ -43,19 +43,19 @@ export function TechnicalService() {
                 aria-hidden="true"
               />
               <span className="overline text-slate-200">
-                Respaldo Técnico Oficial · GLORY
+                Especialistas en servicio técnico GLORY
               </span>
             </div>
             <h2 className="display-2 text-white mb-6 text-balance">
-              Respaldo técnico que protege
+              Soluciones técnicas que mantienen
               <span className="block bg-gradient-to-r from-sky-200 to-blue-300 bg-clip-text text-transparent">
-                tu operación de efectivo
+                tu operación en movimiento
               </span>
             </h2>
             <p className="text-slate-300 leading-relaxed mb-8 max-w-lg">
-              Técnicos certificados directamente por GLORY. Atendemos todo tipo de equipos
-              de manejo de efectivo con repuestos originales, calibración certificada y
-              planes preventivos adaptados al volumen de tu operación.
+              Servicio técnico especializado en equipos GLORY y otras marcas de procesamiento
+              de efectivo. Reparación, calibración, mantenimiento preventivo y actualización
+              de divisas para mantener tu equipo operando con precisión.
             </p>
 
             {/* Checklist */}

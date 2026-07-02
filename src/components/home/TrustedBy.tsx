@@ -8,10 +8,16 @@ import { TRUSTED_COMPANIES } from "@/lib/site-config";
  */
 export function TrustedBy() {
   return (
-    <section id="confianza" className="bg-muted/40 py-10" aria-label="Empresas que confían en AMC">
+    <section id="confianza" className="bg-muted/40 py-12" aria-label="Sectores atendidos">
       <div className="container-amc">
-        <p className="overline text-muted-foreground text-center mb-6">
-          Confianza institucional · Más de 2,500 equipos instalados
+        <p className="overline text-muted-foreground text-center mb-3">
+          Sectores atendidos
+        </p>
+        <h2 className="font-display font-bold text-2xl text-center mb-2">
+          Soluciones para empresas que procesan efectivo
+        </h2>
+        <p className="text-sm text-muted-foreground text-center max-w-2xl mx-auto mb-8">
+          Atendemos empresas privadas, instituciones públicas, comercios y operaciones que requieren mayor precisión, seguridad y control en el manejo de billetes y monedas.
         </p>
         <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
           {TRUSTED_COMPANIES.map((c) => {

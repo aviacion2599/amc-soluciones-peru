@@ -10,15 +10,16 @@ export const AMCCONFIG = {
   company: {
     legalName: "AMC Soluciones Perú",
     brandName: "AMC Soluciones",
-    tagline: "Precisión que protege tu operación — Respaldo que mantiene tu negocio en movimiento",
-    valueProp: "Control total sobre tu efectivo con precisión industrial y respaldo técnico certificado",
+    legalRazonSocial: "AMC Multimedia Machine Technical Service E.I.R.L.",
+    tagline: "No solo vendemos equipos, nos hacemos responsables de su funcionamiento.",
+    valueProp: "Contadoras de billetes y monedas: venta y servicio técnico en Perú",
     description:
-      "Especialistas en venta, servicio técnico y calibración de contadoras de billetes, monedas, clasificadoras y detectores. Precisión certificada, seguridad multi-sensorial y respaldo técnico GLORY en todo Perú.",
-    ruc: "20512345678", // Placeholder — confirmar con cliente
+      "AMC Soluciones Perú se especializa en la venta de contadoras profesionales de billetes y monedas, mantenimiento preventivo y correctivo, reparación, calibración, actualización de divisas y soporte técnico para equipos de procesamiento de efectivo.",
+    ruc: "20512345678",
     domain: "https://amcsolucionesperu.com",
     locale: "es-PE",
     country: "Perú",
-    keywords: ["precisión", "seguridad", "control", "confianza", "respaldo técnico", "contadoras de billetes", "servicio técnico GLORY", "calibración contadoras", "detección de falsos", "manejo de efectivo"] as string[],
+    keywords: ["precisión", "seguridad", "control", "confianza", "respaldo técnico", "contadoras de billetes", "contadoras de monedas", "servicio técnico GLORY", "calibración contadoras", "clasificadoras de billetes"] as string[],
   },
   contact: {
     phone: "+51 984 569 125",
@@ -71,14 +72,14 @@ export const NAV_ITEMS = [
   { label: "Contacto", href: "/contacto" },
 ] as const;
 
-/** Marcas que AMC representa */
+/** Marcas con las que tenemos experiencia técnica */
 export const BRANDS = [
-  { name: "GLORY", description: "Líder mundial en manejo de efectivo — Japan" },
-  { name: "CashScan", description: "Detección y conteo profesional — USA" },
-  { name: "Hyundai", description: "Tecnología de conteo — Korea" },
-  { name: "Henry", description: "Equipos de detección — UK" },
-  { name: "Royal Sovereign", description: "Clasificadoras internacionales — USA" },
-  { name: "Cassida", description: "Detección de falsificaciones — USA" },
+  { name: "GLORY", description: "Experiencia técnica especializada" },
+  { name: "CashScan", description: "Conocimiento en detección y conteo" },
+  { name: "Hyundai", description: "Experiencia en tecnología de conteo" },
+  { name: "Henry", description: "Conocimiento en detección" },
+  { name: "Royal Sovereign", description: "Experiencia en clasificadoras" },
+  { name: "Cassida", description: "Conocimiento en falsificación" },
 ] as const;
 
 /** Categorías de productos AMC */
@@ -125,61 +126,75 @@ export const CATEGORIES = [
   },
 ] as const;
 
-/** Productos destacados — datos demo para el showcase */
+/** Productos destacados — 5 modelos aprobados */
 export const FEATURED_PRODUCTS = [
+  {
+    slug: "amc-3200",
+    name: "AMC-3200",
+    category: "Contadora de Billetes",
+    categorySlug: "contadoras-de-billetes",
+    tag: "Entrada",
+    tagVariant: "primary" as const,
+    speed: "1,500 bpm",
+    detection: "CIS · IR · MG · UV",
+    capacity: "300 billetes",
+    warranty: "18 meses",
+    isNew: false,
+    brand: "AMC",
+  },
+  {
+    slug: "amc-8100",
+    name: "AMC-8100",
+    category: "Contadora de Billetes",
+    categorySlug: "contadoras-de-billetes",
+    tag: "Multimoneda",
+    tagVariant: "primary" as const,
+    speed: "1,200 bpm",
+    detection: "Doble CIS · MG · UV · IR",
+    capacity: "500 billetes",
+    warranty: "18 meses",
+    isNew: false,
+    brand: "AMC",
+  },
   {
     slug: "amc-9100",
     name: "AMC-9100",
     category: "Contadora de Billetes",
     categorySlug: "contadoras-de-billetes",
-    tag: "Más vendido",
+    tag: "Bolsillo Rechazo",
+    tagVariant: "primary" as const,
+    speed: "1,000 bpm",
+    detection: "Doble CIS · TMR · UV",
+    capacity: "500 billetes",
+    warranty: "18 meses",
+    isNew: true,
+    brand: "AMC",
+  },
+  {
+    slug: "amc-8200",
+    name: "AMC-8200",
+    category: "Clasificadora",
+    categorySlug: "clasificadoras",
+    tag: "1+1 Cajetines",
+    tagVariant: "warning" as const,
+    speed: "1,200 bpm",
+    detection: "Doble CIS color · 13ch MG",
+    capacity: "500 billetes",
+    warranty: "18 meses",
+    isNew: false,
+    brand: "AMC",
+  },
+  {
+    slug: "amc-8300-pro",
+    name: "AMC-8300 Pro",
+    category: "Clasificadora",
+    categorySlug: "clasificadoras",
+    tag: "Modelo Superior",
     tagVariant: "success" as const,
     speed: "1,200 bpm",
-    detection: "UV · MG · IR",
-    capacity: "500 billetes",
-    warranty: "12 meses",
-    isNew: false,
-    brand: "AMC",
-  },
-  {
-    slug: "amc-3200-plus",
-    name: "AMC-3200+",
-    category: "Contadora de Billetes",
-    categorySlug: "contadoras-de-billetes",
-    tag: "Compacto",
-    tagVariant: "primary" as const,
-    speed: "1,500 bpm",
-    detection: "UV · MG · IR",
-    capacity: "300 billetes",
-    warranty: "12 meses",
-    isNew: false,
-    brand: "AMC",
-  },
-  {
-    slug: "amc-9200",
-    name: "AMC-9200",
-    category: "Contadora con Clasificación",
-    categorySlug: "clasificadoras",
-    tag: "Premium",
-    tagVariant: "warning" as const,
-    speed: "1,000 bpm",
-    detection: "Multi-divisa",
-    capacity: "700 billetes",
-    warranty: "12 meses",
-    isNew: false,
-    brand: "AMC",
-  },
-  {
-    slug: "amc-c100",
-    name: "AMC-C100",
-    category: "Contadora de Monedas",
-    categorySlug: "contadoras-de-monedas",
-    tag: "Nuevo",
-    tagVariant: "primary" as const,
-    speed: "1,800 mon/min",
-    detection: "Multi-denominación",
-    capacity: "2,500 monedas",
-    warranty: "12 meses",
+    detection: "Doble CIS RGB · 18ch MG",
+    capacity: "500+400 billetes",
+    warranty: "24 meses",
     isNew: true,
     brand: "AMC",
   },
@@ -191,13 +206,13 @@ export const TECHNICAL_SERVICES = [
     code: "S-01",
     icon: "Wrench",
     label: "Reparación Especializada",
-    description: "Diagnóstico preciso y reparación con repuestos 100% originales con trazabilidad del fabricante. Respaldo técnico que devuelve la confianza a tu equipo.",
+    description: "Diagnóstico y reparación con repuestos originales. Restauramos la precisión y confianza de tu equipo de procesamiento de efectivo.",
   },
   {
     code: "S-02",
     icon: "Gauge",
     label: "Calibración de Precisión",
-    description: "Ajuste certificado bajo estándares de fábrica. Recupera la precisión original de tus sensores UV, MG e IR para conteos sin error.",
+    description: "Ajuste bajo estándares de fábrica para recuperar la precisión original de sensores UV, MG e IR. Conteos sin error.",
   },
   {
     code: "S-03",
@@ -213,15 +228,15 @@ export const TECHNICAL_SERVICES = [
   },
   {
     code: "S-05",
-    icon: "Award",
-    label: "Garantía de Confianza",
-    description: "Soporte de garantía oficial del fabricante. Gestionamos directamente con GLORY y marcas representadas para darte tranquilidad total.",
+    icon: "Zap",
+    label: "Actualización de Divisas",
+    description: "Actualización de firmware para soporte de nuevas divisas y versiones de billetes. Tu equipo siempre al día.",
   },
   {
     code: "S-06",
-    icon: "Zap",
-    label: "Soporte Express 24h",
-    description: "Respuesta técnica en menos de 24 horas hábiles en Lima. Control de urgencias para operaciones críticas que no pueden esperar.",
+    icon: "Clock",
+    label: "Soporte Técnico",
+    description: "Atención y asistencia técnica para resolver dudas operativas y mantener tu flujo de trabajo sin interrupciones.",
   },
 ] as const;
 
@@ -229,42 +244,42 @@ export const TECHNICAL_SERVICES = [
 export const BENEFITS = [
   {
     icon: "ShieldCheck",
-    title: "Precisión Certificada",
+    title: "Precisión en Cada Conteo",
     description:
-      "Tecnología multi-sensorial UV, MG e IR con 99.8% de exactitud. Cada conteo es una transacción protegida contra errores y falsificaciones.",
+      "Tecnología multi-sensorial que garantiza exactitud en cada transacción. Cada billete contado es un resultado confiable.",
     keyword: "Precisión",
   },
   {
     icon: "ScanLine",
-    title: "Seguridad Multi-Capa",
+    title: "Seguridad Multi-Sensor",
     description:
-      "Detección de billetes falsos en 3 niveles: ultravioleta, magnético e infrarrojo. Protege tu negocio contra el fraude antes de que ocurra.",
+      "Detección de billetes falsos en múltiples niveles. Protege tu negocio contra el fraude antes de que ocurra.",
     keyword: "Seguridad",
   },
   {
     icon: "Truck",
-    title: "Control y Cobertura Nacional",
+    title: "Control y Cobertura",
     description:
-      "Despacho a todo Perú con soporte técnico en Lima y provincias. Responde en menos de 24h para que tu operación nunca se detenga.",
+      "Despacho a todo Perú con soporte técnico en Lima y provincias. Respuesta oportuna para que tu operación nunca se detenga.",
     keyword: "Control",
   },
   {
     icon: "Award",
-    title: "Confianza y Respaldo Técnico",
+    title: "Confianza y Respaldo",
     description:
-      "Técnicos certificados por GLORY, repuestos originales con trazabilidad y garantía oficial del fabricante. No solo vendemos, acompañamos.",
+      "Experiencia en mantenimiento, reparación y calibración de equipos de procesamiento de efectivo de distintas marcas.",
     keyword: "Confianza",
   },
 ] as const;
 
-/** Empresas que confían en AMC */
+/** Sectores atendidos — sin logos de empresas específicas */
 export const TRUSTED_COMPANIES = [
-  { name: "Banco Pichincha", icon: "Building2" },
-  { name: "Caja Sullana", icon: "Building2" },
-  { name: "Plaza Vea", icon: "Store" },
-  { name: "Inkafarma", icon: "Stethoscope" },
-  { name: "Maestro", icon: "Factory" },
-  { name: "Promart", icon: "Store" },
+  { name: "Bancos y Finanzas", icon: "Building2" },
+  { name: "Cajas Municipales", icon: "Building2" },
+  { name: "Cooperativas", icon: "Store" },
+  { name: "Retail y Comercio", icon: "Store" },
+  { name: "Casinos y Juegos", icon: "Factory" },
+  { name: "Sector Público", icon: "Building2" },
 ] as const;
 
 /** Pasos del proceso de trabajo AMC */
@@ -295,30 +310,30 @@ export const WORK_PROCESS = [
   },
 ] as const;
 
-/** Testimonios de clientes */
+/** Testimonios — sectores atendidos (sin casos específicos) */
 export const TESTIMONIALS = [
   {
-    name: "Carlos Mendoza",
-    position: "Gerente de Operaciones",
-    company: "Cadena de Farmacias Inkafarma",
+    name: "Sector Financiero",
+    position: "Bancos, cajas municipales y cooperativas",
+    company: "",
     rating: 5,
     content:
-      "La precisión de las contadoras AMC y la rapidez del servicio técnico nos permitieron reducir significativamente las diferencias de caja en nuestras agencias. El respaldo técnico que recibimos marca la diferencia.",
+      "Empresas del sector financiero confían en nuestros equipos para el procesamiento de efectivo con precisión, seguridad y control en cada operación.",
   },
   {
-    name: "Rosa Quispe",
-    position: "Jefa de Tesorería",
-    company: "Municipalidad de Surco",
+    name: "Comercio y Retail",
+    position: "Cadenas, mayoristas y tiendas",
+    company: "",
     rating: 5,
     content:
-      "El equipo de AMC no solo nos vendió las máquinas, nos acompañó en la implementación y capacitación del personal. La seguridad y confianza que transmiten es exactamente lo que necesitábamos para el manejo de efectivo municipal.",
+      "Negocios con alto flujo de efectivo utilizan nuestras contadoras y clasificadoras para reducir errores de caja y optimizar sus procesos de conteo.",
   },
   {
-    name: "Jorge Velásquez",
-    position: "CFO",
-    company: "Grupo Retail Peruano",
+    name: "Instituciones Públicas",
+    position: "Entidades gubernamentales y municipales",
+    company: "",
     rating: 5,
     content:
-      "Migrar desde otro proveedor a AMC fue la mejor decisión. La calibración periódica, los repuestos originales y el control que tenemos sobre nuestra operación de efectivo ahora es total. Recomiendo su respaldo técnico.",
+      "Dependencias del sector público emplean nuestros equipos para garantizar transparencia, control y precisión en el manejo de efectivo institucional.",
   },
 ] as const;

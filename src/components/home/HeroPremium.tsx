@@ -47,28 +47,28 @@ export function HeroPremium() {
         <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center">
           {/* Left — copy */}
           <div className="max-w-2xl">
-            {/* Badge glory */}
+            {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 border border-gold/30 bg-gold/5">
               <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" aria-hidden="true" />
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-gold" />
                 <span className="text-[11px] font-semibold uppercase tracking-wider text-gold-light">
-                  Servicio Técnico Autorizado GLORY · Desde 2010
+                  Especialistas en servicio técnico GLORY · Desde 2010
                 </span>
               </span>
             </div>
 
-            {/* Headline */}
-            <h1 className="font-display text-5xl lg:text-7xl font-bold text-white mb-4 leading-[1.1]">
-              Precisión y Seguridad
-              <span className="block text-gold text-3xl lg:text-4xl mt-2 font-semibold">
-                en el manejo de efectivo
+            {/* Headline — nuevo título definitivo */}
+            <h1 className="font-display text-4xl lg:text-6xl font-bold text-white mb-4 leading-[1.15]">
+              Contadoras de billetes y monedas:
+              <span className="block text-gold text-2xl lg:text-4xl mt-2 font-semibold">
+                venta y servicio técnico en Perú
               </span>
             </h1>
 
-            <p className="text-lg text-white/70 leading-relaxed mb-6 max-w-xl">
-              El control que tu operación necesita. La confianza que tu negocio merece.
-              Respaldo técnico certificado para empresas que no pueden permitirse errores.
+            {/* Subtítulo */}
+            <p className="text-base lg:text-lg text-white/70 leading-relaxed mb-6 max-w-xl">
+              Equipos profesionales para conteo, validación y clasificación de efectivo, con respaldo técnico especializado.
             </p>
 
             {/* 5 keywords badges */}
@@ -82,21 +82,26 @@ export function HeroPremium() {
               ))}
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3 mb-10">
+            {/* CTAs — nuevo orden */}
+            <div className="flex flex-wrap items-center gap-3 mb-6">
               <Link href="/productos" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-gold text-gold-foreground font-semibold text-base hover:bg-gold-dark hover:shadow-xl hover:shadow-gold/20 transition-all duration-300">
-                Ver Productos
+                Ver equipos
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/cotizacion" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg border border-white/20 text-white hover:bg-white/5 transition-all duration-300">
-                <MessageCircle className="w-4 h-4" />
-                Cotizar sin compromiso
-              </Link>
-              <Link href="/servicio-tecnico" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg border border-white/10 text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 text-sm">
+              <Link href="/servicio-tecnico" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg border border-white/20 text-white hover:bg-white/5 transition-all duration-300">
                 <Wrench className="w-4 h-4" />
-                Servicio Técnico
+                Solicitar servicio técnico
               </Link>
+              <a href={`https://wa.me/${AMCCONFIG.contact.whatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg border border-green-500/40 text-green-400 hover:bg-green-500/10 transition-all duration-300">
+                <MessageCircle className="w-4 h-4" />
+                Hablar por WhatsApp
+              </a>
             </div>
+
+            {/* Frase institucional */}
+            <p className="text-sm text-white/50 italic mb-8 border-l-2 border-gold/40 pl-4">
+              &ldquo;No solo vendemos equipos, nos hacemos responsables de su funcionamiento.&rdquo;
+            </p>
 
             {/* Stats */}
             <dl className="grid grid-cols-3 gap-6 max-w-md">

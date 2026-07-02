@@ -11,9 +11,9 @@ export function Testimonials() {
     <section id="testimonios" className="py-20 lg:py-28 bg-surface-2">
       <div className="container-amc">
         <SectionTitle
-          overline="Confianza institucional"
-          title="Lo que dicen las empresas que confían en AMC"
-          description="Más de 2,500 equipos instalados en operaciones críticas en todo el país. La precisión, seguridad y respaldo técnico hablan por sí solos."
+          overline="Sectores atendidos"
+          title="Soluciones para empresas que procesan efectivo"
+          description="Atendemos empresas privadas, instituciones públicas, comercios y operaciones que requieren mayor precisión, seguridad y control en el manejo de billetes y monedas."
         />
 
         <div className="grid lg:grid-cols-3 gap-6 mt-14">
