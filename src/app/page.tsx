@@ -13,6 +13,7 @@ import { WorkProcess } from "@/components/home/WorkProcess";
 import { BrandsStrip } from "@/components/home/BrandsStrip";
 import { Testimonials } from "@/components/home/Testimonials";
 import { CTASection } from "@/components/home/CTASection";
+import { SectionFade } from "@/components/shared/SectionFade";
 import { AMCCONFIG } from "@/lib/site-config";
 
 /**
@@ -158,15 +159,25 @@ export default function HomePage() {
 
       <main className="flex-1">
         <HeroPremium />
+        <SectionFade />
         <TrustedBy />
+        <SectionFade />
         <ProblemSection />
+        <SectionFade />
         <Benefits />
+        <SectionFade />
         <CategoriesGrid />
+        <SectionFade />
         <FeaturedProducts />
+        <SectionFade />
         <TechnicalService />
+        <SectionFade />
         <WorkProcess />
+        <SectionFade />
         <BrandsStrip />
+        <SectionFade />
         <Testimonials />
+        <SectionFade />
         <CTASection />
       </main>
 

@@ -169,6 +169,22 @@ export function Footer() {
             <span>+51 984 569 125</span>
           </div>
         </div>
+
+        {/* Creditos — FastPagePro */}
+        <div className="mt-4 pt-4 border-t border-white/5 text-center">
+          <p className="text-[10px] text-white/25 tracking-wide">
+            Diseñado y desarrollado por{" "}
+            <a
+              href="https://fastpagepro.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold transition-colors duration-200 hover:brightness-110"
+              style={{ color: "#003366" }}
+            >
+              FastPagePro
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );

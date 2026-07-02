@@ -273,22 +273,27 @@
     color: #001f4d;
   }
 
-  /* === Industrial scrollbar === */
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--surface-2);
-  }
-  ::-webkit-scrollbar-thumb {
-    background: var(--secondary);
-    border-radius: 8px;
-    border: 2px solid var(--surface-2);
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary-dark);
-  }
+	  /* === Premium scrollbar (gold accent) === */
+	  ::-webkit-scrollbar {
+	    width: 6px;
+	    height: 6px;
+	  }
+	  ::-webkit-scrollbar-track {
+	    background: var(--navy, #0b132b);
+	  }
+	  ::-webkit-scrollbar-thumb {
+	    background: linear-gradient(180deg, var(--gold, #f5b041), #d4942e);
+	    border-radius: 8px;
+	    transition: background 0.3s;
+	  }
+	  ::-webkit-scrollbar-thumb:hover {
+	    background: var(--gold-light, #f8c870);
+	  }
+	  /* Firefox */
+	  * {
+	    scrollbar-width: thin;
+	    scrollbar-color: var(--gold, #f5b041) var(--navy, #0b132b);
+	  }
 }
 
 /* ============================================================================

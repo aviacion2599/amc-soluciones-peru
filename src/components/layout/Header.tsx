@@ -19,6 +19,15 @@ import { cn } from "@/lib/utils";
  */
 export function Header() {
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const [scrolled, setScrolled] = React.useState(false);
+
+  // Scroll-aware: transparente al inicio, sólido al scrollear
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Bloquear scroll del body cuando el menú está abierto
   React.useEffect(() => {
@@ -36,8 +45,12 @@ export function Header() {
           ================================================================ */}
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          menuOpen ? "bg-navy" : "bg-navy/95 backdrop-blur-md",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+          menuOpen
+            ? "bg-navy"
+            : scrolled
+              ? "bg-navy/90 backdrop-blur-xl shadow-lg shadow-black/10"
+              : "bg-transparent",
         )}
         role="banner"
       >

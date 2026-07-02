@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Sora, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { ReadingProgress } from "@/components/shared/ReadingProgress";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -93,6 +94,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${sora.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground font-sans`}
       >
+        <ReadingProgress />
         {children}
         <Toaster />
       </body>
