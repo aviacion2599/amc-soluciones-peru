@@ -69,10 +69,12 @@ export function Footer() {
         <div className="grid lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10">
           {/* Brand column */}
           <div>
-            <Link href="/" className="flex items-center gap-3 mb-5">
-              <div className="w-11 h-11 rounded-md bg-gold text-gold-foreground font-display font-bold flex items-center justify-center shadow-md">
-                AMC
-              </div>
+            <Link href="/" className="flex items-center mb-5">
+              <img
+                src="/logo-horizontal.png"
+                alt={AMCCONFIG.company.brandName}
+                className="h-9 w-auto object-contain"
+              />
               <div>
                 <div className="font-display font-bold text-base text-white">
                   {AMCCONFIG.company.brandName}

@@ -43,23 +43,17 @@ export function Header() {
       >
         <div className="container-amc">
           <div className="flex items-center justify-between h-20">
-            {/* Brand — Logo AMC dorado */}
+            {/* Brand — Logo AMC imagen */}
             <Link
               href="/"
-              className="flex items-center gap-3 group"
+              className="flex items-center group"
               aria-label={`${AMCCONFIG.company.brandName} — Inicio`}
             >
-              <div className="flex items-center justify-center w-11 h-11 rounded-md bg-gold text-gold-foreground font-display font-bold text-lg shadow-md group-hover:shadow-gold/30 transition-shadow">
-                AMC
-              </div>
-              <div className="hidden sm:flex flex-col leading-none">
-                <span className="font-display font-bold text-base text-white">
-                  {AMCCONFIG.company.brandName}
-                </span>
-                <span className="overline text-gold mt-0.5">
-                  Cash Handling · Perú
-                </span>
-              </div>
+              <img
+                src="/logo-horizontal.png"
+                alt={AMCCONFIG.company.brandName}
+                className="h-10 w-auto object-contain"
+              />
             </Link>
 
             {/* Desktop nav (oculto en mobile) */}
@@ -169,11 +163,13 @@ export function Header() {
           <Link
             href="/"
             onClick={closeMenu}
-            className="flex items-center gap-2"
+            className="flex items-center"
           >
-            <div className="w-9 h-9 rounded-md bg-gold text-gold-foreground font-display font-bold text-sm flex items-center justify-center">
-              AMC
-            </div>
+            <img
+              src="/logo-horizontal.png"
+              alt={AMCCONFIG.company.brandName}
+              className="h-7 w-auto object-contain"
+            />
           </Link>
 
           {/* Botón X con rotación 90° al abrir */}

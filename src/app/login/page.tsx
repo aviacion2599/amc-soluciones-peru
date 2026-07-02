@@ -98,10 +98,12 @@ function LoginFormContent() {
       <div className="relative w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-3 mb-2">
-            <div className="w-12 h-12 rounded-md bg-background text-primary font-display font-bold flex items-center justify-center shadow-amc-xl">
-              AMC
-            </div>
+          <Link href="/" className="inline-flex items-center mb-4">
+            <img
+              src="/logo-horizontal.png"
+              alt="AMC Soluciones Perú"
+              className="h-10 w-auto object-contain mx-auto"
+            />
           </Link>
           <h1 className="font-display font-bold text-2xl text-white">Panel Administrativo</h1>
           <p className="text-sm text-slate-300 mt-1">AMC Soluciones Perú</p>

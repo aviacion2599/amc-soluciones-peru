@@ -152,7 +152,8 @@ export function HeroPremium() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-background" />
+      {/* Bottom fade sutil — continuidad visual */}
+      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-b from-transparent to-background" />
     </section>
   );
 }
