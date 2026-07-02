@@ -69,19 +69,16 @@ export function Footer() {
         <div className="grid lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10">
           {/* Brand column */}
           <div>
-            <Link href="/" className="flex items-center mb-5">
+            <Link href="/" className="flex items-center mb-2">
               <img
                 src="/logo-horizontal.png"
                 alt={AMCCONFIG.company.brandName}
                 className="h-14 w-auto object-contain"
               />
-              <div>
-                <div className="font-display font-bold text-base text-white">
-                  {AMCCONFIG.company.brandName}
-                </div>
-                <div className="overline text-gold/70 mt-0.5">Perú · Cash Handling</div>
-              </div>
             </Link>
+            <p className="text-xs text-white/40 mb-1 leading-relaxed">
+              {AMCCONFIG.company.legalRazonSocial}
+            </p>
             <p className="text-sm text-white/50 leading-relaxed mb-6 max-w-sm">
               {AMCCONFIG.company.description}
             </p>
@@ -164,10 +161,15 @@ export function Footer() {
             © {year} {AMCCONFIG.company.legalName}. Todos los derechos reservados.
           </p>
           <div className="flex items-center gap-5 text-xs text-white/40">
-            <span>Servicio Técnico Autorizado GLORY · Desde 2010</span>
+            <span>WhatsApp: {AMCCONFIG.contact.phone}</span>
             <span className="hidden sm:inline">·</span>
-            <span>+51 984 569 125</span>
+            <span>{AMCCONFIG.contact.email}</span>
           </div>
+        </div>
+
+        {/* Dirección */}
+        <div className="mt-2 text-center">
+          <p className="text-[10px] text-white/25">{AMCCONFIG.contact.address}</p>
         </div>
 
         {/* Creditos — FastPagePro */}

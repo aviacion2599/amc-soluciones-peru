@@ -27,12 +27,11 @@ export const AMCCONFIG = {
     whatsapp: "51984569125",
     whatsappMessage:
       "Hola, vengo desde el sitio web AMC Soluciones Perú y quiero información sobre sus productos y servicios.",
-    email: "ventas@amcsolucionesperu.com",
-    emailTechnical: "serviciotecnico@amcsolucionesperu.com",
-    address: "Av. Argentina 1234, Cercado de Lima, Lima — Perú",
-    addressShort: "Lima, Perú",
-    mapEmbed:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15605.075!2d-77.0428!3d-12.0464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c5f1d1d1d1d1%3A0x1!2sLima!5e0!3m2!1ses!2spe!4v1700000000000",
+    email: "soporteamc@amcelec.com",
+    emailTechnical: "soporteamc@amcelec.com",
+    address: "Punto de recepción y entrega: San Borja. Atención previa coordinación.",
+    addressShort: "San Borja, Lima",
+    mapEmbed: "",
   },
   schedule: {
     weekdays: "Lun – Vie · 9:00 – 18:00",
