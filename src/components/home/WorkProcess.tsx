@@ -28,8 +28,8 @@ export function WorkProcess() {
             {WORK_PROCESS.map((step) => {
               const Icon = (LucideIcons as unknown as Record<string, LucideIcon>)[step.icon];
               return (
-                <li key={step.number} className="relative">
-                  <div className="relative w-14 h-14 rounded-full bg-surface border-2 border-primary/20 flex items-center justify-center mb-5 group hover:border-primary hover:bg-primary-tint/50 transition-all">
+                <li key={step.number} className="relative text-center">
+                  <div className="relative w-14 h-14 rounded-full bg-surface border-2 border-primary/20 flex items-center justify-center mb-5 group hover:border-primary hover:bg-primary-tint/50 transition-all mx-auto">
                     {Icon && <Icon className="w-6 h-6 text-primary" strokeWidth={1.75} />}
                     <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-mono font-bold flex items-center justify-center">
                       {step.number}
@@ -43,7 +43,7 @@ export function WorkProcess() {
 
                   {/* Trust badge on last step */}
                   {step.number === "04" && (
-                    <div className="mt-4 flex items-center gap-1.5 text-xs text-success font-semibold">
+                    <div className="mt-4 flex items-center justify-center gap-1.5 text-xs text-success font-semibold">
                       <ShieldCheck className="w-3.5 h-3.5" />
                       <span>Compromiso de por vida</span>
                     </div>

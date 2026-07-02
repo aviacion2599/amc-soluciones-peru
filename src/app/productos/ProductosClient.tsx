@@ -142,7 +142,7 @@ function ProductosContent() {
     filters.categoria || filters.marca || filters.destacado || filters.nuevo || filters.q;
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       <PageHero
         overline="Catálogo completo"
         title={
@@ -306,7 +306,7 @@ function ProductosContent() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

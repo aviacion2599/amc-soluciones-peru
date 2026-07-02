@@ -202,9 +202,9 @@ export default function ServicioTecnicoPage() {
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
           {SERVICES.map((s) => (
             <StaggerItem key={s.code}>
-              <div className="card-base card-hover p-6 h-full flex flex-col">
-                <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-lg bg-primary-tint text-primary flex items-center justify-center">
+              <div className="card-base card-hover p-6 h-full flex flex-col text-center">
+                <div className="flex flex-col items-center gap-3 mb-5">
+                  <div className="w-12 h-12 rounded-lg bg-primary-tint text-primary flex items-center justify-center mx-auto">
                     <s.icon className="w-6 h-6" strokeWidth={1.75} />
                   </div>
                   <span className="font-mono text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
@@ -215,7 +215,7 @@ export default function ServicioTecnicoPage() {
                 <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">
                   {s.description}
                 </p>
-                <ul className="space-y-1.5 mb-5">
+                <ul className="space-y-1.5 mb-5 text-left max-w-xs mx-auto">
                   {s.features.map((f) => (
                     <li key={f} className="flex items-start gap-2 text-xs text-foreground">
                       <CheckCircle2 className="w-3.5 h-3.5 text-success flex-shrink-0 mt-0.5" />
@@ -225,7 +225,7 @@ export default function ServicioTecnicoPage() {
                 </ul>
                 <Link
                   href="#cotizar-servicio"
-                  className="text-sm font-semibold text-primary hover:gap-2 inline-flex items-center gap-1 transition-all"
+                  className="text-sm font-semibold text-primary hover:gap-2 inline-flex items-center justify-center gap-1 transition-all"
                 >
                   Solicitar
                   <ArrowRight className="w-4 h-4" />

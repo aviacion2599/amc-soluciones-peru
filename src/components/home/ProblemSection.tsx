@@ -73,18 +73,18 @@ export function ProblemSection() {
             return (
               <div
                 key={p.title}
-                className="group card-base card-hover p-7 relative overflow-hidden"
+                className="group card-base card-hover p-7 relative overflow-hidden text-center"
               >
                 {/* Number indicator */}
                 <div className="font-mono text-5xl font-bold text-muted/20 absolute -top-2 -right-2 select-none">
                   {String(i + 1).padStart(2, "0")}
                 </div>
 
-                <div className="flex items-start gap-4">
+                <div className="flex flex-col items-center gap-4">
                   <div className="w-12 h-12 rounded-lg bg-error-light text-error flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     <Icon className="w-6 h-6" strokeWidth={1.75} />
                   </div>
-                  <div className="flex-1">
+                  <div>
                     <h3 className="font-display font-bold text-lg mb-2">{p.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       {p.description}

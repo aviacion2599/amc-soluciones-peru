@@ -32,12 +32,12 @@ export function CategoriesGrid() {
                 key={c.slug}
                 href={`/productos?categoria=${c.slug}`}
                 className={cn(
-                  "group relative overflow-hidden card-base card-hover p-7 flex flex-col",
+                  "group relative overflow-hidden card-base card-hover p-7 flex flex-col text-center",
                   isFeatured && "lg:row-span-2 lg:justify-between",
                 )}
               >
                 <div>
-                  <div className="flex items-start justify-between mb-5">
+                  <div className="flex flex-col items-center gap-3 mb-5">
                     <div className="w-14 h-14 rounded-lg bg-primary-tint text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                       <Icon className="w-7 h-7" strokeWidth={1.6} />
                     </div>
@@ -53,12 +53,12 @@ export function CategoriesGrid() {
                   </p>
                 </div>
                 <div className="mt-auto">
-                  <div className="flex items-center gap-1 text-sm font-semibold text-primary mt-6 group-hover:gap-2 transition-all">
+                  <div className="flex items-center justify-center gap-1 text-sm font-semibold text-primary mt-6 group-hover:gap-2 transition-all">
                     Ver catálogo
                     <ArrowRight className="w-4 h-4" />
                   </div>
                   {isFeatured && c.slug === "contadoras-de-billetes" && (
-                    <div className="mt-3 flex items-center gap-1.5 text-[10px] text-success font-semibold">
+                    <div className="mt-3 flex items-center justify-center gap-1.5 text-[10px] text-success font-semibold">
                       <ShieldCheck className="w-3 h-3" />
                       <span>Detección UV + MG + IR</span>
                     </div>
