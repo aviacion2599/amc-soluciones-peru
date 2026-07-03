@@ -70,12 +70,14 @@ export function Footer() {
           {/* Brand column */}
           <div>
             <Link href="/" className="flex items-center mb-2">
-              <img
-                src="/logo-final.webp"
-                alt={AMCCONFIG.company.brandName}
-                className="h-12 sm:h-16 w-auto object-contain"
-                onError={(e) => { (e.target as HTMLImageElement).src = '/logo-final.png'; }}
-              />
+              <picture>
+                <source srcSet="/logo-final.webp" type="image/webp" />
+                <img
+                  src="/logo-final.png"
+                  alt={AMCCONFIG.company.brandName}
+                  className="h-12 sm:h-16 w-auto object-contain"
+                />
+              </picture>
             </Link>
             <p className="text-xs text-white/40 mb-1 leading-relaxed">
               {AMCCONFIG.company.legalRazonSocial}

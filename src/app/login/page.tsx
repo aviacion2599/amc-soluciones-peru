@@ -99,12 +99,14 @@ function LoginFormContent() {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center mb-4">
-            <img
-              src="/logo-final.webp"
-              alt="AMC Soluciones Perú"
-              className="h-12 sm:h-16 w-auto object-contain mx-auto"
-              onError={(e) => { (e.target as HTMLImageElement).src = '/logo-final.png'; }}
-            />
+            <picture>
+              <source srcSet="/logo-final.webp" type="image/webp" />
+              <img
+                src="/logo-final.png"
+                alt="AMC Soluciones Perú"
+                className="h-12 sm:h-16 w-auto object-contain mx-auto"
+              />
+            </picture>
           </Link>
           <h1 className="font-display font-bold text-2xl text-white">Panel Administrativo</h1>
           <p className="text-sm text-slate-300 mt-1">AMC Soluciones Perú</p>

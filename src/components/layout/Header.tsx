@@ -62,12 +62,14 @@ export function Header() {
               className="flex items-center group"
               aria-label={`${AMCCONFIG.company.brandName} — Inicio`}
             >
-              <img
-                src="/logo-final.webp"
-                alt={AMCCONFIG.company.brandName}
-                className="h-12 sm:h-16 w-auto object-contain"
-                onError={(e) => { (e.target as HTMLImageElement).src = '/logo-final.png'; }}
-              />
+              <picture>
+                <source srcSet="/logo-final.webp" type="image/webp" />
+                <img
+                  src="/logo-final.png"
+                  alt={AMCCONFIG.company.brandName}
+                  className="h-12 sm:h-16 w-auto object-contain"
+                />
+              </picture>
             </Link>
 
             {/* Desktop nav (oculto en mobile) */}
@@ -179,12 +181,14 @@ export function Header() {
             onClick={closeMenu}
             className="flex items-center"
           >
-              <img
-                src="/logo-final.webp"
-                alt={AMCCONFIG.company.brandName}
-                className="h-10 sm:h-14 w-auto object-contain"
-                onError={(e) => { (e.target as HTMLImageElement).src = '/logo-final.png'; }}
-              />
+              <picture>
+                <source srcSet="/logo-final.webp" type="image/webp" />
+                <img
+                  src="/logo-final.png"
+                  alt={AMCCONFIG.company.brandName}
+                  className="h-10 sm:h-14 w-auto object-contain"
+                />
+              </picture>
           </Link>
 
           {/* Botón X con rotación 90° al abrir */}
