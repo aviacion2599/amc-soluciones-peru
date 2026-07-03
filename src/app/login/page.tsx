@@ -100,9 +100,10 @@ function LoginFormContent() {
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center mb-4">
             <img
-              src="/logo-horizontal.png"
+              src="/logo-final.webp"
               alt="AMC Soluciones Perú"
-              className="h-10 w-auto object-contain mx-auto"
+              className="h-12 sm:h-16 w-auto object-contain mx-auto"
+              onError={(e) => { (e.target as HTMLImageElement).src = '/logo-final.png'; }}
             />
           </Link>
           <h1 className="font-display font-bold text-2xl text-white">Panel Administrativo</h1>

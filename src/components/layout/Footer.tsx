@@ -71,9 +71,10 @@ export function Footer() {
           <div>
             <Link href="/" className="flex items-center mb-2">
               <img
-                src="/logo-horizontal.png"
+                src="/logo-final.webp"
                 alt={AMCCONFIG.company.brandName}
-                className="h-14 w-auto object-contain"
+                className="h-12 sm:h-16 w-auto object-contain"
+                onError={(e) => { (e.target as HTMLImageElement).src = '/logo-final.png'; }}
               />
             </Link>
             <p className="text-xs text-white/40 mb-1 leading-relaxed">

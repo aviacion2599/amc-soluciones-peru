@@ -63,9 +63,10 @@ export function Header() {
               aria-label={`${AMCCONFIG.company.brandName} — Inicio`}
             >
               <img
-                src="/logo-horizontal.png"
+                src="/logo-final.webp"
                 alt={AMCCONFIG.company.brandName}
-                className="h-16 w-auto object-contain"
+                className="h-12 sm:h-16 w-auto object-contain"
+                onError={(e) => { (e.target as HTMLImageElement).src = '/logo-final.png'; }}
               />
             </Link>
 
@@ -178,11 +179,12 @@ export function Header() {
             onClick={closeMenu}
             className="flex items-center"
           >
-            <img
-              src="/logo-horizontal.png"
-              alt={AMCCONFIG.company.brandName}
-              className="h-12 w-auto object-contain"
-            />
+              <img
+                src="/logo-final.webp"
+                alt={AMCCONFIG.company.brandName}
+                className="h-10 sm:h-14 w-auto object-contain"
+                onError={(e) => { (e.target as HTMLImageElement).src = '/logo-final.png'; }}
+              />
           </Link>
 
           {/* Botón X con rotación 90° al abrir */}
