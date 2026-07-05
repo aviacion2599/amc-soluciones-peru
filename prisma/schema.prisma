@@ -31,7 +31,7 @@ model User {
   lockedUntil   DateTime?
   lastLoginAt   DateTime?
   createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  updatedAt     DateTime  @default(now()) @updatedAt
 
   quotes        Quote[]
   contacts      Contact[]
@@ -72,7 +72,7 @@ model Category {
   seoDescription String?
   seoKeywords    String?
   createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  updatedAt      DateTime @default(now()) @updatedAt
 
   products       Product[]
   subcategories  Subcategory[]
@@ -89,7 +89,7 @@ model Subcategory {
   category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   order       Int      @default(0)
   createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  updatedAt   DateTime @default(now()) @updatedAt
 
   products    Product[]
 
@@ -106,7 +106,7 @@ model Brand {
   isActive    Boolean   @default(true)
   order       Int       @default(0)
   createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  updatedAt   DateTime  @default(now()) @updatedAt
 
   products    Product[]
 }
@@ -141,7 +141,7 @@ model Product {
   canonicalUrl   String?
 
   createdAt      DateTime     @default(now())
-  updatedAt      DateTime     @updatedAt
+  updatedAt      DateTime     @default(now()) @updatedAt
 
   images         ProductImage[]
   videos         ProductVideo[]
@@ -257,7 +257,7 @@ model Quote {
   assignedUser    User?       @relation(fields: [assignedTo], references: [id])
   notes           String?
   createdAt       DateTime    @default(now())
-  updatedAt       DateTime    @updatedAt
+  updatedAt       DateTime    @default(now()) @updatedAt
 
   @@index([status])
   @@index([createdAt])
@@ -278,7 +278,7 @@ model Contact {
   userId    String?
   user      User?    @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @default(now()) @updatedAt
 
   @@index([status])
   @@index([createdAt])
@@ -298,13 +298,13 @@ model BlogPost {
   coverImage     String?
   authorId       String?
   author         User?     @relation(fields: [authorId], references: [id])
-  tags           String    // comma-separated
+  tags           String    @default("") // comma-separated
   isPublished    Boolean   @default(false)
   publishedAt    DateTime?
   seoTitle       String?
   seoDescription String?
   createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
+  updatedAt      DateTime  @default(now()) @updatedAt
 
   @@index([slug])
   @@index([isPublished, publishedAt])
@@ -318,7 +318,7 @@ model FAQ {
   order      Int      @default(0)
   isActive   Boolean  @default(true)
   createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  updatedAt  DateTime @default(now()) @updatedAt
 
   @@index([isActive])
   @@index([category])
@@ -332,7 +332,7 @@ model SiteConfig {
   id          String   @id @default(cuid())
   key         String   @unique // whatsapp | phone | email | address | hours | social
   value       String   // JSON string
-  updatedAt   DateTime @updatedAt
+  updatedAt   DateTime @default(now()) @updatedAt
 }
 
 model Testimonial {
