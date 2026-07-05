@@ -3,14 +3,10 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { HeroPremium } from "@/components/home/HeroPremium";
-import { ProblemSection } from "@/components/home/ProblemSection";
 import { TrustedBy } from "@/components/home/TrustedBy";
-import { Benefits } from "@/components/home/Benefits";
-import { CategoriesGrid } from "@/components/home/CategoriesGrid";
-import { FeaturedProducts } from "@/components/home/FeaturedProducts";
+import { EquipmentLines } from "@/components/home/EquipmentLines";
 import { TechnicalService } from "@/components/home/TechnicalService";
 import { WorkProcess } from "@/components/home/WorkProcess";
-import { BrandsStrip } from "@/components/home/BrandsStrip";
 import { Testimonials } from "@/components/home/Testimonials";
 import { CTASection } from "@/components/home/CTASection";
 import { SectionFade } from "@/components/shared/SectionFade";
@@ -22,17 +18,13 @@ import { AMCCONFIG } from "@/lib/site-config";
  * 
  * Arquitectura narrativa: pain-to-proof + operator-case
  * 
- * 1. Hero          → Precisión, Seguridad, Control, Confianza, Respaldo Técnico
- * 2. TrustedBy     → Prueba social institucional
- * 3. ProblemSection → "El efectivo mal manejado cuesta caro"
- * 4. Benefits      → Por qué AMC (4 pilares con keywords)
- * 5. CategoriesGrid → Catálogo visual organizado
- * 6. FeaturedProducts → Productos estrella con specs
- * 7. TechnicalService → Pilar diferenciador (servicio técnico)
- * 8. WorkProcess   → Cómo trabajamos
- * 9. BrandsStrip   → Marcas que representamos
- * 10. Testimonials → Prueba social real
- * 11. CTASection   → Cierre con conversión
+ * 1. Hero           → Portada corporativa limpia
+ * 2. TrustedBy      → Prueba social institucional
+ * 3. EquipmentLines  → 5 líneas comerciales AMC
+ * 4. TechnicalService → Servicio técnico diferenciador
+ * 5. WorkProcess    → Cómo trabajamos
+ * 6. Testimonials   → Prueba social real
+ * 7. CTASection     → Cierre con conversión
  */
 export const metadata: Metadata = {
   title: {
@@ -164,19 +156,11 @@ export default function HomePage() {
           <SectionFade />
           <TrustedBy />
           <SectionFade />
-          <ProblemSection />
-          <SectionFade />
-          <Benefits />
-          <SectionFade />
-          <CategoriesGrid />
-          <SectionFade />
-          <FeaturedProducts />
+          <EquipmentLines />
           <SectionFade />
           <TechnicalService />
           <SectionFade />
           <WorkProcess />
-          <SectionFade />
-          <BrandsStrip />
           <SectionFade />
           <Testimonials />
           <SectionFade />
