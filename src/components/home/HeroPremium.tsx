@@ -6,29 +6,34 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 import { AMCCONFIG } from "@/lib/site-config";
 
 /**
- * HeroPremium — Portada limpia y corporativa AMC.
- * Texto a la izquierda, máquina a la derecha.
- * Tonos azul oscuro, gris/plomo y blanco.
+ * HeroPremium — Portada full-bleed e inmersiva AMC.
+ * Texto a la izquierda, máquina a la derecha sin bordes de tarjeta.
+ * Fondo con gradiente dramático, grid sutil y efectos de brillo.
  */
 export function HeroPremium() {
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] flex items-center overflow-hidden bg-navy text-white"
+      className="relative min-h-screen flex items-center overflow-hidden bg-navy text-white"
     >
-      {/* Fondo limpio: gradiente sutil sin patrón */}
+      {/* Inmersive background layers */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628] via-[#0f2035] to-[#0a1628]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#060d1a] via-[#0c1a2e] to-[#081422]" />
+        {/* Subtle radial glow behind the product */}
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/[0.07] rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-400/[0.04] rounded-full blur-3xl" />
+        {/* Grid pattern overlay */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 opacity-[0.03]"
           style={{
-            background:
-              "radial-gradient(ellipse 60% 50% at 75% 50%, rgba(255,255,255,0.03), transparent 60%)",
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
           }}
         />
       </div>
 
-      <div className="container-amc relative pt-28 pb-16 lg:pt-32 lg:pb-20">
+      <div className="container-amc relative pt-20 pb-16 lg:pt-24 lg:pb-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Izquierda — texto principal */}
           <div className="max-w-xl">
@@ -75,26 +80,24 @@ export function HeroPremium() {
             </dl>
           </div>
 
-          {/* Derecha — máquina nítida */}
+          {/* Derecha — máquina inmersiva sin bordes de tarjeta */}
           <div className="relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-lg">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative bg-[#0d1f38]/60 border border-white/[0.06]">
-                <Image
-                  src="/hero-producto.png"
-                  alt="Contadora de billetes AMC — Equipo profesional de conteo de efectivo"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 550px"
-                  className="object-contain p-6"
-                  priority
-                />
-              </div>
+            <div className="relative w-full max-w-xl lg:max-w-2xl">
+              <Image
+                src="/hero-producto.png"
+                alt="Contadora de billetes AMC — Equipo profesional de conteo de efectivo"
+                fill
+                sizes="(max-width: 1024px) 100vw, 700px"
+                className="object-contain drop-shadow-2xl"
+                priority
+              />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Transición suave al fondo blanco */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-background" />
+      {/* Bottom gradient fade to background */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 }

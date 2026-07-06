@@ -55,7 +55,7 @@ export function Header() {
         role="banner"
       >
         <div className="container-amc">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-14">
             {/* Brand — Logo AMC imagen */}
             <Link
               href="/"
@@ -67,7 +67,7 @@ export function Header() {
                 <img
                   src="/logo-final.png"
                   alt={AMCCONFIG.company.brandName}
-                  className="h-12 sm:h-16 w-auto object-contain"
+                  className="h-9 sm:h-11 w-auto object-contain"
                 />
               </picture>
             </Link>
@@ -141,7 +141,7 @@ export function Header() {
           ================================================================ */}
       <div
         className={cn(
-          "fixed inset-0 z-40 transition-opacity duration-500",
+          "fixed inset-0 z-[55] transition-opacity duration-500",
           menuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none",
@@ -160,7 +160,7 @@ export function Header() {
       <nav
         id="offcanvas-menu"
         className={cn(
-          "fixed top-0 right-0 z-50 h-full w-full sm:w-80 lg:w-96",
+          "fixed top-0 right-0 z-[60] h-full w-full sm:w-80 lg:w-96",
           "bg-navy border-l border-white/10",
           "flex flex-col",
           "transition-transform duration-500",

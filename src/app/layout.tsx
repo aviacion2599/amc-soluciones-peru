@@ -3,6 +3,7 @@ import { Inter, Sora, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ReadingProgress } from "@/components/shared/ReadingProgress";
+import { SiteShell } from "@/components/layout/SiteShell";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -95,7 +96,7 @@ export default function RootLayout({
         className={`${inter.variable} ${sora.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground font-sans`}
       >
         <ReadingProgress />
-        {children}
+        <SiteShell>{children}</SiteShell>
         <Toaster />
       </body>
     </html>

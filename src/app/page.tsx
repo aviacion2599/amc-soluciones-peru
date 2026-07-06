@@ -1,7 +1,4 @@
 import type { Metadata } from "next";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { HeroPremium } from "@/components/home/HeroPremium";
 import { TrustedBy } from "@/components/home/TrustedBy";
 import { EquipmentLines } from "@/components/home/EquipmentLines";
@@ -149,8 +146,6 @@ export default function HomePage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
 
-        <Header />
-
         <main className="flex-1">
           <HeroPremium />
           <SectionFade />
@@ -166,9 +161,6 @@ export default function HomePage() {
           <SectionFade />
           <CTASection />
         </main>
-
-        <Footer />
-        <WhatsAppFloat />
       </div>
     </ScrollSpyWrapper>
   );
