@@ -86,5 +86,7 @@ amc-indexed-pages.json
 # Imágenes subidas por el usuario (brand colors)
 /pasted_image_*.png
 
-# PCA context
+# PCA context and agent files
 .pca/
+AGENTS.md
+PCA_INDEX.md
