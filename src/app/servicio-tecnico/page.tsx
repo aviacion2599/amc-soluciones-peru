@@ -32,6 +32,9 @@ const SERVICES = [
     title: "Reparación",
     description: "Diagnóstico y reparación especializada con repuestos originales y compatibles según disponibilidad del modelo. Recuperamos la precisión y confiabilidad de tu equipo.",
     features: ["Diagnóstico gratuito", "Repuestos originales", "Garantía de reparación 90 días", "Reporte técnico detallado"],
+    title: "Reparación Especializada",
+    description: "Diagnóstico y reparación especializada con repuestos originales y compatibles según disponibilidad del modelo. Recuperamos la precisión y confiabilidad de tu equipo.",
+    features: ["Diagnóstico gratuito", "Repuestos originales y compatibles", "Garantía de reparación 90 días", "Reporte técnico detallado"],
   },
   {
     code: "S-02",
@@ -39,11 +42,13 @@ const SERVICES = [
     title: "Calibración de Precisión",
     description: "Ajuste y verificación técnica de sensores CIS, UV, MG, IR, MT/TMR y sensor de espesor para recuperar la precisión de detección, conteo y validación del equipo.",
     features: ["Calibración con patrón de referencia", "Ajuste de sensores UV/MG/IR", "Pruebas de validación", "Reporte técnico"],
+    features: ["Calibración con patrón de referencia", "Ajuste de sensores CIS/UV/MG/IR", "Pruebas de validación", "Reporte técnico"],
   },
   {
     code: "S-03",
     icon: Cpu,
     title: "Diagnóstico",
+    title: "Diagnóstico por Control",
     description: "Evaluación técnica completa del equipo con revisión de sensores, sistema de alimentación, conteo, detección y estado general antes de decidir una reparación.",
     features: ["Evaluación de 30 puntos", "Reporte fotográfico", "Estimación de vida útil", "Plan de mantenimiento recomendado"],
   },
@@ -53,6 +58,7 @@ const SERVICES = [
     title: "Mantenimiento Preventivo",
     description: "Planes programados de mantenimiento preventivo para reducir fallas, mejorar la alimentación de billetes y mantener la continuidad operativa del negocio.",
     features: ["Visitas programadas", "Limpieza profunda", "Lubricación de partes móviles", "Calibración incluida", "Descuento en repuestos"],
+    features: ["Visitas programadas", "Limpieza técnica profunda", "Lubricación de partes móviles", "Calibración incluida", "Descuento en repuestos"],
   },
   {
     code: "S-05",
@@ -71,10 +77,10 @@ const SERVICES = [
 ];
 
 const EQUIPMENT_TYPES = [
-  { icon: Banknote, name: "Contadoras de Billetes", brands: "GLORY, Hyundai, Henry y otras" },
-  { icon: Coins, name: "Contadoras de Monedas", brands: "GLORY, Henry y otras" },
-  { icon: ScanLine, name: "Clasificadoras", brands: "GLORY, CashScan y otras" },
-  { icon: Settings2, name: "Detectores", brands: "Múltiples marcas" },
+  { icon: Banknote, name: "Contadoras de Billetes", brands: "GLORY, Kisan, Magner, Hyundai y otras marcas.", image: "/equip/contadora-billetes.svg" },
+  { icon: ScanLine, name: "Clasificadoras de Billetes", brands: "GLORY, Kisan, Magner y otras marcas.", image: "/equip/clasificadora-billetes.svg" },
+  { icon: Coins, name: "Contadoras de Monedas", brands: "GLORY, Scan Coin y otras marcas.", image: "/equip/contadora-monedas.svg" },
+  { icon: Settings2, name: "Detectores de Billetes", brands: "Atención técnica para diferentes marcas y modelos.", image: "/equip/detector-billetes.svg" },
 ];
 
 const PROCESS = [
@@ -103,51 +109,57 @@ const PROCESS = [
 const PLANS = [
   {
     name: "Básico",
-    price: "S/ 180",
+    price: "Desde S/ 180",
     period: "por visita",
     description: "Mantenimiento preventivo puntual",
     features: [
-      "Limpieza profunda del equipo",
+      "Limpieza técnica del equipo",
       "Lubricación de partes móviles",
-      "Revisión de sensores",
+      "Revisión general de sensores",
       "Calibración básica",
+      "Pruebas de conteo y funcionamiento",
       "Reporte técnico",
-      "Garantía de servicio 30 días",
+      "Garantía de 30 días sobre el servicio realizado",
     ],
-    cta: "Solicitar Básico",
+    footnote: "Precio referencial para Lima Metropolitana. No incluye repuestos ni reparaciones adicionales.",
+    cta: "Solicitar mantenimiento",
     highlighted: false,
   },
   {
     name: "Premium",
-    price: "S/ 540",
-    period: "por trimestre",
-    description: "Plan trimestral para uso intensivo",
+    price: "S/ 480",
+    period: "al año",
+    description: "Plan anual para equipos de uso intensivo",
     features: [
-      "4 visitas programadas al año",
-      "Todo lo del plan Básico",
-      "Calibración avanzada certificada",
-      "Descuento 15% en repuestos",
-      "Soporte telefónico prioritario",
-      "Garantía extendida 90 días",
+      "3 visitas programadas durante el año",
+      "Limpieza técnica y lubricación",
+      "Revisión y calibración de sensores",
+      "Pruebas de conteo y funcionamiento",
+      "Reporte técnico por cada visita",
+      "Atención técnica prioritaria",
+      "Descuento preferencial en repuestos seleccionados",
     ],
-    cta: "Solicitar Premium",
+    footnote: "El plan incluye tres mantenimientos preventivos programados durante el año. No incluye repuestos ni reparaciones adicionales.",
+    cta: "Solicitar Plan Premium",
     highlighted: true,
   },
   {
     name: "Empresarial",
     price: "Cotización",
-    period: "personalizado",
-    description: "Para cadenas con múltiples equipos",
+    period: "personalizada",
+    description: "Plan personalizado para empresas con múltiples equipos",
     features: [
-      "Visitas programadas ilimitadas",
-      "Técnico dedicado en sitio",
-      "Repuestos en consignación",
-      "Reportes mensuales de flota",
-      "SLA de respuesta < 4h",
-      "Capacitación al personal",
-      "Garantía extendida 12 meses",
+      "Visitas programadas según la operación",
+      "Técnico especializado en las instalaciones del cliente",
+      "Mantenimiento preventivo de varios equipos",
+      "Reportes técnicos consolidados",
+      "Seguimiento mensual del estado de los equipos",
+      "Gestión prioritaria de repuestos, según contrato",
+      "Capacitación básica para operadores",
+      "Condiciones de atención definidas según la necesidad del cliente",
     ],
-    cta: "Solicitar Empresarial",
+    footnote: null,
+    cta: "Solicitar cotización empresarial",
     highlighted: false,
   },
 ];
@@ -240,19 +252,23 @@ export default function ServicioTecnicoPage() {
       <section className="bg-muted/40 border-y border-border py-16">
         <div className="container-amc">
           <SectionTitle
-          overline="Equipos que reparamos"
-          title="Experiencia en distintas marcas"
-          description="Tenemos experiencia en el servicio técnico de equipos de procesamiento de efectivo de diversas marcas del mercado."
+            overline="Equipos que reparamos"
+            title="Experiencia en distintas marcas"
+            description="Contamos con experiencia técnica en equipos de procesamiento de efectivo de distintas marcas y tecnologías, brindando diagnóstico, mantenimiento, calibración y reparación especializada."
           />
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
             {EQUIPMENT_TYPES.map((e) => (
               <StaggerItem key={e.name}>
-                <div className="card-base p-6 text-center h-full">
-                  <div className="w-14 h-14 rounded-lg bg-primary-tint text-primary flex items-center justify-center mx-auto mb-4">
-                    <e.icon className="w-7 h-7" strokeWidth={1.6} />
+                <div className="card-base p-5 sm:p-6 h-full flex flex-col items-center text-center">
+                  {/* Small equipment illustration */}
+                  <div className="w-20 h-14 mb-4 flex items-center justify-center">
+                    <img src={e.image} alt={e.name} className="w-full h-full object-contain" />
+                  </div>
+                  <div className="w-10 h-10 rounded-lg bg-primary-tint text-primary flex items-center justify-center mb-3">
+                    <e.icon className="w-5 h-5" strokeWidth={1.6} />
                   </div>
                   <h3 className="font-display font-semibold text-sm mb-2">{e.name}</h3>
-                  <p className="text-xs text-muted-foreground">{e.brands}</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{e.brands}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -295,7 +311,7 @@ export default function ServicioTecnicoPage() {
           <SectionTitle
             overline="Planes de mantenimiento"
             title="Elige el plan que se adapta a tu operación"
-            description="Planes preventivos que extienden la vida útil de tus equipos y reducen hasta 80% las fallas inesperadas."
+            description="Planes de mantenimiento preventivo diseñados para reducir fallas inesperadas, prolongar la vida útil de los equipos y mantener la continuidad de la operación."
           />
 
           <div className="grid lg:grid-cols-3 gap-6 mt-14">
@@ -321,7 +337,7 @@ export default function ServicioTecnicoPage() {
                     <span className="font-display text-3xl font-bold text-primary">{plan.price}</span>
                     <span className="text-sm text-muted-foreground ml-2">{plan.period}</span>
                   </div>
-                  <ul className="space-y-3 mb-8 flex-1">
+                  <ul className="space-y-2.5 mb-6 flex-1">
                     {plan.features.map((f) => (
                       <li key={f} className="flex items-start gap-2 text-sm">
                         <CheckCircle2 className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
@@ -329,6 +345,9 @@ export default function ServicioTecnicoPage() {
                       </li>
                     ))}
                   </ul>
+                  {"footnote" in plan && plan.footnote && (
+                    <p className="text-[11px] text-muted-foreground leading-relaxed mb-5 border-t border-border pt-4">{plan.footnote}</p>
+                  )}
                   <Link
                     href="#cotizar-servicio"
                     className={`w-full text-center py-3 rounded-md font-semibold text-sm transition-all ${
@@ -386,7 +405,7 @@ export default function ServicioTecnicoPage() {
             <div className="card-base p-8 bg-gradient-to-br from-primary-dark to-primary text-white">
               <div className="grid grid-cols-2 gap-6">
                 {[
-                  { value: "+2,500", label: "Equipos reparados" },
+                  { value: "+2,500", label: "Equipos atendidos" },
                   { value: "15+", label: "Años de experiencia" },
                   { value: "24h", label: "Tiempo de respuesta" },
                   { value: "99.8%", label: "Precisión post-servicio" },
