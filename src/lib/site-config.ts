@@ -205,37 +205,37 @@ export const TECHNICAL_SERVICES = [
     code: "S-01",
     icon: "Wrench",
     label: "Reparación Especializada",
-    description: "Diagnóstico y reparación con repuestos originales. Restauramos la precisión y confianza de tu equipo de procesamiento de efectivo.",
+    description: "Diagnóstico y reparación especializada con repuestos originales y compatibles según disponibilidad del modelo. Recuperamos la precisión y confiabilidad de tu equipo.",
   },
   {
     code: "S-02",
     icon: "Gauge",
     label: "Calibración de Precisión",
-    description: "Ajuste bajo estándares de fábrica para recuperar la precisión original de sensores UV, MG e IR. Conteos sin error.",
+    description: "Ajuste y verificación técnica de sensores CIS, UV, MG, IR, MT/TMR y sensor de espesor para recuperar la precisión de detección, conteo y validación del equipo.",
   },
   {
     code: "S-03",
     icon: "Cpu",
     label: "Diagnóstico por Control",
-    description: "Auditoría técnica completa de 30 puntos con reporte detallado. Control total del estado real de tu equipo antes de decidir.",
+    description: "Evaluación técnica completa del equipo con revisión de sensores, sistema de alimentación, conteo, detección y estado general antes de decidir una reparación.",
   },
   {
     code: "S-04",
     icon: "ShieldCheck",
     label: "Mantenimiento Preventivo",
-    description: "Planes programados que reducen hasta 80% las fallas inesperadas. Seguridad operativa para tu negocio con visitas según tu volumen.",
+    description: "Planes programados de mantenimiento preventivo para reducir fallas, mejorar la alimentación de billetes y mantener la continuidad operativa del negocio.",
   },
   {
     code: "S-05",
     icon: "Zap",
     label: "Actualización de Divisas",
-    description: "Actualización de firmware para soporte de nuevas divisas y versiones de billetes. Tu equipo siempre al día.",
+    description: "Actualización de firmware y parámetros de detección para soporte de nuevas divisas, versiones de billetes y mejora en la validación del efectivo.",
   },
   {
     code: "S-06",
     icon: "Clock",
     label: "Soporte Técnico",
-    description: "Atención y asistencia técnica para resolver dudas operativas y mantener tu flujo de trabajo sin interrupciones.",
+    description: "Asistencia técnica para resolver dudas operativas, fallas recurrentes, configuración del equipo y recomendaciones de uso para mantener el flujo de trabajo.",
   },
 ] as const;
 
