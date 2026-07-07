@@ -24,7 +24,7 @@ const TIMELINE = [
 
 const STATS = [
   { value: "+15", label: "Años de experiencia" },
-  { value: "+2,500", label: "Equipos instalados" },
+  { value: "+2,500", label: "Equipos atendidos" },
   { value: "+800", label: "Clientes activos" },
   { value: "6", label: "Marcas representadas" },
   { value: "24h", label: "Tiempo de respuesta" },

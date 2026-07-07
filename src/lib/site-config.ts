@@ -46,7 +46,7 @@ export const AMCCONFIG = {
   },
   stats: [
     { value: "+15", label: "Años de experiencia" },
-    { value: "+2,500", label: "Equipos instalados" },
+    { value: "+2,500", label: "Equipos atendidos" },
     { value: "24h", label: "Respuesta técnica garantizada" },
     { value: "99.8%", label: "Precisión de conteo certificada" },
   ],

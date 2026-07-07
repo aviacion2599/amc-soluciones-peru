@@ -11,10 +11,10 @@ import { TECHNICAL_SERVICES } from "@/lib/site-config";
 export function TechnicalService() {
   const checklist = [
     "Experiencia en servicio técnico de equipos de procesamiento de efectivo",
-    "Repuestos originales con trazabilidad del fabricante",
+    "Repuestos originales y compatibles según disponibilidad del modelo",
     "Atención en sitio y en taller — Lima y provincias",
     "Reporte técnico detallado post-servicio",
-    "Planes de mantenimiento preventivo que reducen fallas hasta 80%",
+    "Planes de mantenimiento preventivo que ayudan a reducir fallas y paradas inesperadas",
   ];
 
   return (

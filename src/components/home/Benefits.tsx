@@ -10,7 +10,7 @@ import { BENEFITS, AMCCONFIG } from "@/lib/site-config";
  */
 export function Benefits() {
   const stats = [
-    { icon: TrendingUp, value: "+2,500", label: "Equipos instalados" },
+    { icon: TrendingUp, value: "+2,500", label: "Equipos atendidos" },
     { icon: Headphones, value: "24h", label: "Respuesta técnica garantizada" },
     { icon: Award, value: "12 meses", label: "Garantía oficial" },
     { icon: ShieldCheck, value: "99.8%", label: "Precisión de conteo certificada" },

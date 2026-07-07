@@ -38,7 +38,7 @@ const LINES: EquipmentLine[] = [
       "Precio más accesible",
       "Conteo rápido de billetes",
       "Uso simple y práctico",
-      "Detección básica de billetes sospechosos",
+      "Verificación de billetes sospechosos según sensores del equipo",
       "Soporte técnico local AMC",
       "Garantía y asesoría postventa",
     ],
@@ -108,7 +108,7 @@ const LINES: EquipmentLine[] = [
     name: "Línea Alto Volumen AMC",
     subtitle: "Equipos para uso intensivo y operaciones exigentes",
     description:
-      "Equipos de alto rendimiento para empresas que procesan grandes volúmenes de efectivo y requieren velocidad, precisión, resistencia y continuidad operativa. La Línea Alto Volumen AMC está orientada a operaciones intensivas donde el tiempo, la seguridad y la productividad son factores clave. Son equipos recomendados para clientes que necesitan procesar billetes de forma constante durante el día, con mayor capacidad de trabajo y mejor control operativo.",
+      "Equipos de alto rendimiento para empresas que procesan grandes volúmenes de efectivo y requieren velocidad, precisión, resistencia y continuidad operativa. La Línea Alto Volumen AMC está orientada a operaciones intensivas donde el tiempo, la seguridad y la productividad son factores clave. Equipos para operaciones intensivas que necesitan mayor capacidad de procesamiento, continuidad de trabajo y control avanzado del efectivo durante la jornada.",
     models: ["AMC-9200", "AMC-8300 PRO"],
     recommendedFor: [
       "Casas de cambio de alto movimiento",
@@ -137,7 +137,7 @@ const LINES: EquipmentLine[] = [
     name: "Línea Contadoras de Monedas AMC",
     subtitle: "Soluciones para conteo y procesamiento de monedas",
     description:
-      "Contadoras de monedas para empresas y negocios que necesitan procesar monedas de forma rápida, ordenada y eficiente. Esta línea está orientada a clientes que manejan alto movimiento de monedas y necesitan reducir tiempos de conteo manual, mejorar el control de caja y optimizar el procesamiento diario.",
+      "Contadoras de monedas para empresas y negocios que necesitan procesar monedas de forma rápida, ordenada y eficiente. Esta línea está orientada a clientes que manejan alto movimiento de monedas y necesitan reducir tiempos de conteo manual, mejorar el control de caja y optimizar el procesamiento diario. Soluciones para conteo rápido, ordenamiento de monedas y reducción de tiempos operativos en negocios con alto movimiento de monedas.",
     models: [],
     recommendedFor: [
       "Retail",

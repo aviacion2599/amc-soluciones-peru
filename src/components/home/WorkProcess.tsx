@@ -45,7 +45,7 @@ export function WorkProcess() {
                   {step.number === "04" && (
                     <div className="mt-4 flex items-center justify-center gap-1.5 text-xs text-success font-semibold">
                       <ShieldCheck className="w-3.5 h-3.5" />
-                      <span>Compromiso de por vida</span>
+                      <span>Respaldo técnico postventa</span>
                     </div>
                   )}
                 </li>
