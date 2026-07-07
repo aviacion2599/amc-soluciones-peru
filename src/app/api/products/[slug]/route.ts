@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
+import { STATIC_PRODUCTS } from "@/lib/static-data";
 
 /**
  * GET /api/products/[slug]
  * Detalle público de un producto por slug.
- * Incluye: imágenes, videos, documentos, features, specs, aplicaciones.
- * Incrementa vistas (no implementado por simplicidad — agregar campo viewCount si se requiere).
+ * Falls back to static data when DB is empty.
  */
 export async function GET(
   req: NextRequest,
@@ -14,7 +14,7 @@ export async function GET(
   try {
     const { slug } = await params;
 
-    const product = await db.product.findUnique({
+    let product = await db.product.findUnique({
       where: { slug, isActive: true },
       include: {
         category: {
@@ -34,6 +34,36 @@ export async function GET(
     });
 
     if (!product) {
+      // Fallback to static data
+      const staticProduct = STATIC_PRODUCTS.find((p) => p.slug === slug);
+      if (staticProduct) {
+        return NextResponse.json({
+          data: {
+            ...staticProduct,
+            description: staticProduct.summary,
+            category: {
+              slug: staticProduct.category.slug,
+              name: staticProduct.category.name,
+              description: "",
+              icon: "Banknote",
+            },
+            subcategory: null,
+            brand: staticProduct.brand
+              ? { slug: staticProduct.brand.slug, name: staticProduct.brand.name, logo: null }
+              : null,
+            images: [],
+            videos: [],
+            documents: [],
+            features: [],
+            specifications: [],
+            applications: [],
+          },
+          related: STATIC_PRODUCTS.filter(
+            (p) => p.category.slug === staticProduct.category.slug && p.slug !== slug,
+          ).slice(0, 4),
+        });
+      }
+
       return NextResponse.json(
         { error: "Producto no encontrado" },
         { status: 404 },

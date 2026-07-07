@@ -82,22 +82,26 @@ export function HeroPremium() {
 
           {/* Derecha — máquina inmersiva sin bordes de tarjeta */}
           <div className="relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-xl lg:max-w-2xl">
-              <Image
-                src="/hero-producto.png"
-                alt="Contadora de billetes AMC — Equipo profesional de conteo de efectivo"
-                fill
-                sizes="(max-width: 1024px) 100vw, 700px"
-                className="object-contain drop-shadow-2xl"
-                priority
-              />
+            <div className="relative w-full max-w-2xl lg:max-w-3xl xl:max-w-4xl">
+              {/* Mask to fade bottom edge into dark background */}
+              <div className="relative h-[300px] sm:h-[350px] md:h-[400px] lg:h-[520px] xl:h-[580px]">
+                <Image
+                  src="/hero-right.png"
+                  alt="Contadora de billetes AMC — Equipo profesional de conteo de efectivo"
+                  fill
+                  sizes="(max-width: 1024px) 90vw, 700px"
+                  className="object-cover object-center object-top"
+                  priority
+                />
+                {/* Fade mask at bottom to blend into dark background */}
+                <div className="absolute inset-x-0 bottom-0 h-[30%] bg-gradient-to-t from-[#060d1a] via-[#060d1a]/60 to-transparent pointer-events-none" />
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Transición pronunciada: azul oscuro → fondo claro */}
-      <div className="absolute bottom-0 left-0 right-0 h-56 lg:h-72 bg-gradient-to-t from-background via-background/80 to-transparent" />
+
     </section>
   );
 }

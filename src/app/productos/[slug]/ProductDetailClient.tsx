@@ -56,6 +56,7 @@ interface Related {
   summary: string;
   isFeatured: boolean;
   isNew: boolean;
+  category?: { slug: string; name: string } | null;
 }
 
 export default function ProductDetailClient({ slug }: { slug: string }) {
@@ -113,38 +114,39 @@ function ProductDetailContent({ slug }: { slug: string }) {
   }
 
   const waMessage = encodeURIComponent(
-    `Hola AMC, quiero cotizar el equipo ${product.name} (SKU: ${product.sku}).`,
+    `Hola AMC, quiero cotizar el equipo ${product!.name} (SKU: ${product!.sku}).`,
   );
   const waHref = `https://wa.me/${AMCCONFIG.contact.whatsapp}?text=${waMessage}`;
 
   // Agrupar specs por grupo
-  const specsByGroup = product.specifications.reduce((acc, s) => {
+  const p = product!;
+  const specsByGroup = p.specifications.reduce((acc, s) => {
     if (!acc[s.group]) acc[s.group] = [];
     acc[s.group].push(s);
     return acc;
-  }, {} as Record<string, typeof product.specifications>);
+  }, {} as Record<string, typeof p.specifications>);
 
   // JSON-LD Product
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: product.name,
-    description: product.summary,
-    sku: product.sku,
-    brand: product.brand
-      ? { "@type": "Brand", name: product.brand.name }
+    name: p.name,
+    description: p.summary,
+    sku: p.sku,
+    brand: p.brand
+      ? { "@type": "Brand", name: p.brand.name }
       : { "@type": "Brand", name: "AMC" },
-    category: product.category.name,
-    offers: product.price
+    category: p.category.name,
+    offers: p.price
       ? {
           "@type": "Offer",
-          price: product.price,
-          priceCurrency: product.currency,
+          price: p.price,
+          priceCurrency: p.currency,
           availability: "https://schema.org/InStock",
           seller: { "@type": "Organization", name: "AMC Soluciones Perú" },
         }
       : undefined,
-    featureList: product.features.map((f) => f.title),
+    featureList: p.features.map((f) => f.title),
   };
 
   return (
@@ -158,8 +160,8 @@ function ProductDetailContent({ slug }: { slug: string }) {
         <Breadcrumb
           items={[
             { label: "Productos", href: "/productos" },
-            { label: product.category.name, href: `/productos?categoria=${product.category.slug}` },
-            { label: product.name },
+            { label: p.category.name, href: `/productos?categoria=${p.category.slug}` },
+            { label: p.name },
           ]}
         />
       </div>
@@ -172,11 +174,11 @@ function ProductDetailContent({ slug }: { slug: string }) {
             <div className="space-y-4">
               {/* Main image */}
               <div className="relative aspect-square bg-gradient-to-br from-muted to-surface-2 rounded-xl overflow-hidden flex items-center justify-center border border-border">
-                {product.images[selectedImage] ? (
+                {p.images[selectedImage] ? (
                    
                   <img
-                    src={product.images[selectedImage].url}
-                    alt={product.images[selectedImage].alt}
+                    src={p.images[selectedImage].url}
+                    alt={p.images[selectedImage].alt}
                     className="w-full h-full object-contain p-8"
                   />
                 ) : (
@@ -185,22 +187,22 @@ function ProductDetailContent({ slug }: { slug: string }) {
 
                 {/* Badges */}
                 <div className="absolute top-4 left-4 flex flex-col gap-2">
-                  {product.isBestSeller && (
+                  {p.isBestSeller && (
                     <span className="badge-success">Más vendido</span>
                   )}
-                  {product.isNew && (
+                  {p.isNew && (
                     <span className="badge-primary">Nuevo</span>
                   )}
-                  {product.isFeatured && !product.isBestSeller && !product.isNew && (
+                  {p.isFeatured && !p.isBestSeller && !p.isNew && (
                     <span className="badge-warning">Destacado</span>
                   )}
                 </div>
               </div>
 
               {/* Thumbnails */}
-              {product.images.length > 1 && (
+              {p.images.length > 1 && (
                 <div className="flex gap-2 overflow-x-auto">
-                  {product.images.map((img, i) => (
+                  {p.images.map((img, i) => (
                     <button
                       key={img.id}
                       onClick={() => setSelectedImage(i)}
@@ -236,32 +238,32 @@ function ProductDetailContent({ slug }: { slug: string }) {
           {/* Product info */}
           <SlideIn from="right">
             <div>
-              <div className="overline text-muted-foreground mb-2">{product.category.name}</div>
-              <h1 className="display-2 text-foreground mb-3">{product.name}</h1>
+              <div className="overline text-muted-foreground mb-2">{p.category.name}</div>
+              <h1 className="display-2 text-foreground mb-3">{p.name}</h1>
               <p className="text-base text-muted-foreground leading-relaxed mb-6">
-                {product.summary}
+                {p.summary}
               </p>
 
               {/* SKU + Brand */}
               <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6 pb-6 border-b border-border">
                 <div>
                   <span className="font-mono">SKU: </span>
-                  <span className="font-mono font-semibold text-foreground">{product.sku}</span>
+                  <span className="font-mono font-semibold text-foreground">{p.sku}</span>
                 </div>
-                {product.brand && (
+                {p.brand && (
                   <div>
                     <span>Marca: </span>
-                    <span className="font-semibold text-foreground">{product.brand.name}</span>
+                    <span className="font-semibold text-foreground">{p.brand.name}</span>
                   </div>
                 )}
               </div>
 
               {/* Price */}
-              {product.price ? (
+              {p.price ? (
                 <div className="mb-6">
                   <div className="overline text-muted-foreground mb-1">Precio referencial</div>
                   <div className="font-display text-3xl font-bold text-primary">
-                    S/ {product.price.toLocaleString("es-PE")}
+                    S/ {p.price.toLocaleString("es-PE")}
                     <span className="text-sm font-normal text-muted-foreground ml-2">+ IGV</span>
                   </div>
                   <p className="text-xs text-muted-foreground mt-1">
@@ -301,9 +303,9 @@ function ProductDetailContent({ slug }: { slug: string }) {
               </div>
 
               {/* Quick features preview */}
-              {product.features.length > 0 && (
+              {p.features.length > 0 && (
                 <div className="grid grid-cols-2 gap-3">
-                  {product.features.slice(0, 4).map((f) => {
+                  {p.features.slice(0, 4).map((f) => {
                     const Icon = (LucideIcons as any)[f.icon || "CheckCircle2"] || CheckCircle2;
                     return (
                       <div key={f.id} className="flex items-start gap-2 p-3 rounded-md bg-muted/40">
@@ -332,12 +334,12 @@ function ProductDetailContent({ slug }: { slug: string }) {
           <section id="quote-form" className="container-amc pb-12 scroll-mt-20">
             <div className="card-base p-6 lg:p-8 max-w-3xl mx-auto">
               <h3 className="font-display font-bold text-lg mb-2">
-                Cotizar: {product.name}
+                Cotizar: {p.name}
               </h3>
               <p className="text-sm text-muted-foreground mb-6">
                 Completa el formulario y recibe una propuesta personalizada en menos de 24 horas hábiles.
               </p>
-              <QuoteForm productName={product.name} productId={product.id} source="producto-detalle" />
+              <QuoteForm productName={p.name} productId={p.id} source="producto-detalle" />
             </div>
           </section>
         </FadeIn>
@@ -347,27 +349,27 @@ function ProductDetailContent({ slug }: { slug: string }) {
       <section className="container-amc py-12 border-t border-border">
         <Tabs defaultValue="features" className="w-full">
           <TabsList className="w-full justify-start flex-wrap h-auto p-1 bg-muted/40">
-            {product.features.length > 0 && (
+            {p.features.length > 0 && (
               <TabsTrigger value="features" className="data-[state=active]:bg-background">
                 Características
               </TabsTrigger>
             )}
-            {product.specifications.length > 0 && (
+            {p.specifications.length > 0 && (
               <TabsTrigger value="specs" className="data-[state=active]:bg-background">
                 Especificaciones
               </TabsTrigger>
             )}
-            {product.applications.length > 0 && (
+            {p.applications.length > 0 && (
               <TabsTrigger value="applications" className="data-[state=active]:bg-background">
                 Aplicaciones
               </TabsTrigger>
             )}
-            {product.documents.length > 0 && (
+            {p.documents.length > 0 && (
               <TabsTrigger value="documents" className="data-[state=active]:bg-background">
                 Documentos
               </TabsTrigger>
             )}
-            {product.videos.length > 0 && (
+            {p.videos.length > 0 && (
               <TabsTrigger value="videos" className="data-[state=active]:bg-background">
                 Videos
               </TabsTrigger>
@@ -375,10 +377,10 @@ function ProductDetailContent({ slug }: { slug: string }) {
           </TabsList>
 
           {/* Features tab */}
-          {product.features.length > 0 && (
+          {p.features.length > 0 && (
             <TabsContent value="features" className="mt-8">
               <StaggerContainer className="grid sm:grid-cols-2 gap-5">
-                {product.features.map((f) => {
+                {p.features.map((f) => {
                   const Icon = (LucideIcons as any)[f.icon || "CheckCircle2"] || CheckCircle2;
                   return (
                     <StaggerItem key={f.id}>
@@ -399,7 +401,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
           )}
 
           {/* Specs tab */}
-          {product.specifications.length > 0 && (
+          {p.specifications.length > 0 && (
             <TabsContent value="specs" className="mt-8">
               <div className="space-y-8">
                 {Object.entries(specsByGroup).map(([group, specs]) => (
@@ -426,10 +428,10 @@ function ProductDetailContent({ slug }: { slug: string }) {
           )}
 
           {/* Applications tab */}
-          {product.applications.length > 0 && (
+          {p.applications.length > 0 && (
             <TabsContent value="applications" className="mt-8">
               <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {product.applications.map((a) => (
+                {p.applications.map((a) => (
                   <StaggerItem key={a.id}>
                     <div className="card-base p-5 h-full">
                       <div className="font-display font-semibold text-base mb-2">{a.name}</div>
@@ -446,10 +448,10 @@ function ProductDetailContent({ slug }: { slug: string }) {
           )}
 
           {/* Documents tab */}
-          {product.documents.length > 0 && (
+          {p.documents.length > 0 && (
             <TabsContent value="documents" className="mt-8">
               <div className="space-y-3 max-w-2xl">
-                {product.documents.map((d) => (
+                {p.documents.map((d) => (
                   <a
                     key={d.id}
                     href={d.url}
@@ -475,10 +477,10 @@ function ProductDetailContent({ slug }: { slug: string }) {
           )}
 
           {/* Videos tab */}
-          {product.videos.length > 0 && (
+          {p.videos.length > 0 && (
             <TabsContent value="videos" className="mt-8">
               <div className="grid sm:grid-cols-2 gap-5">
-                {product.videos.map((v) => (
+                {p.videos.map((v) => (
                   <div key={v.id} className="card-base overflow-hidden">
                     <div className="aspect-video bg-slate-950 flex items-center justify-center">
                       {v.provider === "youtube" ? (
@@ -521,7 +523,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
             <h2 className="display-3 mb-6">Descripción detallada</h2>
             <div className="prose prose-slate max-w-none">
               <p className="text-base text-muted-foreground leading-relaxed whitespace-pre-line">
-                {product.description}
+                {p.description}
               </p>
             </div>
           </div>
@@ -550,16 +552,16 @@ function ProductDetailContent({ slug }: { slug: string }) {
         <section className="container-amc py-12 border-t border-border">
           <h2 className="display-3 mb-8">Productos relacionados</h2>
           <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {related.map((p) => (
-              <StaggerItem key={p.id}>
+            {related.map((r) => (
+              <StaggerItem key={r.id}>
                 <ProductCard
-                  name={p.name}
-                  slug={p.slug}
-                  category={product.category.name}
-                  categorySlug={product.category.slug}
-                  tag={p.isFeatured ? "Destacado" : p.isNew ? "Nuevo" : undefined}
-                  tagVariant={p.isFeatured ? "warning" : "primary"}
-                  isNew={p.isNew}
+                  name={r.name}
+                  slug={r.slug}
+                  category={r.category?.name || ""}
+                  categorySlug={r.category?.slug || ""}
+                  tag={r.isFeatured ? "Destacado" : r.isNew ? "Nuevo" : undefined}
+                  tagVariant={r.isFeatured ? "warning" : "primary"}
+                  isNew={r.isNew}
                 />
               </StaggerItem>
             ))}
