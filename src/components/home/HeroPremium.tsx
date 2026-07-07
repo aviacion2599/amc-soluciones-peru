@@ -80,21 +80,18 @@ export function HeroPremium() {
             </dl>
           </div>
 
-          {/* Derecha — máquina inmersiva sin bordes de tarjeta */}
+          {/* Derecha — máquina sin fondo, sobre el dark hero */}
           <div className="relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-2xl lg:max-w-3xl xl:max-w-4xl">
-              {/* Mask to fade bottom edge into dark background */}
-              <div className="relative h-[300px] sm:h-[350px] md:h-[400px] lg:h-[520px] xl:h-[580px]">
+            <div className="relative w-full max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl">
+              <div className="relative w-full h-[280px] sm:h-[340px] md:h-[400px] lg:h-[480px] xl:h-[540px]">
                 <Image
                   src="/hero-right.png"
                   alt="Contadora de billetes AMC — Equipo profesional de conteo de efectivo"
                   fill
-                  sizes="(max-width: 1024px) 90vw, 700px"
-                  className="object-cover object-center object-top"
+                  sizes="(max-width: 1024px) 80vw, 550px"
+                  className="object-contain object-center"
                   priority
                 />
-                {/* Fade mask at bottom to blend into dark background */}
-                <div className="absolute inset-x-0 bottom-0 h-[30%] bg-gradient-to-t from-[#060d1a] via-[#060d1a]/60 to-transparent pointer-events-none" />
               </div>
             </div>
           </div>
