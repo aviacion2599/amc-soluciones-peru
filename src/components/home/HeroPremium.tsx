@@ -96,8 +96,8 @@ export function HeroPremium() {
         </div>
       </div>
 
-      {/* Bottom gradient fade to background */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
+      {/* Transición pronunciada: azul oscuro → fondo claro */}
+      <div className="absolute bottom-0 left-0 right-0 h-56 lg:h-72 bg-gradient-to-t from-background via-background/80 to-transparent" />
     </section>
   );
 }
