@@ -114,6 +114,7 @@ function CategoriaDetalleContent({ slug }: { slug: string }) {
                   tagVariant={p.isBestSeller ? "success" : p.isNew ? "primary" : "warning"}
                   isNew={p.isNew}
                   brand={p.brand?.name}
+                  summary={p.summary}
                 />
               </StaggerItem>
             ))}

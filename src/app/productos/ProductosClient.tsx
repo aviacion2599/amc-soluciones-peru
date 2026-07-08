@@ -199,7 +199,7 @@ function ProductosContent() {
                       src="/equip/amc-3200.png"
                       alt="AMC-3200"
                       className="w-full h-auto object-contain"
-                      style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.35))', opacity: 0.7 }}
+                      style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.35)) brightness(1.1)', opacity: 0.75, mixBlendMode: 'screen' }}
                     />
                   </div>
 
@@ -209,7 +209,7 @@ function ProductosContent() {
                       src="/equip/amc-9100.png"
                       alt="AMC-9100"
                       className="w-full h-auto object-contain"
-                      style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.3))', opacity: 0.65 }}
+                      style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.3)) brightness(1.1)', opacity: 0.7, mixBlendMode: 'screen' }}
                     />
                   </div>
 
@@ -219,17 +219,17 @@ function ProductosContent() {
                       src="/equip/amc-2000.png"
                       alt="AMC-2000"
                       className="w-full h-auto object-contain"
-                      style={{ filter: 'drop-shadow(0 12px 32px rgba(0,0,0,0.45))' }}
+                      style={{ filter: 'drop-shadow(0 12px 32px rgba(0,0,0,0.45)) brightness(1.15)', mixBlendMode: 'screen' }}
                     />
                   </div>
                 </div>
               </SlideIn>
             </div>
 
-            {/* MOBILE — Equipment images above title, max 2 */}
-            <div className="lg:hidden order-1 flex justify-center gap-4 mb-6 px-4">
+            {/* MOBILE — Equipment images above title, max 2, mix-blend-mode for transparent look */}
+            <div className="lg:hidden order-1 flex justify-center gap-3 mb-4 px-4">
               <FadeIn delay={0.1}>
-                <div className="relative" style={{ width: '44%' }}>
+                <div className="relative" style={{ width: '46%' }}>
                   <div
                     className="absolute inset-0 rounded-full blur-2xl opacity-30"
                     style={{ background: 'radial-gradient(circle, rgba(56, 130, 246, 0.4), transparent 70%)' }}
@@ -239,17 +239,17 @@ function ProductosContent() {
                     src="/equip/amc-2000.png"
                     alt="AMC-2000"
                     className="relative w-full h-auto object-contain"
-                    style={{ filter: 'drop-shadow(0 6px 18px rgba(0,0,0,0.4))' }}
+                    style={{ filter: 'drop-shadow(0 6px 18px rgba(56,130,246,0.3)) brightness(1.15)', mixBlendMode: 'screen' }}
                   />
                 </div>
               </FadeIn>
               <FadeIn delay={0.25}>
-                <div className="relative" style={{ width: '44%' }}>
+                <div className="relative" style={{ width: '46%' }}>
                   <img
                     src="/equip/amc-3200.png"
                     alt="AMC-3200"
                     className="w-full h-auto object-contain"
-                    style={{ filter: 'drop-shadow(0 6px 18px rgba(0,0,0,0.35))', opacity: 0.75 }}
+                    style={{ filter: 'drop-shadow(0 6px 18px rgba(56,130,246,0.25)) brightness(1.1)', opacity: 0.8, mixBlendMode: 'screen' }}
                   />
                 </div>
               </FadeIn>
@@ -262,14 +262,14 @@ function ProductosContent() {
       </section>
       {/* ===== END CUSTOM PRODUCT HERO ===== */}
 
-      <div className="container-amc py-10">
+      <div className="container-amc py-6 sm:py-10">
         <Breadcrumb
           items={[
             { label: "Productos" },
           ]}
         />
 
-        <div className="grid lg:grid-cols-[260px_1fr] gap-8 mt-6">
+        <div className="grid lg:grid-cols-[260px_1fr] gap-6 lg:gap-8 mt-4 lg:mt-6">
           {/* Sidebar filtros — desktop */}
           <aside className="hidden lg:block sticky top-24 self-start space-y-6">
             <FiltersPanel
@@ -309,27 +309,27 @@ function ProductosContent() {
 
           {/* Main content */}
           <div>
-            {/* Toolbar */}
-            <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-border">
-              <div className="text-sm text-muted-foreground">
+            {/* Toolbar — compact mobile */}
+            <div className="flex items-center justify-between gap-2 mb-5 pb-3 border-b border-border">
+              <div className="text-xs sm:text-sm text-muted-foreground">
                 {loading ? (
                   <span>Cargando...</span>
                 ) : (
                   <span>
-                    <strong className="text-foreground">{pagination.total}</strong> producto{pagination.total !== 1 ? "s" : ""} encontrado{pagination.total !== 1 ? "s" : ""}
+                    <strong className="text-foreground">{pagination.total}</strong> producto{pagination.total !== 1 ? "s" : ""}
                   </span>
                 )}
               </div>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setShowMobileFilters(true)}
-                  className="lg:hidden btn-outline px-3 py-2 text-xs"
+                  className="lg:hidden btn-outline px-2.5 py-1.5 text-xs"
                 >
                   <SlidersHorizontal className="w-3.5 h-3.5" />
-                  Filtros
+                  <span className="hidden sm:inline ml-1">Filtros</span>
                 </button>
                 <Select value={filters.sort} onValueChange={(v) => updateFilter("sort", v)}>
-                  <SelectTrigger className="w-[200px] h-9 text-xs">
+                  <SelectTrigger className="w-auto min-w-[140px] sm:w-[200px] h-8 sm:h-9 text-xs">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -343,9 +343,9 @@ function ProductosContent() {
               </div>
             </div>
 
-            {/* Products grid */}
+            {/* Products grid — mobile-first: 1 col, sm: 2 col, lg: 3 col */}
             {loading ? (
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {Array.from({ length: 6 }).map((_, i) => (
                   <Skeleton key={i} className="aspect-[4/3] rounded-xl" />
                 ))}
@@ -366,7 +366,7 @@ function ProductosContent() {
                 </div>
               </FadeIn>
             ) : (
-              <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {products.map((p) => (
                   <StaggerItem key={p.id}>
                     <ProductCard
@@ -378,6 +378,7 @@ function ProductosContent() {
                       tagVariant={p.isBestSeller ? "success" : p.isNew ? "primary" : "warning"}
                       isNew={p.isNew}
                       brand={p.brand?.name}
+                      summary={p.summary}
                     />
                   </StaggerItem>
                 ))}
