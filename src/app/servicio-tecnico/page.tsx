@@ -29,9 +29,6 @@ const SERVICES = [
   {
     code: "S-01",
     icon: Wrench,
-    title: "Reparación",
-    description: "Diagnóstico y reparación especializada con repuestos originales y compatibles según disponibilidad del modelo. Recuperamos la precisión y confiabilidad de tu equipo.",
-    features: ["Diagnóstico gratuito", "Repuestos originales", "Garantía de reparación 90 días", "Reporte técnico detallado"],
     title: "Reparación Especializada",
     description: "Diagnóstico y reparación especializada con repuestos originales y compatibles según disponibilidad del modelo. Recuperamos la precisión y confiabilidad de tu equipo.",
     features: ["Diagnóstico gratuito", "Repuestos originales y compatibles", "Garantía de reparación 90 días", "Reporte técnico detallado"],
@@ -41,13 +38,11 @@ const SERVICES = [
     icon: Gauge,
     title: "Calibración de Precisión",
     description: "Ajuste y verificación técnica de sensores CIS, UV, MG, IR, MT/TMR y sensor de espesor para recuperar la precisión de detección, conteo y validación del equipo.",
-    features: ["Calibración con patrón de referencia", "Ajuste de sensores UV/MG/IR", "Pruebas de validación", "Reporte técnico"],
     features: ["Calibración con patrón de referencia", "Ajuste de sensores CIS/UV/MG/IR", "Pruebas de validación", "Reporte técnico"],
   },
   {
     code: "S-03",
     icon: Cpu,
-    title: "Diagnóstico",
     title: "Diagnóstico por Control",
     description: "Evaluación técnica completa del equipo con revisión de sensores, sistema de alimentación, conteo, detección y estado general antes de decidir una reparación.",
     features: ["Evaluación de 30 puntos", "Reporte fotográfico", "Estimación de vida útil", "Plan de mantenimiento recomendado"],
@@ -57,7 +52,6 @@ const SERVICES = [
     icon: ShieldCheck,
     title: "Mantenimiento Preventivo",
     description: "Planes programados de mantenimiento preventivo para reducir fallas, mejorar la alimentación de billetes y mantener la continuidad operativa del negocio.",
-    features: ["Visitas programadas", "Limpieza profunda", "Lubricación de partes móviles", "Calibración incluida", "Descuento en repuestos"],
     features: ["Visitas programadas", "Limpieza técnica profunda", "Lubricación de partes móviles", "Calibración incluida", "Descuento en repuestos"],
   },
   {
