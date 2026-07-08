@@ -86,7 +86,7 @@ export function ProductCard({
         featured
           ? "px-6 pt-10 pb-6 sm:px-10 sm:pt-12 sm:pb-8"
           : "px-6 pt-8 pb-4 sm:px-8 sm:pt-10 sm:pb-6",
-      )
+      )}
         aria-label={`Ver detalles de ${name}`}
       >
         {/* Tag badge */}
