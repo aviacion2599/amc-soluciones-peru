@@ -54,7 +54,7 @@ export function Header() {
         )}
         role="banner"
       >
-        <div className="container-amc">
+        <div className="container-amc pl-1 sm:pl-2">
           <div className="flex items-center justify-between h-14">
             {/* Brand — Logo AMC imagen */}
             <Link
@@ -67,7 +67,8 @@ export function Header() {
                 <img
                   src="/logo-final.png"
                   alt={AMCCONFIG.company.brandName}
-                  className="h-9 sm:h-11 w-auto object-contain"
+                  className="h-[50px] sm:h-[62px] w-auto object-contain drop-shadow-[0_1px_3px_rgba(255,255,255,0.15)]"
+                  style={{ imageRendering: 'auto' }}
                 />
               </picture>
             </Link>
@@ -186,7 +187,8 @@ export function Header() {
                 <img
                   src="/logo-final.png"
                   alt={AMCCONFIG.company.brandName}
-                  className="h-10 sm:h-14 w-auto object-contain"
+                  className="h-12 sm:h-16 w-auto object-contain drop-shadow-[0_1px_3px_rgba(255,255,255,0.15)]"
+                  style={{ imageRendering: 'auto' }}
                 />
               </picture>
           </Link>

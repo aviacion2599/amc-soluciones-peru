@@ -2,16 +2,15 @@
 
 import * as React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Banknote, Coins, ScanLine, Settings2, Filter, X, SlidersHorizontal } from "lucide-react";
+import { Banknote, Filter, X, SlidersHorizontal } from "lucide-react";
 import * as LucideIcons from "lucide-react";
-import { PageTransition, FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/Motion";
-import { PageHero } from "@/components/shared/PageHero";
+import { PageTransition, FadeIn, StaggerContainer, StaggerItem, HeroReveal, HeroRevealItem, SlideIn } from "@/components/shared/Motion";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Banknote as BanknoteIcon } from "lucide-react";
+
 
 interface Product {
   id: string;
@@ -143,19 +142,125 @@ function ProductosContent() {
 
   return (
     <div className="overflow-x-hidden">
-      <PageHero
-        overline="Catálogo completo"
-        title={
-          <>
-            Equipos profesionales de{" "}
-            <span className="bg-gradient-to-r from-sky-200 to-blue-300 bg-clip-text text-transparent">
-              manejo de efectivo
-            </span>
-          </>
-        }
-        description="Explora nuestra gama completa de contadoras, clasificadoras, detectores y accesorios. Cada equipo con ficha técnica detallada, garantía oficial y soporte técnico certificado."
-        icon={Banknote}
-      />
+      {/* ===== CUSTOM PRODUCT HERO ===== */}
+      <section className="relative overflow-hidden bg-primary-dark text-white">
+        {/* Background layers */}
+        <div className="absolute inset-0 bg-grid-pattern-dark opacity-30" aria-hidden="true" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 50% 50% at 70% 50%, rgba(56, 130, 246, 0.12), transparent 70%), radial-gradient(ellipse 60% 60% at 30% 30%, rgba(176, 176, 176, 0.10), transparent 60%)",
+          }}
+          aria-hidden="true"
+        />
+
+        <div className="container-amc relative py-16 lg:py-24 pt-24 lg:pt-28">
+          <div className="grid lg:grid-cols-[1fr_0.55fr] gap-8 lg:gap-4 items-center">
+            {/* LEFT — Text content */}
+            <HeroReveal className="max-w-2xl order-2 lg:order-1">
+              <HeroRevealItem className="flex items-center gap-2 mb-4">
+                <div className="w-10 h-10 rounded-md flex items-center justify-center bg-white/10 text-sky-200">
+                  <Banknote className="w-5 h-5" strokeWidth={1.75} />
+                </div>
+                <span className="overline text-slate-300">CATÁLOGO COMPLETO</span>
+              </HeroRevealItem>
+
+              <HeroRevealItem>
+                <h1 className="display-1 mb-5 text-balance text-white" style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}>
+                  Equipos profesionales para{" "}
+                  <span className="bg-gradient-to-r from-sky-200 to-blue-300 bg-clip-text text-transparent">
+                    manejo de efectivo
+                  </span>
+                </h1>
+              </HeroRevealItem>
+
+              <HeroRevealItem>
+                <p className="text-base sm:text-lg leading-relaxed max-w-xl text-slate-300">
+                  Explora nuestra gama completa de contadoras, clasificadoras, detectores y accesorios. Cada equipo con ficha técnica detallada, garantía oficial y soporte técnico especializado.
+                </p>
+              </HeroRevealItem>
+            </HeroReveal>
+
+            {/* RIGHT — Equipment composition (hidden on mobile, shown lg+) */}
+            <div className="hidden lg:block order-2">
+              <SlideIn from="right" delay={0.2}>
+                <div className="relative w-full" style={{ maxWidth: '420px', marginLeft: 'auto' }}>
+                  {/* Blue glow behind machines */}
+                  <div
+                    className="absolute inset-0 rounded-full blur-3xl opacity-40"
+                    style={{ background: 'radial-gradient(circle, rgba(56, 130, 246, 0.35), transparent 70%)' }}
+                    aria-hidden="true"
+                  />
+
+                  {/* AMC-3200 — behind left, slightly smaller */}
+                  <div className="absolute" style={{ bottom: '10%', left: '-5%', width: '58%', zIndex: 1 }}>
+                    <img
+                      src="/equip/amc-3200.png"
+                      alt="AMC-3200"
+                      className="w-full h-auto object-contain"
+                      style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.35))', opacity: 0.7 }}
+                    />
+                  </div>
+
+                  {/* AMC-9100 — right, professional line */}
+                  <div className="absolute" style={{ bottom: '5%', right: '-8%', width: '55%', zIndex: 1 }}>
+                    <img
+                      src="/equip/amc-9100.png"
+                      alt="AMC-9100"
+                      className="w-full h-auto object-contain"
+                      style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.3))', opacity: 0.65 }}
+                    />
+                  </div>
+
+                  {/* AMC-2000 — FRONT, main, larger */}
+                  <div className="relative" style={{ width: '70%', margin: '0 auto', zIndex: 2 }}>
+                    <img
+                      src="/equip/amc-2000.png"
+                      alt="AMC-2000"
+                      className="w-full h-auto object-contain"
+                      style={{ filter: 'drop-shadow(0 12px 32px rgba(0,0,0,0.45))' }}
+                    />
+                  </div>
+                </div>
+              </SlideIn>
+            </div>
+
+            {/* MOBILE — Equipment images above title, max 2 */}
+            <div className="lg:hidden order-1 flex justify-center gap-4 mb-6 px-4">
+              <FadeIn delay={0.1}>
+                <div className="relative" style={{ width: '44%' }}>
+                  <div
+                    className="absolute inset-0 rounded-full blur-2xl opacity-30"
+                    style={{ background: 'radial-gradient(circle, rgba(56, 130, 246, 0.4), transparent 70%)' }}
+                    aria-hidden="true"
+                  />
+                  <img
+                    src="/equip/amc-2000.png"
+                    alt="AMC-2000"
+                    className="relative w-full h-auto object-contain"
+                    style={{ filter: 'drop-shadow(0 6px 18px rgba(0,0,0,0.4))' }}
+                  />
+                </div>
+              </FadeIn>
+              <FadeIn delay={0.25}>
+                <div className="relative" style={{ width: '44%' }}>
+                  <img
+                    src="/equip/amc-3200.png"
+                    alt="AMC-3200"
+                    className="w-full h-auto object-contain"
+                    style={{ filter: 'drop-shadow(0 6px 18px rgba(0,0,0,0.35))', opacity: 0.75 }}
+                  />
+                </div>
+              </FadeIn>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-light/40 to-transparent" />
+      </section>
+      {/* ===== END CUSTOM PRODUCT HERO ===== */}
 
       <div className="container-amc py-10">
         <Breadcrumb
@@ -357,7 +462,7 @@ function FiltersPanel({
             Todas
           </button>
           {categories.map((c) => {
-            const Icon = (LucideIcons as any)[c.icon] || BanknoteIcon;
+            const Icon = (LucideIcons as any)[c.icon] || Banknote;
             return (
               <button
                 key={c.id}
