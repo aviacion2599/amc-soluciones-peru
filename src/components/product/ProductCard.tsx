@@ -110,7 +110,7 @@ export function ProductCard({
             featured
               ? "w-[194px] h-[194px] sm:w-56 sm:h-56 lg:w-60 lg:h-60"
               : "w-36 h-36 sm:w-44 sm:h-44 lg:w-48 lg:h-48",
-          )
+          )}
           loading="lazy"
         />
       </Link>
