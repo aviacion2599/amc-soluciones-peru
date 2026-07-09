@@ -82,13 +82,13 @@ export function HeroPremium() {
 
           {/* Derecha — máquina sin fondo, sobre el dark hero */}
           <div className="relative flex justify-center lg:justify-end order-first lg:order-last">
-            <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-2xl">
-              <div className="relative w-full h-[220px] sm:h-[280px] md:h-[360px] lg:h-[480px] xl:h-[540px]">
+            <div className="relative w-full max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
+              <div className="relative w-full h-[300px] sm:h-[340px] md:h-[400px] lg:h-[480px] xl:h-[540px]">
                 <Image
                   src="/hero-right.png"
                   alt="Contadora de billetes AMC — Equipo profesional de conteo de efectivo"
                   fill
-                  sizes="(max-width: 1024px) 80vw, 550px"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 85vw, 550px"
                   className="object-contain object-center"
                   priority
                 />
