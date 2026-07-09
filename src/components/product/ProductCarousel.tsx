@@ -42,7 +42,7 @@ export function ProductCarousel({
 
   const [paused, setPaused] = React.useState(false);
 
-  // Autoplay — ALL devices (mobile + desktop)
+  // Autoplay — ALL devices
   React.useEffect(() => {
     if (!emblaApi || paused) return;
     const id = setInterval(() => emblaApi.scrollNext(), autoplayInterval);
@@ -56,6 +56,11 @@ export function ProductCarousel({
       className="relative overflow-hidden bg-[#0B132B] py-8 sm:py-12 lg:py-16"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
+      onTouchStart={() => setPaused(true)}
+      onTouchEnd={() => {
+        // Resume after 3s on mobile
+        setTimeout(() => setPaused(false), 3000);
+      }}
     >
       {/* Subtle background effects */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -88,7 +93,7 @@ export function ProductCarousel({
         </div>
       </div>
 
-      {/* Carousel — overflow-hidden OUTSIDE container-amc for full-bleed feel */}
+      {/* Carousel */}
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {products.map((product) => {
@@ -104,35 +109,37 @@ export function ProductCarousel({
                 <div className="px-1.5 sm:px-2.5 lg:px-3">
                   <Link
                     href={`/productos/${product.slug}`}
-                    className="block bg-white/[0.04] backdrop-blur-sm rounded-2xl p-3 sm:p-5 lg:p-6 border border-white/[0.06] hover:border-blue-400/30 transition-all duration-300 group h-full"
+                    className="relative block bg-white/[0.04] backdrop-blur-sm rounded-2xl border border-white/[0.06] hover:border-blue-400/30 transition-all duration-300 group overflow-hidden"
                   >
-                    {/* Tag */}
+                    {/* Tag — TOP RIGHT, absolute positioned */}
                     {product.tag && (
-                      <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-semibold bg-blue-500/20 text-blue-300 mb-2 sm:mb-3">
+                      <span className="absolute top-2.5 right-2.5 sm:top-3.5 sm:right-3.5 z-10 px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-semibold bg-blue-500/20 text-blue-300">
                         {product.tag}
                       </span>
                     )}
 
-                    {/* Image — fixed aspect ratio for alignment */}
-                    <div className="relative w-full mb-3 sm:mb-4" style={{ aspectRatio: "1 / 1" }}>
+                    {/* Image — fixed 1:1 aspect ratio */}
+                    <div className="relative w-full" style={{ aspectRatio: "1 / 1" }}>
                       <Image
                         src={imgSrc}
                         alt={product.name}
                         fill
-                        className="object-contain p-1 sm:p-3 transition-transform duration-500 group-hover:scale-105"
+                        className="object-contain p-3 sm:p-4 lg:p-5 transition-transform duration-500 group-hover:scale-105"
                         sizes="(max-width: 640px) 75vw, (max-width: 1024px) 40vw, 22vw"
                       />
                     </div>
 
-                    {/* Info */}
-                    <h3 className="text-center text-white font-display font-bold text-xs sm:text-sm lg:text-base line-clamp-1 group-hover:text-blue-300 transition-colors">
-                      {product.name}
-                    </h3>
-                    {product.brand && (
-                      <p className="text-center text-[10px] sm:text-xs text-white/35 mt-0.5 sm:mt-1">
-                        {product.brand}
-                      </p>
-                    )}
+                    {/* Info — centered, consistent padding */}
+                    <div className="px-3 py-3 sm:px-4 sm:py-4 lg:px-5 lg:py-4 text-center">
+                      <h3 className="text-white font-display font-bold text-xs sm:text-sm lg:text-base line-clamp-1 group-hover:text-blue-300 transition-colors">
+                        {product.name}
+                      </h3>
+                      {product.brand && (
+                        <p className="text-[10px] sm:text-xs text-white/35 mt-0.5 sm:mt-1">
+                          {product.brand}
+                        </p>
+                      )}
+                    </div>
                   </Link>
                 </div>
               </div>
