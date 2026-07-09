@@ -7,6 +7,7 @@ import * as LucideIcons from "lucide-react";
 import { PageTransition, FadeIn, StaggerContainer, StaggerItem, HeroReveal, HeroRevealItem, SlideIn } from "@/components/shared/Motion";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ProductCard } from "@/components/product/ProductCard";
+import { ProductCarousel } from "@/components/product/ProductCarousel";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -261,6 +262,21 @@ function ProductosContent() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-light/40 to-transparent" />
       </section>
       {/* ===== END CUSTOM PRODUCT HERO ===== */}
+
+      {/* ===== PRODUCT IMAGE CAROUSEL ===== */}
+      {!loading && products.length > 0 && (
+        <ProductCarousel
+          products={products.map((p) => ({
+            id: p.id,
+            name: p.name,
+            slug: p.slug,
+            categorySlug: p.category.slug,
+            brand: p.brand?.name || undefined,
+            tag: p.isBestSeller ? "Más vendido" : p.isNew ? "Nuevo" : p.isFeatured ? "Destacado" : undefined,
+          }))}
+        />
+      )}
+      {/* ===== END PRODUCT IMAGE CAROUSEL ===== */}
 
       <div className="container-amc py-6 sm:py-10">
         <Breadcrumb
