@@ -20,7 +20,6 @@ import {
   Mail,
 } from "lucide-react";
 import { PageTransition, FadeIn, StaggerContainer, StaggerItem, ScaleIn } from "@/components/shared/Motion";
-import { PageHero } from "@/components/shared/PageHero";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { SectionTitle } from "@/components/shared/SectionTitle";
 import { AMCCONFIG } from "@/lib/site-config";
@@ -161,37 +160,96 @@ const PLANS = [
 export default function ServicioTecnicoPage() {
   return (
     <PageTransition>
-      <PageHero
-        overline="Servicio Técnico Especializado"
-        title={
-          <>
-            Servicio técnico que mantiene{" "}
-            <span className="bg-gradient-to-r from-sky-200 to-blue-300 bg-clip-text text-transparent">
-              tu operación en movimiento
-            </span>
-          </>
-        }
-        description="Servicio técnico especializado en equipos GLORY y otras marcas de procesamiento de efectivo. Reparación, calibración, mantenimiento preventivo, actualización de divisas y soporte técnico."
-        icon={Wrench}
-      >
-        <div className="flex flex-wrap gap-3">
-          <Link
-            href="#servicios"
-            className="btn-glass px-5 py-2.5 text-sm"
-          >
-            Ver servicios
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-          <Link
-            href="#cotizar-servicio"
-            className="btn-primary px-5 py-2.5 text-sm bg-white text-primary hover:bg-slate-100"
-            style={{ backgroundColor: "white", color: "var(--primary)" }}
-          >
-            <Wrench className="w-4 h-4" />
-            Solicitar servicio
-          </Link>
+      {/* ===== FULL-BLEED HERO ===== */}
+      <section className="relative min-h-[100svh] flex items-end overflow-hidden">
+        {/* Background image — desktop: horizontal, mobile: vertical */}
+        <picture className="absolute inset-0">
+          <source
+            media="(min-width: 768px)"
+            srcSet="/servicio-tecnico-hero-desktop.webp"
+            type="image/webp"
+          />
+          <img
+            src="/servicio-tecnico-hero-mobile.webp"
+            alt="AMC Soluciones Perú — Servicio técnico especializado en equipos de conteo de efectivo"
+            className="absolute inset-0 w-full h-full object-cover object-center md:object-center"
+          />
+        </picture>
+
+        {/* Multi-layer overlay for depth + readability */}
+        <div className="absolute inset-0" aria-hidden="true">
+          {/* Base dark veil — lighter at bottom per user request */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/30" />
+          {/* Left-to-right text readability gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent md:from-black/50 md:via-transparent md:to-black/30" />
+          {/* Minimal bottom fade for smooth transition to content */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background/90 to-transparent" />
+          {/* Blue accent glow */}
+          <div
+            className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/[0.06] rounded-full blur-3xl"
+          />
+          {/* Subtle grid texture */}
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
+              backgroundSize: "60px 60px",
+            }}
+          />
+          {/* Top edge gradient for transparent header blend */}
+          <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black/30 to-transparent" />
         </div>
-      </PageHero>
+
+        {/* Hero content — positioned at bottom-left on desktop, bottom-center on mobile */}
+        <div className="relative w-full pb-14 sm:pb-18 lg:pb-20 pt-32 sm:pt-36 lg:pt-40 px-6 sm:px-8">
+          <div className="container-amc">
+            <div className="max-w-2xl">
+              {/* Overline */}
+              <div className="inline-flex items-center gap-2 mb-4 sm:mb-5">
+                <div className="w-8 h-px bg-gold" />
+                <span className="overline text-gold tracking-widest">Servicio Técnico</span>
+              </div>
+
+              {/* Headline */}
+              <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.1] mb-5 sm:mb-6">
+                Servicio técnico que mantiene{" "}
+                <span className="bg-gradient-to-r from-gold to-amber-300 bg-clip-text text-transparent">
+                  tu operación en movimiento
+                </span>
+              </h1>
+
+              {/* Subtitle */}
+              <p className="text-sm sm:text-base lg:text-lg text-white/70 leading-relaxed max-w-xl mb-8 sm:mb-10">
+                Especializados en equipos GLORY y otras marcas de procesamiento de efectivo. Reparación, calibración, mantenimiento preventivo, actualización de divisas y soporte técnico.
+              </p>
+
+              {/* CTA buttons */}
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="#servicios"
+                  className="btn-glass px-5 py-2.5 text-sm"
+                >
+                  Ver servicios
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="#cotizar-servicio"
+                  className="btn-primary px-5 py-2.5 text-sm bg-white text-primary hover:bg-slate-100"
+                  style={{ backgroundColor: "white", color: "var(--primary)" }}
+                >
+                  <Wrench className="w-4 h-4" />
+                  Solicitar servicio
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Decorative bottom line */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+      </section>
+      {/* ===== END FULL-BLEED HERO ===== */}
 
       <div className="container-amc py-10">
         <Breadcrumb items={[{ label: "Servicio Técnico" }]} />

@@ -58,12 +58,12 @@ export default function NosotrosPage() {
 
         {/* Multi-layer overlay for depth + readability */}
         <div className="absolute inset-0" aria-hidden="true">
-          {/* Base dark veil */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70" />
+          {/* Base dark veil — lighter at bottom */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/30" />
           {/* Left-to-right text readability gradient */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent md:from-black/50 md:via-transparent md:to-black/40" />
-          {/* Bottom fade for smooth transition to content */}
-          <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent" />
+          {/* Minimal bottom fade for smooth transition to content */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background/90 to-transparent" />
           {/* Subtle blue accent glow */}
           <div
             className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-blue-500/[0.08] rounded-full blur-3xl"
@@ -82,7 +82,7 @@ export default function NosotrosPage() {
         </div>
 
         {/* Hero content — positioned at bottom-left on desktop, bottom-center on mobile */}
-        <div className="relative w-full pb-16 sm:pb-20 lg:pb-24 pt-32 sm:pt-36 lg:pt-40 px-6 sm:px-8">
+        <div className="relative w-full pb-14 sm:pb-18 lg:pb-20 pt-32 sm:pt-36 lg:pt-40 px-6 sm:px-8">
           <div className="container-amc">
             <div className="max-w-2xl">
               {/* Overline */}
