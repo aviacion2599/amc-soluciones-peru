@@ -4,7 +4,7 @@ import * as React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Banknote, Filter, X, SlidersHorizontal } from "lucide-react";
 import * as LucideIcons from "lucide-react";
-import { PageTransition, FadeIn, StaggerContainer, StaggerItem, HeroReveal, HeroRevealItem, SlideIn } from "@/components/shared/Motion";
+import { PageTransition, FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/Motion";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ProductCard } from "@/components/product/ProductCard";
 import { ProductCarousel } from "@/components/product/ProductCarousel";
@@ -143,125 +143,97 @@ function ProductosContent() {
 
   return (
     <div className="overflow-x-hidden">
-      {/* ===== CUSTOM PRODUCT HERO ===== */}
-      <section className="relative overflow-hidden bg-primary-dark text-white">
-        {/* Background layers */}
-        <div className="absolute inset-0 bg-grid-pattern-dark opacity-30" aria-hidden="true" />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 50% 50% at 70% 50%, rgba(56, 130, 246, 0.12), transparent 70%), radial-gradient(ellipse 60% 60% at 30% 30%, rgba(176, 176, 176, 0.10), transparent 60%)",
-          }}
-          aria-hidden="true"
-        />
+      {/* ===== FULL-BLEED PRODUCT HERO ===== */}
+      <section className="relative min-h-[100svh] flex items-center lg:items-end overflow-hidden">
+        {/* Background image — desktop: horizontal, mobile: vertical */}
+        <picture className="absolute inset-0">
+          <source
+            media="(min-width: 768px)"
+            srcSet="/productos-hero-desktop.webp"
+            type="image/webp"
+          />
+          <img
+            src="/productos-hero-mobile.webp"
+            alt="AMC Soluciones Perú — Equipos profesionales para manejo de efectivo"
+            className="absolute inset-0 w-full h-full object-cover object-center md:object-bottom"
+          />
+        </picture>
 
-        <div className="container-amc relative py-16 lg:py-24 pt-24 lg:pt-28">
-          <div className="grid lg:grid-cols-[1fr_0.55fr] gap-8 lg:gap-4 items-center">
-            {/* LEFT — Text content */}
-            <HeroReveal className="max-w-2xl order-2 lg:order-1">
-              <HeroRevealItem className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 rounded-md flex items-center justify-center bg-white/10 text-sky-200">
-                  <Banknote className="w-5 h-5" strokeWidth={1.75} />
-                </div>
-                <span className="overline text-slate-300">CATÁLOGO COMPLETO</span>
-              </HeroRevealItem>
+        {/* Multi-layer overlay for depth + readability */}
+        <div className="absolute inset-0" aria-hidden="true">
+          {/* Base dark veil */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/30" />
+          {/* Left-to-right text readability gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-black/20 md:from-black/60 md:via-transparent md:to-black/30" />
+          {/* Bottom fade for smooth transition */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background/90 to-transparent" />
+          {/* Blue accent glow */}
+          <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/[0.06] rounded-full blur-3xl" />
+          {/* Subtle grid texture */}
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
+              backgroundSize: "60px 60px",
+            }}
+          />
+          {/* Top edge gradient for transparent header blend */}
+          <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black/30 to-transparent" />
+        </div>
 
-              <HeroRevealItem>
-                <h1 className="display-1 mb-5 text-balance text-white" style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}>
-                  Equipos profesionales para{" "}
-                  <span className="bg-gradient-to-r from-sky-200 to-blue-300 bg-clip-text text-transparent">
-                    manejo de efectivo
-                  </span>
-                </h1>
-              </HeroRevealItem>
+        {/* Hero content */}
+        <div className="relative w-full py-24 sm:py-28 lg:py-0 lg:pb-20 pt-28 sm:pt-32 lg:pt-40 px-6 sm:px-8">
+          <div className="container-amc">
+            <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+              {/* Overline */}
+              <div className="inline-flex items-center gap-2 mb-4 sm:mb-5 justify-center lg:justify-start">
+                <div className="w-8 h-px bg-gold" />
+                <span className="overline text-gold tracking-widest">CATÁLOGO COMPLETO</span>
+                <div className="w-8 h-px bg-gold" />
+              </div>
 
-              <HeroRevealItem>
-                <p className="text-base sm:text-lg leading-relaxed max-w-xl text-slate-300">
-                  Explora nuestra gama completa de contadoras, clasificadoras, detectores y accesorios. Cada equipo con ficha técnica detallada, garantía oficial y soporte técnico especializado.
-                </p>
-              </HeroRevealItem>
-            </HeroReveal>
+              {/* Headline */}
+              <h1 className="display-2 text-white mb-5 sm:mb-6">
+                Equipos profesionales para{" "}
+                <span className="bg-gradient-to-r from-gold to-amber-300 bg-clip-text text-transparent">
+                  manejo de efectivo
+                </span>
+              </h1>
 
-            {/* RIGHT — Equipment composition (hidden on mobile, shown lg+) */}
-            <div className="hidden lg:block order-2">
-              <SlideIn from="right" delay={0.2}>
-                <div className="relative w-full" style={{ maxWidth: '420px', marginLeft: 'auto' }}>
-                  {/* Blue glow behind machines */}
-                  <div
-                    className="absolute inset-0 rounded-full blur-3xl opacity-40"
-                    style={{ background: 'radial-gradient(circle, rgba(56, 130, 246, 0.35), transparent 70%)' }}
-                    aria-hidden="true"
-                  />
+              {/* Subtitle */}
+              <p className="text-sm sm:text-base lg:text-lg text-white/70 leading-relaxed max-w-xl mb-8 sm:mb-10 mx-auto lg:mx-0">
+                Explora nuestra gama completa de contadoras, clasificadoras, detectores y accesorios. Cada equipo con ficha técnica detallada, garantía oficial y soporte técnico especializado.
+              </p>
 
-                  {/* AMC-3200 — behind left, slightly smaller */}
-                  <div className="absolute" style={{ bottom: '10%', left: '-5%', width: '58%', zIndex: 1 }}>
-                    <img
-                      src="/equip/amc-3200.png"
-                      alt="AMC-3200"
-                      className="w-full h-auto object-contain"
-                      style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.35)) brightness(1.1)', opacity: 0.75, mixBlendMode: 'screen' }}
-                    />
-                  </div>
-
-                  {/* AMC-9100 — right, professional line */}
-                  <div className="absolute" style={{ bottom: '5%', right: '-8%', width: '55%', zIndex: 1 }}>
-                    <img
-                      src="/equip/amc-9100.png"
-                      alt="AMC-9100"
-                      className="w-full h-auto object-contain"
-                      style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.3)) brightness(1.1)', opacity: 0.7, mixBlendMode: 'screen' }}
-                    />
-                  </div>
-
-                  {/* AMC-2000 — FRONT, main, larger */}
-                  <div className="relative" style={{ width: '70%', margin: '0 auto', zIndex: 2 }}>
-                    <img
-                      src="/equip/amc-2000.png"
-                      alt="AMC-2000"
-                      className="w-full h-auto object-contain"
-                      style={{ filter: 'drop-shadow(0 12px 32px rgba(0,0,0,0.45)) brightness(1.15)', mixBlendMode: 'screen' }}
-                    />
-                  </div>
-                </div>
-              </SlideIn>
-            </div>
-
-            {/* MOBILE — Equipment images above title, max 2, mix-blend-mode for transparent look */}
-            <div className="lg:hidden order-1 flex justify-center gap-3 mb-4 px-4">
-              <FadeIn delay={0.1}>
-                <div className="relative" style={{ width: '46%' }}>
-                  <div
-                    className="absolute inset-0 rounded-full blur-2xl opacity-30"
-                    style={{ background: 'radial-gradient(circle, rgba(56, 130, 246, 0.4), transparent 70%)' }}
-                    aria-hidden="true"
-                  />
-                  <img
-                    src="/equip/amc-2000.png"
-                    alt="AMC-2000"
-                    className="relative w-full h-auto object-contain"
-                    style={{ filter: 'drop-shadow(0 6px 18px rgba(56,130,246,0.3)) brightness(1.15)', mixBlendMode: 'screen' }}
-                  />
-                </div>
-              </FadeIn>
-              <FadeIn delay={0.25}>
-                <div className="relative" style={{ width: '46%' }}>
-                  <img
-                    src="/equip/amc-3200.png"
-                    alt="AMC-3200"
-                    className="w-full h-auto object-contain"
-                    style={{ filter: 'drop-shadow(0 6px 18px rgba(56,130,246,0.25)) brightness(1.1)', opacity: 0.8, mixBlendMode: 'screen' }}
-                  />
-                </div>
-              </FadeIn>
+              {/* CTA */}
+              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                <a
+                  href="#productos-grid"
+                  className="btn-glass px-5 py-2.5 text-sm"
+                >
+                  Ver catálogo
+                  <Banknote className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://wa.me/51984569125?text=Hola%20AMC%2C%20quiero%20información%20sobre%20productos"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary px-5 py-2.5 text-sm bg-white text-primary hover:bg-slate-100"
+                  style={{ backgroundColor: "white", color: "var(--primary)" }}
+                >
+                  <Banknote className="w-4 h-4" />
+                  Consultar por WhatsApp
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-light/40 to-transparent" />
+        {/* Decorative bottom line */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
       </section>
-      {/* ===== END CUSTOM PRODUCT HERO ===== */}
+      {/* ===== END FULL-BLEED PRODUCT HERO ===== */}
 
       {/* ===== PRODUCT IMAGE CAROUSEL ===== */}
       {!loading && products.length > 0 && (
@@ -278,7 +250,7 @@ function ProductosContent() {
       )}
       {/* ===== END PRODUCT IMAGE CAROUSEL ===== */}
 
-      <div className="container-amc py-6 sm:py-10">
+      <div id="productos-grid" className="container-amc py-6 sm:py-10">
         <Breadcrumb
           items={[
             { label: "Productos" },

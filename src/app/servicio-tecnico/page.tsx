@@ -161,18 +161,18 @@ export default function ServicioTecnicoPage() {
   return (
     <PageTransition>
       {/* ===== FULL-BLEED HERO ===== */}
-      <section className="relative min-h-[100svh] flex items-end overflow-hidden">
+      <section className="relative min-h-[100svh] flex items-center lg:items-end overflow-hidden">
         {/* Background image — desktop: horizontal, mobile: vertical */}
         <picture className="absolute inset-0">
           <source
             media="(min-width: 768px)"
-            srcSet="/st-hero-products-desktop.webp"
+            srcSet="/servicio-tecnico-hero-desktop.webp"
             type="image/webp"
           />
           <img
-            src="/st-hero-products-mobile.webp"
+            src="/servicio-tecnico-hero-mobile.webp"
             alt="AMC Soluciones Perú — Especialistas en contadoras de billetes y monedas"
-            className="absolute inset-0 w-full h-full object-cover object-center md:object-bottom"
+            className="absolute inset-0 w-full h-full object-cover object-center md:object-center"
           />
         </picture>
 
@@ -202,13 +202,14 @@ export default function ServicioTecnicoPage() {
         </div>
 
         {/* Hero content — positioned at bottom-left on desktop, bottom-center on mobile */}
-        <div className="relative w-full pb-14 sm:pb-18 lg:pb-20 pt-32 sm:pt-36 lg:pt-40 px-6 sm:px-8">
+        <div className="relative w-full py-24 sm:py-28 lg:py-0 lg:pb-20 pt-28 sm:pt-32 lg:pt-40 px-6 sm:px-8">
           <div className="container-amc">
-            <div className="max-w-2xl">
+            <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
               {/* Overline */}
-              <div className="inline-flex items-center gap-2 mb-4 sm:mb-5">
+              <div className="inline-flex items-center gap-2 mb-4 sm:mb-5 justify-center lg:justify-start">
                 <div className="w-8 h-px bg-gold" />
                 <span className="overline text-gold tracking-widest">Servicio Técnico</span>
+                <div className="w-8 h-px bg-gold" />
               </div>
 
               {/* Headline */}
@@ -218,12 +219,12 @@ export default function ServicioTecnicoPage() {
               </h1>
 
               {/* Subtitle */}
-              <p className="text-sm sm:text-base lg:text-lg text-white/70 leading-relaxed max-w-xl mb-8 sm:mb-10">
+              <p className="text-sm sm:text-base lg:text-lg text-white/70 leading-relaxed max-w-xl mb-8 sm:mb-10 mx-auto lg:mx-0">
                 Especializados en equipos GLORY y otras marcas de procesamiento de efectivo. Reparación, calibración, mantenimiento preventivo, actualización de divisas y soporte técnico.
               </p>
 
               {/* CTA buttons */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
                 <Link
                   href="#servicios"
                   className="btn-glass px-5 py-2.5 text-sm"
