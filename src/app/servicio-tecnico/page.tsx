@@ -18,11 +18,13 @@ import {
   Settings2,
   Phone,
   Mail,
+  ZoomIn,
 } from "lucide-react";
 import { PageTransition, FadeIn, StaggerContainer, StaggerItem, ScaleIn } from "@/components/shared/Motion";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { SectionTitle } from "@/components/shared/SectionTitle";
 import { AMCCONFIG } from "@/lib/site-config";
+import { Lightbox, useLightbox, type LightboxImage } from "@/components/shared/Lightbox";
 
 const SERVICES = [
   {
@@ -157,7 +159,36 @@ const PLANS = [
   },
 ];
 
+const WORKSHOP_IMAGES: LightboxImage[] = [
+  {
+    src: "/st-workshop-detail.webp",
+    alt: "Técnico especializado limpiando componentes internos de contadora de billetes con cepillo de precisión",
+    title: "Revisión de componentes internos",
+    description: "Limpieza y verificación de circuitos, sensores y piezas móviles con herramientas de precisión.",
+  },
+  {
+    src: "/st-workshop-machine.webp",
+    alt: "Equipo industrial de procesamiento de efectivo en taller técnico AMC",
+    title: "Equipo en diagnóstico",
+    description: "Diagnóstico especializado de equipos de conteo y clasificación de efectivo.",
+  },
+  {
+    src: "/st-workshop-cleaning.webp",
+    alt: "Mantenimiento preventivo de clasificadora de billetes en taller AMC",
+    title: "Limpieza técnica",
+    description: "Mantenimiento preventivo con limpieza profunda de componentes internos.",
+  },
+  {
+    src: "/st-workshop-interior.webp",
+    alt: "Interior de contadora de billetes mostrando motores, sensores y componentes electrónicos durante reparación",
+    title: "Componentes a nivel de fabricante",
+    description: "Acceso directo a motores, sensores CIS/UV/MG/IR y placa principal para calibración con estándares de fábrica.",
+  },
+];
+
 export default function ServicioTecnicoPage() {
+  const lightbox = useLightbox(WORKSHOP_IMAGES);
+
   return (
     <PageTransition>
       {/* ===== FULL-BLEED HERO ===== */}
@@ -273,57 +304,90 @@ export default function ServicioTecnicoPage() {
           {/* Bento-style gallery grid */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
             {/* Main large image — spans 2 cols on tablet, 2 rows on desktop */}
-            <div className="col-span-2 row-span-2 group relative overflow-hidden rounded-2xl lg:rounded-3xl">
+            <button
+              type="button"
+              onClick={() => lightbox.open(0)}
+              className="col-span-2 row-span-2 group relative overflow-hidden rounded-2xl lg:rounded-3xl cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-gold/50 focus:ring-offset-2 focus:ring-offset-[#0B132B]"
+              aria-label="Ampliar imagen: Revisión de componentes internos"
+            >
               <img
                 src="/st-workshop-detail.webp"
                 alt="Técnico especializado limpiando componentes internos de contadora de billetes con cepillo de precisión"
                 className="w-full h-full object-cover aspect-square lg:aspect-auto transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              {/* Zoom indicator */}
+              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/0 group-hover:text-white/80 transition-all duration-300 opacity-0 group-hover:opacity-100">
+                <ZoomIn className="w-4 h-4 sm:w-5 sm:h-5" />
+              </div>
               <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8">
                 <span className="inline-block text-[10px] sm:text-xs font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-3 py-1 mb-2">Diagnóstico</span>
                 <h3 className="text-sm sm:text-base lg:text-lg font-display font-bold text-white mb-1">Revisión de componentes internos</h3>
                 <p className="text-[11px] sm:text-xs text-slate-300/70 max-w-sm">Limpieza y verificación de circuitos, sensores y piezas móviles con herramientas de precisión.</p>
               </div>
-            </div>
+            </button>
 
             {/* Tall image 1 */}
-            <div className="row-span-2 group relative overflow-hidden rounded-2xl lg:rounded-3xl">
+            <button
+              type="button"
+              onClick={() => lightbox.open(1)}
+              className="row-span-2 group relative overflow-hidden rounded-2xl lg:rounded-3xl cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-gold/50 focus:ring-offset-2 focus:ring-offset-[#0B132B]"
+              aria-label="Ampliar imagen: Equipo en diagnóstico"
+            >
               <img
                 src="/st-workshop-machine.webp"
                 alt="Equipo industrial de procesamiento de efectivo en taller técnico AMC"
                 className="w-full h-full object-cover aspect-[3/5] lg:aspect-auto transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/0 group-hover:text-white/80 transition-all duration-300 opacity-0 group-hover:opacity-100">
+                <ZoomIn className="w-3.5 h-3.5" />
+              </div>
               <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-5">
                 <span className="inline-block text-[10px] font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-2 py-0.5 mb-1.5">Reparación</span>
                 <h3 className="text-xs sm:text-sm font-display font-semibold text-white">Equipo en diagnóstico</h3>
               </div>
-            </div>
+            </button>
 
             {/* Tall image 2 */}
-            <div className="row-span-2 group relative overflow-hidden rounded-2xl lg:rounded-3xl">
+            <button
+              type="button"
+              onClick={() => lightbox.open(2)}
+              className="row-span-2 group relative overflow-hidden rounded-2xl lg:rounded-3xl cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-gold/50 focus:ring-offset-2 focus:ring-offset-[#0B132B]"
+              aria-label="Ampliar imagen: Limpieza técnica"
+            >
               <img
                 src="/st-workshop-cleaning.webp"
                 alt="Mantenimiento preventivo de clasificadora de billetes en taller AMC"
                 className="w-full h-full object-cover aspect-[3/5] lg:aspect-auto transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/0 group-hover:text-white/80 transition-all duration-300 opacity-0 group-hover:opacity-100">
+                <ZoomIn className="w-3.5 h-3.5" />
+              </div>
               <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-5">
                 <span className="inline-block text-[10px] font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-2 py-0.5 mb-1.5">Mantenimiento</span>
                 <h3 className="text-xs sm:text-sm font-display font-semibold text-white">Limpieza técnica</h3>
               </div>
-            </div>
+            </button>
           </div>
 
-          {/* Full-width panoramic image — desktop only visible, hidden on mobile for cleaner look */}
-          <div className="mt-3 lg:mt-4 group relative overflow-hidden rounded-2xl lg:rounded-3xl">
+          {/* Full-width panoramic image */}
+          <button
+            type="button"
+            onClick={() => lightbox.open(3)}
+            className="mt-3 lg:mt-4 group relative overflow-hidden rounded-2xl lg:rounded-3xl cursor-pointer text-left w-full focus:outline-none focus:ring-2 focus:ring-gold/50 focus:ring-offset-2 focus:ring-offset-[#0B132B]"
+            aria-label="Ampliar imagen: Componentes a nivel de fabricante"
+          >
             <img
               src="/st-workshop-interior.webp"
               alt="Interior de contadora de billetes mostrando motores, sensores y componentes electrónicos durante reparación"
               className="w-full h-48 sm:h-64 lg:h-80 xl:h-96 object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
+            <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/0 group-hover:text-white/80 transition-all duration-300 opacity-0 group-hover:opacity-100">
+              <ZoomIn className="w-3.5 h-3.5" />
+            </div>
             <div className="absolute inset-0 flex items-center">
               <div className="p-6 sm:p-8 lg:p-12 max-w-lg">
                 <span className="inline-block text-[10px] sm:text-xs font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-3 py-1 mb-3">Calibración</span>
@@ -333,7 +397,7 @@ export default function ServicioTecnicoPage() {
                 </p>
               </div>
             </div>
-          </div>
+          </button>
         </div>
 
         {/* Bottom decorative line */}
@@ -625,6 +689,14 @@ export default function ServicioTecnicoPage() {
           </div>
         </div>
       </section>
+
+      {/* ===== LIGHTBOX ===== */}
+      <Lightbox
+        images={lightbox.images}
+        isOpen={lightbox.isOpen}
+        onClose={lightbox.close}
+        initialIndex={lightbox.activeIndex}
+      />
     </PageTransition>
   );
 }
