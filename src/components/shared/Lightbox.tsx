@@ -211,7 +211,7 @@ export function Lightbox({
 
           {/* ---- Counter ---- */}
           <div className="amc-lightbox-counter absolute top-3 left-3 sm:top-5 sm:left-5 z-50 flex items-center gap-3">
-            <span className="text-xs sm:text-sm font-mono text-white/60 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1.5 select-none">
+            <span className="text-xs sm:text-sm font-mono text-white/80 bg-black/50 backdrop-blur-sm border border-white/15 rounded-full px-3.5 py-1.5 select-none shadow-lg">
               {index + 1}{" "}
               <span className="text-white/30">/</span> {total}
             </span>
