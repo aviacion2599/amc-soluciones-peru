@@ -125,7 +125,7 @@ export function AboutAMC() {
           {/* ── Right column: Stat cards ── */}
           <div className="order-2">
             {/* Mobile: stacked vertically. Tablet: 3-col row. Desktop: stacked. */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-1 gap-4">
               {STATS.map((stat, i) => (
                 <StatCard key={stat.label} stat={stat} index={i} />
               ))}
