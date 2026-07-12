@@ -93,8 +93,8 @@ export default function NosotrosPage() {
 
               {/* Headline */}
               <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.1] mb-5 sm:mb-6">
-                <span className="bg-gradient-to-r from-gold to-amber-300 bg-clip-text text-transparent">Especialistas</span>{" "}
-                en contadoras de billetes y monedas
+                <span className="bg-gradient-to-r from-gold to-amber-300 bg-clip-text text-transparent">Especialistas en</span>{" "}
+                contadoras de billetes y monedas
               </h1>
 
               {/* Subtitle */}

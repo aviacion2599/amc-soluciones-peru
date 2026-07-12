@@ -166,13 +166,13 @@ export default function ServicioTecnicoPage() {
         <picture className="absolute inset-0">
           <source
             media="(min-width: 768px)"
-            srcSet="/servicio-tecnico-hero-desktop.webp"
+            srcSet="/st-hero-products-desktop.webp"
             type="image/webp"
           />
           <img
-            src="/servicio-tecnico-hero-mobile.webp"
+            src="/st-hero-products-mobile.webp"
             alt="AMC Soluciones Perú — Especialistas en contadoras de billetes y monedas"
-            className="absolute inset-0 w-full h-full object-cover object-center md:object-center"
+            className="absolute inset-0 w-full h-full object-cover object-center md:object-bottom"
           />
         </picture>
 
@@ -213,8 +213,8 @@ export default function ServicioTecnicoPage() {
 
               {/* Headline */}
               <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.1] mb-5 sm:mb-6">
-                <span className="bg-gradient-to-r from-gold to-amber-300 bg-clip-text text-transparent">Especialistas</span>{" "}
-                en contadoras de billetes y monedas
+                <span className="bg-gradient-to-r from-gold to-amber-300 bg-clip-text text-transparent">Especialistas en</span>{" "}
+                contadoras de billetes y monedas
               </h1>
 
               {/* Subtitle */}
@@ -248,6 +248,97 @@ export default function ServicioTecnicoPage() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
       </section>
       {/* ===== END FULL-BLEED HERO ===== */}
+
+      {/* ===== TALLER TÉCNICO — Gallery Section ===== */}
+      <section className="relative bg-[#0B132B] py-16 lg:py-24 overflow-hidden">
+        {/* Subtle background texture */}
+        <div className="absolute inset-0 opacity-[0.04]" aria-hidden="true" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)", backgroundSize: "40px 40px" }} />
+
+        <div className="relative container-amc">
+          <div className="text-center mb-12 lg:mb-16">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <div className="w-8 h-px bg-gold" />
+              <span className="overline text-gold tracking-widest">Taller Técnico</span>
+              <div className="w-8 h-px bg-gold" />
+            </div>
+            <h2 className="display-2 text-white mb-4">
+              Donde la precisión se <span className="text-gold">reconstruye</span>
+            </h2>
+            <p className="text-sm sm:text-base text-slate-300/80 max-w-2xl mx-auto leading-relaxed">
+              Nuestro taller técnico está equipado con herramientas especializadas para diagnóstico, reparación y calibración de equipos de procesamiento de efectivo. Cada equipo recibe atención individualizada por técnicos certificados.
+            </p>
+          </div>
+
+          {/* Bento-style gallery grid */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+            {/* Main large image — spans 2 cols on tablet, 2 rows on desktop */}
+            <div className="col-span-2 row-span-2 group relative overflow-hidden rounded-2xl lg:rounded-3xl">
+              <img
+                src="/st-workshop-detail.webp"
+                alt="Técnico especializado limpiando componentes internos de contadora de billetes con cepillo de precisión"
+                className="w-full h-full object-cover aspect-square lg:aspect-auto transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8">
+                <span className="inline-block text-[10px] sm:text-xs font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-3 py-1 mb-2">Diagnóstico</span>
+                <h3 className="text-sm sm:text-base lg:text-lg font-display font-bold text-white mb-1">Revisión de componentes internos</h3>
+                <p className="text-[11px] sm:text-xs text-slate-300/70 max-w-sm">Limpieza y verificación de circuitos, sensores y piezas móviles con herramientas de precisión.</p>
+              </div>
+            </div>
+
+            {/* Tall image 1 */}
+            <div className="row-span-2 group relative overflow-hidden rounded-2xl lg:rounded-3xl">
+              <img
+                src="/st-workshop-machine.webp"
+                alt="Equipo industrial de procesamiento de efectivo en taller técnico AMC"
+                className="w-full h-full object-cover aspect-[3/5] lg:aspect-auto transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-5">
+                <span className="inline-block text-[10px] font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-2 py-0.5 mb-1.5">Reparación</span>
+                <h3 className="text-xs sm:text-sm font-display font-semibold text-white">Equipo en diagnóstico</h3>
+              </div>
+            </div>
+
+            {/* Tall image 2 */}
+            <div className="row-span-2 group relative overflow-hidden rounded-2xl lg:rounded-3xl">
+              <img
+                src="/st-workshop-cleaning.webp"
+                alt="Mantenimiento preventivo de clasificadora de billetes en taller AMC"
+                className="w-full h-full object-cover aspect-[3/5] lg:aspect-auto transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-5">
+                <span className="inline-block text-[10px] font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-2 py-0.5 mb-1.5">Mantenimiento</span>
+                <h3 className="text-xs sm:text-sm font-display font-semibold text-white">Limpieza técnica</h3>
+              </div>
+            </div>
+          </div>
+
+          {/* Full-width panoramic image — desktop only visible, hidden on mobile for cleaner look */}
+          <div className="mt-3 lg:mt-4 group relative overflow-hidden rounded-2xl lg:rounded-3xl">
+            <img
+              src="/st-workshop-interior.webp"
+              alt="Interior de contadora de billetes mostrando motores, sensores y componentes electrónicos durante reparación"
+              className="w-full h-48 sm:h-64 lg:h-80 xl:h-96 object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
+            <div className="absolute inset-0 flex items-center">
+              <div className="p-6 sm:p-8 lg:p-12 max-w-lg">
+                <span className="inline-block text-[10px] sm:text-xs font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-3 py-1 mb-3">Calibración</span>
+                <h3 className="text-base sm:text-lg lg:text-xl font-display font-bold text-white mb-2">Componentes a nivel de fabricante</h3>
+                <p className="text-xs sm:text-sm text-slate-300/70 leading-relaxed">
+                  Acceso directo a motores, sensores CIS/UV/MG/IR y placa principal para calibración y reemplazo de piezas con estándares de fábrica.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom decorative line */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
+      </section>
+      {/* ===== END TALLER TÉCNICO ===== */}
 
       <div className="container-amc py-10">
         <Breadcrumb items={[{ label: "Servicio Técnico" }]} />
