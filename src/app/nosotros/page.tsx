@@ -51,7 +51,7 @@ export default function NosotrosPage() {
           />
           <img
             src="/nosotros-hero-mobile.webp"
-            alt="AMC Soluciones Perú — Técnico especializado con equipo de conteo de efectivo"
+            alt="AMC Soluciones Perú — Especialistas en contadoras de billetes y monedas"
             className="absolute inset-0 w-full h-full object-cover object-center md:object-center"
           />
         </picture>
@@ -93,10 +93,8 @@ export default function NosotrosPage() {
 
               {/* Headline */}
               <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.1] mb-5 sm:mb-6">
-                Venta y servicio técnico{" "}
-                <span className="bg-gradient-to-r from-gold to-amber-300 bg-clip-text text-transparent">
-                  especializado
-                </span>
+                <span className="bg-gradient-to-r from-gold to-amber-300 bg-clip-text text-transparent">Especialistas</span>{" "}
+                en contadoras de billetes y monedas
               </h1>
 
               {/* Subtitle */}

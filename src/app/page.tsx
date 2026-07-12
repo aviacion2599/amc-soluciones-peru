@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { HeroPremium } from "@/components/home/HeroPremium";
 import { TrustedBy } from "@/components/home/TrustedBy";
+import { AboutAMC } from "@/components/home/AboutAMC";
 import { EquipmentLines } from "@/components/home/EquipmentLines";
 import { TechnicalService } from "@/components/home/TechnicalService";
 import { WorkProcess } from "@/components/home/WorkProcess";
@@ -150,6 +151,7 @@ export default function HomePage() {
           <HeroPremium />
           <SectionFade />
           <TrustedBy />
+          <AboutAMC />
           <SectionFade />
           <EquipmentLines />
           <SectionFade />

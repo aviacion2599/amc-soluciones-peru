@@ -171,7 +171,7 @@ export default function ServicioTecnicoPage() {
           />
           <img
             src="/servicio-tecnico-hero-mobile.webp"
-            alt="AMC Soluciones Perú — Servicio técnico especializado en equipos de conteo de efectivo"
+            alt="AMC Soluciones Perú — Especialistas en contadoras de billetes y monedas"
             className="absolute inset-0 w-full h-full object-cover object-center md:object-center"
           />
         </picture>
@@ -213,10 +213,8 @@ export default function ServicioTecnicoPage() {
 
               {/* Headline */}
               <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.1] mb-5 sm:mb-6">
-                Servicio técnico que mantiene{" "}
-                <span className="bg-gradient-to-r from-gold to-amber-300 bg-clip-text text-transparent">
-                  tu operación en movimiento
-                </span>
+                <span className="bg-gradient-to-r from-gold to-amber-300 bg-clip-text text-transparent">Especialistas</span>{" "}
+                en contadoras de billetes y monedas
               </h1>
 
               {/* Subtitle */}
