@@ -184,7 +184,7 @@ export function HeroPremium() {
             {/* Image container */}
             <div className="relative w-full max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
               <div className="relative w-full h-[260px] sm:h-[300px] md:h-[360px] lg:h-[440px] xl:h-[500px]">
-                <AnimatePresence custom={direction} mode="popLayout">
+                <AnimatePresence custom={direction} mode="wait">
                   <motion.div
                     key={product.model}
                     custom={direction}
@@ -194,8 +194,8 @@ export function HeroPremium() {
                     exit="exit"
                     transition={{
                       x: { type: "spring", stiffness: 260, damping: 28 },
-                      opacity: { duration: 0.4, ease: "easeInOut" },
-                      scale: { duration: 0.5, ease: "easeInOut" },
+                      opacity: { duration: 0.3, ease: "easeInOut" },
+                      scale: { duration: 0.4, ease: "easeInOut" },
                     }}
                     className="absolute inset-0"
                   >
