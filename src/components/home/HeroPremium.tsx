@@ -181,9 +181,9 @@ export function HeroPremium() {
             onTouchStart={() => setIsPaused(true)}
             onTouchEnd={() => setTimeout(() => setIsPaused(false), 3000)}
           >
-            {/* Image container */}
+            {/* Image container with integrated label */}
             <div className="relative w-full max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
-              <div className="relative w-full h-[260px] sm:h-[300px] md:h-[360px] lg:h-[440px] xl:h-[500px]">
+              <div className="relative w-full h-[280px] sm:h-[320px] md:h-[380px] lg:h-[440px] xl:h-[500px]">
                 <AnimatePresence custom={direction} mode="wait">
                   <motion.div
                     key={product.model}
@@ -209,30 +209,29 @@ export function HeroPremium() {
                     />
                   </motion.div>
                 </AnimatePresence>
-              </div>
-            </div>
 
-            {/* Model name + tagline overlaid at bottom of image */}
-            <div className="relative w-full max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl -mt-2 sm:-mt-1">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={product.model + "-text"}
-                  variants={textVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ duration: 0.35, ease: "easeInOut" }}
-                  className="text-center lg:text-right px-2 sm:px-4"
-                >
-                  {/* Model badge */}
-                  <span className="inline-block px-3 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold text-[11px] sm:text-xs font-semibold tracking-wider mb-1.5">
-                    {product.model}
-                  </span>
-                  <p className="text-[11px] sm:text-xs lg:text-sm text-white/50 leading-relaxed max-w-xs sm:max-w-sm mx-auto lg:mx-0 lg:ml-auto">
-                    {product.tagline}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
+                {/* Model label — absolutely positioned at bottom of image area */}
+                <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center lg:items-end pb-1 sm:pb-2 px-3 sm:px-4 pointer-events-none">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={product.model + "-label"}
+                      variants={textVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="text-center lg:text-right"
+                    >
+                      <span className="inline-block px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-black/40 backdrop-blur-sm border border-gold/30 text-gold text-[11px] sm:text-xs font-bold tracking-wider">
+                        {product.model}
+                      </span>
+                      <p className="text-[10px] sm:text-xs text-white/60 mt-1 max-w-[200px] sm:max-w-xs mx-auto lg:mx-0 lg:ml-auto">
+                        {product.tagline}
+                      </p>
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+              </div>
             </div>
 
             {/* Progress dots */}
