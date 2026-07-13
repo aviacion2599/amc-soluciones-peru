@@ -51,28 +51,25 @@ const INTERVAL_MS = 2500;
 const imageVariants = {
   enter: (dir: number) => ({
     opacity: 0,
-    scale: 1.08,
-    x: dir > 0 ? 60 : -60,
-    filter: "blur(6px)",
+    scale: 1.06,
+    x: dir > 0 ? 40 : -40,
   }),
   center: {
     opacity: 1,
     scale: 1,
     x: 0,
-    filter: "blur(0px)",
   },
   exit: (dir: number) => ({
     opacity: 0,
-    scale: 0.94,
-    x: dir > 0 ? -60 : 60,
-    filter: "blur(4px)",
+    scale: 0.96,
+    x: dir > 0 ? -40 : 40,
   }),
 };
 
 const textVariants = {
-  enter: { opacity: 0, y: 16, filter: "blur(4px)" },
-  center: { opacity: 1, y: 0, filter: "blur(0px)" },
-  exit: { opacity: 0, y: -10, filter: "blur(2px)" },
+  enter: { opacity: 0, y: 12 },
+  center: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -8 },
 };
 
 /**
@@ -196,10 +193,9 @@ export function HeroPremium() {
                     animate="center"
                     exit="exit"
                     transition={{
-                      x: { type: "spring", stiffness: 300, damping: 30 },
+                      x: { type: "spring", stiffness: 260, damping: 28 },
                       opacity: { duration: 0.4, ease: "easeInOut" },
                       scale: { duration: 0.5, ease: "easeInOut" },
-                      filter: { duration: 0.35 },
                     }}
                     className="absolute inset-0"
                   >
@@ -208,7 +204,7 @@ export function HeroPremium() {
                       alt={`${product.model} — ${product.tagline}`}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 85vw, 550px"
-                      className="object-contain object-center drop-shadow-2xl"
+                      className="object-contain object-center"
                       priority
                     />
                   </motion.div>
@@ -216,8 +212,8 @@ export function HeroPremium() {
               </div>
             </div>
 
-            {/* Model name + tagline below image */}
-            <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mt-4 sm:mt-5 lg:mt-6 text-center lg:text-right px-4">
+            {/* Model name + tagline overlaid at bottom of image */}
+            <div className="relative w-full max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl -mt-2 sm:-mt-1">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={product.model + "-text"}
@@ -226,12 +222,13 @@ export function HeroPremium() {
                   animate="center"
                   exit="exit"
                   transition={{ duration: 0.35, ease: "easeInOut" }}
+                  className="text-center lg:text-right px-2 sm:px-4"
                 >
                   {/* Model badge */}
-                  <span className="inline-block px-3 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold text-xs sm:text-sm font-semibold tracking-wide mb-2">
+                  <span className="inline-block px-3 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold text-[11px] sm:text-xs font-semibold tracking-wider mb-1.5">
                     {product.model}
                   </span>
-                  <p className="text-xs sm:text-sm text-white/50 leading-relaxed">
+                  <p className="text-[11px] sm:text-xs lg:text-sm text-white/50 leading-relaxed max-w-xs sm:max-w-sm mx-auto lg:mx-0 lg:ml-auto">
                     {product.tagline}
                   </p>
                 </motion.div>
