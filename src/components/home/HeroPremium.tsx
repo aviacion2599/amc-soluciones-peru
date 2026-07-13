@@ -184,6 +184,7 @@ export function HeroPremium() {
             {/* Image container with integrated label */}
             <div className="relative w-full max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
               <div className="relative w-full h-[280px] sm:h-[320px] md:h-[380px] lg:h-[440px] xl:h-[500px]">
+                {/* Single AnimatePresence for image + label together */}
                 <AnimatePresence custom={direction} mode="wait">
                   <motion.div
                     key={product.model}
@@ -207,30 +208,18 @@ export function HeroPremium() {
                       className="object-contain object-center"
                       priority
                     />
-                  </motion.div>
-                </AnimatePresence>
 
-                {/* Model label — absolutely positioned at bottom of image area */}
-                <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center lg:items-end pb-1 sm:pb-2 px-3 sm:px-4 pointer-events-none">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={product.model + "-label"}
-                      variants={textVariants}
-                      initial="enter"
-                      animate="center"
-                      exit="exit"
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="text-center lg:text-right"
-                    >
-                      <span className="inline-block px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-black/40 backdrop-blur-sm border border-gold/30 text-gold text-[11px] sm:text-xs font-bold tracking-wider">
+                    {/* Model label — inside same animated container */}
+                    <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center lg:items-end pb-1 sm:pb-2 px-3 sm:px-4 pointer-events-none">
+                      <span className="inline-block px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-black/40 backdrop-blur-sm border border-gold/30 text-gold text-xs sm:text-sm font-bold tracking-wider">
                         {product.model}
                       </span>
-                      <p className="text-[10px] sm:text-xs text-white/60 mt-1 max-w-[200px] sm:max-w-xs mx-auto lg:mx-0 lg:ml-auto">
+                      <p className="text-[10px] sm:text-xs text-white/60 mt-1 max-w-[220px] sm:max-w-xs mx-auto lg:mx-0 lg:ml-auto">
                         {product.tagline}
                       </p>
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
               </div>
             </div>
 
