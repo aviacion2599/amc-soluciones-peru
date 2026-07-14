@@ -51,37 +51,27 @@ const INTERVAL_MS = 2500;
 const imageVariants = {
   enter: (dir: number) => ({
     opacity: 0,
-    scale: 1.06,
-    x: dir > 0 ? 40 : -40,
+    x: dir > 0 ? 30 : -30,
   }),
   center: {
     opacity: 1,
-    scale: 1,
     x: 0,
   },
   exit: (dir: number) => ({
     opacity: 0,
-    scale: 0.96,
-    x: dir > 0 ? -40 : 40,
+    x: dir > 0 ? -30 : 30,
   }),
 };
 
-const textVariants = {
-  enter: { opacity: 0, y: 12 },
-  center: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -8 },
-};
-
 /**
- * HeroPremium — Portada full-bleed e inmersiva AMC.
- * Texto a la izquierda, carrusel de máquinas a la derecha.
- * Fondo con gradiente dramático, grid sutil y efectos de brillo.
+ * HeroPremium — Mobile-first hero con carrusel de productos.
+ * Mobile: imagen grande arriba, texto abajo.
+ * Desktop: texto izquierda, carrusel derecha.
  */
 export function HeroPremium() {
   const [[page, direction], setPage] = React.useState([0, 1]);
   const [isPaused, setIsPaused] = React.useState(false);
 
-  // Auto‑advance
   React.useEffect(() => {
     if (isPaused) return;
     const id = setInterval(() => {
@@ -99,23 +89,11 @@ export function HeroPremium() {
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden bg-navy text-white"
     >
-      {/* ── Inmersive background layers ── */}
+      {/* ── Background layers ── */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-[#060d1a] via-[#0c1a2e] to-[#081422]" />
-        {/* Radial glow that subtly shifts color per product */}
-        <motion.div
-          className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl"
-          animate={{
-            background: [
-              "radial-gradient(circle, rgba(59,130,246,0.07) 0%, transparent 70%)",
-              "radial-gradient(circle, rgba(245,176,65,0.06) 0%, transparent 70%)",
-              "radial-gradient(circle, rgba(59,130,246,0.07) 0%, transparent 70%)",
-            ],
-          }}
-          transition={{ duration: INTERVAL_MS * HERO_PRODUCTS.length / 1000, repeat: Infinity, ease: "linear" }}
-        />
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/[0.07] rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-400/[0.04] rounded-full blur-3xl" />
-        {/* Grid pattern overlay */}
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -126,10 +104,99 @@ export function HeroPremium() {
         />
       </div>
 
-      <div className="container-amc relative pt-14 pb-10 sm:pt-16 sm:pb-12 lg:pt-24 lg:pb-20">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center">
-          {/* ── Izquierda — texto principal ── */}
-          <div className="max-w-xl">
+      <div className="container-amc relative pt-12 pb-8 sm:pt-16 sm:pb-12 lg:pt-24 lg:pb-20">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-20 items-center">
+
+          {/* ── Mobile: Carousel FIRST (order-first) / Desktop: carousel RIGHT (order-last) ── */}
+          <div
+            className="relative flex flex-col items-center order-first lg:order-last w-full"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setTimeout(() => setIsPaused(false), 3000)}
+          >
+            {/* Image container — mobile: square & as large as possible, flush top */}
+            <div className="relative w-full max-w-[85vw] sm:max-w-[420px] lg:max-w-xl xl:max-w-2xl">
+              <div className="relative w-full aspect-square lg:aspect-[4/3]">
+                <AnimatePresence custom={direction} mode="wait">
+                  <motion.div
+                    key={product.model}
+                    custom={direction}
+                    variants={imageVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{
+                      x: { type: "spring", stiffness: 280, damping: 30 },
+                      opacity: { duration: 0.3, ease: "easeInOut" },
+                    }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={product.src}
+                      alt={`${product.model} — ${product.tagline}`}
+                      fill
+                      sizes="(max-width: 640px) 85vw, (max-width: 1024px) 420px, 550px"
+                      className="object-contain object-center"
+                      priority
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
+
+            {/* Model label — always CENTERED under image */}
+            <div className="mt-3 sm:mt-4 lg:mt-5 text-center w-full">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={product.model + "-label"}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <span className="inline-block px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full bg-black/40 backdrop-blur-sm border border-gold/30 text-gold text-xs sm:text-sm font-bold tracking-wider">
+                    {product.model}
+                  </span>
+                  <p className="text-[11px] sm:text-xs lg:text-sm text-white/55 mt-1 max-w-[280px] sm:max-w-xs mx-auto leading-relaxed">
+                    {product.tagline}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Progress dots — centered */}
+            <div
+              className="flex items-center gap-2 mt-3 sm:mt-4"
+              role="tablist"
+              aria-label="Productos destacados"
+            >
+              {HERO_PRODUCTS.map((p, i) => {
+                const isActive = i === progress;
+                return (
+                  <button
+                    key={p.model}
+                    role="tab"
+                    aria-selected={isActive}
+                    aria-label={p.model}
+                    onClick={() => setPage([i, i > progress ? 1 : -1])}
+                    className="relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/50 rounded-full"
+                  >
+                    <span
+                      className={`block rounded-full transition-all duration-300 ${
+                        isActive
+                          ? "w-7 h-2 bg-gold"
+                          : "w-2 h-2 bg-white/20 group-hover:bg-white/40"
+                      }`}
+                    />
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* ── Left text (mobile: below carousel / desktop: left column) ── */}
+          <div className="max-w-xl lg:order-first">
             <h1 className="font-display text-[1.65rem] sm:text-3xl lg:text-5xl xl:text-[3.4rem] font-bold text-white leading-[1.2] lg:leading-[1.15] mb-4 lg:mb-6">
               Equipos profesionales para{" "}
               <span className="text-white/90">conteo y control</span> de efectivo
@@ -173,85 +240,6 @@ export function HeroPremium() {
             </dl>
           </div>
 
-          {/* ── Derecha — Product carousel ── */}
-          <div
-            className="relative flex flex-col items-center lg:items-end order-first lg:order-last"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            onTouchStart={() => setIsPaused(true)}
-            onTouchEnd={() => setTimeout(() => setIsPaused(false), 3000)}
-          >
-            {/* Image container with integrated label */}
-            <div className="relative w-full max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
-              <div className="relative w-full h-[280px] sm:h-[320px] md:h-[380px] lg:h-[440px] xl:h-[500px]">
-                {/* Single AnimatePresence for image + label together */}
-                <AnimatePresence custom={direction} mode="wait">
-                  <motion.div
-                    key={product.model}
-                    custom={direction}
-                    variants={imageVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    transition={{
-                      x: { type: "spring", stiffness: 260, damping: 28 },
-                      opacity: { duration: 0.3, ease: "easeInOut" },
-                      scale: { duration: 0.4, ease: "easeInOut" },
-                    }}
-                    className="absolute inset-0"
-                  >
-                    <Image
-                      src={product.src}
-                      alt={`${product.model} — ${product.tagline}`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 85vw, 550px"
-                      className="object-contain object-center"
-                      priority
-                    />
-
-                    {/* Model label — inside same animated container */}
-                    <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center lg:items-end pb-1 sm:pb-2 px-3 sm:px-4 pointer-events-none">
-                      <span className="inline-block px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-black/40 backdrop-blur-sm border border-gold/30 text-gold text-xs sm:text-sm font-bold tracking-wider">
-                        {product.model}
-                      </span>
-                      <p className="text-[10px] sm:text-xs text-white/60 mt-1 max-w-[220px] sm:max-w-xs mx-auto lg:mx-0 lg:ml-auto">
-                        {product.tagline}
-                      </p>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            </div>
-
-            {/* Progress dots */}
-            <div
-              className="flex items-center gap-2 mt-4 sm:mt-5"
-              role="tablist"
-              aria-label="Productos destacados"
-            >
-              {HERO_PRODUCTS.map((p, i) => {
-                const isActive = i === progress;
-                return (
-                  <button
-                    key={p.model}
-                    role="tab"
-                    aria-selected={isActive}
-                    aria-label={p.model}
-                    onClick={() => setPage([i, i > progress ? 1 : -1])}
-                    className="relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/50 rounded-full"
-                  >
-                    <span
-                      className={`block rounded-full transition-all duration-300 ${
-                        isActive
-                          ? "w-7 h-2 bg-gold"
-                          : "w-2 h-2 bg-white/20 group-hover:bg-white/40"
-                      }`}
-                    />
-                  </button>
-                );
-              })}
-            </div>
-          </div>
         </div>
       </div>
     </section>
