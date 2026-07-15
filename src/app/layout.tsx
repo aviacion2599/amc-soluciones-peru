@@ -81,7 +81,11 @@ export const metadata: Metadata = {
       "Especialistas en soluciones de conteo de efectivo. Venta y servicio técnico de contadoras en Perú.",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon-32x32.webp", sizes: "32x32", type: "image/webp" },
+      { url: "/favicon-16x16.webp", sizes: "16x16", type: "image/webp" },
+    ],
+    apple: "/apple-touch-icon.webp",
   },
 };
 
