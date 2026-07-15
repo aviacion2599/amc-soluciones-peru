@@ -55,7 +55,7 @@ export function Header() {
         role="banner"
       >
         <div className="container-amc pl-1 sm:pl-2">
-          <div className="flex items-center justify-between h-14">
+          <div className="flex items-center justify-between h-[62px] sm:h-[68px]">
             {/* Brand — Logo AMC imagen */}
             <Link
               href="/"
@@ -67,7 +67,7 @@ export function Header() {
                 <img
                   src="/logo-final.png"
                   alt={AMCCONFIG.company.brandName}
-                  className="h-[50px] sm:h-[62px] w-auto object-contain drop-shadow-[0_1px_3px_rgba(255,255,255,0.15)]"
+                  className="h-[54px] sm:h-[62px] w-auto object-contain drop-shadow-[0_1px_3px_rgba(255,255,255,0.15)]"
                   style={{ imageRendering: 'auto' }}
                 />
               </picture>

@@ -144,7 +144,7 @@ function ProductosContent() {
   return (
     <div className="overflow-x-hidden">
       {/* ===== FULL-BLEED PRODUCT HERO ===== */}
-      <section className="relative min-h-[100svh] flex items-center lg:items-end overflow-hidden bg-[#080e1a]">
+      <section className="relative min-h-[100svh] flex items-center overflow-hidden bg-[#080e1a]">
         {/* Background image — desktop: horizontal, mobile: vertical */}
         <picture className="absolute inset-0">
           <source
@@ -165,8 +165,8 @@ function ProductosContent() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/30" />
           {/* Left-to-right text readability gradient */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-black/20 md:from-black/60 md:via-transparent md:to-black/30" />
-          {/* Bottom fade for smooth transition */}
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background/90 to-transparent" />
+          {/* Bottom fade — minimal */}
+          <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-black/40 to-transparent" />
           {/* Blue accent glow */}
           <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/[0.06] rounded-full blur-3xl" />
           {/* Subtle grid texture */}
@@ -183,9 +183,9 @@ function ProductosContent() {
         </div>
 
         {/* Hero content */}
-        <div className="relative w-full py-24 sm:py-28 lg:py-0 lg:pb-20 pt-28 sm:pt-32 lg:pt-40 px-6 sm:px-8">
+        <div className="relative w-full py-24 sm:py-28 lg:py-0 lg:pb-16 pt-28 sm:pt-32 lg:pt-24 px-6 sm:px-8">
           <div className="container-amc">
-            <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+            <div className="max-w-2xl mx-auto lg:mx-auto text-center">
               {/* Overline */}
               <div className="inline-flex items-center gap-2 mb-4 sm:mb-5 justify-center lg:justify-start">
                 <div className="w-8 h-px bg-gold" />
@@ -207,7 +207,7 @@ function ProductosContent() {
               </p>
 
               {/* CTA */}
-              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+              <div className="flex flex-wrap gap-3 justify-center">
                 <a
                   href="#productos-grid"
                   className="btn-glass px-5 py-2.5 text-sm"
