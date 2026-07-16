@@ -14,6 +14,7 @@ import {
   Download,
   Star,
   ChevronRight,
+  Maximize2,
 } from "lucide-react";
 import { PageTransition, FadeIn, StaggerContainer, StaggerItem, SlideIn } from "@/components/shared/Motion";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
@@ -23,6 +24,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Skeleton } from "@/components/ui/skeleton";
 import { AMCCONFIG } from "@/lib/site-config";
+import { Lightbox, useLightbox, type LightboxImage } from "@/components/shared/Lightbox";
 import * as LucideIcons from "lucide-react";
 
 interface ProductDetail {
@@ -75,6 +77,21 @@ function ProductDetailContent({ slug }: { slug: string }) {
   const [error, setError] = React.useState(false);
   const [selectedImage, setSelectedImage] = React.useState(0);
   const [showQuoteForm, setShowQuoteForm] = React.useState(false);
+  const [hoverZoom, setHoverZoom] = React.useState(false);
+  const [zoomPos, setZoomPos] = React.useState({ x: 50, y: 50 });
+  const mainImgRef = React.useRef<HTMLDivElement>(null);
+
+  // Lightbox
+  const lightboxImages: LightboxImage[] = React.useMemo(() =>
+    product?.images.map((img) => ({
+      src: img.url,
+      fullSrc: img.url,
+      alt: img.alt,
+      title: product!.name,
+    })) || [],
+    [product]
+  );
+  const { isOpen: lbOpen, open: lbOpen, close: lbClose, activeIndex: lbIndex } = useLightbox(lightboxImages);
 
   React.useEffect(() => {
     setLoading(true);
@@ -173,15 +190,48 @@ function ProductDetailContent({ slug }: { slug: string }) {
           {/* Gallery */}
           <SlideIn from="left">
             <div className="space-y-4">
-              {/* Main image */}
-              <div className="relative aspect-square bg-gradient-to-br from-muted to-surface-2 rounded-xl overflow-hidden flex items-center justify-center border border-border">
+              {/* Main image — click to open lightbox, hover to zoom */}
+              <div
+                ref={mainImgRef}
+                className="relative aspect-square bg-gradient-to-br from-muted to-surface-2 rounded-xl overflow-hidden flex items-center justify-center border border-border cursor-zoom-in"
+                onClick={() => p.images.length > 0 && lbOpen(selectedImage)}
+                onMouseEnter={() => setHoverZoom(true)}
+                onMouseLeave={() => setHoverZoom(false)}
+                onMouseMove={(e) => {
+                  if (!mainImgRef.current) return;
+                  const rect = mainImgRef.current.getBoundingClientRect();
+                  setZoomPos({
+                    x: ((e.clientX - rect.left) / rect.width) * 100,
+                    y: ((e.clientY - rect.top) / rect.height) * 100,
+                  });
+                }}
+              >
                 {p.images[selectedImage] ? (
-                   
-                  <img
-                    src={p.images[selectedImage].url}
-                    alt={p.images[selectedImage].alt}
-                    className="w-full h-full object-contain p-8"
-                  />
+                  <>
+                    {/* Normal view */}
+                    <img
+                      src={p.images[selectedImage].url}
+                      alt={p.images[selectedImage].alt}
+                      className={`w-full h-full object-contain p-8 transition-opacity duration-200 ${hoverZoom ? 'opacity-0' : 'opacity-100'}`}
+                      loading="lazy"
+                    />
+                    {/* Zoom view */}
+                    {hoverZoom && (
+                      <div
+                        className="absolute inset-0 bg-no-repeat bg-cover transition-transform duration-75"
+                        style={{
+                          backgroundImage: `url(${p.images[selectedImage].url})`,
+                          backgroundPosition: `${zoomPos.x}% ${zoomPos.y}%`,
+                          backgroundSize: '200%',
+                        }}
+                      />
+                    )}
+                    {/* Zoom hint */}
+                    <div className="absolute bottom-3 right-3 bg-black/50 backdrop-blur-sm text-white/70 text-xs px-2.5 py-1 rounded-full flex items-center gap-1 pointer-events-none sm:flex hidden">
+                      <Maximize2 className="w-3 h-3" />
+                      Clic para ampliar
+                    </div>
+                  </>
                 ) : (
                   <Banknote className="w-32 h-32 text-secondary" strokeWidth={1} />
                 )}
@@ -200,18 +250,19 @@ function ProductDetailContent({ slug }: { slug: string }) {
                 </div>
               </div>
 
-              {/* Thumbnails */}
+              {/* Thumbnails — click to select, double-click to open lightbox */}
               {p.images.length > 1 && (
                 <div className="flex gap-2 overflow-x-auto">
                   {p.images.map((img, i) => (
                     <button
-                      key={img.id}
+                      key={img.id || i}
                       onClick={() => setSelectedImage(i)}
+                      onDoubleClick={() => lbOpen(i)}
                       className={`flex-shrink-0 w-20 h-20 rounded-md overflow-hidden border-2 transition-colors ${
-                        selectedImage === i ? "border-primary" : "border-border"
+                        selectedImage === i ? "border-primary" : "border-border hover:border-primary/50"
                       }`}
+                      title={`${img.alt} — doble clic para ampliar`}
                     >
-                      { }
                       <img src={img.url} alt={img.alt} className="w-full h-full object-contain p-1" />
                     </button>
                   ))}
@@ -570,6 +621,14 @@ function ProductDetailContent({ slug }: { slug: string }) {
           </StaggerContainer>
         </section>
       )}
+
+      {/* Lightbox */}
+      <Lightbox
+        images={lightboxImages}
+        isOpen={lbOpen}
+        onClose={lbClose}
+        initialIndex={lbIndex}
+      />
     </>
   );
 }

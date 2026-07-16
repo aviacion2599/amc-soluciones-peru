@@ -245,6 +245,7 @@ function ProductosContent() {
             categorySlug: p.category.slug,
             brand: p.brand?.name || undefined,
             tag: p.isBestSeller ? "Más vendido" : p.isNew ? "Nuevo" : p.isFeatured ? "Destacado" : undefined,
+            image: p.images?.[0]?.url || undefined,
           }))}
         />
       )}

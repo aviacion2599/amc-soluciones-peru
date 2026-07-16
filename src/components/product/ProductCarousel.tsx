@@ -22,6 +22,7 @@ interface CarouselProduct {
   categorySlug: string;
   brand?: string;
   tag?: string;
+  image?: string;
 }
 
 interface ProductCarouselProps {
@@ -97,7 +98,7 @@ export function ProductCarousel({
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {products.map((product) => {
-            const imgSrc =
+            const imgSrc = product.image ||
               CATEGORY_IMAGE[product.categorySlug] ||
               CATEGORY_IMAGE["contadoras-billetes"];
 
@@ -126,6 +127,7 @@ export function ProductCarousel({
                         fill
                         className="object-contain p-3 sm:p-4 lg:p-5 transition-transform duration-500 group-hover:scale-105"
                         sizes="(max-width: 640px) 75vw, (max-width: 1024px) 40vw, 22vw"
+                        unoptimized={imgSrc.startsWith('/uploads/')}
                       />
                     </div>
 

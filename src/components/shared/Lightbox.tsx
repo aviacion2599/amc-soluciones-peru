@@ -280,6 +280,25 @@ export function Lightbox({
             </button>
           </div>
 
+          {/* ---- Thumbnails strip ---- */}
+          {total > 1 && (
+            <div className="amc-lightbox-thumbs absolute bottom-14 sm:bottom-16 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1.5 max-w-[90vw] overflow-x-auto px-2 py-1 scrollbar-hide">
+              {images.map((img, i) => (
+                <button
+                  key={i}
+                  onClick={(e) => { e.stopPropagation(); setIndex(i); }}
+                  className={`flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
+                    i === index
+                      ? "border-gold/80 scale-110 shadow-lg shadow-gold/20"
+                      : "border-white/20 opacity-60 hover:opacity-100 hover:border-white/40"
+                  }`}
+                >
+                  <img src={img.src} alt={img.alt} className="w-full h-full object-contain bg-black/40" />
+                </button>
+              ))}
+            </div>
+          )}
+
           {/* ---- Image container ---- */}
           <motion.div
             className="relative w-full h-full flex items-center justify-center p-12 sm:p-16 cursor-grab active:cursor-grabbing select-none"
