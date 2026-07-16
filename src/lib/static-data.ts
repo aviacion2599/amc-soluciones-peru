@@ -82,12 +82,12 @@ export const STATIC_PRODUCTS = [
     category: { slug: "contadoras-monedas", name: "Contadoras de Monedas" },
     brand: { slug: "amc", name: "AMC" },
     images: [
-      { id: "img-1-1", url: "/uploads/products/amc-cm3400/img-01.webp", alt: "AMC-CM3400 vista frontal", isPrimary: true },
-      { id: "img-1-2", url: "/uploads/products/amc-cm3400/img-02.webp", alt: "AMC-CM3400 vista lateral", isPrimary: false },
-      { id: "img-1-3", url: "/uploads/products/amc-cm3400/img-03.webp", alt: "AMC-CM3400 vista superior", isPrimary: false },
-      { id: "img-1-4", url: "/uploads/products/amc-cm3400/img-04.webp", alt: "AMC-CM3400 detalle pantalla", isPrimary: false },
-      { id: "img-1-5", url: "/uploads/products/amc-cm3400/img-05.webp", alt: "AMC-CM3400 detalle tolva", isPrimary: false },
-      { id: "img-1-6", url: "/uploads/products/amc-cm3400/img-06.webp", alt: "AMC-CM3400 vista completa", isPrimary: false },
+      { id: "img-1-1", url: "/uploads/products/amc-cm3400/img-01-nobg.png", alt: "AMC-CM3400 vista frontal", isPrimary: true },
+      { id: "img-1-2", url: "/uploads/products/amc-cm3400/img-02-nobg.png", alt: "AMC-CM3400 vista lateral", isPrimary: false },
+      { id: "img-1-3", url: "/uploads/products/amc-cm3400/img-03-nobg.png", alt: "AMC-CM3400 vista superior", isPrimary: false },
+      { id: "img-1-4", url: "/uploads/products/amc-cm3400/img-04-nobg.png", alt: "AMC-CM3400 detalle pantalla", isPrimary: false },
+      { id: "img-1-5", url: "/uploads/products/amc-cm3400/img-05-nobg.png", alt: "AMC-CM3400 detalle tolva", isPrimary: false },
+      { id: "img-1-6", url: "/uploads/products/amc-cm3400/img-06-nobg.png", alt: "AMC-CM3400 vista completa", isPrimary: false },
     ],
     videos: [
       { id: "vid-1-1", url: "/uploads/products/amc-cm3400/198e63d2-9c49-44df-b905-bcd2d1fe8e58.mp4", provider: "local", title: "AMC-CM3400 en operación" },
@@ -113,11 +113,11 @@ export const STATIC_PRODUCTS = [
     category: { slug: "contadoras-monedas", name: "Contadoras de Monedas" },
     brand: { slug: "amc", name: "AMC" },
     images: [
-      { id: "img-2-1", url: "/uploads/products/amc-cm3400-max/img-01.webp", alt: "AMC-CM3400 MAX vista frontal", isPrimary: true },
-      { id: "img-2-2", url: "/uploads/products/amc-cm3400-max/img-02.webp", alt: "AMC-CM3400 MAX vista lateral", isPrimary: false },
-      { id: "img-2-3", url: "/uploads/products/amc-cm3400-max/img-03.webp", alt: "AMC-CM3400 MAX vista superior", isPrimary: false },
-      { id: "img-2-4", url: "/uploads/products/amc-cm3400-max/img-04.webp", alt: "AMC-CM3400 MAX detalle", isPrimary: false },
-      { id: "img-2-5", url: "/uploads/products/amc-cm3400-max/img-05.webp", alt: "AMC-CM3400 MAX ruedas", isPrimary: false },
+      { id: "img-2-1", url: "/uploads/products/amc-cm3400-max/img-01-nobg.png", alt: "AMC-CM3400 MAX vista frontal", isPrimary: true },
+      { id: "img-2-2", url: "/uploads/products/amc-cm3400-max/img-02-nobg.png", alt: "AMC-CM3400 MAX vista lateral", isPrimary: false },
+      { id: "img-2-3", url: "/uploads/products/amc-cm3400-max/img-03-nobg.png", alt: "AMC-CM3400 MAX vista superior", isPrimary: false },
+      { id: "img-2-4", url: "/uploads/products/amc-cm3400-max/img-04-nobg.png", alt: "AMC-CM3400 MAX detalle", isPrimary: false },
+      { id: "img-2-5", url: "/uploads/products/amc-cm3400-max/img-05-nobg.png", alt: "AMC-CM3400 MAX ruedas", isPrimary: false },
     ],
     videos: [
       { id: "vid-2-1", url: "/uploads/products/amc-cm3400-max/84000fb9-ec42-4087-b987-25894a5a3a1d.mp4", provider: "local", title: "AMC-CM3400 MAX en operación" },
@@ -143,9 +143,9 @@ export const STATIC_PRODUCTS = [
     category: { slug: "linea-esencial", name: "Línea Esencial" },
     brand: { slug: "amc", name: "AMC" },
     images: [
-      { id: "img-3-1", url: "/uploads/products/amc-2000/img-01.webp", alt: "AMC-2000 vista frontal", isPrimary: true },
-      { id: "img-3-2", url: "/uploads/products/amc-2000/img-02.webp", alt: "AMC-2000 vista lateral", isPrimary: false },
-      { id: "img-3-3", url: "/uploads/products/amc-2000/img-03.webp", alt: "AMC-2000 detalle pantalla", isPrimary: false },
+      { id: "img-3-1", url: "/uploads/products/amc-2000/img-01-nobg.png", alt: "AMC-2000 vista frontal", isPrimary: true },
+      { id: "img-3-2", url: "/uploads/products/amc-2000/img-02-nobg.png", alt: "AMC-2000 vista lateral", isPrimary: false },
+      { id: "img-3-3", url: "/uploads/products/amc-2000/img-03-nobg.png", alt: "AMC-2000 detalle pantalla", isPrimary: false },
     ],
     videos: [],
     documents: [
@@ -171,10 +171,10 @@ export const STATIC_PRODUCTS = [
     category: { slug: "contadoras-billetes", name: "Contadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
     images: [
-      { id: "img-4-1", url: "/uploads/products/amc-3200/img-01.webp", alt: "AMC-3200 2CIS vista frontal", isPrimary: true },
-      { id: "img-4-2", url: "/uploads/products/amc-3200/img-02.webp", alt: "AMC-3200 2CIS vista lateral", isPrimary: false },
-      { id: "img-4-3", url: "/uploads/products/amc-3200/img-03.webp", alt: "AMC-3200 2CIS detalle pantalla", isPrimary: false },
-      { id: "img-4-4", url: "/uploads/products/amc-3200/img-04.webp", alt: "AMC-3200 2CIS vista completa", isPrimary: false },
+      { id: "img-4-1", url: "/uploads/products/amc-3200/img-01-nobg.png", alt: "AMC-3200 2CIS vista frontal", isPrimary: true },
+      { id: "img-4-2", url: "/uploads/products/amc-3200/img-02-nobg.png", alt: "AMC-3200 2CIS vista lateral", isPrimary: false },
+      { id: "img-4-3", url: "/uploads/products/amc-3200/img-03-nobg.png", alt: "AMC-3200 2CIS detalle pantalla", isPrimary: false },
+      { id: "img-4-4", url: "/uploads/products/amc-3200/img-04-nobg.png", alt: "AMC-3200 2CIS vista completa", isPrimary: false },
     ],
     videos: [],
     documents: [
@@ -200,10 +200,10 @@ export const STATIC_PRODUCTS = [
     category: { slug: "contadoras-billetes", name: "Contadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
     images: [
-      { id: "img-5-1", url: "/uploads/products/amc-8100/img-01.webp", alt: "AMC-8100 vista frontal", isPrimary: true },
-      { id: "img-5-2", url: "/uploads/products/amc-8100/img-02.webp", alt: "AMC-8100 vista lateral", isPrimary: false },
-      { id: "img-5-3", url: "/uploads/products/amc-8100/img-03.webp", alt: "AMC-8100 detalle pantalla", isPrimary: false },
-      { id: "img-5-4", url: "/uploads/products/amc-8100/img-04.webp", alt: "AMC-8100 vista completa", isPrimary: false },
+      { id: "img-5-1", url: "/uploads/products/amc-8100/img-01-nobg.png", alt: "AMC-8100 vista frontal", isPrimary: true },
+      { id: "img-5-2", url: "/uploads/products/amc-8100/img-02-nobg.png", alt: "AMC-8100 vista lateral", isPrimary: false },
+      { id: "img-5-3", url: "/uploads/products/amc-8100/img-03-nobg.png", alt: "AMC-8100 detalle pantalla", isPrimary: false },
+      { id: "img-5-4", url: "/uploads/products/amc-8100/img-04-nobg.png", alt: "AMC-8100 vista completa", isPrimary: false },
     ],
     videos: [],
     documents: [
@@ -229,10 +229,10 @@ export const STATIC_PRODUCTS = [
     category: { slug: "clasificadoras-billetes", name: "Clasificadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
     images: [
-      { id: "img-6-1", url: "/uploads/products/amc-8200/img-01.webp", alt: "AMC-8200 vista frontal", isPrimary: true },
-      { id: "img-6-2", url: "/uploads/products/amc-8200/img-02.webp", alt: "AMC-8200 vista lateral", isPrimary: false },
-      { id: "img-6-3", url: "/uploads/products/amc-8200/img-03.webp", alt: "AMC-8200 detalle pantalla", isPrimary: false },
-      { id: "img-6-4", url: "/uploads/products/amc-8200/img-04.webp", alt: "AMC-8200 vista completa", isPrimary: false },
+      { id: "img-6-1", url: "/uploads/products/amc-8200/img-01-nobg.png", alt: "AMC-8200 vista frontal", isPrimary: true },
+      { id: "img-6-2", url: "/uploads/products/amc-8200/img-02-nobg.png", alt: "AMC-8200 vista lateral", isPrimary: false },
+      { id: "img-6-3", url: "/uploads/products/amc-8200/img-03-nobg.png", alt: "AMC-8200 detalle pantalla", isPrimary: false },
+      { id: "img-6-4", url: "/uploads/products/amc-8200/img-04-nobg.png", alt: "AMC-8200 vista completa", isPrimary: false },
     ],
     videos: [],
     documents: [
@@ -257,10 +257,10 @@ export const STATIC_PRODUCTS = [
     category: { slug: "clasificadoras-billetes", name: "Clasificadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
     images: [
-      { id: "img-7-1", url: "/uploads/products/amc-8300pro/img-01.webp", alt: "AMC-8300 PRO vista frontal", isPrimary: true },
-      { id: "img-7-2", url: "/uploads/products/amc-8300pro/img-02.webp", alt: "AMC-8300 PRO vista lateral", isPrimary: false },
-      { id: "img-7-3", url: "/uploads/products/amc-8300pro/img-03.webp", alt: "AMC-8300 PRO detalle", isPrimary: false },
-      { id: "img-7-4", url: "/uploads/products/amc-8300pro/img-04.webp", alt: "AMC-8300 PRO vista completa", isPrimary: false },
+      { id: "img-7-1", url: "/uploads/products/amc-8300pro/img-01-nobg.png", alt: "AMC-8300 PRO vista frontal", isPrimary: true },
+      { id: "img-7-2", url: "/uploads/products/amc-8300pro/img-02-nobg.png", alt: "AMC-8300 PRO vista lateral", isPrimary: false },
+      { id: "img-7-3", url: "/uploads/products/amc-8300pro/img-03-nobg.png", alt: "AMC-8300 PRO detalle", isPrimary: false },
+      { id: "img-7-4", url: "/uploads/products/amc-8300pro/img-04-nobg.png", alt: "AMC-8300 PRO vista completa", isPrimary: false },
     ],
     videos: [],
     documents: [
@@ -285,10 +285,10 @@ export const STATIC_PRODUCTS = [
     category: { slug: "clasificadoras-billetes", name: "Clasificadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
     images: [
-      { id: "img-8-1", url: "/uploads/products/amc-9200/img-01.webp", alt: "AMC-9200 vista frontal", isPrimary: true },
-      { id: "img-8-2", url: "/uploads/products/amc-9200/img-02.webp", alt: "AMC-9200 vista lateral", isPrimary: false },
-      { id: "img-8-3", url: "/uploads/products/amc-9200/img-03.webp", alt: "AMC-9200 detalle pantalla", isPrimary: false },
-      { id: "img-8-4", url: "/uploads/products/amc-9200/img-04.webp", alt: "AMC-9200 vista completa", isPrimary: false },
+      { id: "img-8-1", url: "/uploads/products/amc-9200/img-01-nobg.png", alt: "AMC-9200 vista frontal", isPrimary: true },
+      { id: "img-8-2", url: "/uploads/products/amc-9200/img-02-nobg.png", alt: "AMC-9200 vista lateral", isPrimary: false },
+      { id: "img-8-3", url: "/uploads/products/amc-9200/img-03-nobg.png", alt: "AMC-9200 detalle pantalla", isPrimary: false },
+      { id: "img-8-4", url: "/uploads/products/amc-9200/img-04-nobg.png", alt: "AMC-9200 vista completa", isPrimary: false },
     ],
     videos: [],
     documents: [

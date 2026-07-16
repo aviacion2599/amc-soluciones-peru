@@ -609,7 +609,7 @@
     width: 100%;
     max-width: 1280px;
     margin-inline: auto;
-    padding-inline: 1.25rem;
+    padding-inline: 0.875rem;
   }
   @media (min-width: 768px) {
     .container-amc { padding-inline: 2rem; }
@@ -635,11 +635,13 @@
   }
 
   /* === Hide scrollbar utility === */
-  .scrollbar-hide {
+  .scrollbar-hide,
+  .scrollbar-none {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  .scrollbar-hide::-webkit-scrollbar {
+  .scrollbar-hide::-webkit-scrollbar,
+  .scrollbar-none::-webkit-scrollbar {
     display: none;
   }
 

@@ -185,15 +185,15 @@ function ProductDetailContent({ slug }: { slug: string }) {
       </div>
 
       {/* Main product section */}
-      <section className="container-amc pb-12">
-        <div className="grid lg:grid-cols-2 gap-10">
+      <section className="container-amc pb-8 lg:pb-12">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-10">
           {/* Gallery */}
           <SlideIn from="left">
             <div className="space-y-4">
               {/* Main image — click to open lightbox, hover to zoom */}
               <div
                 ref={mainImgRef}
-                className="relative aspect-square bg-gradient-to-br from-muted to-surface-2 rounded-xl overflow-hidden flex items-center justify-center border border-border cursor-zoom-in"
+                className="relative aspect-square bg-gradient-to-br from-muted to-surface-2 rounded-xl overflow-hidden flex items-center justify-center border border-border cursor-zoom-in w-full"
                 onClick={() => p.images.length > 0 && lbOpenFn(selectedImage)}
                 onMouseEnter={() => setHoverZoom(true)}
                 onMouseLeave={() => setHoverZoom(false)}
@@ -212,7 +212,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
                     <img
                       src={p.images[selectedImage].url}
                       alt={p.images[selectedImage].alt}
-                      className={`w-full h-full object-contain p-8 transition-opacity duration-200 ${hoverZoom ? 'opacity-0' : 'opacity-100'}`}
+                      className={`w-full h-full object-contain p-4 sm:p-8 transition-opacity duration-200 ${hoverZoom ? 'opacity-0' : 'opacity-100'}`}
                       loading="lazy"
                     />
                     {/* Zoom view */}
@@ -227,7 +227,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
                       />
                     )}
                     {/* Zoom hint */}
-                    <div className="absolute bottom-3 right-3 bg-black/50 backdrop-blur-sm text-white/70 text-xs px-2.5 py-1 rounded-full flex items-center gap-1 pointer-events-none sm:flex hidden">
+                    <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 bg-black/50 backdrop-blur-sm text-white/70 text-[10px] sm:text-xs px-2 sm:px-2.5 py-1 rounded-full flex items-center gap-1 pointer-events-none sm:flex hidden">
                       <Maximize2 className="w-3 h-3" />
                       Clic para ampliar
                     </div>
@@ -252,13 +252,13 @@ function ProductDetailContent({ slug }: { slug: string }) {
 
               {/* Thumbnails — click to select, double-click to open lightbox */}
               {p.images.length > 1 && (
-                <div className="flex gap-2 overflow-x-auto">
+                <div className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1 scrollbar-none">
                   {p.images.map((img, i) => (
                     <button
                       key={img.id || i}
                       onClick={() => setSelectedImage(i)}
                       onDoubleClick={() => lbOpenFn(i)}
-                      className={`flex-shrink-0 w-20 h-20 rounded-md overflow-hidden border-2 transition-colors ${
+                      className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-md overflow-hidden border-2 transition-colors ${
                         selectedImage === i ? "border-primary" : "border-border hover:border-primary/50"
                       }`}
                       title={`${img.alt} — doble clic para ampliar`}
@@ -270,7 +270,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
               )}
 
               {/* Trust badges */}
-              <div className="grid grid-cols-3 gap-3 pt-4">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-3 sm:pt-4">
                 <div className="text-center p-3 rounded-md bg-muted/40 border border-border">
                   <ShieldCheck className="w-5 h-5 text-success mx-auto mb-1" />
                   <div className="text-xs font-medium">Garantía 12m</div>
@@ -290,14 +290,14 @@ function ProductDetailContent({ slug }: { slug: string }) {
           {/* Product info */}
           <SlideIn from="right">
             <div>
-              <div className="overline text-muted-foreground mb-2">{p.category.name}</div>
-              <h1 className="display-2 text-foreground mb-3">{p.name}</h1>
-              <p className="text-base text-muted-foreground leading-relaxed mb-6">
+              <div className="overline text-muted-foreground mb-1.5 sm:mb-2">{p.category.name}</div>
+              <h1 className="display-2 text-foreground mb-2 sm:mb-3">{p.name}</h1>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-6">
                 {p.summary}
               </p>
 
               {/* SKU + Brand */}
-              <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6 pb-6 border-b border-border">
+              <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-6 pb-4 sm:pb-6 border-b border-border">
                 <div>
                   <span className="font-mono">SKU: </span>
                   <span className="font-mono font-semibold text-foreground">{p.sku}</span>
@@ -334,7 +334,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
               )}
 
               {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-3 mb-8">
+              <div className="flex flex-col sm:flex-row gap-3 mb-6 sm:mb-8">
                 <Button
                   onClick={() => setShowQuoteForm(!showQuoteForm)}
                   size="lg"
@@ -356,11 +356,11 @@ function ProductDetailContent({ slug }: { slug: string }) {
 
               {/* Quick features preview */}
               {p.features.length > 0 && (
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                   {p.features.slice(0, 4).map((f) => {
                     const Icon = (LucideIcons as any)[f.icon || "CheckCircle2"] || CheckCircle2;
                     return (
-                      <div key={f.id} className="flex items-start gap-2 p-3 rounded-md bg-muted/40">
+                      <div key={f.id} className="flex items-start gap-2 p-2.5 sm:p-3 rounded-md bg-muted/40">
                         <Icon className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={1.75} />
                         <div>
                           <div className="text-xs font-semibold text-foreground">{f.title}</div>
@@ -569,8 +569,8 @@ function ProductDetailContent({ slug }: { slug: string }) {
       </section>
 
       {/* Description (rich text) */}
-      <section className="container-amc py-12 border-t border-border">
-        <div className="grid lg:grid-cols-[1fr_300px] gap-10">
+      <section className="container-amc py-8 lg:py-12 border-t border-border">
+        <div className="grid lg:grid-cols-[1fr_300px] gap-8 lg:gap-10">
           <div>
             <h2 className="display-3 mb-6">Descripción detallada</h2>
             <div className="prose prose-slate max-w-none">
