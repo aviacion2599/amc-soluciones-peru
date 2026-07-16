@@ -12,19 +12,24 @@ import { motion, AnimatePresence } from "framer-motion";
    ──────────────────────────────────────────────── */
 const HERO_PRODUCTS = [
   {
+    src: "/amc-cm3400.webp",
+    model: "AMC-CM3400",
+    tagline: "Cuenta monedas en minutos, no a mano.",
+  },
+  {
     src: "/amc-3200.webp",
     model: "AMC-3200",
     tagline: "Conteo profesional, simple y confiable.",
   },
   {
-    src: "/amc-9100.webp",
-    model: "AMC-9100",
-    tagline: "Cuenta y separa sin detener la operación.",
+    src: "/amc-8100.webp",
+    model: "AMC-8100",
+    tagline: "Pantalla Full Touch para contar con precisión.",
   },
   {
     src: "/amc-9200.webp",
     model: "AMC-9200",
-    tagline: "Clasificación avanzada para mayor control.",
+    tagline: "Clasificación Full Fitness bancaria.",
   },
   {
     src: "/amc-8300-pro.webp",
@@ -32,13 +37,8 @@ const HERO_PRODUCTS = [
     tagline: "Tecnología superior para operaciones exigentes.",
   },
   {
-    src: "/amc-cm3400.webp",
-    model: "AMC-CM3400",
-    tagline: "Cuenta monedas en minutos, no a mano.",
-  },
-  {
     src: "/amc-cm3400max.webp",
-    model: "AMC-CM3400MAX",
+    model: "AMC-CM3400 MAX",
     tagline: "Más velocidad para grandes cantidades.",
   },
 ] as const;

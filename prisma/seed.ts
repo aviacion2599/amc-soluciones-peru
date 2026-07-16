@@ -3,486 +3,611 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 /**
- * AMC Soluciones Perú — Seed Script
- * Categorías y productos reales de equipos de manejo de efectivo.
+ * AMC Soluciones Perú — Seed v2
+ * Catálogo AMC exclusivo: 8 productos reales.
+ * Orden: CM3400, 2000, 3200, 8100, 8200, 8300PRO, 9200, CM3400 Max
  */
 
 const categories = [
   {
     slug: "contadoras-billetes",
     name: "Contadoras de Billetes",
-    description:
-      "Máquinas profesionales de conteo de billetes para todos los volúmenes de operación. Detección de falsificación por UV, MG, IR y 2D. Ideales para bancos, retail, casinos y empresas de transporte de valores.",
+    description: "Contadoras de billetes profesionales AMC con detección avanzada UV, MG, IR, CIS y OCR. Desde la línea esencial hasta modelos de alto rendimiento con pantalla táctil y reconocimiento de números de serie.",
     icon: "Banknote",
     order: 1,
-    seoTitle: "Contadoras de Billetes Profesionales | AMC Soluciones Perú",
-    seoDescription:
-      "Venta y servicio técnico de contadoras de billetes Glory, CashScan, Hyundai y Royal Sovereign. Detección UV, MG, IR. Envío a todo el Perú.",
-    seoKeywords:
-      "contadoras de billetes, máquina contar billetes, contador billetes Perú, Glory, CashScan, Hyundai",
+    seoTitle: "Contadoras de Billetes AMC | AMC Soluciones Perú",
+    seoDescription: "Contadoras de billetes AMC con detección UV, MG, IR, CIS y OCR. Venta y servicio técnico en Perú.",
+    seoKeywords: "contadoras de billetes AMC, contadora billetes Perú, AMC-3200, AMC-8100, AMC-2000",
   },
   {
     slug: "contadoras-monedas",
     name: "Contadoras de Monedas",
-    description:
-      "Equipos de conteo y clasificación de monedas de alta velocidad. Soportan múltiples divisas incluyendo sol peruano, dólar americano y euro. Perfectos para supermercados, bancos y peajes.",
+    description: "Contadoras de monedas de alta velocidad para procesamiento eficiente de monedas peruanas y extranjeras. Ideales para bancos, supermercados, casinos y centros de cambio.",
     icon: "Coins",
     order: 2,
-    seoTitle: "Contadoras de Monedas | AMC Soluciones Perú",
-    seoDescription:
-      "Contadoras de monedas profesionales. Conteo rápido, clasificación por denominación. Servicio técnico especializado en Lima y provincias.",
-    seoKeywords:
-      "contadoras de monedas, máquina contar monedas, contador monedas Perú, Glory CN, clasificador monedas",
+    seoTitle: "Contadoras de Monedas AMC | AMC Soluciones Perú",
+    seoDescription: "Contadoras de monedas AMC profesionales. Conteo rápido y clasificación por denominación. Servicio técnico en Lima y provincias.",
+    seoKeywords: "contadoras de monedas AMC, contadora monedas Perú, AMC-CM3400",
   },
   {
     slug: "clasificadoras-billetes",
     name: "Clasificadoras de Billetes",
-    description:
-      "Máquinas de clasificación y discriminación de billetes por denominación y orientación. Reconocimiento por imagen CIS, detección de falsificación avanzada. Esenciales para bancos centrales y procesadores de efectivo.",
+    description: "Clasificadoras de billetes AMC con sensores CIS, MT, TMR de hasta 18 canales. Clasificación por denominación, aptitud, cara, orientación y estado de circulación.",
     icon: "Layers",
     order: 3,
-    seoTitle: "Clasificadoras de Billetes | AMC Soluciones Perú",
-    seoDescription:
-      "Clasificadoras de billetes por denominación. Reconocimiento CIS, detección 2D. Equipos Glory para bancos y procesadoras de efectivo.",
-    seoKeywords:
-      "clasificadora billetes, discriminadora billetes, máquina clasificar billetes, Glory GFS, procesamiento efectivo",
+    seoTitle: "Clasificadoras de Billetes AMC | AMC Soluciones Perú",
+    seoDescription: "Clasificadoras de billetes AMC con Full Fitness. Detección avanzada, doble apilador, impresora térmica integrada.",
+    seoKeywords: "clasificadora billetes AMC, AMC-8200, AMC-8300 PRO, AMC-9200, clasificar billetes Perú",
   },
   {
-    slug: "detectores-falsificacion",
-    name: "Detectores de Falsificación",
-    description:
-      "Detectores de billetes falsos con tecnología multifunción: luz ultravioleta (UV), lámpara magnética (MG), infrarrojo (IR), luz blanca y lupa. Disponibles en versiones portátiles y de escritorio.",
-    icon: "ShieldCheck",
+    slug: "linea-esencial",
+    name: "Línea Esencial",
+    description: "Equipos AMC de la línea esencial: soluciones accesibles y confiables para el manejo de efectivo en pequeños negocios, comercios y oficinas que necesitan rendimiento profesional a costo accesible.",
+    icon: "Star",
     order: 4,
-    seoTitle: "Detectores de Billetes Falsos | AMC Soluciones Perú",
-    seoDescription:
-      "Detectores de falsificación UV, MG, IR para billetes peruanos y dólares. Portátiles y de escritorio. Garantía y soporte técnico.",
-    seoKeywords:
-      "detector billetes falsos, detector falsificación Perú, lámpara UV billetes, detector magnético billetes",
-  },
-  {
-    slug: "accesorios-suministros",
-    name: "Accesorios y Suministros",
-    description:
-      "Kit de mantenimiento, cintas transportadoras, bolsas de depósito seguras y todo los consumibles necesarios para el óptimo funcionamiento de sus equipos de procesamiento de efectivo.",
-    icon: "Settings",
-    order: 5,
-    seoTitle: "Accesorios para Contadoras de Billetes | AMC Soluciones Perú",
-    seoDescription:
-      "Accesorios y suministros para equipos de conteo de efectivo. Kits de mantenimiento, cintas transportadoras, bolsas de depósito.",
-    seoKeywords:
-      "accesorios contadoras, mantenimiento contadoras, cinta transportadora, suministros efectivo",
+    seoTitle: "Línea Esencial AMC | AMC Soluciones Perú",
+    seoDescription: "Línea esencial AMC: contadoras de billetes accesibles con detección IR, MG, RGB e IR-IMAGE.",
+    seoKeywords: "línea esencial AMC, AMC-2000, contadora económica, contadora billetes accesible",
   },
 ];
 
+const brands = [
+  { slug: "amc", name: "AMC" },
+];
+
 const products = [
-  // ─── CONTADORAS DE BILLETES ────────────────────────────────────────
+  // ═══════════════════════════════════════════════════════════
+  // 1. AMC-CM3400 — Contadora de Monedas
+  // ═══════════════════════════════════════════════════════════
   {
-    name: "Glory GBS-1100",
-    slug: "glory-gbs-1100",
-    sku: "AMC-CB-001",
-    summary:
-      "Contadora de billetes de velocidad media con detección UV/MG/IR y pantalla LCD.",
-    description:
-      `La Glory GBS-1100 es una contadora de billetes compacta y confiable diseñada para entornos de medio volumen. Ofrece una velocidad de conteo de 1,000 billetes por minuto con tres modos de detección de falsificación: ultravioleta (UV), magnético (MG) e infrarrojo (IR).
-
-Su pantalla LCD retroiluminada permite una lectura clara del conteo total, conteo por lote y detección de billetes sospechosos. El mecanismo de alimentación por banda garantiza un conteo suave y preciso, minimizando atascos incluso con billetes usados.
-
-Ideal para bancos minoristas, cajas de supermercados, casinos y oficinas contables que requieren verificación rápida de efectivo con bajo índice de error. Compatible con billetes de todas las denominaciones del sol peruano y monedas extranjeras.`,
-    categorySlug: "contadoras-billetes",
+    name: "AMC-CM3400",
+    slug: "amc-cm3400",
+    sku: "AMC-CM3400",
+    summary: "Contadora automática de monedas con pantalla LCD, teclado numérico y controles ajustables para conteo rápido y preciso.",
+    description: `La AMC-CM3400 es una contadora de monedas automatizada diseñada para agilizar el proceso de conteo y clasificación de monedas en comercios, bancos y centros de cambio. Cuenta con una pantalla digital LCD, teclado numérico y diales de ajuste para la velocidad y sensibilidad de detección. Su estructura robusta con tolva de alimentación de gran capacidad y sistema de salida de monedas facilita el procesamiento de grandes volúmenes. El diseño compacto y ergonómico la hace ideal para mostradores y espacios reducidos.`,
+    categorySlug: "contadoras-monedas",
+    brandSlug: "amc",
     isFeatured: true,
     isNew: false,
     isBestSeller: true,
-    seoTitle: "Glory GBS-1100 — Contadora de Billetes | AMC Soluciones Perú",
-    seoDescription:
-      "Glory GBS-1100: contadora de billetes 1,000 billetes/min, detección UV/MG/IR. Venta y servicio técnico en Perú.",
-    seoKeywords:
-      "Glory GBS-1100, contadora billetes Glory, GBS 1100 Perú, precio contadora Glory",
+    order: 1,
+    images: [
+      { url: "/uploads/products/amc-cm3400/img-01.webp", alt: "AMC-CM3400 contadora de monedas - vista frontal", isPrimary: true, order: 0 },
+      { url: "/uploads/products/amc-cm3400/img-02.webp", alt: "AMC-CM3400 - vista lateral", isPrimary: false, order: 1 },
+      { url: "/uploads/products/amc-cm3400/img-03.webp", alt: "AMC-CM3400 - detalle pantalla", isPrimary: false, order: 2 },
+      { url: "/uploads/products/amc-cm3400/img-04.webp", alt: "AMC-CM3400 - detalle controles", isPrimary: false, order: 3 },
+      { url: "/uploads/products/amc-cm3400/img-05.webp", alt: "AMC-CM3400 - tolva de alimentación", isPrimary: false, order: 4 },
+      { url: "/uploads/products/amc-cm3400/img-06.webp", alt: "AMC-CM3400 - vista superior", isPrimary: false, order: 5 },
+    ],
+    videos: [
+      { url: "/uploads/products/amc-cm3400/198e63d2-9c49-44df-b905-bcd2d1fe8e58.mp4", title: "AMC-CM3400 en operación", order: 0 },
+      { url: "/uploads/products/amc-cm3400/42c9a359-8eb2-44f0-99a5-5dc118017ca7.mp4", title: "AMC-CM3400 demostración", order: 1 },
+    ],
+    features: [
+      { title: "Conteo automático", description: "Conteo por tamaño, peso y diámetro de monedas", icon: "Zap", order: 0 },
+      { title: "Pantalla LCD", description: "Visualización de resultados en tiempo real", icon: "Monitor", order: 1 },
+      { title: "Teclado numérico", description: "Controles manuales ajustables de velocidad y sensibilidad", icon: "Keyboard", order: 2 },
+      { title: "Alta capacidad", description: "Tolva de alimentación de gran capacidad para grandes volúmenes", icon: "Layers", order: 3 },
+      { title: "Diseño compacto", description: "Ideal para mostradores y espacios reducidos", icon: "Maximize2", order: 4 },
+      { title: "Salida por compartimento", description: "Sistema de salida ordenada de monedas", icon: "ArrowDownToLine", order: 5 },
+    ],
+    specifications: [
+      { group: "General", key: "Tipo", value: "Contadora de monedas", order: 0 },
+      { group: "General", key: "Marca", value: "AMC", order: 1 },
+      { group: "General", key: "Pantalla", value: "LCD digital", order: 2 },
+      { group: "General", key: "Controles", value: "Teclado numérico + diales de ajuste", order: 3 },
+      { group: "General", key: "Alimentación", value: "110-240V AC, 50/60 Hz", order: 4 },
+    ],
+    applications: [
+      { name: "Bancos", description: "Procesamiento de monedas en ventanillas y cajas", order: 0 },
+      { name: "Supermercados", description: "Cierre de caja y conteo de monedas", order: 1 },
+      { name: "Centros de cambio", description: "Clasificación y conteo de monedas extranjeras", order: 2 },
+      { name: "Peajes", description: "Conteo rápido de monedas de peaje", order: 3 },
+    ],
   },
+
+  // ═══════════════════════════════════════════════════════════
+  // 2. AMC-2000 — Línea Esencial
+  // ═══════════════════════════════════════════════════════════
   {
-    name: "CashScan CS-2100Pro",
-    slug: "cashscan-cs-2100pro",
-    sku: "AMC-CB-002",
-    summary:
-      "Contadora profesional de alta velocidad con detección 4D y reconocimiento de denominación.",
-    description:
-      `La CashScan CS-2100Pro es una contadora de billetes de alto rendimiento que alcanza velocidades de hasta 1,500 billetes por minuto. Incorpora tecnología de detección 4D (UV, MG, IR y detección de espesor) para identificar billetes falsificados con la máxima precisión.
-
-Su sistema de reconocimiento automático de denominación permite contar y clasificar billetes simultáneamente, mostrando el valor total por denominación en la pantalla TFT a color. La interfaz intuitiva con teclado numérico facilita la configuración de lotes y la navegación por menús.
-
-Diseñada para sucursales bancarias, empresas de transporte de valores y grandes comercios que procesan volúmenes significativos de efectivo diariamente. Incluye puerto USB para actualización de firmware y exportación de registros de conteo.`,
-    categorySlug: "contadoras-billetes",
+    name: "AMC-2000",
+    slug: "amc-2000",
+    sku: "AMC-2000",
+    summary: "Contadora de billetes compacta de la línea esencial con sensores IR, MG, RGB e IR-IMAGE para detección avanzada.",
+    description: `La AMC-2000 es una contadora de billetes multicurrency de denominación mixta perteneciente a la Línea Esencial de AMC. Diseñada para ofrecer un conteo confiable y verificación de autenticidad a un costo accesible, cuenta con tecnología de sensores IR, MG, RGB e IR-IMAGE. Detecta automáticamente medios billetes, billetes dobles y billetes encadenados. Su pantalla TFT de fácil lectura y la posibilidad de conectar un visor externo la hacen ideal para pequeños negocios y comercios que necesitan una solución práctica y eficiente para el manejo de efectivo.`,
+    categorySlug: "linea-esencial",
+    brandSlug: "amc",
     isFeatured: true,
     isNew: true,
     isBestSeller: false,
-    seoTitle: "CashScan CS-2100Pro — Contadora Profesional | AMC Soluciones Perú",
-    seoDescription:
-      "CashScan CS-2100Pro: contadora 1,500 billetes/min, detección 4D, reconocimiento de denominación. Precio y servicio técnico.",
-    seoKeywords:
-      "CashScan CS-2100Pro, contadora profesional billetes, CS 2100Pro Perú",
+    order: 2,
+    images: [
+      { url: "/uploads/products/amc-2000/img-01.webp", alt: "AMC-2000 contadora de billetes - vista frontal", isPrimary: true, order: 0 },
+      { url: "/uploads/products/amc-2000/img-02.webp", alt: "AMC-2000 - vista lateral", isPrimary: false, order: 1 },
+      { url: "/uploads/products/amc-2000/img-03.webp", alt: "AMC-2000 - detalle sensores", isPrimary: false, order: 2 },
+    ],
+    documents: [
+      { url: "/uploads/products/amc-2000/brochure_amc-2000_ir-image_mismo_formato.pdf", type: "ficha", title: "Ficha técnica AMC-2000", order: 0 },
+    ],
+    features: [
+      { title: "Multicurrency", description: "Conteo con denominaciones mixtas de múltiples divisas", icon: "Globe", order: 0 },
+      { title: "Sensores IR, MG, RGB, IR-IMAGE", description: "Detección avanzada de falsificaciones con 4 tecnologías", icon: "ShieldCheck", order: 1 },
+      { title: "Detección de errores", description: "Medio billete, billete doble y encadenado", icon: "AlertTriangle", order: 2 },
+      { title: "Pantalla TFT", description: "Lectura clara y fácil de usar", icon: "Monitor", order: 3 },
+      { title: "Conteo por lotes", description: "Acumulación de resultados y conteo por lotes", icon: "ListOrdered", order: 4 },
+      { title: "Visor externo", description: "Posibilidad de conectar pantalla externa", icon: "ExternalLink", order: 5 },
+    ],
+    specifications: [
+      { group: "General", key: "Tipo", value: "Contadora de billetes multicurrency", order: 0 },
+      { group: "General", key: "Línea", value: "Línea Esencial", order: 1 },
+      { group: "General", key: "Sensores", value: "IR, MG, RGB, IR-IMAGE", order: 2 },
+      { group: "General", key: "Detección", value: "Medio billete, billete doble, encadenado", order: 3 },
+      { group: "General", key: "Pantalla", value: "TFT", order: 4 },
+      { group: "General", key: "Modo", value: "Automático / Manual", order: 5 },
+      { group: "General", key: "Funciones", value: "Conteo por lotes, acumulación", order: 6 },
+      { group: "Dimensional", key: "Dimensiones", value: "246 × 260 × 245 mm", order: 0 },
+      { group: "Dimensional", key: "Peso neto", value: "5 kg", order: 1 },
+      { group: "Dimensional", key: "Peso bruto", value: "12 kg", order: 2 },
+      { group: "Dimensional", key: "Emb. dimensions", value: "585 × 340 × 305 mm", order: 3 },
+    ],
+    applications: [
+      { name: "Pequeños negocios", description: "Solución accesible para comercios", order: 0 },
+      { name: "Oficinas", description: "Verificación de efectivo en oficinas contables", order: 1 },
+      { name: "Retail", description: "Cierre de caja en tiendas y minimarkets", order: 2 },
+    ],
   },
+
+  // ═══════════════════════════════════════════════════════════
+  // 3. AMC-3200 — Contadora de Billetes 2CIS
+  // ═══════════════════════════════════════════════════════════
   {
-    name: "Hyundai SB-1000",
-    slug: "hyundai-sb-1000",
-    sku: "AMC-CB-003",
-    summary:
-      "Contadora de billetes económica con detección UV/MG y función de adición/acumulación.",
-    description:
-      `La Hyundai SB-1000 es una contadora de billetes de entrada de gama que ofrece una relación costo-beneficio excepcional para pequeños y medianos negocios. Con una velocidad de 1,000 billetes por minuto, cuenta con detección básica por ultravioleta (UV) y magnética (MG).
-
-Su diseño compacto y liviano la hace ideal para cajas registradoras, farmacias, clínicas y cualquier punto de venta que necesite verificar rápidamente la autenticidad del efectivo recibido. Funciona con los modos de conteo: libre, lote y adición/acumulación.
-
-La bandeja de salida con capacidad ajustable evita que los billetes se desordenen al finalizar el conteo. Fácil de operar sin capacitación especializada, con pantalla LED clara y paneles de acceso rápido para limpieza de los sensores.`,
+    name: "AMC-3200 2CIS",
+    slug: "amc-3200",
+    sku: "AMC-3200",
+    summary: "Contadora de billetes multicurrency con doble sensor CIS, pantalla táctil TFT de 3.5\" y velocidad de hasta 1500 billetes/min.",
+    description: `La AMC-3200 2CIS es una contadora de billetes profesional capaz de contar y autenticar billetes de hasta 60 divisas diferentes con denominaciones mixtas. Equipada con un doble sensor de imagen (2CIS), sensores IR, MT, MG y UV, ofrece una detección de falsificaciones de alto nivel. Su sistema OCR permite el reconocimiento de números de serie en ambos lados del billete. La pantalla táctil TFT a color de 3.5 pulgadas garantiza una experiencia de usuario intuitiva, mientras que sus conexiones SD, USB y RJ11 permiten imprimir resultados, actualizar software y conectar a PC.`,
     categorySlug: "contadoras-billetes",
-    isFeatured: false,
-    isNew: false,
-    isBestSeller: true,
-    seoTitle: "Hyundai SB-1000 — Contadora de Billetes Económica | AMC Soluciones Perú",
-    seoDescription:
-      "Hyundai SB-1000: contadora de billetes económica, detección UV/MG, 1,000 billetes/min. Ideal para pymes en Perú.",
-    seoKeywords:
-      "Hyundai SB-1000, contadora económica billetes, SB 1000 Perú, contadora pymes",
-  },
-  {
-    name: "Royal Sovereign RBC-4500",
-    slug: "royal-sovereign-rbc-4500",
-    sku: "AMC-CB-004",
-    summary:
-      "Contadora de alta capacidad con sistema anti-atascos y detección UV/MG/IR avanzada.",
-    description:
-      `La Royal Sovereign RBC-4500 es una contadora de billetes de alta capacidad diseñada para entornos exigentes. Su innovador sistema de transporte con rodillos de alta fricción reduce los atascos hasta en un 80% comparado con modelos convencionales, permitiendo procesar lotes grandes de manera continua.
-
-Opera a 1,800 billetes por minuto con triple detección de falsificación (UV, MG, IR) y un sistema de auto-diagnóstico que verifica el estado de los sensores al encendido. La pantalla LCD de gran formato muestra conteo parcial, total y valor acumulado por denominación.
-
-Equipada con puerto RS-232 para conexión a sistemas de gestión de efectivo y software de reporting. Recomendada para bancos, casinos, empresas de cobranza y procesadoras de pagos que manejan altos volúmenes diarios de billetes.`,
-    categorySlug: "contadoras-billetes",
-    isFeatured: false,
-    isNew: false,
-    isBestSeller: false,
-    seoTitle: "Royal Sovereign RBC-4500 — Contadora Alta Capacidad | AMC Soluciones Perú",
-    seoDescription:
-      "Royal Sovereign RBC-4500: contadora 1,800 billetes/min, anti-atascos, detección UV/MG/IR. Para alto volumen en Perú.",
-    seoKeywords:
-      "Royal Sovereign RBC-4500, contadora alta capacidad, RBC 4500 Perú, contadora casino",
-  },
-
-  // ─── CONTADORAS DE MONEDAS ─────────────────────────────────────────
-  {
-    name: "Glory CN-1000",
-    slug: "glory-cn-1000",
-    sku: "AMC-CM-001",
-    summary:
-      "Contadora y clasificadora de monedas de alta velocidad con tambor rotativo.",
-    description:
-      `La Glory CN-1000 es una contadora y clasificadora de monedas de tambor rotativo que procesa hasta 2,500 monedas por minuto. Su sistema de clasificación por tamaño y peso permite separar hasta 8 denominaciones diferentes en bandejas individuales de forma simultánea.
-
-Utiliza sensores ópticos y electromagnéticos para distinguir monedas genuinas de falsificaciones o monedas extranjeras no deseadas. El display LCD muestra el conteo total y por denominación, con la opción de detener automáticamente al alcanzar un lote preestablecido.
-
-Es el equipo estándar en la industria bancaria peruana para el procesamiento de monedas de S/. 0.10, 0.20, 0.50, 1.00, 2.00 y 5.00. Su robustez y precisión la convierten en la opción preferida para bancos, supermercados y empresas de transporte de valores.`,
-    categorySlug: "contadoras-monedas",
+    brandSlug: "amc",
     isFeatured: true,
     isNew: false,
     isBestSeller: true,
-    seoTitle: "Glory CN-1000 — Contadora de Monedas | AMC Soluciones Perú",
-    seoDescription:
-      "Glory CN-1000: contadora y clasificadora de monedas, 2,500 monedas/min, 8 denominaciones. Venta y servicio técnico en Perú.",
-    seoKeywords:
-      "Glory CN-1000, contadora monedas Glory, CN 1000 Perú, clasificadora monedas",
+    order: 3,
+    images: [
+      { url: "/uploads/products/amc-3200/img-01.webp", alt: "AMC-3200 2CIS - vista frontal", isPrimary: true, order: 0 },
+      { url: "/uploads/products/amc-3200/img-02.webp", alt: "AMC-3200 - vista lateral", isPrimary: false, order: 1 },
+      { url: "/uploads/products/amc-3200/img-03.webp", alt: "AMC-3200 - detalle pantalla táctil", isPrimary: false, order: 2 },
+      { url: "/uploads/products/amc-3200/img-04.webp", alt: "AMC-3200 - vista superior", isPrimary: false, order: 3 },
+    ],
+    documents: [
+      { url: "/uploads/products/amc-3200/brochure_amc-3200_final_web.pdf", type: "ficha", title: "Ficha técnica AMC-3200", order: 0 },
+      { url: "/uploads/products/amc-3200/brochure_amc-3200_final_web(1).pdf", type: "ficha", title: "Brochure AMC-3200", order: 1 },
+    ],
+    features: [
+      { title: "Doble sensor CIS (2CIS)", description: "Detección avanzada de falsificaciones con doble escaneo", icon: "ScanEye", order: 0 },
+      { title: "Reconocimiento OCR", description: "Lectura de números de serie en ambos lados del billete", icon: "FileText", order: 1 },
+      { title: "Pantalla táctil 3.5\"", description: "TFT a color HD, interfaz intuitiva", icon: "Monitor", order: 2 },
+      { title: "1500 billetes/min", description: "Velocidad máxima de conteo ajustable", icon: "Zap", order: 3 },
+      { title: "60 divisas", description: "Soporte para hasta 60 monedas con denominaciones mixtas", icon: "Globe", order: 4 },
+      { title: "Conectividad", description: "SD, USB, RJ11 para impresora y PC", icon: "Cable", order: 5 },
+    ],
+    specifications: [
+      { group: "General", key: "Tipo", value: "Contadora de billetes multicurrency", order: 0 },
+      { group: "General", key: "Modelo", value: "AMC-3200 2CIS", order: 1 },
+      { group: "Técnico", key: "Sensores", value: "2CIS, IR, MT, MG, UV", order: 0 },
+      { group: "Técnico", key: "OCR", value: "Sí, números de serie (ambos lados)", order: 1 },
+      { group: "Técnico", key: "Divisas", value: "Hasta 60 monedas", order: 2 },
+      { group: "Técnico", key: "Velocidad conteo", value: "1500 / 1200 / 1000 billetes/min", order: 3 },
+      { group: "Técnico", key: "Vel. autenticación", value: "1200 / 1000 / 800 billetes/min", order: 4 },
+      { group: "Técnico", key: "Cap. alimentador", value: "300 billetes", order: 5 },
+      { group: "Técnico", key: "Cap. apilador", value: "200 billetes", order: 6 },
+      { group: "Técnico", key: "Tamaño billete", value: "100-182 × 50-100 mm", order: 7 },
+      { group: "Técnico", key: "Pantalla", value: "Táctil TFT a color HD, 3.5\"", order: 8 },
+      { group: "Técnico", key: "Conexiones", value: "SD, USB (PC), RJ11", order: 9 },
+      { group: "Eléctrico", key: "Alimentación", value: "AC 100-240V, 50/60 Hz", order: 0 },
+      { group: "Dimensional", key: "Dimensiones", value: "260 × 250 × 235 mm", order: 0 },
+      { group: "Dimensional", key: "Peso neto", value: "6 kg", order: 1 },
+    ],
+    applications: [
+      { name: "Bancos", description: "Autenticación y conteo en ventanillas", order: 0 },
+      { name: "Retail", description: "Verificación de efectivo en puntos de venta", order: 1 },
+      { name: "Casinos", description: "Procesamiento de alto volumen de billetes", order: 2 },
+      { name: "Oficinas contables", description: "Conciliación y auditoría de efectivo", order: 3 },
+    ],
   },
+
+  // ═══════════════════════════════════════════════════════════
+  // 4. AMC-8100 — Contadora Vertical Full Touch
+  // ═══════════════════════════════════════════════════════════
   {
-    name: "CashScan CM-500",
-    slug: "cashscan-cm-500",
-    sku: "AMC-CM-002",
-    summary:
-      "Contadora de monedas compacta y portátil para pequeños volúmenes.",
-    description:
-      `La CashScan CM-500 es una contadora de monedas de escritorio diseñada para negocios con volúmenes moderados de monedas. Procesa hasta 300 monedas por minuto con alta precisión, clasificando por tamaño en bolsas o contenedores receptoras.
-
-Su diseño compacto la hace perfecta para cajas de supermercado, peajes, estacionamientos, iglesias y pequeños comercios. La configuración se realiza mediante ruedas de ajuste según el diámetro de las monedas peruanas, permitiendo un cambio rápido entre denominaciones.
-
-La CM-500 incluye función de conteo por lotes con alarma sonora al alcanzar la cantidad deseada. Funciona con alimentación por corriente o baterías internas recargables, ofreciendo portabilidad total para auditorías in situ.`,
-    categorySlug: "contadoras-monedas",
-    isFeatured: false,
+    name: "AMC-8100",
+    slug: "amc-8100",
+    sku: "AMC-8100",
+    summary: "Contadora vertical de billetes con pantalla full touch de 6.9\", 2 CIS, detección MG/UV/IR/MT y más de 60 divisas.",
+    description: `La AMC-8100 es una contadora vertical de billetes con pantalla full touch diseñada para pequeños negocios y entornos comerciales. Su interfaz de 6.9 pulgadas es intuitiva y fácil de usar. Equipada con sensores 2 CIS, MG, UV de 2 canales, IR de cuadro completo y MT de 7 canales, ofrece detección avanzada de falsificaciones y reconocimiento de números de serie. Soporta más de 60 divisas ampliables con múltiples modos de operación. Cuenta con certificaciones RoHS, CE, FC, ISO 9001 e ISO 14001.`,
+    categorySlug: "contadoras-billetes",
+    brandSlug: "amc",
+    isFeatured: true,
     isNew: true,
     isBestSeller: false,
-    seoTitle: "CashScan CM-500 — Contadora de Monedas Compacta | AMC Soluciones Perú",
-    seoDescription:
-      "CashScan CM-500: contadora de monedas portátil, 300 monedas/min, clasificación por tamaño. Ideal para comercios en Perú.",
-    seoKeywords:
-      "CashScan CM-500, contadora monedas portátil, CM 500 Perú, contador monedas comercial",
+    order: 4,
+    images: [
+      { url: "/uploads/products/amc-8100/img-01.webp", alt: "AMC-8100 - vista frontal", isPrimary: true, order: 0 },
+      { url: "/uploads/products/amc-8100/img-02.webp", alt: "AMC-8100 - vista lateral", isPrimary: false, order: 1 },
+      { url: "/uploads/products/amc-8100/img-03.webp", alt: "AMC-8100 - detalle pantalla", isPrimary: false, order: 2 },
+      { url: "/uploads/products/amc-8100/img-04.webp", alt: "AMC-8100 - vista trasera", isPrimary: false, order: 3 },
+    ],
+    documents: [
+      { url: "/uploads/products/amc-8100/brochure_amc-8100.pdf", type: "ficha", title: "Ficha técnica AMC-8100", order: 0 },
+    ],
+    features: [
+      { title: "Pantalla 6.9\" Full Touch", description: "Interfaz intuitiva y fácil de usar", icon: "Monitor", order: 0 },
+      { title: "Sensores 2 CIS + MG/UV/IR/MT", description: "Detección avanzada con 5 tecnologías", icon: "ShieldCheck", order: 1 },
+      { title: "Reconocimiento de serie", description: "Lectura de números de serie en billetes", icon: "FileText", order: 2 },
+      { title: "Más de 60 divisas", description: "Ampliables con actualización de software", icon: "Globe", order: 3 },
+      { title: "Múltiples modos", description: "Mezcla, clasificar, contar, lista multimonedas", icon: "Settings", order: 4 },
+      { title: "Conectividad completa", description: "RS232, USB, LAN, Type-C, pantalla externa opcional", icon: "Cable", order: 5 },
+    ],
+    specifications: [
+      { group: "General", key: "Tipo", value: "Contadora vertical de billetes", order: 0 },
+      { group: "Técnico", key: "Sensores", value: "2 CIS, MG, UV (2 canales), IR (cuadro completo), MT (7 canales)", order: 0 },
+      { group: "Técnico", key: "Divisas", value: "Más de 60 (ampliables)", order: 1 },
+      { group: "Técnico", key: "Velocidad", value: "800 / 1000 / 1200 billetes/min", order: 2 },
+      { group: "Técnico", key: "Cap. tolva", value: "Máximo 500 billetes", order: 3 },
+      { group: "Técnico", key: "Cap. apilador", value: "200 billetes", order: 4 },
+      { group: "Técnico", key: "Tamaño billete", value: "110 × 60 mm — 185 × 90 mm", order: 5 },
+      { group: "Técnico", key: "Pantalla", value: "6.9\" TFT Full Touch", order: 6 },
+      { group: "Técnico", key: "Conexiones", value: "RS232, USB, LAN, Type-C", order: 7 },
+      { group: "Técnico", key: "Certificaciones", value: "RoHS, CE, FC, ISO 9001, ISO 14001", order: 8 },
+      { group: "Eléctrico", key: "Alimentación", value: "100-240V AC, 50/60 Hz", order: 0 },
+      { group: "Dimensional", key: "Dimensiones", value: "250 × 270 × 290 mm", order: 0 },
+      { group: "Dimensional", key: "Peso neto", value: "5.52 kg", order: 1 },
+    ],
+    applications: [
+      { name: "Estaciones de servicio", description: "Conteo rápido en grifos", order: 0 },
+      { name: "Tiendas y restaurantes", description: "Verificación de efectivo al cierre", order: 1 },
+      { name: "Bancos minoristas", description: "Procesamiento de volúmenes medios", order: 2 },
+      { name: "Bares y discotecas", description: "Verificación en entornos con alto movimiento", order: 3 },
+    ],
   },
+
+  // ═══════════════════════════════════════════════════════════
+  // 5. AMC-8200 — Clasificadora 1+1 Bolsillo
+  // ═══════════════════════════════════════════════════════════
   {
-    name: "Henry HC-300",
-    slug: "henry-hc-300",
-    sku: "AMC-CM-003",
-    summary:
-      "Contadora de monedas manual/automática de bajo costo para pequeños comercios.",
-    description:
-      `La Henry HC-300 es una contadora de monedas de bajo costo que ofrece una solución accesible para negocios que necesitan verificar y contar monedas de forma periódica. Su mecanismo de conteo por rondas permite procesar aproximadamente 200 monedas por minuto con aceptable precisión.
-
-Fabricada con carcasa de plástico reforzado y components de acero inoxidable en la zona de contacto con las monedas, garantiza durabilidad en uso diario. El display LED de 6 dígitos muestra el conteo acumulado y permite reiniciar con un solo botón.
-
-Recomendada para tiendas de barrio, farmacias, panaderías, quioscos y cualquier negocio que maneje monedas como parte de su operación diaria. Su mantenimiento es mínimo y no requiere capacitación técnica para su operación básica.`,
-    categorySlug: "contadoras-monedas",
-    isFeatured: false,
-    isNew: false,
-    isBestSeller: false,
-    seoTitle: "Henry HC-300 — Contadora de Monedas Económica | AMC Soluciones Perú",
-    seoDescription:
-      "Henry HC-300: contadora de monedas económica, 200 monedas/min, fácil operación. Para pequeños comercios en Perú.",
-    seoKeywords:
-      "Henry HC-300, contadora monedas económica, HC 300 Perú, contador monedas barato",
-  },
-
-  // ─── CLASIFICADORAS DE BILLETES ────────────────────────────────────
-  {
-    name: "Glory GFS-2200",
-    slug: "glory-gfs-2200",
-    sku: "AMC-CL-001",
-    summary:
-      "Clasificadora de billetes por denominación y orientación con tecnología CIS.",
-    description:
-      `La Glory GFS-2200 es una clasificadora de billetes de alto rendimiento que utiliza sensores de imagen CIS (Contact Image Sensor) para el reconocimiento y procesamiento de billetes. Clasifica hasta 1,200 billetes por minuto, separándolos por denominación, orientación (cara arriba/abajo) y calidad (billetes aptos vs. deteriorados).
-
-Su motor de detección de falsificación integra análisis de patrón 2D, espectroscopía infrarroja, detección magnética y verificación de marca de agua, ofreciendo el nivel más alto de seguridad disponible en el mercado. La pantalla táctil a color de 7 pulgadas facilita la configuración y el monitoreo en tiempo real.
-
-La GFS-2200 es el equipo de referencia para bancos centrales, bancos comerciales y procesadoras de efectivo que requieren velocidad, precisión y trazabilidad en el procesamiento masivo de billetes. Incluye conectividad Ethernet y USB para integración con sistemas de gestión.`,
+    name: "AMC-8200",
+    slug: "amc-8200",
+    sku: "AMC-8200",
+    summary: "Clasificadora de billetes 1+1 bolsillo con pantalla full touch de 7.8\", sensor MT de 13 canales e impresora térmica integrada.",
+    description: `La AMC-8200 es una clasificadora profesional de billetes con pantalla full touch de 7.8 pulgadas. Su sistema de sensores incluye 2 CIS (imagen RGB completa), IR de cuadro completo y un sensor magnético MT de 13 canales para detección de tinta magnética e hilo metálico. Clasifica por denominación, cara, orientación, versión y estado de circulación (ATM/CIRC), detectando agujeros, roturas, manchas y billetes deteriorados. La impresora térmica integrada permite imprimir información del conteo. Con certificaciones RoHS, CE, FC, ISO 9001 e ISO 14001.`,
     categorySlug: "clasificadoras-billetes",
+    brandSlug: "amc",
     isFeatured: true,
-    isNew: false,
-    isBestSeller: true,
-    seoTitle: "Glory GFS-2200 — Clasificadora de Billetes | AMC Soluciones Perú",
-    seoDescription:
-      "Glory GFS-2200: clasificadora de billetes CIS, 1,200 billetes/min, detección 2D. Para bancos y procesadoras en Perú.",
-    seoKeywords:
-      "Glory GFS-2200, clasificadora billetes, GFS 2200 Perú, discriminadora billetes Glory",
+    isNew: true,
+    isBestSeller: false,
+    order: 5,
+    images: [
+      { url: "/uploads/products/amc-8200/img-01.webp", alt: "AMC-8200 - vista frontal", isPrimary: true, order: 0 },
+      { url: "/uploads/products/amc-8200/img-02.webp", alt: "AMC-8200 - vista lateral", isPrimary: false, order: 1 },
+      { url: "/uploads/products/amc-8200/img-03.webp", alt: "AMC-8200 - detalle pantalla", isPrimary: false, order: 2 },
+      { url: "/uploads/products/amc-8200/img-04.webp", alt: "AMC-8200 - compartimentos de salida", isPrimary: false, order: 3 },
+    ],
+    documents: [
+      { url: "/uploads/products/amc-8200/brochure_amc-8200.pdf", type: "ficha", title: "Ficha técnica AMC-8200", order: 0 },
+    ],
+    features: [
+      { title: "Pantalla 7.8\" Full Touch", description: "Interfaz profesional de gran tamaño", icon: "Monitor", order: 0 },
+      { title: "MT de 13 canales", description: "Detección magnética avanzada de tinta e hilo metálico", icon: "Magnet", order: 1 },
+      { title: "Clasificación completa", description: "Por denominación, cara, orientación, versión y estado ATM/CIRC", icon: "Layers", order: 2 },
+      { title: "Detección de deterioro", description: "Agujeros, roturas, manchas, escritos y daños", icon: "Search", order: 3 },
+      { title: "Impresora térmica", description: "Impresión rápida de resultados de conteo", icon: "Printer", order: 4 },
+      { title: "Protección contra polvo", description: "Diseño sellado con reducción de ruido", icon: "Shield", order: 5 },
+    ],
+    specifications: [
+      { group: "General", key: "Tipo", value: "Clasificadora 1+1 bolsillo", order: 0 },
+      { group: "Técnico", key: "Sensores", value: "2 CIS (RGB), IR (cuadro completo), MT (13 canales)", order: 0 },
+      { group: "Técnico", key: "Velocidad", value: "800 / 1000 / 1200 billetes/min", order: 1 },
+      { group: "Técnico", key: "Cap. tolva", value: "500 billetes", order: 2 },
+      { group: "Técnico", key: "Cap. apilador", value: "200 billetes", order: 3 },
+      { group: "Técnico", key: "Cap. rechazo", value: "100 billetes", order: 4 },
+      { group: "Técnico", key: "Tamaño billete", value: "60 × 85 mm — 100 × 190 mm", order: 5 },
+      { group: "Técnico", key: "Pantalla", value: "7.8\" Full Touch", order: 6 },
+      { group: "Técnico", key: "Conexiones", value: "RS232 ×2, USB, LAN", order: 7 },
+      { group: "Técnico", key: "Impresora", value: "Térmica integrada", order: 8 },
+      { group: "Técnico", key: "Certificaciones", value: "RoHS, CE, FC, ISO 9001, ISO 14001", order: 9 },
+      { group: "Eléctrico", key: "Alimentación", value: "100-240V AC, 50/60 Hz", order: 0 },
+      { group: "Eléctrico", key: "Consumo", value: "Menor a 100 W", order: 1 },
+      { group: "Dimensional", key: "Dimensiones", value: "285 × 285 × 335 mm", order: 0 },
+      { group: "Dimensional", key: "Peso neto", value: "12 kg", order: 1 },
+      { group: "Dimensional", key: "Peso bruto", value: "14 kg", order: 2 },
+    ],
+    applications: [
+      { name: "Bancos", description: "Clasificación y procesamiento de efectivo", order: 0 },
+      { name: "Cajas de cambio", description: "Clasificación por denominación", order: 1 },
+      { name: "Empresas de transporte", description: "Procesamiento de recaudación", order: 2 },
+      { name: "Retail grande", description: "Clasificación en centros de distribución", order: 3 },
+    ],
   },
+
+  // ═══════════════════════════════════════════════════════════
+  // 6. AMC-8300 PRO — Clasificadora Profesional
+  // ═══════════════════════════════════════════════════════════
   {
-    name: "CashScan CS-3300Pro",
-    slug: "cashscan-cs-3300pro",
-    sku: "AMC-CL-002",
-    summary:
-      "Clasificadora de billetes con pantalla táctil, conteo por valor y detección multi-capa.",
-    description:
-      `La CashScan CS-3300Pro es una clasificadora de billetes versátil que combina funciones de conteo, clasificación por denominación y detección de falsificación en un equipo compacto de escritorio. Procesa 1,000 billetes por minuto con reconocimiento simultáneo de hasta 5 denominaciones diferentes.
-
-Su pantalla táctil de 5 pulgadas ofrece una interfaz intuitiva con visualización gráfica del conteo por denominación, valor total y porcentaje de billetes auténticos vs. sospechosos. El sistema de detección multi-capa incluye UV, MG, IR, espesor, longitud y análisis de patrón.
-
-La CS-3300Pro genera reportes detallados de cada lote procesado, exportables vía USB en formato CSV. Es ideal para sucursales bancarias medianas, cajas centrales de retail y empresas que consolidan efectivo de múltiples puntos de venta.`,
+    name: "AMC-8300 PRO",
+    slug: "amc-8300-pro",
+    sku: "AMC-8300-PRO",
+    summary: "Clasificadora profesional con estructura antiestática, doble apilador, sensor de grosor de 19 canales y control dual táctil+físico.",
+    description: `La AMC-8300 PRO es una clasificadora de billetes de alta resistencia con estructura antiestática diseñada para alto volumen en bancos y centros de procesamiento de efectivo. Cuenta con sensores CIS Dual, UV, IR, MG, MT de 18 canales y sensor de grosor de 19 canales. Su diseño de canales completamente abiertos en tres módulos permite rápida extracción de atascos y mantenimiento simplificado. Ofrece control dual con botones físicos y pantalla táctil de 5 pulgadas HD a color. Con doble apilador de 200 billetes cada uno y más de 50 monedas soportadas.`,
     categorySlug: "clasificadoras-billetes",
-    isFeatured: false,
-    isNew: true,
-    isBestSeller: false,
-    seoTitle: "CashScan CS-3300Pro — Clasificadora de Billetes | AMC Soluciones Perú",
-    seoDescription:
-      "CashScan CS-3300Pro: clasificadora con pantalla táctil, 1,000 billetes/min, detección multi-capa. Precio y servicio en Perú.",
-    seoKeywords:
-      "CashScan CS-3300Pro, clasificadora billetes táctil, CS 3300Pro Perú",
-  },
-
-  // ─── DETECTORES DE FALSIFICACIÓN ───────────────────────────────────
-  {
-    name: "Glory DGD-100",
-    slug: "glory-dgd-100",
-    sku: "AMC-DF-001",
-    summary:
-      "Detector de billetes falsos de escritorio con 5 métodos de verificación.",
-    description:
-      `El Glory DGD-100 es un detector de falsificación de escritorio que emplea cinco métodos de verificación simultáneos: luz ultravioleta (UV) para verificar las fibras fluorescentes, luz magnética (MG) para detectar las bandas magnéticas, luz infrarroja (IR) para identificar patrones invisibles al ojo humano, luz blanca para inspección visual general y lupa de aumento de 5x para examinar detalles de impresión.
-
-Diseñado para puntos de venta, cajas de recaudación y oficinas que reciben pagos en efectivo. Su operation es intuitiva: simplemente se desliza el billete bajo la fuente de luz correspondiente y se verifica la presencia de los elementos de seguridad.
-
-El DGD-100 incluye una guía visual rápida con los elementos de seguridad de los billetes del sol peruano y el dólar americano. Construido en carcasa de acero con acabado anti-huellas para uso intensivo en ambientes de trabajo.`,
-    categorySlug: "detectores-falsificacion",
+    brandSlug: "amc",
     isFeatured: true,
     isNew: false,
     isBestSeller: true,
-    seoTitle: "Glory DGD-100 — Detector de Billetes Falsos | AMC Soluciones Perú",
-    seoDescription:
-      "Glory DGD-100: detector de billetes falsos 5 métodos (UV, MG, IR, luz blanca, lupa). Para puntos de venta en Perú.",
-    seoKeywords:
-      "Glory DGD-100, detector billetes falsos, DGD 100 Perú, detector falsificación escritorio",
+    order: 6,
+    images: [
+      { url: "/uploads/products/amc-8300pro/img-01.webp", alt: "AMC-8300 PRO - vista frontal", isPrimary: true, order: 0 },
+      { url: "/uploads/products/amc-8300pro/img-02.webp", alt: "AMC-8300 PRO - vista lateral", isPrimary: false, order: 1 },
+      { url: "/uploads/products/amc-8300pro/img-03.webp", alt: "AMC-8300 PRO - detalle sensores", isPrimary: false, order: 2 },
+      { url: "/uploads/products/amc-8300pro/img-04.webp", alt: "AMC-8300 PRO - doble apilador", isPrimary: false, order: 3 },
+    ],
+    documents: [
+      { url: "/uploads/products/amc-8300pro/brochure_amc-8300_pro_espanol_billete_peruano.pdf", type: "ficha", title: "Ficha técnica AMC-8300 PRO", order: 0 },
+    ],
+    features: [
+      { title: "Estructura antiestática", description: "Procesamiento estable especialmente con billetes plásticos", icon: "Shield", order: 0 },
+      { title: "Doble apilador (2×200)", description: "Clasificación continua sin interrupciones", icon: "Layers", order: 1 },
+      { title: "MT 18 + Grosor 19 canales", description: "Detección magnética y de grosor de máxima precisión", icon: "ScanLine", order: 2 },
+      { title: "Canales abiertos 3 módulos", description: "Mantenimiento simplificado y extracción rápida de atascos", icon: "UnfoldVertical", order: 3 },
+      { title: "Control dual", description: "Pantalla táctil 5\" HD + botones físicos", icon: "ToggleRight", order: 4 },
+      { title: "Más de 50 monedas", description: "Soporte amplio para múltiples divisas", icon: "Globe", order: 5 },
+    ],
+    specifications: [
+      { group: "General", key: "Tipo", value: "Clasificadora de billetes profesional", order: 0 },
+      { group: "Técnico", key: "Sensores", value: "CIS Dual, UV, IR, MG, MT (18 canales), Grosor (19 canales)", order: 0 },
+      { group: "Técnico", key: "Velocidad", value: "Hasta 1200 billetes/min (L/M/H)", order: 1 },
+      { group: "Técnico", key: "Cap. tolva", value: "Máximo 500 billetes", order: 2 },
+      { group: "Técnico", key: "Cap. apilador", value: "200 billetes × 2", order: 3 },
+      { group: "Técnico", key: "Cap. rechazo", value: "50-100 billetes", order: 4 },
+      { group: "Técnico", key: "Divisas", value: "Más de 50 monedas", order: 5 },
+      { group: "Técnico", key: "Pantalla", value: "Táctil a color HD, 5\"", order: 6 },
+      { group: "Técnico", key: "Conexiones", value: "USB, RS-232, COMM, LAN", order: 7 },
+      { group: "Técnico", key: "Certificaciones", value: "RoHS, CE, FC, ISO 9001, ISO 14001", order: 8 },
+      { group: "Eléctrico", key: "Alimentación", value: "AC 100-240V, 50/60 Hz", order: 0 },
+      { group: "Eléctrico", key: "Consumo", value: "≤ 150 W", order: 1 },
+    ],
+    applications: [
+      { name: "Bancos centrales", description: "Procesamiento de alto volumen", order: 0 },
+      { name: "Centros de procesamiento", description: "Clasificación masiva de efectivo", order: 1 },
+      { name: "Transporte de valores", description: "Clasificación en centros de custodia", order: 2 },
+      { name: "Casinos", description: "Procesamiento de alto volumen de billetes", order: 3 },
+    ],
   },
+
+  // ═══════════════════════════════════════════════════════════
+  // 7. AMC-9200 — Clasificadora Full Fitness 2+1
+  // ═══════════════════════════════════════════════════════════
   {
-    name: "CashScan UV-200Pro",
-    slug: "cashscan-uv-200pro",
-    sku: "AMC-DF-002",
-    summary:
-      "Detector portátil de billetes falsos con tecnología UV/LED de alta intensidad.",
-    description:
-      `El CashScan UV-200Pro es un detector de billetes falsos portátil que utiliza LEDs ultravioleta de alta intensidad para la verificación instantánea de billetes. Su diseño tipo lámpara de mano permite una inspección rápida sin necesidad de un escritorio, ideal para recepcionistas, cajeros móviles y personal de campo.
-
-Los LEDs UV de última generación emiten a 365nm, la longitud de onda óptima para activar las fibras fluorescentes de seguridad presentes en los billetes del Banco Central de Reserva del Perú y la Reserva Federal de Estados Unidos. La batería de litio recargable ofrece hasta 8 horas de uso continuo.
-
-El UV-200Pro incluye un marcador UV para pruebas adicionales de tinta y una correa de muñeca para facilitar el transporte. Certificado para uso profesional con garantía de 2 años y soporte técnico incluido por AMC Soluciones Perú.`,
-    categorySlug: "detectores-falsificacion",
-    isFeatured: false,
+    name: "AMC-9200",
+    slug: "amc-9200",
+    sku: "AMC-9200",
+    summary: "Clasificadora Full Fitness 2+1 bolsillos con sensores CIS dual RGB, TMR de 18 canales, velocidad 1000 billetes/min y 40 divisas.",
+    description: `La AMC-9200 es una clasificadora de billetes Full Fitness de 2+1 bolsillos diseñada para bancos. Equipada con sensores CIS dual a todo color, TMR de línea completa de 18 canales y 12 canales de detección de cinta. Con dos apiladores de 200 billetes cada uno, compartimento de rechazo de 100 billetes y soporte para hasta 40 divisas. Pantalla táctil TFT de 4.3 pulgadas, gestión de números de serie con almacenamiento en SD, y conexiones LAN, USB y RS232. Incluye clasificación por aptitud (fitness), deterioro, cara, orientación y versión.`,
+    categorySlug: "clasificadoras-billetes",
+    brandSlug: "amc",
+    isFeatured: true,
     isNew: true,
     isBestSeller: false,
-    seoTitle: "CashScan UV-200Pro — Detector Portátil UV | AMC Soluciones Perú",
-    seoDescription:
-      "CashScan UV-200Pro: detector portátil de billetes falsos, LEDs UV 365nm, batería recargable. Para uso profesional en Perú.",
-    seoKeywords:
-      "CashScan UV-200Pro, detector UV portátil, UV 200Pro Perú, lámpara UV billetes",
+    order: 7,
+    images: [
+      { url: "/uploads/products/amc-9200/img-01.webp", alt: "AMC-9200 - vista frontal", isPrimary: true, order: 0 },
+      { url: "/uploads/products/amc-9200/img-02.webp", alt: "AMC-9200 - vista lateral", isPrimary: false, order: 1 },
+      { url: "/uploads/products/amc-9200/img-03.webp", alt: "AMC-9200 - detalle apiladores", isPrimary: false, order: 2 },
+      { url: "/uploads/products/amc-9200/img-04.webp", alt: "AMC-9200 - vista trasera conexiones", isPrimary: false, order: 3 },
+    ],
+    documents: [
+      { url: "/uploads/products/amc-9200/brochure_amc-9200.pdf", type: "ficha", title: "Ficha técnica AMC-9200", order: 0 },
+    ],
+    features: [
+      { title: "Full Fitness", description: "Clasificación bancaria profesional por aptitud y estado", icon: "Award", order: 0 },
+      { title: "TMR 18 canales + 12 cinta", description: "Detección magnética de línea completa", icon: "ScanLine", order: 1 },
+      { title: "2+1 bolsillos", description: "2 apiladores de 200 + 1 rechazo de 100 billetes", icon: "LayoutGrid", order: 2 },
+      { title: "Motor alto rendimiento", description: "Operación continua sin interrupciones", icon: "Gauge", order: 3 },
+      { title: "Clas. por aptitud", description: "Manchas, agujeros, roturas, cinta adhesiva, cara, orientación", icon: "Filter", order: 4 },
+      { title: "Gestión de series", description: "Almacenamiento en SD o sistema externo", icon: "Database", order: 5 },
+    ],
+    specifications: [
+      { group: "General", key: "Tipo", value: "Clasificadora Full Fitness 2+1 bolsillos", order: 0 },
+      { group: "Técnico", key: "Sensores", value: "2 CIS (R/G/B/IR/UV), TMR (18 canales), MG, IR, UV, espesor, 12 canales cinta", order: 0 },
+      { group: "Técnico", key: "Velocidad", value: "1000 billetes/min", order: 1 },
+      { group: "Técnico", key: "Cap. alimentador", value: "500 billetes", order: 2 },
+      { group: "Técnico", key: "Cap. apilador", value: "200 × 2", order: 3 },
+      { group: "Técnico", key: "Cap. rechazo", value: "100 billetes", order: 4 },
+      { group: "Técnico", key: "Divisas", value: "Hasta 40 (ampliables)", order: 5 },
+      { group: "Técnico", key: "Pantalla", value: "Táctil TFT HD, 4.3\"", order: 6 },
+      { group: "Técnico", key: "Conexiones", value: "LAN, RS232 ×2, USB, SD", order: 7 },
+      { group: "Técnico", key: "Actualización", value: "Mediante tarjeta SD", order: 8 },
+      { group: "Eléctrico", key: "Alimentación", value: "110-240V AC, 50/60 Hz", order: 0 },
+      { group: "Dimensional", key: "Dimensiones", value: "400 × 325 × 410 mm", order: 0 },
+      { group: "Dimensional", key: "Dimensiones emb.", value: "600 × 510 × 630 mm", order: 1 },
+      { group: "Dimensional", key: "Peso neto", value: "20 kg", order: 2 },
+      { group: "Dimensional", key: "Peso bruto", value: "25.2 kg", order: 3 },
+    ],
+    applications: [
+      { name: "Bancos centrales", description: "Clasificación Full Fitness para circulación", order: 0 },
+      { name: "Procesadoras de efectivo", description: "Clasificación masiva profesional", order: 1 },
+      { name: "Sucursales bancarias", description: "Procesamiento de alto volumen", order: 2 },
+      { name: "Instituciones gubernamentales", description: "Gestión de efectivo institucional", order: 3 },
+    ],
   },
+
+  // ═══════════════════════════════════════════════════════════
+  // 8. AMC-CM3400 Max — Contadora de Monedas Alta Capacidad
+  // ═══════════════════════════════════════════════════════════
   {
-    name: "Ultrasafe MD-3000",
-    slug: "ultrasafe-md-3000",
-    sku: "AMC-DF-003",
-    summary:
-      "Detector multifunción de billetes con pantalla digital y alarma de falsificación.",
-    description:
-      `El Ultrasafe MD-3000 es un detector de billetes falsos multifunción de última generación con pantalla digital LCD que indica claramente el resultado de cada verificación. Integra sensores UV, magnéticos e infrarrojos que analizan el billete en menos de 0.5 segundos, mostrando "AUTÉNTICO" en verde o "SOSPECHOSO" en rojo.
-
-Su mecanismo de inserción automática permite verificar hasta 10 billetes por minuto sin necesidad de manipularlos manualmente. El sistema emite una alerta sonora y visual al detectar un billete sospechoso, reteniéndolo automáticamente para inspección detallada.
-
-El MD-3000 almacena en memoria los últimos 1,000 billetes verificados, con estadísticas de autenticidad por sesión. Compatible con un software de gestión mediante conexión USB. Recomendado para bancos, casinos, casas de cambio y empresas con alto flujo de efectivo.`,
-    categorySlug: "detectores-falsificacion",
-    isFeatured: false,
-    isNew: false,
-    isBestSeller: false,
-    seoTitle: "Ultrasafe MD-3000 — Detector Multifunción | AMC Soluciones Perú",
-    seoDescription:
-      "Ultrasafe MD-3000: detector multifunción con pantalla digital, inserción automática, memoria de 1,000 billetes. En Perú.",
-    seoKeywords:
-      "Ultrasafe MD-3000, detector multifunción billetes, MD 3000 Perú, detector automático",
-  },
-
-  // ─── ACCESORIOS Y SUMINISTROS ──────────────────────────────────────
-  {
-    name: "Kit de Mantenimiento Glory",
-    slug: "kit-mantenimiento-glory",
-    sku: "AMC-AC-001",
-    summary:
-      "Kit completo de mantenimiento preventivo para equipos Glory GBS y GFS.",
-    description:
-      `El Kit de Mantenimiento Glory es un set profesional de limpieza y mantenimiento preventivo diseñado específicamente para las líneas de contadoras y clasificadoras Glory. Incluye hisopos de microfibra para sensores ópticos, solución de limpieza isotópica para rodillos de caucho, aire comprimido en spray para eliminación de polvo en tarjetas electrónicas y paños antiestáticos.
-
-El uso regular de este kit (recomendado cada 500,000 billetes procesados o mensualmente) prolonga la vida útil de los equipos hasta un 40% y mantiene la precisión de detección de falsificación en niveles de fábrica. Incluye guía ilustrada de procedimiento en español.
-
-Compatible con los modelos GBS-1100, GBS-2200, GFS-1200, GFS-2200 y GNH-10. Cada kit permite aproximadamente 12 sesiones de mantenimiento completo. AMC Soluciones Perú ofrece también el servicio de mantenimiento preventivo ejecutado por técnicos certificados.`,
-    categorySlug: "accesorios-suministros",
+    name: "AMC-CM3400 MAX",
+    slug: "amc-cm3400-max",
+    sku: "AMC-CM3400-MAX",
+    summary: "Contadora de monedas de alta capacidad con tolva de gran formato, ruedas integradas y panel de control profesional.",
+    description: `La AMC-CM3400 MAX es la versión de mayor capacidad de la línea de contadoras de monedas AMC. Cuenta con una tolva de alimentación de gran formato, panel de control con teclado numérico, pantalla LCD y botones de función en colores para operación intuitiva. Incluye ruedas en la base para facilitar el traslado entre áreas de trabajo. Su diseño robusto con puerta de acceso abatible permite un mantenimiento sencillo del mecanismo interno. Ideal para bancos, centros de cambio y empresas con alto volumen de transacciones en monedas.`,
+    categorySlug: "contadoras-monedas",
+    brandSlug: "amc",
     isFeatured: true,
-    isNew: false,
-    isBestSeller: true,
-    seoTitle: "Kit de Mantenimiento Glory — Accesorios | AMC Soluciones Perú",
-    seoDescription:
-      "Kit de mantenimiento preventivo para equipos Glory. Hisopos, solución de limpieza, aire comprimido. Para GBS y GFS en Perú.",
-    seoKeywords:
-      "kit mantenimiento Glory, mantenimiento contadoras, limpieza equipos efectivo, accesorios Glory Perú",
-  },
-  {
-    name: "Cinta Transportadora Universal",
-    slug: "cinta-transportadora-universal",
-    sku: "AMC-AC-002",
-    summary:
-      "Cinta de caucho de repuesto para contadores y clasificadores de billetes.",
-    description:
-      `La Cinta Transportadora Universal es un repuesto de alta calidad fabricada en caucho siliconado de grado industrial, diseñada para reemplazar las bandas de alimentación desgastadas en la mayoría de contadores y clasificadores de billetes disponibles en el mercado peruano.
-
-Su superficie texturizada de alta fricción garantiza un agarre uniforme que reduce los atascos y dobleces durante el transporte de billetes. La banda resistente a la estática evita la acumulación de carga eléctrica que puede interferir con los sensores de detección.
-
-Disponible en 5 longitudes estándar (180mm, 220mm, 260mm, 300mm y 350mm) para adaptarse a diferentes modelos de Glory, CashScan, Hyundai y Royal Sovereign. Se recomienda el reemplazo cada 6 meses en equipos de uso intensivo o al primer signo de desgaste visible.`,
-    categorySlug: "accesorios-suministros",
-    isFeatured: false,
-    isNew: false,
+    isNew: true,
     isBestSeller: false,
-    seoTitle: "Cinta Transportadora Universal — Repuesto | AMC Soluciones Perú",
-    seoDescription:
-      "Cinta transportadora de caucho para contadoras y clasificadoras de billetes. 5 tamaños, alta fricción. Envío a todo Perú.",
-    seoKeywords:
-      "cinta transportadora contadora, banda repuesto contador billetes, caucho siliconado, repuestos efectivo Perú",
-  },
-  {
-    name: "Bolsas de Depósito Seguras",
-    slug: "bolsas-deposito-seguras",
-    sku: "AMC-AC-003",
-    summary:
-      "Bolsas de seguridad tamper-evident para transporte y depósito de efectivo.",
-    description:
-      `Las Bolsas de Depósito Seguras son envolturas de seguridad de un solo uso (tamper-evident) diseñadas para el transporte y depósito de efectivo entre puntos de venta, sucursales bancarias y empresas de transporte de valores. Fabricadas en polietileno de alta densidad con cierre adhesivo irreversible y numeración secuencial única.
-
-Cada bolsa cuenta con una ventana transparente para verificar el contenido sin necesidad de abrirla, una zona de escritura para registrar los datos del depósito (fecha, monto, responsable) y un sello de seguridad que se destruye al intentar abrir la bolsa sin autorización.
-
-Disponibles en 4 tamaños: pequeña (para monedas y billetes sueltos), mediana (para fajos estándar), grande (para loteos bancarios) y extragrande (para transporte de valores). Color codificado por nivel de seguridad: azul (estándar), roja (alto valor) y negra (confidencial).`,
-    categorySlug: "accesorios-suministros",
-    isFeatured: false,
-    isNew: false,
-    isBestSeller: false,
-    seoTitle: "Bolsas de Depósito Seguras — Suministros | AMC Soluciones Perú",
-    seoDescription:
-      "Bolsas de depósito de efectivo tamper-evident, cierre irreversible, numeración secuencial. 4 tamaños, envío a todo Perú.",
-    seoKeywords:
-      "bolsas depósito efectivo, bolsas seguridad dinero, tamper evident bags Perú, bolsas transporte valores",
+    order: 8,
+    images: [
+      { url: "/uploads/products/amc-cm3400-max/img-01.webp", alt: "AMC-CM3400 MAX - vista frontal", isPrimary: true, order: 0 },
+      { url: "/uploads/products/amc-cm3400-max/img-02.webp", alt: "AMC-CM3400 MAX - vista lateral", isPrimary: false, order: 1 },
+      { url: "/uploads/products/amc-cm3400-max/img-03.webp", alt: "AMC-CM3400 MAX - detalle panel", isPrimary: false, order: 2 },
+      { url: "/uploads/products/amc-cm3400-max/img-04.webp", alt: "AMC-CM3400 MAX - tolva", isPrimary: false, order: 3 },
+      { url: "/uploads/products/amc-cm3400-max/img-05.webp", alt: "AMC-CM3400 MAX - ruedas y base", isPrimary: false, order: 4 },
+    ],
+    videos: [
+      { url: "/uploads/products/amc-cm3400-max/84000fb9-ec42-4087-b987-25894a5a3a1d.mp4", title: "AMC-CM3400 MAX en operación", order: 0 },
+    ],
+    features: [
+      { title: "Alta capacidad", description: "Tolva de alimentación de gran formato", icon: "Layers", order: 0 },
+      { title: "Panel profesional", description: "LCD, teclado numérico y botones de función", icon: "Monitor", order: 1 },
+      { title: "Mantenimiento fácil", description: "Puerta abatible para acceso al mecanismo interno", icon: "Wrench", order: 2 },
+      { title: "Ruedas integradas", description: "Mobilidad entre áreas de trabajo", icon: "Move", order: 3 },
+      { title: "Diseño robusto", description: "Construcción profesional para uso intensivo", icon: "Shield", order: 4 },
+      { title: "Múltiples denominaciones", description: "Conteo y clasificación de varias denominaciones", icon: "Coins", order: 5 },
+    ],
+    specifications: [
+      { group: "General", key: "Tipo", value: "Contadora de monedas (alta capacidad)", order: 0 },
+      { group: "General", key: "Marca", value: "AMC", order: 1 },
+      { group: "General", key: "Pantalla", value: "LCD digital", order: 2 },
+      { group: "General", key: "Controles", value: "Teclado numérico + botones de función", order: 3 },
+      { group: "General", key: "Alimentación", value: "110-240V AC, 50/60 Hz", order: 4 },
+    ],
+    applications: [
+      { name: "Bancos", description: "Procesamiento de grandes volúmenes de monedas", order: 0 },
+      { name: "Centros de cambio", description: "Clasificación y conteo de múltiples divisas", order: 1 },
+      { name: "Supermercados", description: "Procesamiento de monedas al cierre", order: 2 },
+      { name: "Casinos", description: "Conteo de fichas y monedas", order: 3 },
+    ],
   },
 ];
 
 async function main() {
-  console.log("🌱 Iniciando seed de AMC Soluciones Perú...");
+  console.log("🌱 Seeding AMC catalog...\n");
 
-  // ── Create categories ──
-  console.log("\n📁 Creando categorías...");
-  const createdCategories: Record<string, string> = {};
+  // ── Clean existing data ──
+  console.log("🗑️  Cleaning existing products...");
+  await prisma.productApplication.deleteMany();
+  await prisma.productSpecification.deleteMany();
+  await prisma.productFeature.deleteMany();
+  await prisma.productDocument.deleteMany();
+  await prisma.productVideo.deleteMany();
+  await prisma.productImage.deleteMany();
+  await prisma.product.deleteMany();
+  console.log("   Products cleaned.\n");
 
+  // ── Upsert categories ──
+  console.log("📂 Upserting categories...");
   for (const cat of categories) {
-    const created = await prisma.category.create({
-      data: {
-        slug: cat.slug,
-        name: cat.name,
-        description: cat.description,
-        icon: cat.icon,
-        order: cat.order,
-        isActive: true,
-        seoTitle: cat.seoTitle,
-        seoDescription: cat.seoDescription,
-        seoKeywords: cat.seoKeywords,
-      },
+    await prisma.category.upsert({
+      where: { slug: cat.slug },
+      update: cat,
+      create: cat,
     });
-    createdCategories[cat.slug] = created.id;
-    console.log(`  ✓ Categoría creada: ${cat.name} (${cat.slug})`);
+    console.log(`   ✓ ${cat.name}`);
+  }
+
+  // ── Upsert brand ──
+  console.log("\n🏷️  Upserting brands...");
+  for (const brand of brands) {
+    await prisma.brand.upsert({
+      where: { slug: brand.slug },
+      update: brand,
+      create: brand,
+    });
+    console.log(`   ✓ ${brand.name}`);
   }
 
   // ── Create products ──
-  console.log("\n📦 Creando productos...");
-  let productCount = 0;
+  console.log("\n🛒 Creating products...\n");
+  for (const p of products) {
+    const category = await prisma.category.findUnique({ where: { slug: p.categorySlug } });
+    const brand = p.brandSlug ? await prisma.brand.findUnique({ where: { slug: p.brandSlug } }) : null;
 
-  for (const prod of products) {
-    const categoryId = createdCategories[prod.categorySlug];
-    if (!categoryId) {
-      console.error(`  ✗ Categoría no encontrada para: ${prod.name} (${prod.categorySlug})`);
-      continue;
-    }
-
-    await prisma.product.create({
+    const product = await prisma.product.create({
       data: {
-        slug: prod.slug,
-        sku: prod.sku,
-        name: prod.name,
-        summary: prod.summary,
-        description: prod.description,
-        categoryId,
-        price: null,
-        currency: "PEN",
-        isFeatured: prod.isFeatured,
-        isNew: prod.isNew,
-        isBestSeller: prod.isBestSeller,
+        name: p.name,
+        slug: p.slug,
+        sku: p.sku,
+        summary: p.summary,
+        description: p.description,
+        categoryId: category!.id,
+        brandId: brand?.id ?? null,
+        isFeatured: p.isFeatured,
+        isNew: p.isNew,
+        isBestSeller: p.isBestSeller,
         isActive: true,
-        order: productCount + 1,
-        seoTitle: prod.seoTitle,
-        seoDescription: prod.seoDescription,
-        seoKeywords: prod.seoKeywords,
+        order: p.order,
+        ...(p.seoTitle ? { seoTitle: p.seoTitle } : {}),
+        ...(p.seoDescription ? { seoDescription: p.seoDescription } : {}),
+        ...(p.seoKeywords ? { seoKeywords: p.seoKeywords } : {}),
+        images: {
+          create: (p.images || []).map((img: any) => ({
+            url: img.url,
+            alt: img.alt,
+            width: 1200,
+            height: 1200,
+            isPrimary: img.isPrimary,
+            order: img.order,
+          })),
+        },
+        documents: {
+          create: (p.documents || []).map((doc: any) => ({
+            url: doc.url,
+            type: doc.type,
+            title: doc.title,
+            size: 0,
+            order: doc.order,
+          })),
+        },
+        videos: {
+          create: (p.videos || []).map((vid: any) => ({
+            url: vid.url,
+            provider: "local",
+            title: vid.title,
+            order: vid.order,
+          })),
+        },
+        features: {
+          create: (p.features || []).map((f: any) => ({
+            title: f.title,
+            description: f.description || "",
+            icon: f.icon || null,
+            order: f.order ?? 0,
+          })),
+        },
+        specifications: {
+          create: (p.specifications || []).map((s: any) => ({
+            group: s.group,
+            key: s.key,
+            value: s.value,
+            order: s.order ?? 0,
+          })),
+        },
+        applications: {
+          create: (p.applications || []).map((a: any) => ({
+            name: a.name,
+            description: a.description || "",
+            order: a.order ?? 0,
+          })),
+        },
       },
     });
-    productCount++;
-    console.log(`  ✓ Producto creado: ${prod.name} (${prod.sku})`);
+
+    console.log(`   ✓ ${product.name} (${product.slug}) — ${(p.images||[]).length} imgs, ${(p.features||[]).length} feats, ${(p.specifications||[]).length} specs`);
   }
 
-  console.log(`\n✅ Seed completado: ${Object.keys(createdCategories).length} categorías, ${productCount} productos.`);
+  console.log("\n✅ Seed complete!");
+  console.log(`   Products: ${products.length}`);
+  console.log(`   Categories: ${categories.length}`);
 }
 
 main()
-  .catch((e) => {
-    console.error("❌ Error en seed:", e);
-    process.exit(1);
-  })
+  .catch((e) => { console.error(e); process.exit(1); })
   .finally(() => prisma.$disconnect());
