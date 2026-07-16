@@ -60,8 +60,10 @@ server.log
 *.db
 *.db-journal
 
-# Uploads locales (no subir binarios)
+# Uploads locales (no subir binarios) — except product images
 /public/uploads/
+!/public/uploads/products/
+!/public/uploads/products/**/
 /upload/
 
 # Descargas / capturas locales
