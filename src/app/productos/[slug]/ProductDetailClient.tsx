@@ -57,6 +57,7 @@ interface Related {
   isFeatured: boolean;
   isNew: boolean;
   category?: { slug: string; name: string } | null;
+  images?: { url: string; alt: string }[];
 }
 
 export default function ProductDetailClient({ slug }: { slug: string }) {
@@ -562,6 +563,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
                   tag={r.isFeatured ? "Destacado" : r.isNew ? "Nuevo" : undefined}
                   tagVariant={r.isFeatured ? "warning" : "primary"}
                   isNew={r.isNew}
+                  image={r.images?.[0]?.url || undefined}
                 />
               </StaggerItem>
             ))}

@@ -2,6 +2,7 @@
  * Static fallback data for categories, products and brands.
  * Used when the database has no data (e.g. fresh Supabase instance).
  * Mirrors the seed data in prisma/seed.ts — 8 AMC products, 4 categories, 1 brand.
+ * All images, videos and documents point directly to /uploads/products/{slug}/.
  */
 
 export const STATIC_CATEGORIES = [
@@ -80,7 +81,22 @@ export const STATIC_PRODUCTS = [
     isBestSeller: true,
     category: { slug: "contadoras-monedas", name: "Contadoras de Monedas" },
     brand: { slug: "amc", name: "AMC" },
-    images: [{ url: "/uploads/products/amc-cm3400/img-01.webp", alt: "AMC-CM3400 Contadora de monedas" }],
+    images: [
+      { id: "img-1-1", url: "/uploads/products/amc-cm3400/img-01.webp", alt: "AMC-CM3400 vista frontal", isPrimary: true },
+      { id: "img-1-2", url: "/uploads/products/amc-cm3400/img-02.webp", alt: "AMC-CM3400 vista lateral", isPrimary: false },
+      { id: "img-1-3", url: "/uploads/products/amc-cm3400/img-03.webp", alt: "AMC-CM3400 vista superior", isPrimary: false },
+      { id: "img-1-4", url: "/uploads/products/amc-cm3400/img-04.webp", alt: "AMC-CM3400 detalle pantalla", isPrimary: false },
+      { id: "img-1-5", url: "/uploads/products/amc-cm3400/img-05.webp", alt: "AMC-CM3400 detalle tolva", isPrimary: false },
+      { id: "img-1-6", url: "/uploads/products/amc-cm3400/img-06.webp", alt: "AMC-CM3400 vista completa", isPrimary: false },
+    ],
+    videos: [
+      { id: "vid-1-1", url: "/uploads/products/amc-cm3400/198e63d2-9c49-44df-b905-bcd2d1fe8e58.mp4", provider: "local", title: "AMC-CM3400 en operación" },
+      { id: "vid-1-2", url: "/uploads/products/amc-cm3400/42c9a359-8eb2-44f0-99a5-5dc118017ca7.mp4", provider: "local", title: "AMC-CM3400 demostración" },
+    ],
+    documents: [],
+    features: [],
+    specifications: [],
+    applications: [],
   },
   {
     id: "prod-2",
@@ -96,7 +112,20 @@ export const STATIC_PRODUCTS = [
     isBestSeller: false,
     category: { slug: "contadoras-monedas", name: "Contadoras de Monedas" },
     brand: { slug: "amc", name: "AMC" },
-    images: [{ url: "/uploads/products/amc-cm3400-max/img-01.webp", alt: "AMC-CM3400 MAX Contadora de monedas" }],
+    images: [
+      { id: "img-2-1", url: "/uploads/products/amc-cm3400-max/img-01.webp", alt: "AMC-CM3400 MAX vista frontal", isPrimary: true },
+      { id: "img-2-2", url: "/uploads/products/amc-cm3400-max/img-02.webp", alt: "AMC-CM3400 MAX vista lateral", isPrimary: false },
+      { id: "img-2-3", url: "/uploads/products/amc-cm3400-max/img-03.webp", alt: "AMC-CM3400 MAX vista superior", isPrimary: false },
+      { id: "img-2-4", url: "/uploads/products/amc-cm3400-max/img-04.webp", alt: "AMC-CM3400 MAX detalle", isPrimary: false },
+      { id: "img-2-5", url: "/uploads/products/amc-cm3400-max/img-05.webp", alt: "AMC-CM3400 MAX ruedas", isPrimary: false },
+    ],
+    videos: [
+      { id: "vid-2-1", url: "/uploads/products/amc-cm3400-max/84000fb9-ec42-4087-b987-25894a5a3a1d.mp4", provider: "local", title: "AMC-CM3400 MAX en operación" },
+    ],
+    documents: [],
+    features: [],
+    specifications: [],
+    applications: [],
   },
   // ─── LÍNEA ESENCIAL ───
   {
@@ -113,7 +142,18 @@ export const STATIC_PRODUCTS = [
     isBestSeller: false,
     category: { slug: "linea-esencial", name: "Línea Esencial" },
     brand: { slug: "amc", name: "AMC" },
-    images: [{ url: "/uploads/products/amc-2000/img-01.webp", alt: "AMC-2000 Contadora de billetes" }],
+    images: [
+      { id: "img-3-1", url: "/uploads/products/amc-2000/img-01.webp", alt: "AMC-2000 vista frontal", isPrimary: true },
+      { id: "img-3-2", url: "/uploads/products/amc-2000/img-02.webp", alt: "AMC-2000 vista lateral", isPrimary: false },
+      { id: "img-3-3", url: "/uploads/products/amc-2000/img-03.webp", alt: "AMC-2000 detalle pantalla", isPrimary: false },
+    ],
+    videos: [],
+    documents: [
+      { id: "doc-3-1", url: "/uploads/products/amc-2000/brochure_amc-2000_ir-image_mismo_formato.pdf", type: "ficha", title: "Brochure AMC-2000 IR-IMAGE", size: null },
+    ],
+    features: [],
+    specifications: [],
+    applications: [],
   },
   // ─── CONTADORAS DE BILLETES ───
   {
@@ -130,7 +170,20 @@ export const STATIC_PRODUCTS = [
     isBestSeller: true,
     category: { slug: "contadoras-billetes", name: "Contadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
-    images: [{ url: "/uploads/products/amc-3200/img-01.webp", alt: "AMC-3200 2CIS Contadora de billetes" }],
+    images: [
+      { id: "img-4-1", url: "/uploads/products/amc-3200/img-01.webp", alt: "AMC-3200 2CIS vista frontal", isPrimary: true },
+      { id: "img-4-2", url: "/uploads/products/amc-3200/img-02.webp", alt: "AMC-3200 2CIS vista lateral", isPrimary: false },
+      { id: "img-4-3", url: "/uploads/products/amc-3200/img-03.webp", alt: "AMC-3200 2CIS detalle pantalla", isPrimary: false },
+      { id: "img-4-4", url: "/uploads/products/amc-3200/img-04.webp", alt: "AMC-3200 2CIS vista completa", isPrimary: false },
+    ],
+    videos: [],
+    documents: [
+      { id: "doc-4-1", url: "/uploads/products/amc-3200/brochure_amc-3200_final_web.pdf", type: "ficha", title: "Brochure AMC-3200", size: null },
+      { id: "doc-4-2", url: "/uploads/products/amc-3200/brochure_amc-3200_final_web(1).pdf", type: "ficha", title: "Brochure AMC-3200 (alt)", size: null },
+    ],
+    features: [],
+    specifications: [],
+    applications: [],
   },
   {
     id: "prod-5",
@@ -146,7 +199,19 @@ export const STATIC_PRODUCTS = [
     isBestSeller: false,
     category: { slug: "contadoras-billetes", name: "Contadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
-    images: [{ url: "/uploads/products/amc-8100/img-01.webp", alt: "AMC-8100 Contadora de billetes" }],
+    images: [
+      { id: "img-5-1", url: "/uploads/products/amc-8100/img-01.webp", alt: "AMC-8100 vista frontal", isPrimary: true },
+      { id: "img-5-2", url: "/uploads/products/amc-8100/img-02.webp", alt: "AMC-8100 vista lateral", isPrimary: false },
+      { id: "img-5-3", url: "/uploads/products/amc-8100/img-03.webp", alt: "AMC-8100 detalle pantalla", isPrimary: false },
+      { id: "img-5-4", url: "/uploads/products/amc-8100/img-04.webp", alt: "AMC-8100 vista completa", isPrimary: false },
+    ],
+    videos: [],
+    documents: [
+      { id: "doc-5-1", url: "/uploads/products/amc-8100/brochure_amc-8100.pdf", type: "ficha", title: "Brochure AMC-8100", size: null },
+    ],
+    features: [],
+    specifications: [],
+    applications: [],
   },
   // ─── CLASIFICADORAS DE BILLETES ───
   {
@@ -163,7 +228,19 @@ export const STATIC_PRODUCTS = [
     isBestSeller: false,
     category: { slug: "clasificadoras-billetes", name: "Clasificadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
-    images: [{ url: "/uploads/products/amc-8200/img-01.webp", alt: "AMC-8200 Clasificadora de billetes" }],
+    images: [
+      { id: "img-6-1", url: "/uploads/products/amc-8200/img-01.webp", alt: "AMC-8200 vista frontal", isPrimary: true },
+      { id: "img-6-2", url: "/uploads/products/amc-8200/img-02.webp", alt: "AMC-8200 vista lateral", isPrimary: false },
+      { id: "img-6-3", url: "/uploads/products/amc-8200/img-03.webp", alt: "AMC-8200 detalle pantalla", isPrimary: false },
+      { id: "img-6-4", url: "/uploads/products/amc-8200/img-04.webp", alt: "AMC-8200 vista completa", isPrimary: false },
+    ],
+    videos: [],
+    documents: [
+      { id: "doc-6-1", url: "/uploads/products/amc-8200/brochure_amc-8200.pdf", type: "ficha", title: "Brochure AMC-8200", size: null },
+    ],
+    features: [],
+    specifications: [],
+    applications: [],
   },
   {
     id: "prod-7",
@@ -179,7 +256,19 @@ export const STATIC_PRODUCTS = [
     isBestSeller: true,
     category: { slug: "clasificadoras-billetes", name: "Clasificadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
-    images: [{ url: "/uploads/products/amc-8300pro/img-01.webp", alt: "AMC-8300 PRO Clasificadora de billetes" }],
+    images: [
+      { id: "img-7-1", url: "/uploads/products/amc-8300pro/img-01.webp", alt: "AMC-8300 PRO vista frontal", isPrimary: true },
+      { id: "img-7-2", url: "/uploads/products/amc-8300pro/img-02.webp", alt: "AMC-8300 PRO vista lateral", isPrimary: false },
+      { id: "img-7-3", url: "/uploads/products/amc-8300pro/img-03.webp", alt: "AMC-8300 PRO detalle", isPrimary: false },
+      { id: "img-7-4", url: "/uploads/products/amc-8300pro/img-04.webp", alt: "AMC-8300 PRO vista completa", isPrimary: false },
+    ],
+    videos: [],
+    documents: [
+      { id: "doc-7-1", url: "/uploads/products/amc-8300pro/brochure_amc-8300_pro_espanol_billete_peruano.pdf", type: "ficha", title: "Brochure AMC-8300 PRO", size: null },
+    ],
+    features: [],
+    specifications: [],
+    applications: [],
   },
   {
     id: "prod-8",
@@ -195,6 +284,18 @@ export const STATIC_PRODUCTS = [
     isBestSeller: false,
     category: { slug: "clasificadoras-billetes", name: "Clasificadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
-    images: [{ url: "/uploads/products/amc-9200/img-01.webp", alt: "AMC-9200 Clasificadora de billetes" }],
+    images: [
+      { id: "img-8-1", url: "/uploads/products/amc-9200/img-01.webp", alt: "AMC-9200 vista frontal", isPrimary: true },
+      { id: "img-8-2", url: "/uploads/products/amc-9200/img-02.webp", alt: "AMC-9200 vista lateral", isPrimary: false },
+      { id: "img-8-3", url: "/uploads/products/amc-9200/img-03.webp", alt: "AMC-9200 detalle pantalla", isPrimary: false },
+      { id: "img-8-4", url: "/uploads/products/amc-9200/img-04.webp", alt: "AMC-9200 vista completa", isPrimary: false },
+    ],
+    videos: [],
+    documents: [
+      { id: "doc-8-1", url: "/uploads/products/amc-9200/brochure_amc-9200.pdf", type: "ficha", title: "Brochure AMC-9200", size: null },
+    ],
+    features: [],
+    specifications: [],
+    applications: [],
   },
 ];

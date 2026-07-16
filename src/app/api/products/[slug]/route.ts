@@ -51,12 +51,12 @@ export async function GET(
             brand: staticProduct.brand
               ? { slug: staticProduct.brand.slug, name: staticProduct.brand.name, logo: null }
               : null,
-            images: [],
-            videos: [],
-            documents: [],
-            features: [],
-            specifications: [],
-            applications: [],
+            images: staticProduct.images || [],
+            videos: staticProduct.videos || [],
+            documents: staticProduct.documents || [],
+            features: staticProduct.features || [],
+            specifications: staticProduct.specifications || [],
+            applications: staticProduct.applications || [],
           },
           related: STATIC_PRODUCTS.filter(
             (p) => p.category.slug === staticProduct.category.slug && p.slug !== slug,
