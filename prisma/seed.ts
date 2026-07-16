@@ -544,9 +544,9 @@ async function main() {
         isBestSeller: p.isBestSeller,
         isActive: true,
         order: p.order,
-        ...(p.seoTitle ? { seoTitle: p.seoTitle } : {}),
-        ...(p.seoDescription ? { seoDescription: p.seoDescription } : {}),
-        ...(p.seoKeywords ? { seoKeywords: p.seoKeywords } : {}),
+        ...(('seoTitle' in p && (p as any).seoTitle) ? { seoTitle: (p as any).seoTitle } : {}),
+        ...(('seoDescription' in p && (p as any).seoDescription) ? { seoDescription: (p as any).seoDescription } : {}),
+        ...(('seoKeywords' in p && (p as any).seoKeywords) ? { seoKeywords: (p as any).seoKeywords } : {}),
         images: {
           create: (p.images || []).map((img: any) => ({
             url: img.url,
