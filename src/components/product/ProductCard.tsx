@@ -42,6 +42,7 @@ const CATEGORY_SVG: Record<string, string> = {
   "contadoras-monedas": "/equip/contadora-monedas.svg",
   "clasificadoras-billetes": "/equip/clasificadora-billetes.svg",
   "detectores-falsificacion": "/equip/detector-billetes.svg",
+  "linea-esencial": "/equip/contadora-billetes.svg",
 };
 
 /**

@@ -57,7 +57,7 @@ export function CategoriesGrid() {
                     Ver catálogo
                     <ArrowRight className="w-4 h-4" />
                   </div>
-                  {isFeatured && c.slug === "contadoras-de-billetes" && (
+                  {isFeatured && c.slug === "contadoras-billetes" && (
                     <div className="mt-3 flex items-center justify-center gap-1.5 text-[10px] text-success font-semibold">
                       <ShieldCheck className="w-3 h-3" />
                       <span>Detección UV + MG + IR</span>

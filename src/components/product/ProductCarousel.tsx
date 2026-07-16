@@ -12,7 +12,7 @@ const CATEGORY_IMAGE: Record<string, string> = {
   "contadoras-monedas": "/images/products/contadora-monedas.png",
   "clasificadoras-billetes": "/images/products/clasificadora-billetes.png",
   "detectores-falsificacion": "/images/products/detector-billetes.png",
-  "accesorios-suministros": "/images/products/accesorios.png",
+  "linea-esencial": "/images/products/contadora-billetes.png",
 };
 
 interface CarouselProduct {
