@@ -91,7 +91,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
     })) || [],
     [product]
   );
-  const { isOpen: lbOpen, open: lbOpen, close: lbClose, activeIndex: lbIndex } = useLightbox(lightboxImages);
+  const { isOpen: lbOpen, open: lbOpenFn, close: lbClose, activeIndex: lbIndex } = useLightbox(lightboxImages);
 
   React.useEffect(() => {
     setLoading(true);
@@ -194,7 +194,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
               <div
                 ref={mainImgRef}
                 className="relative aspect-square bg-gradient-to-br from-muted to-surface-2 rounded-xl overflow-hidden flex items-center justify-center border border-border cursor-zoom-in"
-                onClick={() => p.images.length > 0 && lbOpen(selectedImage)}
+                onClick={() => p.images.length > 0 && lbOpenFn(selectedImage)}
                 onMouseEnter={() => setHoverZoom(true)}
                 onMouseLeave={() => setHoverZoom(false)}
                 onMouseMove={(e) => {
@@ -257,7 +257,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
                     <button
                       key={img.id || i}
                       onClick={() => setSelectedImage(i)}
-                      onDoubleClick={() => lbOpen(i)}
+                      onDoubleClick={() => lbOpenFn(i)}
                       className={`flex-shrink-0 w-20 h-20 rounded-md overflow-hidden border-2 transition-colors ${
                         selectedImage === i ? "border-primary" : "border-border hover:border-primary/50"
                       }`}
