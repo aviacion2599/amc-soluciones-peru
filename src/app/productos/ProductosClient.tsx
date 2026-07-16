@@ -356,7 +356,7 @@ function ProductosContent() {
             ) : (
               <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {products.map((p, idx) => (
-                  <StaggerItem key={p.id}>
+                  <StaggerItem key={p.id} className="h-full">
                     <ProductCard
                       name={p.name}
                       slug={p.slug}
@@ -367,7 +367,7 @@ function ProductosContent() {
                       isNew={p.isNew}
                       brand={p.brand?.name}
                       summary={p.summary}
-                      featured={idx === 0}
+                      image={p.images?.[0]?.url || undefined}
                     />
                   </StaggerItem>
                 ))}

@@ -22,6 +22,8 @@ interface ProductCardProps {
   isNew?: boolean;
   brand?: string;
   summary?: string;
+  /** URL of the primary product image (from /uploads/products/{slug}/) */
+  image?: string;
   /** When true, renders a larger card (first product on mobile) */
   featured?: boolean;
   className?: string;
@@ -59,6 +61,7 @@ export function ProductCard({
   tagVariant = "primary",
   brand = "AMC",
   summary,
+  image,
   featured = false,
   className,
 }: ProductCardProps) {
@@ -75,18 +78,15 @@ export function ProductCard({
   return (
     <article
       className={cn(
-        "card-base overflow-hidden group flex flex-col",
+        "card-base overflow-hidden group flex flex-col h-full",
         className,
       )}
     >
-      {/* Equipment image — large, transparent SVG */}
+      {/* Product image — real photo with fallback to SVG */}
       <Link
         href={detailHref}
         className={cn(
-        "relative flex items-center justify-center bg-gradient-to-b from-muted/30 to-transparent overflow-hidden",
-        featured
-          ? "px-6 pt-10 pb-6 sm:px-10 sm:pt-12 sm:pb-8"
-          : "px-6 pt-8 pb-4 sm:px-8 sm:pt-10 sm:pb-6",
+        "relative flex items-center justify-center bg-gradient-to-b from-muted/30 to-transparent overflow-hidden aspect-[4/3]",
       )}
         aria-label={`Ver detalles de ${name}`}
       >
@@ -102,39 +102,33 @@ export function ProductCard({
           </span>
         )}
 
-        {/* Large equipment illustration */}
-        <img
-          src={svgSrc}
-          alt={name}
-          className={cn(
-            "object-contain text-primary/20 group-hover:scale-105 transition-transform duration-500",
-            featured
-              ? "w-[194px] h-[194px] sm:w-56 sm:h-56 lg:w-60 lg:h-60"
-              : "w-36 h-36 sm:w-44 sm:h-44 lg:w-48 lg:h-48",
-          )}
-          loading="lazy"
-        />
+        {/* Product image or SVG fallback */}
+        {image ? (
+          <img
+            src={image}
+            alt={name}
+            className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+        ) : (
+          <img
+            src={svgSrc}
+            alt={name}
+            className="w-36 h-36 sm:w-44 sm:h-44 object-contain text-primary/20 group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+        )}
       </Link>
 
       {/* Card body — mobile-first text layout */}
-      <div className={cn(
-        "flex flex-col flex-1",
-        featured
-          ? "px-5 pb-6 sm:px-7 sm:pb-7"
-          : "px-5 pb-5 sm:px-6 sm:pb-6",
-      )}>
+      <div className="flex flex-col flex-1 px-5 pb-5 sm:px-6 sm:pb-6">
         {/* Category label */}
         <div className="overline text-muted-foreground mb-1.5">{category}</div>
 
         {/* Product name */}
         <Link
           href={detailHref}
-          className={cn(
-            "font-display font-bold group-hover:text-primary transition-colors leading-tight",
-            featured
-              ? "text-lg sm:text-xl mb-1.5"
-              : "text-base sm:text-lg mb-1",
-          )}
+          className="font-display font-bold group-hover:text-primary transition-colors leading-tight text-base sm:text-lg mb-1 line-clamp-1"
         >
           {name}
         </Link>

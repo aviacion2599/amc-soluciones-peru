@@ -80,7 +80,7 @@ export const STATIC_PRODUCTS = [
     isBestSeller: true,
     category: { slug: "contadoras-monedas", name: "Contadoras de Monedas" },
     brand: { slug: "amc", name: "AMC" },
-    images: [],
+    images: [{ url: "/uploads/products/amc-cm3400/img-01.webp", alt: "AMC-CM3400 Contadora de monedas" }],
   },
   {
     id: "prod-2",
@@ -96,7 +96,7 @@ export const STATIC_PRODUCTS = [
     isBestSeller: false,
     category: { slug: "contadoras-monedas", name: "Contadoras de Monedas" },
     brand: { slug: "amc", name: "AMC" },
-    images: [],
+    images: [{ url: "/uploads/products/amc-cm3400-max/img-01.webp", alt: "AMC-CM3400 MAX Contadora de monedas" }],
   },
   // ─── LÍNEA ESENCIAL ───
   {
@@ -113,7 +113,7 @@ export const STATIC_PRODUCTS = [
     isBestSeller: false,
     category: { slug: "linea-esencial", name: "Línea Esencial" },
     brand: { slug: "amc", name: "AMC" },
-    images: [],
+    images: [{ url: "/uploads/products/amc-2000/img-01.webp", alt: "AMC-2000 Contadora de billetes" }],
   },
   // ─── CONTADORAS DE BILLETES ───
   {
@@ -130,7 +130,7 @@ export const STATIC_PRODUCTS = [
     isBestSeller: true,
     category: { slug: "contadoras-billetes", name: "Contadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
-    images: [],
+    images: [{ url: "/uploads/products/amc-3200/img-01.webp", alt: "AMC-3200 2CIS Contadora de billetes" }],
   },
   {
     id: "prod-5",
@@ -146,7 +146,7 @@ export const STATIC_PRODUCTS = [
     isBestSeller: false,
     category: { slug: "contadoras-billetes", name: "Contadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
-    images: [],
+    images: [{ url: "/uploads/products/amc-8100/img-01.webp", alt: "AMC-8100 Contadora de billetes" }],
   },
   // ─── CLASIFICADORAS DE BILLETES ───
   {
@@ -163,7 +163,7 @@ export const STATIC_PRODUCTS = [
     isBestSeller: false,
     category: { slug: "clasificadoras-billetes", name: "Clasificadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
-    images: [],
+    images: [{ url: "/uploads/products/amc-8200/img-01.webp", alt: "AMC-8200 Clasificadora de billetes" }],
   },
   {
     id: "prod-7",
@@ -179,7 +179,7 @@ export const STATIC_PRODUCTS = [
     isBestSeller: true,
     category: { slug: "clasificadoras-billetes", name: "Clasificadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
-    images: [],
+    images: [{ url: "/uploads/products/amc-8300pro/img-01.webp", alt: "AMC-8300 PRO Clasificadora de billetes" }],
   },
   {
     id: "prod-8",
@@ -195,6 +195,6 @@ export const STATIC_PRODUCTS = [
     isBestSeller: false,
     category: { slug: "clasificadoras-billetes", name: "Clasificadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
-    images: [],
+    images: [{ url: "/uploads/products/amc-9200/img-01.webp", alt: "AMC-9200 Clasificadora de billetes" }],
   },
 ];
