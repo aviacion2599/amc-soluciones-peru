@@ -12,7 +12,7 @@ import {
   Download,
   Maximize2,
 } from "lucide-react";
-import { PageTransition, FadeIn } from "@/components/shared/Motion";
+import { FadeIn } from "@/components/shared/Motion";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ProductCard } from "@/components/product/ProductCard";
 import { QuoteForm } from "@/components/shared/QuoteForm";
@@ -64,9 +64,9 @@ interface Related {
 
 export default function ProductDetailClient({ slug }: { slug: string }) {
   return (
-    <PageTransition>
+    <div className="min-h-screen">
       <ProductDetailContent slug={slug} />
-    </PageTransition>
+    </div>
   );
 }
 
@@ -116,14 +116,19 @@ function ProductDetailContent({ slug }: { slug: string }) {
   /* ── Loading ── */
   if (loading) {
     return (
-      <div className="container-amc py-10">
-        <div className="grid lg:grid-cols-2 gap-10">
-          <Skeleton className="aspect-square rounded-xl" />
-          <div className="space-y-4">
-            <Skeleton className="h-6 w-32" />
-            <Skeleton className="h-10 w-full" />
-            <Skeleton className="h-20 w-full" />
-            <Skeleton className="h-10 w-48" />
+      <div className="pt-[62px] sm:pt-[68px]">
+        <div className="container-amc py-6">
+          <Skeleton className="h-4 w-64 mb-6" />
+        </div>
+        <div className="container-amc pb-10">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10">
+            <Skeleton className="aspect-square rounded-xl" />
+            <div className="space-y-4">
+              <Skeleton className="h-4 w-32" />
+              <Skeleton className="h-8 w-full" />
+              <Skeleton className="h-16 w-full" />
+              <Skeleton className="h-10 w-48" />
+            </div>
           </div>
         </div>
       </div>
@@ -174,26 +179,26 @@ function ProductDetailContent({ slug }: { slug: string }) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* ─── 1. Dark top bar: transparent header + breadcrumb ─── */}
-      <div className="bg-navy -mt-[62px] sm:-mt-[68px] pt-[74px] sm:pt-[80px]">
-        <div className="container-amc py-3 sm:py-4">
-          <Breadcrumb
-            light
-            items={[
-              { label: "Productos", href: "/productos" },
-              { label: p.category.name, href: `/productos?categoria=${p.category.slug}` },
-              { label: p.name },
-            ]}
-          />
-        </div>
+      {/* ─── 1. Top spacing for fixed header ─── */}
+      <div className="h-[62px] sm:h-[68px]" aria-hidden="true" />
+
+      {/* ─── 2. Breadcrumb ─── */}
+      <div className="container-amc pb-4 sm:pb-5">
+        <Breadcrumb
+          items={[
+            { label: "Productos", href: "/productos" },
+            { label: p.category.name, href: `/productos?categoria=${p.category.slug}` },
+            { label: p.name },
+          ]}
+        />
       </div>
 
-      {/* ─── 2. Main product: Gallery + Info ─── */}
-      <section className="container-amc pt-5 pb-8 lg:pt-8 lg:pb-12">
+      {/* ─── 3. Main product: Gallery + Info ─── */}
+      <section className="container-amc pb-8 lg:pb-12">
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-10">
 
           {/* ── Gallery column ── */}
-          <div>
+          <div className="min-w-0">
             {/* Main image */}
             <div
               className="relative aspect-square bg-gradient-to-br from-muted to-surface-2 rounded-xl overflow-hidden border border-border cursor-zoom-in"
@@ -204,7 +209,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
                   <img
                     src={p.images[selectedImage].url}
                     alt={p.images[selectedImage].alt}
-                    className="w-full h-full object-contain p-3 sm:p-6"
+                    className="w-full h-full object-contain p-4 sm:p-6"
                     loading="lazy"
                   />
                   {/* Zoom hint — desktop only */}
@@ -215,16 +220,16 @@ function ProductDetailContent({ slug }: { slug: string }) {
                 </>
               ) : (
                 <div className="w-full h-full flex items-center justify-center">
-                  <Banknote className="w-24 h-24 text-secondary" strokeWidth={1} />
+                  <Banknote className="w-20 h-20 sm:w-24 sm:h-24 text-secondary" strokeWidth={1} />
                 </div>
               )}
 
               {/* Badges */}
-              <div className="absolute top-3 left-3 flex flex-col gap-1.5">
-                {p.isBestSeller && <span className="badge-success">Más vendido</span>}
-                {p.isNew && <span className="badge-primary">Nuevo</span>}
+              <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 flex flex-col gap-1.5">
+                {p.isBestSeller && <span className="badge-success text-[10px] sm:text-xs">Más vendido</span>}
+                {p.isNew && <span className="badge-primary text-[10px] sm:text-xs">Nuevo</span>}
                 {p.isFeatured && !p.isBestSeller && !p.isNew && (
-                  <span className="badge-warning">Destacado</span>
+                  <span className="badge-warning text-[10px] sm:text-xs">Destacado</span>
                 )}
               </div>
             </div>
@@ -237,7 +242,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
                     key={img.id || i}
                     onClick={() => setSelectedImage(i)}
                     onDoubleClick={() => lbOpenFn(i)}
-                    className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border-2 transition-colors ${
+                    className={`flex-shrink-0 w-14 h-14 sm:w-[72px] sm:h-[72px] rounded-lg overflow-hidden border-2 transition-colors ${
                       selectedImage === i ? "border-primary" : "border-border hover:border-primary/50"
                     }`}
                     title={`${img.alt} — doble clic para ampliar`}
@@ -257,25 +262,25 @@ function ProductDetailContent({ slug }: { slug: string }) {
               ].map((b) => (
                 <div
                   key={b.label}
-                  className="text-center p-2.5 sm:p-3 rounded-lg bg-muted/40 border border-border"
+                  className="text-center p-2 sm:p-3 rounded-lg bg-muted/40 border border-border"
                 >
-                  <b.icon className={`w-5 h-5 ${b.color} mx-auto mb-1`} />
-                  <div className="text-[11px] sm:text-xs font-medium">{b.label}</div>
+                  <b.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${b.color} mx-auto mb-1`} />
+                  <div className="text-[10px] sm:text-xs font-medium leading-tight">{b.label}</div>
                 </div>
               ))}
             </div>
           </div>
 
           {/* ── Info column ── */}
-          <div>
-            <div className="overline text-muted-foreground mb-1.5 sm:mb-2">{p.category.name}</div>
-            <h1 className="display-2 text-foreground mb-2 sm:mb-3">{p.name}</h1>
-            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-5">
+          <div className="min-w-0">
+            <div className="overline text-muted-foreground mb-1 sm:mb-1.5">{p.category.name}</div>
+            <h1 className="display-2 text-foreground mb-2 sm:mb-3 text-2xl sm:text-3xl lg:text-4xl">{p.name}</h1>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               {p.summary}
             </p>
 
             {/* SKU + Brand */}
-            <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-5 pb-4 sm:pb-5 border-b border-border">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground mb-4 pb-4 border-b border-border">
               <div>
                 <span className="font-mono">SKU: </span>
                 <span className="font-mono font-semibold text-foreground">{p.sku}</span>
@@ -292,7 +297,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
             {p.price ? (
               <div className="mb-5">
                 <div className="overline text-muted-foreground mb-1">Precio referencial</div>
-                <div className="font-display text-3xl font-bold text-primary">
+                <div className="font-display text-2xl sm:text-3xl font-bold text-primary">
                   S/ {p.price.toLocaleString("es-PE")}
                   <span className="text-sm font-normal text-muted-foreground ml-2">+ IGV</span>
                 </div>
@@ -301,7 +306,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
                 </p>
               </div>
             ) : (
-              <div className="mb-5 p-4 bg-primary-tint rounded-lg border border-primary/20">
+              <div className="mb-5 p-3.5 sm:p-4 bg-primary-tint rounded-lg border border-primary/20">
                 <p className="text-sm font-semibold text-primary">Precio bajo cotización</p>
                 <p className="text-xs text-muted-foreground mt-1">
                   Solicita tu cotización personalizada según volumen y necesidades.
@@ -310,7 +315,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
             )}
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-5 sm:mb-6">
+            <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 mb-5">
               <Button
                 onClick={() => setShowQuoteForm(!showQuoteForm)}
                 size="lg"
@@ -323,7 +328,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
                 href={waHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary flex-1 py-3 text-center"
+                className="btn-secondary flex-1 py-3 text-center text-sm"
               >
                 <MessageCircle className="w-4 h-4" />
                 WhatsApp directo
@@ -336,9 +341,9 @@ function ProductDetailContent({ slug }: { slug: string }) {
                 {p.features.slice(0, 4).map((f) => {
                   const Icon = (LucideIcons as any)[f.icon || "CheckCircle2"] || CheckCircle2;
                   return (
-                    <div key={f.id} className="flex items-start gap-2.5 p-2.5 rounded-lg bg-muted/40">
+                    <div key={f.id} className="flex items-start gap-2 p-2.5 rounded-lg bg-muted/40">
                       <Icon className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={1.75} />
-                      <div>
+                      <div className="min-w-0">
                         <div className="text-xs font-semibold text-foreground">{f.title}</div>
                         {f.description && (
                           <div className="text-[11px] text-muted-foreground line-clamp-2 mt-0.5">
@@ -355,13 +360,13 @@ function ProductDetailContent({ slug }: { slug: string }) {
         </div>
       </section>
 
-      {/* ─── 3. Quote form (collapsible) ─── */}
+      {/* ─── 4. Quote form (collapsible) ─── */}
       {showQuoteForm && (
         <FadeIn>
-          <section className="container-amc pb-10">
-            <div className="card-base p-5 sm:p-6 lg:p-8 max-w-3xl mx-auto">
-              <h3 className="font-display font-bold text-lg mb-2">Cotizar: {p.name}</h3>
-              <p className="text-sm text-muted-foreground mb-5">
+          <section className="container-amc pb-8">
+            <div className="card-base p-4 sm:p-6 lg:p-8 max-w-3xl mx-auto">
+              <h3 className="font-display font-bold text-base sm:text-lg mb-2">Cotizar: {p.name}</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-5">
                 Completa el formulario y recibe una propuesta personalizada en menos de 24 horas hábiles.
               </p>
               <QuoteForm productName={p.name} productId={p.id} source="producto-detalle" />
@@ -370,10 +375,10 @@ function ProductDetailContent({ slug }: { slug: string }) {
         </FadeIn>
       )}
 
-      {/* ─── 4. Tabs: features, specs, applications, documents, videos ─── */}
+      {/* ─── 5. Tabs: features, specs, applications, documents, videos ─── */}
       {hasTabContent(p) && (
         <section className="border-t border-border">
-          <div className="container-amc py-8 lg:py-10">
+          <div className="container-amc py-6 sm:py-8 lg:py-10">
             <Tabs defaultValue={firstTab(p)} className="w-full">
               <TabsList className="w-full justify-start flex-wrap h-auto p-1 bg-muted/40">
                 {p.features.length > 0 && (
@@ -405,20 +410,20 @@ function ProductDetailContent({ slug }: { slug: string }) {
 
               {/* Features */}
               {p.features.length > 0 && (
-                <TabsContent value="features" className="mt-6">
-                  <div className="grid sm:grid-cols-2 gap-4">
+                <TabsContent value="features" className="mt-5 sm:mt-6">
+                  <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                     {p.features.map((f) => {
                       const Icon = (LucideIcons as any)[f.icon || "CheckCircle2"] || CheckCircle2;
                       return (
-                        <div key={f.id} className="card-base p-4 sm:p-5">
-                          <div className="w-9 h-9 rounded-lg bg-primary-tint text-primary flex items-center justify-center mb-3">
-                            <Icon className="w-4.5 h-4.5" strokeWidth={1.75} />
+                        <div key={f.id} className="card-base p-3.5 sm:p-5">
+                          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-primary-tint text-primary flex items-center justify-center mb-2.5 sm:mb-3">
+                            <Icon className="w-4 h-4 sm:w-[18px] sm:h-[18px]" strokeWidth={1.75} />
                           </div>
-                          <h3 className="font-display font-semibold text-sm sm:text-base mb-1.5">
+                          <h3 className="font-display font-semibold text-sm sm:text-base mb-1 sm:mb-1.5">
                             {f.title}
                           </h3>
                           {f.description && (
-                            <p className="text-sm text-muted-foreground leading-relaxed">{f.description}</p>
+                            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{f.description}</p>
                           )}
                         </div>
                       );
@@ -429,18 +434,18 @@ function ProductDetailContent({ slug }: { slug: string }) {
 
               {/* Specs */}
               {p.specifications.length > 0 && (
-                <TabsContent value="specs" className="mt-6">
-                  <div className="space-y-6">
+                <TabsContent value="specs" className="mt-5 sm:mt-6">
+                  <div className="space-y-5 sm:space-y-6">
                     {Object.entries(specsByGroup).map(([group, specs]) => (
                       <div key={group}>
-                        <h3 className="font-display font-bold text-base sm:text-lg mb-3 pb-2 border-b border-border">
+                        <h3 className="font-display font-bold text-sm sm:text-base lg:text-lg mb-2.5 sm:mb-3 pb-2 border-b border-border">
                           {group}
                         </h3>
                         <dl className="divide-y divide-border">
                           {specs.map((s) => (
                             <div key={s.id} className="grid grid-cols-2 py-2.5 text-sm">
-                              <dt className="text-muted-foreground">{s.key}</dt>
-                              <dd className="font-mono font-semibold text-foreground text-right">{s.value}</dd>
+                              <dt className="text-xs sm:text-sm text-muted-foreground">{s.key}</dt>
+                              <dd className="font-mono font-semibold text-xs sm:text-sm text-foreground text-right">{s.value}</dd>
                             </div>
                           ))}
                         </dl>
@@ -452,15 +457,15 @@ function ProductDetailContent({ slug }: { slug: string }) {
 
               {/* Applications */}
               {p.applications.length > 0 && (
-                <TabsContent value="applications" className="mt-6">
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <TabsContent value="applications" className="mt-5 sm:mt-6">
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                     {p.applications.map((a) => (
-                      <div key={a.id} className="card-base p-4 sm:p-5">
-                        <div className="font-display font-semibold text-sm sm:text-base mb-1.5">
+                      <div key={a.id} className="card-base p-3.5 sm:p-5">
+                        <div className="font-display font-semibold text-sm sm:text-base mb-1 sm:mb-1.5">
                           {a.name}
                         </div>
                         {a.description && (
-                          <p className="text-sm text-muted-foreground leading-relaxed">{a.description}</p>
+                          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{a.description}</p>
                         )}
                       </div>
                     ))}
@@ -470,22 +475,22 @@ function ProductDetailContent({ slug }: { slug: string }) {
 
               {/* Documents */}
               {p.documents.length > 0 && (
-                <TabsContent value="documents" className="mt-6">
-                  <div className="space-y-3 max-w-2xl">
+                <TabsContent value="documents" className="mt-5 sm:mt-6">
+                  <div className="space-y-2.5 sm:space-y-3 max-w-2xl">
                     {p.documents.map((d) => (
                       <a
                         key={d.id}
                         href={d.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 sm:gap-4 p-3.5 sm:p-4 card-base"
+                        className="flex items-center gap-3 p-3 sm:p-4 card-base"
                       >
-                        <div className="w-9 h-9 rounded-lg bg-error/10 text-error flex items-center justify-center flex-shrink-0">
-                          <FileText className="w-4.5 h-4.5" />
+                        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-error/10 text-error flex items-center justify-center flex-shrink-0">
+                          <FileText className="w-4 h-4" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <div className="font-medium text-sm truncate">{d.title}</div>
-                          <div className="text-xs text-muted-foreground mt-0.5">
+                          <div className="font-medium text-xs sm:text-sm truncate">{d.title}</div>
+                          <div className="text-[11px] sm:text-xs text-muted-foreground mt-0.5">
                             {d.type === "ficha"
                               ? "Ficha técnica"
                               : d.type === "manual"
@@ -505,11 +510,11 @@ function ProductDetailContent({ slug }: { slug: string }) {
 
               {/* Videos */}
               {p.videos.length > 0 && (
-                <TabsContent value="videos" className="mt-6">
-                  <div className="grid sm:grid-cols-2 gap-4">
+                <TabsContent value="videos" className="mt-5 sm:mt-6">
+                  <div className="space-y-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:space-y-0">
                     {p.videos.map((v) => (
                       <div key={v.id} className="card-base overflow-hidden">
-                        <div className="aspect-video bg-slate-950 flex items-center justify-center">
+                        <div className="aspect-video bg-slate-950">
                           {v.provider === "youtube" ? (
                             <iframe
                               src={`https://www.youtube.com/embed/${v.url}`}
@@ -532,7 +537,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
                             </video>
                           )}
                         </div>
-                        {v.title && <div className="p-3.5 text-sm font-medium">{v.title}</div>}
+                        {v.title && <div className="p-3 sm:p-3.5 text-xs sm:text-sm font-medium">{v.title}</div>}
                       </div>
                     ))}
                   </div>
@@ -543,20 +548,18 @@ function ProductDetailContent({ slug }: { slug: string }) {
         </section>
       )}
 
-      {/* ─── 5. Description ─── */}
+      {/* ─── 6. Description ─── */}
       <section className="border-t border-border">
-        <div className="container-amc py-8 lg:py-10">
+        <div className="container-amc py-6 sm:py-8 lg:py-10">
           <div className="grid lg:grid-cols-[1fr_280px] gap-6 lg:gap-8">
             <div>
-              <h2 className="display-3 mb-4 sm:mb-5">Descripción detallada</h2>
-              <div className="prose prose-slate max-w-none">
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
-                  {p.description}
-                </p>
-              </div>
+              <h2 className="display-3 mb-3 sm:mb-4">Descripción detallada</h2>
+              <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
+                {p.description}
+              </p>
             </div>
-            <aside>
-              <div className="card-base p-4 sm:p-5">
+            <aside className="hidden lg:block">
+              <div className="card-base p-4 sm:p-5 sticky top-24">
                 <h3 className="font-display font-semibold text-sm mb-2">¿Necesitas ayuda?</h3>
                 <p className="text-xs text-muted-foreground mb-3">
                   Nuestros especialistas están listos para asesorarte.
@@ -576,11 +579,11 @@ function ProductDetailContent({ slug }: { slug: string }) {
         </div>
       </section>
 
-      {/* ─── 6. Related products ─── */}
+      {/* ─── 7. Related products ─── */}
       {related.length > 0 && (
         <section className="border-t border-border">
-          <div className="container-amc py-8 lg:py-10">
-            <h2 className="display-3 mb-6">Productos relacionados</h2>
+          <div className="container-amc py-6 sm:py-8 lg:py-10">
+            <h2 className="display-3 mb-4 sm:mb-6">Productos relacionados</h2>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6">
               {related.map((r) => (
                 <ProductCard
@@ -599,6 +602,29 @@ function ProductDetailContent({ slug }: { slug: string }) {
           </div>
         </section>
       )}
+
+      {/* ─── 8. Mobile CTA (sticky bottom) ─── */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-sm border-t border-border p-3 flex gap-2.5">
+        <Button
+          onClick={() => setShowQuoteForm(!showQuoteForm)}
+          className="btn-primary flex-1 py-3 text-sm"
+        >
+          <FileText className="w-4 h-4" />
+          Cotizar
+        </Button>
+        <a
+          href={waHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-secondary flex-1 py-3 text-center text-sm flex items-center justify-center gap-2"
+        >
+          <MessageCircle className="w-4 h-4" />
+          WhatsApp
+        </a>
+      </div>
+
+      {/* Bottom spacer for mobile sticky CTA */}
+      <div className="h-16 lg:hidden" />
 
       {/* ─── Lightbox ─── */}
       <Lightbox images={lightboxImages} isOpen={lbOpen} onClose={lbClose} initialIndex={lbIndex} />

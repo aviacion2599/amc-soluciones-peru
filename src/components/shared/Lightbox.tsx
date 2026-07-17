@@ -282,7 +282,7 @@ export function Lightbox({
 
           {/* ---- Thumbnails strip ---- */}
           {total > 1 && (
-            <div className="amc-lightbox-thumbs absolute bottom-14 sm:bottom-16 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1.5 max-w-[90vw] overflow-x-auto px-2 py-1 scrollbar-hide">
+            <div className="amc-lightbox-thumbs absolute bottom-14 sm:bottom-16 left-1/2 -translate-x-1/2 z-[60] flex items-center gap-1.5 max-w-[85vw] sm:max-w-[90vw] overflow-x-auto px-2 py-1 scrollbar-hide">
               {images.map((img, i) => (
                 <button
                   key={i}
@@ -354,7 +354,7 @@ export function Lightbox({
           <AnimatePresence>
             {showInfo && current?.title && (
               <motion.div
-                className="amc-lightbox-info absolute bottom-16 sm:bottom-20 left-3 right-3 sm:left-8 sm:right-8 z-40 max-w-lg mx-auto sm:mx-0"
+                className="amc-lightbox-info absolute bottom-14 sm:bottom-20 left-3 right-3 sm:left-8 sm:right-8 z-[55] max-w-lg mx-auto sm:mx-0 hidden sm:block"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
