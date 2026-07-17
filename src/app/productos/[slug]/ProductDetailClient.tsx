@@ -185,7 +185,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
       </div>
 
       {/* Main product section */}
-      <section className="container-amc pb-8 lg:pb-12">
+      <section className="container-amc pb-8 lg:pb-12 overflow-hidden">
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-10">
           {/* Gallery */}
           <SlideIn from="left">
@@ -252,7 +252,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
 
               {/* Thumbnails — click to select, double-click to open lightbox */}
               {p.images.length > 1 && (
-                <div className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1 scrollbar-none">
+                <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none">
                   {p.images.map((img, i) => (
                     <button
                       key={img.id || i}

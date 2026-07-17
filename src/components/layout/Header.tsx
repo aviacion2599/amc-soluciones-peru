@@ -2,32 +2,49 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Phone, X } from "lucide-react";
 import { NAV_ITEMS, AMCCONFIG } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
 /**
- * Header AMC — Menú Off-Canvas Derecha → Izquierda (NUEVO).
+ * Header AMC — Menú Off-Canvas Derecha → Izquierda.
  *
- * Animaciones premium integradas:
+ * Comportamiento del fondo:
+ * - Home (/):          transparente al inicio → navy al hacer scroll
+ * - Subpáginas:        navy desde el inicio (evita franja blanca sobre fondo claro)
+ *
+ * Animaciones premium:
  * 1. Panel se desliza de derecha a izquierda con cubic-bezier mecánico
  * 2. Overlay con backdrop-blur sincronizado
  * 3. Efecto cascada (stagger) en los enlaces del menú
  * 4. Botón X con rotación 90° al abrir/cerrar
- *
- * Paleta: #0B132B (navy) + #F5B041 (gold/dorado Glory)
  */
 export function Header() {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
+  const pathname = usePathname();
 
-  // Scroll-aware: transparente al inicio, sólido al scrollear
+  const isHome = pathname === "/";
+
+  // Scroll-aware: transparente (solo home) → sólido al scrollear
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Determinar clase de fondo del header
+  const headerBg = menuOpen
+    ? "bg-navy"
+    : isHome
+      ? scrolled
+        ? "bg-navy/90 backdrop-blur-xl shadow-lg shadow-black/10"
+        : "bg-transparent"
+      : scrolled
+        ? "bg-navy/90 backdrop-blur-xl shadow-lg shadow-black/10"
+        : "bg-navy";
 
   // Bloquear scroll del body cuando el menú está abierto
   React.useEffect(() => {
@@ -46,11 +63,7 @@ export function Header() {
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          menuOpen
-            ? "bg-navy"
-            : scrolled
-              ? "bg-navy/90 backdrop-blur-xl shadow-lg shadow-black/10"
-              : "bg-transparent",
+          headerBg,
         )}
         role="banner"
       >
