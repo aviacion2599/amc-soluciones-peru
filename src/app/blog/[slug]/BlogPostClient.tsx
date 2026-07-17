@@ -74,9 +74,9 @@ function BlogPostContent({ slug }: { slug: string }) {
       />
 
       {/* Hero */}
-      <section className="bg-primary-dark text-white relative overflow-hidden">
+      <section className="bg-primary-dark text-white relative overflow-hidden -mt-[62px] sm:-mt-[68px] pt-[74px] sm:pt-[80px]">
         <div className="absolute inset-0 bg-grid-pattern-dark opacity-30" aria-hidden="true" />
-        <div className="container-amc relative py-16">
+        <div className="container-amc relative py-10 sm:py-12">
           <FadeIn>
             <div className="max-w-3xl">
               {post.tags && (

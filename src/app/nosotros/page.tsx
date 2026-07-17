@@ -41,7 +41,7 @@ export default function NosotrosPage() {
   return (
     <PageTransition>
       {/* ===== FULL-BLEED HERO ===== */}
-      <section className="relative min-h-[100svh] flex items-end overflow-hidden">
+      <section className="relative min-h-[100svh] flex items-end overflow-hidden -mt-[62px] sm:-mt-[68px]">
         {/* Background image — desktop: horizontal, mobile: vertical */}
         <picture className="absolute inset-0">
           <source

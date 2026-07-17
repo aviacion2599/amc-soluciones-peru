@@ -174,14 +174,18 @@ function ProductDetailContent({ slug }: { slug: string }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="container-amc py-6">
-        <Breadcrumb
-          items={[
-            { label: "Productos", href: "/productos" },
-            { label: p.category.name, href: `/productos?categoria=${p.category.slug}` },
-            { label: p.name },
-          ]}
-        />
+      {/* Dark section behind transparent header with breadcrumb */}
+      <div className="bg-navy -mt-[62px] sm:-mt-[68px] pt-[74px] sm:pt-[80px]">
+        <div className="container-amc py-4 sm:py-5">
+          <Breadcrumb
+            light
+            items={[
+              { label: "Productos", href: "/productos" },
+              { label: p.category.name, href: `/productos?categoria=${p.category.slug}` },
+              { label: p.name },
+            ]}
+          />
+        </div>
       </div>
 
       {/* Main product section */}

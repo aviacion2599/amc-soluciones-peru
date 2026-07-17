@@ -29,7 +29,7 @@ export function PageHero({
 
   return (
     <section
-      className={`relative overflow-hidden ${
+      className={`relative overflow-hidden -mt-[62px] sm:-mt-[68px] pt-[74px] sm:pt-[80px] ${
         isDark ? "bg-primary-dark text-white" : "bg-background text-foreground border-b border-border"
       }`}
     >
@@ -50,7 +50,7 @@ export function PageHero({
         <div className="absolute inset-0 bg-dots-pattern opacity-50" aria-hidden="true" />
       )}
 
-      <div className="container-amc relative py-16 lg:py-24">
+      <div className="container-amc relative py-10 sm:py-12 lg:py-20">
         <HeroReveal className="max-w-3xl">
           <HeroRevealItem className="flex items-center gap-2 mb-4">
             {Icon && (

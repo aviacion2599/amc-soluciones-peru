@@ -11,8 +11,8 @@ import { cn } from "@/lib/utils";
  * Header AMC — Menú Off-Canvas Derecha → Izquierda.
  *
  * Comportamiento del fondo:
- * - Home (/):          transparente al inicio → navy al hacer scroll
- * - Subpáginas:        navy desde el inicio (evita franja blanca sobre fondo claro)
+ * - TODAS las páginas:  transparente al inicio → navy al hacer scroll
+ * - Los heroes de cada página se extienden detrás del header con -mt
  *
  * Animaciones premium:
  * 1. Panel se desliza de derecha a izquierda con cubic-bezier mecánico
@@ -25,9 +25,7 @@ export function Header() {
   const [scrolled, setScrolled] = React.useState(false);
   const pathname = usePathname();
 
-  const isHome = pathname === "/";
-
-  // Scroll-aware: transparente (solo home) → sólido al scrollear
+  // Scroll-aware: transparente (todas las páginas) → sólido al scrollear
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -35,16 +33,12 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Determinar clase de fondo del header
+  // Determinar clase de fondo del header — transparente en todas las páginas
   const headerBg = menuOpen
     ? "bg-navy"
-    : isHome
-      ? scrolled
-        ? "bg-navy/90 backdrop-blur-xl shadow-lg shadow-black/10"
-        : "bg-transparent"
-      : scrolled
-        ? "bg-navy/90 backdrop-blur-xl shadow-lg shadow-black/10"
-        : "bg-navy";
+    : scrolled
+      ? "bg-navy/90 backdrop-blur-xl shadow-lg shadow-black/10"
+      : "bg-transparent";
 
   // Bloquear scroll del body cuando el menú está abierto
   React.useEffect(() => {

@@ -83,7 +83,7 @@ function LoginFormContent() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-primary-dark p-4 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-primary-dark p-4 relative overflow-hidden -mt-[62px] sm:-mt-[68px] pt-[74px] sm:pt-[80px]">
       {/* Background */}
       <div className="absolute inset-0 bg-grid-pattern-dark opacity-30" aria-hidden="true" />
       <div
