@@ -1,6 +1,6 @@
 "use client";
 
-import { Building2, Award, Target, Eye, Heart, ShieldCheck, TrendingUp, Users, Cpu, Globe, ArrowRight } from "lucide-react";
+import { Award, Target, Eye, Heart, ShieldCheck, Cpu, Globe, ArrowRight, Wrench } from "lucide-react";
 import { PageTransition, FadeIn, StaggerContainer, StaggerItem, ScaleIn } from "@/components/shared/Motion";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { SectionTitle } from "@/components/shared/SectionTitle";
@@ -13,28 +13,28 @@ const VALUES = [
 ];
 
 const TIMELINE = [
-  { year: "2010", title: "Fundación de AMC", description: "Nace AMC Soluciones Perú con la misión de profesionalizar el manejo de efectivo en el país." },
-  { year: "2013", title: "Alianza con GLORY", description: "Nos convertimos en servicio técnico autorizado de GLORY, líder mundial en manejo de efectivo." },
-  { year: "2016", title: "Expansión nacional", description: "Iniciamos cobertura en provincias con red de técnicos asociados en Arequipa, Trujillo y Piura." },
-  { year: "2019", title: "Catálogo ampliado", description: "Incorporamos nuevas marcas: Hyundai, Henry, Royal Sovereign y Cassida." },
-  { year: "2022", title: "Planes empresariales", description: "Lanzamiento de planes de mantenimiento empresarial para cadenas con múltiples sucursales." },
-  { year: "2026", title: "Plataforma Enterprise", description: "Lanzamiento de nuestra nueva plataforma digital Enterprise para servir mejor a nuestros clientes." },
+  { year: "2018", title: "Inicio de AMC Soluciones Perú", description: "Nace AMC Soluciones Perú con el objetivo de brindar servicio técnico especializado para equipos de procesamiento de efectivo." },
+  { year: "2019", title: "Especialización técnica", description: "Fortalecemos nuestra experiencia en mantenimiento preventivo y correctivo de contadoras de billetes y monedas." },
+  { year: "2021", title: "Atención a empresas", description: "Ampliamos nuestros servicios para atender bancos, cooperativas, casas de cambio, empresas comerciales y negocios con alto manejo de efectivo." },
+  { year: "2023", title: "Incorporación de equipos profesionales", description: "Incorporamos nuevas soluciones para el procesamiento de efectivo, combinando tecnología, asesoría especializada y respaldo técnico local." },
+  { year: "2025", title: "Cobertura nacional", description: "Extendemos nuestra atención a clientes de Lima y provincias mediante envíos, soporte remoto y asistencia técnica especializada." },
+  { year: "2026", title: "Nueva etapa digital", description: "Renovamos nuestra plataforma digital para brindar una mejor experiencia comercial, información técnica y atención más rápida a nuestros clientes." },
 ];
 
 const STATS = [
-  { value: "+15", label: "Años de experiencia" },
-  { value: "+2,500", label: "Equipos atendidos" },
-  { value: "+800", label: "Clientes activos" },
-  { value: "6", label: "Marcas representadas" },
-  { value: "24h", label: "Tiempo de respuesta" },
-  { value: "99.8%", label: "Precisión de conteo" },
+  { value: "Desde 2018", label: "Experiencia en procesamiento de efectivo" },
+  { value: "Atención nacional", label: "Servicio en Lima y provincias" },
+  { value: "Servicio multimarca", label: "Contadoras de billetes y monedas" },
+  { value: "Soporte técnico propio", label: "Diagnóstico, mantenimiento y reparación" },
+  { value: "18 meses", label: "Garantía en equipos AMC seleccionados" },
+  { value: "Atención posventa", label: "Capacitación y acompañamiento técnico" },
 ];
 
-const CERTIFICATIONS = [
-  { name: "GLORY Authorized Service", desc: "Servicio técnico autorizado" },
-  { name: "ISO 9001 Ready", desc: "Procesos de calidad documentados" },
-  { name: "Hyundai Distribution", desc: "Distribuidor autorizado" },
-  { name: "Henry Partner", desc: "Socio oficial" },
+const TECHNICAL_BACKING = [
+  { icon: Award, name: "Especialistas en equipos GLORY", desc: "Experiencia en diagnóstico, mantenimiento y reparación." },
+  { icon: Wrench, name: "Servicio técnico multimarca", desc: "Atención de contadoras de billetes y monedas de diferentes fabricantes." },
+  { icon: ShieldCheck, name: "Soporte posventa AMC", desc: "Acompañamiento, capacitación y asistencia técnica después de la compra." },
+  { icon: Globe, name: "Cobertura nacional", desc: "Atención en Lima y recepción de equipos desde provincias." },
 ];
 
 export default function NosotrosPage() {
@@ -102,14 +102,12 @@ export default function NosotrosPage() {
                 AMC Soluciones Perú se especializa en la venta de contadoras profesionales de billetes y monedas, mantenimiento preventivo y correctivo, reparación, calibración y soporte técnico para equipos de procesamiento de efectivo.
               </p>
 
-              {/* Stats row */}
-              <div className="flex flex-wrap gap-6 sm:gap-8 lg:gap-10">
+              {/* Feature badges */}
+              <div className="flex flex-wrap gap-2.5 sm:gap-3">
                 {STATS.slice(0, 3).map((s) => (
-                  <div key={s.label}>
-                    <div className="font-display text-2xl sm:text-3xl font-bold text-white">
-                      {s.value}
-                    </div>
-                    <div className="text-[11px] sm:text-xs text-white/40 mt-0.5">{s.label}</div>
+                  <div key={s.label} className="glass-card rounded-full px-4 py-2 flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" />
+                    <span className="text-xs sm:text-sm text-white/80">{s.value}</span>
                   </div>
                 ))}
               </div>
@@ -187,21 +185,21 @@ export default function NosotrosPage() {
       </section>
 
       {/* Timeline / Historia */}
-      <section className="container-amc py-16 sm:py-20">
+      <section className="container-amc py-12 sm:py-16">
         <SectionTitle
-          overline="Nuestra historia"
-          title="Una trayectoria de crecimiento constante"
-          description="Más de 15 años acompañando a las empresas peruanas en la profesionalización del manejo de efectivo."
+          overline="NUESTRA HISTORIA"
+          title="Una trayectoria construida con experiencia y respaldo técnico"
+          description="Desde 2018 ayudamos a empresas peruanas a mejorar el control y procesamiento de su efectivo mediante servicio técnico especializado, equipos profesionales y acompañamiento posventa."
         />
 
-        <div className="mt-14 sm:mt-16 relative">
+        <div className="mt-10 sm:mt-12 relative">
           {/* Vertical line */}
           <div
             className="absolute left-4 lg:left-1/2 lg:-translate-x-1/2 top-0 bottom-0 w-px bg-border"
             aria-hidden="true"
           />
 
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-10">
             {TIMELINE.map((item, i) => (
               <FadeIn key={item.year} delay={i * 0.05}>
                 <div
@@ -222,10 +220,10 @@ export default function NosotrosPage() {
                       i % 2 === 0 ? "lg:pr-12" : "lg:pl-12 lg:[direction:ltr]"
                     }`}
                   >
-                    <div className="card-base card-hover p-6">
-                      <div className="overline text-primary mb-2">{item.year}</div>
-                      <h3 className="font-display font-bold text-lg mb-2">{item.title}</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                    <div className="card-base card-hover p-5 sm:p-6">
+                      <div className="overline text-primary mb-1.5">{item.year}</div>
+                      <h3 className="font-display font-bold text-base sm:text-lg mb-1.5">{item.title}</h3>
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                         {item.description}
                       </p>
                     </div>
@@ -238,7 +236,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* Stats */}
-      <section className="bg-primary-dark text-white py-16 sm:py-20 relative overflow-hidden">
+      <section className="bg-primary-dark text-white py-14 sm:py-18 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern-dark opacity-30" aria-hidden="true" />
         <div
           className="absolute inset-0"
@@ -248,16 +246,16 @@ export default function NosotrosPage() {
           aria-hidden="true"
         />
         <div className="container-amc relative">
-          <div className="text-center mb-12 sm:mb-14">
-            <p className="overline text-slate-300 mb-3">AMC en números</p>
-            <h2 className="display-2 text-white">Impacto real en operaciones críticas</h2>
+          <div className="text-center mb-10 sm:mb-12">
+            <p className="overline text-slate-300 mb-3">AMC EN NÚMEROS</p>
+            <h2 className="display-2 text-white">Experiencia que respalda cada operación</h2>
           </div>
-          <StaggerContainer className="grid grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-4xl mx-auto">
+          <StaggerContainer className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-4xl mx-auto">
             {STATS.map((s) => (
               <StaggerItem key={s.label}>
-                <div className="glass-card rounded-xl p-5 sm:p-6 text-center">
-                  <div className="font-display text-3xl sm:text-4xl font-bold text-white mb-2">{s.value}</div>
-                  <div className="text-sm text-slate-300">{s.label}</div>
+                <div className="glass-card rounded-xl p-4 sm:p-5 text-center">
+                  <div className="font-display text-base sm:text-lg font-bold text-white mb-1.5 leading-tight">{s.value}</div>
+                  <div className="text-xs sm:text-sm text-slate-300 leading-snug">{s.label}</div>
                 </div>
               </StaggerItem>
             ))}
@@ -265,22 +263,22 @@ export default function NosotrosPage() {
         </div>
       </section>
 
-      {/* Certifications */}
-      <section className="container-amc py-16 sm:py-20">
+      {/* Respaldo Técnico */}
+      <section className="container-amc py-12 sm:py-16">
         <SectionTitle
-          overline="Certificaciones y alianzas"
-          title="Respaldados por los mejores"
-          description="Nuestras certificaciones y alianzas estratégicas garantizan que recibas el mejor servicio técnico y productos originales."
+          overline="RESPALDO TÉCNICO"
+          title="Un servicio construido sobre experiencia real"
+          description="Nuestro respaldo se basa en experiencia técnica, atención especializada y compromiso con el correcto funcionamiento de cada equipo."
         />
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12 sm:mt-14">
-          {CERTIFICATIONS.map((c) => (
-            <StaggerItem key={c.name}>
-              <div className="card-base p-6 text-center h-full">
-                <div className="w-14 h-14 rounded-full bg-success-light text-success flex items-center justify-center mx-auto mb-4">
-                  <Award className="w-7 h-7" strokeWidth={1.6} />
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mt-10 sm:mt-12">
+          {TECHNICAL_BACKING.map((item) => (
+            <StaggerItem key={item.name}>
+              <div className="card-base card-hover p-5 sm:p-6 text-center h-full">
+                <div className="w-12 h-12 rounded-lg bg-primary-tint text-primary flex items-center justify-center mx-auto mb-3">
+                  <item.icon className="w-5 h-5" strokeWidth={1.75} />
                 </div>
-                <h3 className="font-display font-semibold text-sm mb-1">{c.name}</h3>
-                <p className="text-xs text-muted-foreground">{c.desc}</p>
+                <h3 className="font-display font-semibold text-sm mb-1.5">{item.name}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
               </div>
             </StaggerItem>
           ))}

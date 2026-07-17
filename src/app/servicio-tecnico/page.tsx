@@ -103,9 +103,9 @@ const PROCESS = [
 
 const PLANS = [
   {
-    name: "Básico",
-    price: "Desde S/ 180",
-    period: "por visita",
+    name: "Mantenimiento Preventivo",
+    price: "Desde S/ 180 + IGV",
+    period: "",
     description: "Mantenimiento preventivo puntual",
     features: [
       "Limpieza técnica del equipo",
@@ -116,14 +116,15 @@ const PLANS = [
       "Reporte técnico",
       "Garantía de 30 días sobre el servicio realizado",
     ],
-    footnote: "Precio referencial para Lima Metropolitana. No incluye repuestos ni reparaciones adicionales.",
-    cta: "Solicitar mantenimiento",
+    footnote: "Precio referencial para mantenimiento preventivo de una contadora de billetes en Lima Metropolitana. No incluye repuestos ni reparaciones adicionales. El diagnóstico se cotiza según el estado del equipo.",
+    benefitPhrase: null,
+    cta: "Agendar mantenimiento",
     highlighted: false,
   },
   {
-    name: "Premium",
-    price: "S/ 480",
-    period: "al año",
+    name: "Plan Anual",
+    price: "S/ 480 + IGV",
+    period: "",
     description: "Plan anual para equipos de uso intensivo",
     features: [
       "3 visitas programadas durante el año",
@@ -135,7 +136,8 @@ const PLANS = [
       "Descuento preferencial en repuestos seleccionados",
     ],
     footnote: "El plan incluye tres mantenimientos preventivos programados durante el año. No incluye repuestos ni reparaciones adicionales.",
-    cta: "Solicitar Plan Premium",
+    benefitPhrase: "Ahorre en mantenimiento y mantenga su equipo calibrado durante todo el año.",
+    cta: "Agendar mantenimiento",
     highlighted: true,
   },
   {
@@ -154,6 +156,7 @@ const PLANS = [
       "Condiciones de atención definidas según la necesidad del cliente",
     ],
     footnote: null,
+    benefitPhrase: null,
     cta: "Solicitar cotización empresarial",
     highlighted: false,
   },
@@ -512,7 +515,7 @@ export default function ServicioTecnicoPage() {
       </section>
 
       {/* Plans */}
-      <section className="bg-muted/40 border-y border-border py-20">
+      <section className="bg-muted/40 border-y border-border py-16 sm:py-20">
         <div className="container-amc">
           <SectionTitle
             overline="Planes de mantenimiento"
@@ -520,11 +523,11 @@ export default function ServicioTecnicoPage() {
             description="Planes de mantenimiento preventivo diseñados para reducir fallas inesperadas, prolongar la vida útil de los equipos y mantener la continuidad de la operación."
           />
 
-          <div className="grid lg:grid-cols-3 gap-6 mt-14">
+          <div className="grid lg:grid-cols-3 gap-5 sm:gap-6 mt-12 sm:mt-14">
             {PLANS.map((plan, i) => (
               <ScaleIn key={plan.name} delay={i * 0.1}>
                 <div
-                  className={`card-base p-7 h-full flex flex-col relative ${
+                  className={`card-base p-6 sm:p-7 h-full flex flex-col relative ${
                     plan.highlighted
                       ? "border-primary border-2 shadow-amc-primary"
                       : "card-hover"
@@ -535,28 +538,36 @@ export default function ServicioTecnicoPage() {
                       Más popular
                     </span>
                   )}
-                  <div className="mb-5">
-                    <h3 className="font-display font-bold text-xl mb-1">{plan.name}</h3>
+                  <div className="mb-4 sm:mb-5">
+                    <h3 className="font-display font-bold text-lg sm:text-xl mb-1">{plan.name}</h3>
                     <p className="text-xs text-muted-foreground">{plan.description}</p>
                   </div>
-                  <div className="mb-6">
-                    <span className="font-display text-3xl font-bold text-primary">{plan.price}</span>
-                    <span className="text-sm text-muted-foreground ml-2">{plan.period}</span>
+                  <div className="mb-5 sm:mb-6">
+                    <span className="font-display text-3xl sm:text-4xl font-bold text-primary leading-tight">{plan.price}</span>
+                    {plan.period && (
+                      <span className="text-sm text-muted-foreground ml-2">{plan.period}</span>
+                    )}
                   </div>
-                  <ul className="space-y-2.5 mb-6 flex-1">
-                    {plan.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm">
-                        <CheckCircle2 className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
-                        <span>{f}</span>
-                      </li>
-                    ))}
+                  {plan.benefitPhrase && (
+                    <p className="text-xs sm:text-sm text-primary font-medium mb-4 sm:mb-5 leading-relaxed">{plan.benefitPhrase}</p>
+                  )}
+                  <ul className="space-y-2.5 sm:space-y-3 mb-6 flex-1">
+                    {plan.features.map((f) => {
+                      const isHighlight = f.toLowerCase().includes("garantía") || f.toLowerCase().includes("reporte técnico");
+                      return (
+                        <li key={f} className={`flex items-start gap-2 text-sm ${isHighlight ? "font-semibold text-foreground" : ""}`}>
+                          <CheckCircle2 className={`w-4 h-4 text-success flex-shrink-0 mt-0.5 ${isHighlight ? "w-[18px] h-[18px]" : ""}`} />
+                          <span>{f}</span>
+                        </li>
+                      );
+                    })}
                   </ul>
                   {"footnote" in plan && plan.footnote && (
-                    <p className="text-[11px] text-muted-foreground leading-relaxed mb-5 border-t border-border pt-4">{plan.footnote}</p>
+                    <p className="text-[11px] text-muted-foreground leading-relaxed mb-4 sm:mb-5 border-t border-border pt-3 sm:pt-4">{plan.footnote}</p>
                   )}
                   <Link
                     href="#cotizar-servicio"
-                    className={`w-full text-center py-3 rounded-md font-semibold text-sm transition-all ${
+                    className={`w-full text-center py-3 sm:py-3.5 rounded-md font-semibold text-sm transition-all ${
                       plan.highlighted
                         ? "btn-primary"
                         : "btn-outline"
