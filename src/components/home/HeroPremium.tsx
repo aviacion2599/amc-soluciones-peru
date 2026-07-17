@@ -104,7 +104,7 @@ export function HeroPremium() {
         />
       </div>
 
-      <div className="container-amc relative pt-12 pb-8 sm:pt-16 sm:pb-12 lg:pt-24 lg:pb-20">
+      <div className="container-amc relative pb-8 sm:pb-12 lg:pb-20">
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-20 items-center">
 
           {/* ── Mobile: Carousel FIRST (order-first) / Desktop: carousel RIGHT (order-last) ── */}

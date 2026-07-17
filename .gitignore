@@ -91,4 +91,4 @@ amc-indexed-pages.json
 # PCA context and agent files
 .pca/
 AGENTS.md
-PCA_INDEX.md
+PCA_INDEX.md*.bak
