@@ -19,6 +19,7 @@ import {
   Phone,
   Mail,
   ZoomIn,
+  ChevronDown,
 } from "lucide-react";
 import { PageTransition, FadeIn, StaggerContainer, StaggerItem, ScaleIn } from "@/components/shared/Motion";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
@@ -195,7 +196,7 @@ export default function ServicioTecnicoPage() {
   return (
     <PageTransition>
       {/* ===== FULL-BLEED HERO ===== */}
-      <section className="relative min-h-[100svh] flex items-center lg:items-end overflow-hidden -mt-[62px] sm:-mt-[68px]">
+      <section className="relative h-[100svh] sm:h-auto sm:min-h-[100svh] flex items-center lg:items-end overflow-hidden -mt-[62px] sm:-mt-[68px]">
         {/* Background image — desktop: horizontal, mobile: vertical */}
         <picture className="absolute inset-0">
           <source
@@ -206,7 +207,7 @@ export default function ServicioTecnicoPage() {
           <img
             src="/servicio-tecnico-hero-mobile.webp"
             alt="AMC Soluciones Perú — Especialistas en contadoras de billetes y monedas"
-            className="absolute inset-0 w-full h-full object-cover object-center md:object-center"
+            className="absolute inset-0 w-full h-full object-cover object-[50%_30%] sm:object-center md:object-center"
           />
         </picture>
 
@@ -216,8 +217,8 @@ export default function ServicioTecnicoPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/30" />
           {/* Left-to-right text readability gradient */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent md:from-black/50 md:via-transparent md:to-black/30" />
-          {/* Minimal bottom fade for smooth transition to content */}
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background/90 to-transparent" />
+          {/* Bottom gradient — darker, no white fade */}
+          <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-24 bg-gradient-to-t from-black/60 to-transparent" />
           {/* Blue accent glow */}
           <div
             className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/[0.06] rounded-full blur-3xl"
@@ -279,13 +280,26 @@ export default function ServicioTecnicoPage() {
           </div>
         </div>
 
+        {/* Scroll indicator — Ver más */}
+        <button
+          onClick={() => {
+            const el = document.getElementById("st-contenido");
+            el?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/60 hover:text-white/90 transition-colors"
+          aria-label="Ver más contenido"
+        >
+          <span className="text-[10px] sm:text-xs tracking-widest uppercase">Ver más</span>
+          <ChevronDown className="w-5 h-5 animate-bounce" />
+        </button>
+
         {/* Decorative bottom line */}
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
       </section>
       {/* ===== END FULL-BLEED HERO ===== */}
 
       {/* ===== TALLER TÉCNICO — Gallery Section ===== */}
-      <section className="relative bg-[#0B132B] py-16 lg:py-24 overflow-hidden">
+      <section id="st-contenido" className="relative bg-[#0B132B] py-16 lg:py-24 overflow-hidden">
         {/* Subtle background texture */}
         <div className="absolute inset-0 opacity-[0.04]" aria-hidden="true" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)", backgroundSize: "40px 40px" }} />
 

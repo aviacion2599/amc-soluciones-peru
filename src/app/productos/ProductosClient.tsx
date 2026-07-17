@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Banknote, Filter, X, SlidersHorizontal } from "lucide-react";
+import { Banknote, Filter, X, SlidersHorizontal, ChevronDown } from "lucide-react";
 import * as LucideIcons from "lucide-react";
 import { PageTransition, FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/Motion";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
@@ -144,7 +144,7 @@ function ProductosContent() {
   return (
     <div className="overflow-x-hidden">
       {/* ===== FULL-BLEED PRODUCT HERO ===== */}
-      <section className="relative min-h-[100svh] flex items-center overflow-hidden bg-[#080e1a] -mt-[62px] sm:-mt-[68px]">
+      <section className="relative h-[100svh] sm:h-auto sm:min-h-[100svh] flex items-center overflow-hidden bg-[#080e1a] -mt-[62px] sm:-mt-[68px]">
         {/* Background image — desktop: horizontal, mobile: vertical */}
         <picture className="absolute inset-0">
           <source
@@ -165,8 +165,8 @@ function ProductosContent() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/30" />
           {/* Left-to-right text readability gradient */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-black/20 md:from-black/60 md:via-transparent md:to-black/30" />
-          {/* Bottom fade — minimal */}
-          <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-black/40 to-transparent" />
+          {/* Bottom fade — no white */}
+          <div className="absolute bottom-0 left-0 right-0 h-8 sm:h-12 bg-gradient-to-t from-black/60 to-transparent" />
           {/* Blue accent glow */}
           <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/[0.06] rounded-full blur-3xl" />
           {/* Subtle grid texture */}
@@ -229,6 +229,19 @@ function ProductosContent() {
             </div>
           </div>
         </div>
+
+        {/* Scroll indicator — Ver más */}
+        <button
+          onClick={() => {
+            const el = document.getElementById("productos-grid");
+            el?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/60 hover:text-white/90 transition-colors"
+          aria-label="Ver más productos"
+        >
+          <span className="text-[10px] sm:text-xs tracking-widest uppercase">Ver más</span>
+          <ChevronDown className="w-5 h-5 animate-bounce" />
+        </button>
 
         {/* Decorative bottom line */}
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
@@ -334,7 +347,7 @@ function ProductosContent() {
 
             {/* Products grid — mobile-first: 1 col, sm: 2 col, lg: 3 col */}
             {loading ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 lg:gap-6">
                 {Array.from({ length: 6 }).map((_, i) => (
                   <Skeleton key={i} className="aspect-[4/3] rounded-xl" />
                 ))}
@@ -355,7 +368,7 @@ function ProductosContent() {
                 </div>
               </FadeIn>
             ) : (
-              <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              <StaggerContainer className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 lg:gap-6">
                 {products.map((p, idx) => (
                   <StaggerItem key={p.id} className="h-full">
                     <ProductCard

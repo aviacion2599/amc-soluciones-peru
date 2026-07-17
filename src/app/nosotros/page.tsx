@@ -1,6 +1,6 @@
 "use client";
 
-import { Award, Target, Eye, Heart, ShieldCheck, Cpu, Globe, ArrowRight, Wrench } from "lucide-react";
+import { Award, Target, Eye, Heart, ShieldCheck, Cpu, Globe, ArrowRight, Wrench, ChevronDown } from "lucide-react";
 import { PageTransition, FadeIn, StaggerContainer, StaggerItem, ScaleIn } from "@/components/shared/Motion";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { SectionTitle } from "@/components/shared/SectionTitle";
@@ -41,7 +41,7 @@ export default function NosotrosPage() {
   return (
     <PageTransition>
       {/* ===== FULL-BLEED HERO ===== */}
-      <section className="relative min-h-[100svh] flex items-end overflow-hidden -mt-[62px] sm:-mt-[68px]">
+      <section className="relative h-[100svh] sm:h-auto sm:min-h-[100svh] flex items-end overflow-hidden -mt-[62px] sm:-mt-[68px]">
         {/* Background image — desktop: horizontal, mobile: vertical */}
         <picture className="absolute inset-0">
           <source
@@ -52,7 +52,7 @@ export default function NosotrosPage() {
           <img
             src="/nosotros-hero-mobile.webp"
             alt="AMC Soluciones Perú — Especialistas en contadoras de billetes y monedas"
-            className="absolute inset-0 w-full h-full object-cover object-center md:object-center"
+            className="absolute inset-0 w-full h-full object-cover object-[50%_30%] sm:object-center"
           />
         </picture>
 
@@ -62,8 +62,8 @@ export default function NosotrosPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/30" />
           {/* Left-to-right text readability gradient */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent md:from-black/50 md:via-transparent md:to-black/40" />
-          {/* Minimal bottom fade for smooth transition to content */}
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background/90 to-transparent" />
+          {/* Bottom gradient — darker, no white fade */}
+          <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-24 bg-gradient-to-t from-black/60 to-transparent" />
           {/* Subtle blue accent glow */}
           <div
             className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-blue-500/[0.08] rounded-full blur-3xl"
@@ -117,10 +117,23 @@ export default function NosotrosPage() {
 
         {/* Decorative bottom line */}
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+
+        {/* Scroll indicator — Ver más */}
+        <button
+          onClick={() => {
+            const el = document.getElementById("nosotros-contenido");
+            el?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/60 hover:text-white/90 transition-colors group"
+          aria-label="Ver más contenido"
+        >
+          <span className="text-[10px] sm:text-xs tracking-widest uppercase">Ver más</span>
+          <ChevronDown className="w-5 h-5 animate-bounce" />
+        </button>
       </section>
       {/* ===== END FULL-BLEED HERO ===== */}
 
-      <div className="container-amc py-6 sm:py-8">
+      <div id="nosotros-contenido" className="container-amc py-6 sm:py-8">
         <Breadcrumb items={[{ label: "Nosotros" }]} />
       </div>
 
