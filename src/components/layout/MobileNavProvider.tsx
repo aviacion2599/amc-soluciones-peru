@@ -6,7 +6,7 @@ import { SearchOverlay } from "./SearchOverlay";
 
 /**
  * MobileNavProvider — Wraps BottomNav + SearchOverlay together.
- * Manages the search open/close state.
+ * Manages the search open/close state and hides bottom nav when search is open.
  */
 export function MobileNavProvider({ children }: { children: React.ReactNode }) {
   const [searchOpen, setSearchOpen] = React.useState(false);
@@ -14,7 +14,8 @@ export function MobileNavProvider({ children }: { children: React.ReactNode }) {
   return (
     <>
       {children}
-      <BottomNav onSearchOpen={() => setSearchOpen(true)} />
+      {/* Hide bottom nav when search overlay is open */}
+      {!searchOpen && <BottomNav onSearchOpen={() => setSearchOpen(true)} />}
       <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );

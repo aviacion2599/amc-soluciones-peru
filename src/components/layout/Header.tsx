@@ -48,13 +48,27 @@ export function Header() {
 
   // Escuchar evento custom del BottomNav para abrir el menú
   React.useEffect(() => {
-    const handler = () => setMenuOpen(true);
-    window.addEventListener("amc:open-menu", handler);
-    return () => window.removeEventListener("amc:open-menu", handler);
+    const openHandler = () => {
+      setMenuOpen(true);
+      // Notificar al BottomNav que se oculte
+      window.dispatchEvent(new CustomEvent("amc:menu-state", { detail: { open: true } }));
+    };
+    window.addEventListener("amc:open-menu", openHandler);
+    return () => window.removeEventListener("amc:open-menu", openHandler);
   }, []);
 
-  // Cerrar menú al cambiar de ruta (escucha popstate)
-  const closeMenu = React.useCallback(() => setMenuOpen(false), []);
+  // Notificar al BottomNav cuando el menú se cierre
+  React.useEffect(() => {
+    if (!menuOpen) {
+      window.dispatchEvent(new CustomEvent("amc:menu-state", { detail: { open: false } }));
+    }
+  }, [menuOpen]);
+
+  // Cerrar menú al cambiar de ruta
+  const closeMenu = React.useCallback(() => {
+    setMenuOpen(false);
+    window.dispatchEvent(new CustomEvent("amc:menu-state", { detail: { open: false } }));
+  }, []);
 
   return (
     <>
