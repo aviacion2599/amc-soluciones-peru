@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Banknote, Filter, X, SlidersHorizontal, ChevronDown } from "lucide-react";
+import { Banknote, Filter, X, SlidersHorizontal, ChevronDown, LayoutGrid, List } from "lucide-react";
 import * as LucideIcons from "lucide-react";
 import { PageTransition, FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/Motion";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
@@ -83,6 +83,7 @@ function ProductosContent() {
   });
 
   const [showMobileFilters, setShowMobileFilters] = React.useState(false);
+  const [mobileColumns, setMobileColumns] = React.useState<1 | 2>(1);
 
   // Load categories and brands on mount
   React.useEffect(() => {
@@ -323,6 +324,25 @@ function ProductosContent() {
                 )}
               </div>
               <div className="flex items-center gap-2">
+                {/* Column toggle — mobile only */}
+                <div className="flex lg:hidden border border-border rounded-md overflow-hidden">
+                  <button
+                    onClick={() => setMobileColumns(1)}
+                    className={`p-1.5 transition-colors ${mobileColumns === 1 ? "bg-primary text-white" : "hover:bg-muted text-muted-foreground"}`}
+                    aria-label="1 columna"
+                    title="1 columna"
+                  >
+                    <List className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => setMobileColumns(2)}
+                    className={`p-1.5 transition-colors ${mobileColumns === 2 ? "bg-primary text-white" : "hover:bg-muted text-muted-foreground"}`}
+                    aria-label="2 columnas"
+                    title="2 columnas"
+                  >
+                    <LayoutGrid className="w-4 h-4" />
+                  </button>
+                </div>
                 <button
                   onClick={() => setShowMobileFilters(true)}
                   className="lg:hidden btn-outline px-2.5 py-1.5 text-xs"
@@ -345,9 +365,11 @@ function ProductosContent() {
               </div>
             </div>
 
-            {/* Products grid — mobile-first: 1 col, sm: 2 col, lg: 3 col */}
+            {/* Products grid — mobile: toggleable 1/2 col, sm: 2 col, lg: 3 col */}
+            {/* Full-width on mobile: break out of container padding */}
+            <div className="-mx-[14px] sm:mx-0">
             {loading ? (
-              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 lg:gap-6">
+              <div className={`grid ${mobileColumns === 1 ? "grid-cols-1 gap-0 sm:gap-5" : "grid-cols-2 gap-3"} sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6`}>
                 {Array.from({ length: 6 }).map((_, i) => (
                   <Skeleton key={i} className="aspect-[4/3] rounded-xl" />
                 ))}
@@ -368,7 +390,7 @@ function ProductosContent() {
                 </div>
               </FadeIn>
             ) : (
-              <StaggerContainer className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 lg:gap-6">
+              <StaggerContainer className={`grid ${mobileColumns === 1 ? "grid-cols-1 gap-0 sm:gap-5" : "grid-cols-2 gap-3"} sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6`}>
                 {products.map((p, idx) => (
                   <StaggerItem key={p.id} className="h-full">
                     <ProductCard
@@ -382,11 +404,15 @@ function ProductosContent() {
                       brand={p.brand?.name}
                       summary={p.summary}
                       image={p.images?.[0]?.url || undefined}
+                      className={mobileColumns === 1 ? "rounded-none sm:rounded-xl" : ""}
                     />
                   </StaggerItem>
                 ))}
               </StaggerContainer>
             )}
+
+            </div>
+            {/* End full-width wrapper */}
 
             {/* Pagination */}
             {pagination.totalPages > 1 && (

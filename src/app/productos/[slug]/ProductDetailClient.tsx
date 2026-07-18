@@ -201,7 +201,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
           <div className="min-w-0">
             {/* Main image */}
             <div
-              className="relative aspect-square bg-gradient-to-br from-muted to-surface-2 rounded-xl overflow-hidden border border-border cursor-zoom-in"
+              className="relative aspect-square rounded-xl overflow-hidden border border-border cursor-zoom-in product-img-bg"
               onClick={() => p.images.length > 0 && lbOpenFn(selectedImage)}
             >
               {p.images[selectedImage] ? (
@@ -242,7 +242,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
                     key={img.id || i}
                     onClick={() => setSelectedImage(i)}
                     onDoubleClick={() => lbOpenFn(i)}
-                    className={`flex-shrink-0 w-14 h-14 sm:w-[72px] sm:h-[72px] rounded-lg overflow-hidden border-2 transition-colors ${
+                    className={`flex-shrink-0 w-14 h-14 sm:w-[72px] sm:h-[72px] rounded-lg overflow-hidden border-2 transition-colors product-img-bg ${
                       selectedImage === i ? "border-primary" : "border-border hover:border-primary/50"
                     }`}
                     title={`${img.alt} — doble clic para ampliar`}

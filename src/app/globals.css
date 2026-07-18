@@ -512,6 +512,26 @@
     transform: translateY(-4px);
   }
 
+  /* === Product image background (transparent-aware) === */
+  .product-img-bg {
+    background-color: #e8ecf1;
+    background-image:
+      linear-gradient(45deg, #d5dbe3 25%, transparent 25%),
+      linear-gradient(-45deg, #d5dbe3 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #d5dbe3 75%),
+      linear-gradient(-45deg, transparent 75%, #d5dbe3 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+  }
+  .dark .product-img-bg {
+    background-color: #1e293b;
+    background-image:
+      linear-gradient(45deg, #253349 25%, transparent 25%),
+      linear-gradient(-45deg, #253349 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #253349 75%),
+      linear-gradient(-45deg, transparent 75%, #253349 75%);
+  }
+
   /* === Badge base + variants === */
   .badge-base,
   .badge-primary,
