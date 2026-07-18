@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ReadingProgress } from "@/components/shared/ReadingProgress";
 import { SiteShell } from "@/components/layout/SiteShell";
+import { Preloader } from "@/components/layout/Preloader";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -99,6 +100,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${sora.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground font-sans`}
       >
+        <Preloader />
         <ReadingProgress />
         <SiteShell>{children}</SiteShell>
         <Toaster />

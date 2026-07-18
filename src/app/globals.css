@@ -666,3 +666,19 @@
     }
   }
 }
+
+/* === Preloader animations === */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+@keyframes preloader-bar {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 1.5s ease-in-out infinite;
+}
+.animate-preloader-bar {
+  animation: preloader-bar 0.4s ease-out forwards;
+}
