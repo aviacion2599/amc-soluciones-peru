@@ -41,7 +41,7 @@ export default function NosotrosPage() {
   return (
     <PageTransition>
       {/* ===== FULL-BLEED HERO ===== */}
-      <section className="relative h-[100svh] sm:h-auto sm:min-h-[100svh] flex items-end overflow-hidden -mt-[62px] sm:-mt-[68px]">
+      <section className="relative h-[calc(100svh+62px)] sm:h-auto sm:min-h-[calc(100svh+68px)] flex items-end overflow-hidden -mt-[62px] sm:-mt-[68px]">
         {/* Background image — desktop: horizontal, mobile: vertical */}
         <picture className="absolute inset-0">
           <source
@@ -81,14 +81,15 @@ export default function NosotrosPage() {
           <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black/30 to-transparent" />
         </div>
 
-        {/* Hero content — positioned at bottom-left on desktop, bottom-center on mobile */}
+        {/* Hero content — centered on mobile, bottom-left on desktop */}
         <div className="relative w-full pb-14 sm:pb-18 lg:pb-20 pt-32 sm:pt-36 lg:pt-40 px-6 sm:px-8">
           <div className="container-amc">
-            <div className="max-w-2xl">
+            <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
               {/* Overline */}
-              <div className="inline-flex items-center gap-2 mb-4 sm:mb-5">
+              <div className="inline-flex items-center gap-2 mb-4 sm:mb-5 justify-center lg:justify-start">
                 <div className="w-8 h-px bg-gold" />
                 <span className="overline text-gold tracking-widest">Sobre AMC</span>
+                <div className="w-8 h-px bg-gold" />
               </div>
 
               {/* Headline */}
@@ -103,7 +104,7 @@ export default function NosotrosPage() {
               </p>
 
               {/* Feature badges */}
-              <div className="flex flex-wrap gap-2.5 sm:gap-3">
+              <div className="flex flex-wrap gap-2.5 sm:gap-3 justify-center lg:justify-start">
                 {STATS.slice(0, 3).map((s) => (
                   <div key={s.label} className="glass-card rounded-full px-4 py-2 flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" />

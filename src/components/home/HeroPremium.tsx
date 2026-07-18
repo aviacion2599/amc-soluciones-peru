@@ -87,7 +87,7 @@ export function HeroPremium() {
   return (
     <section
       id="hero"
-      className="relative h-[100svh] sm:h-auto sm:min-h-[100svh] flex items-center overflow-hidden bg-navy text-white -mt-[62px] sm:-mt-[68px] pt-[74px] sm:pt-[80px]"
+      className="relative h-[calc(100svh+62px)] sm:h-auto sm:min-h-[calc(100svh+68px)] flex items-center overflow-hidden bg-navy text-white -mt-[62px] sm:-mt-[68px] pt-[74px] sm:pt-[80px]"
     >
       {/* ── Background layers ── */}
       <div className="absolute inset-0">
@@ -116,8 +116,8 @@ export function HeroPremium() {
             onTouchEnd={() => setTimeout(() => setIsPaused(false), 3000)}
           >
             {/* Image container — mobile: square & as large as possible, flush top */}
-            <div className="relative w-full max-w-[85vw] sm:max-w-[420px] lg:max-w-xl xl:max-w-2xl">
-              <div className="relative w-full aspect-square lg:aspect-[4/3]">
+            <div className="relative w-full max-w-[75vw] sm:max-w-[420px] lg:max-w-xl xl:max-w-2xl">
+              <div className="relative w-full aspect-[4/3] sm:aspect-square lg:aspect-[4/3]">
                 <AnimatePresence custom={direction} mode="wait">
                   <motion.div
                     key={product.model}
@@ -146,7 +146,7 @@ export function HeroPremium() {
             </div>
 
             {/* Model label — always CENTERED under image */}
-            <div className="mt-3 sm:mt-4 lg:mt-5 text-center w-full">
+            <div className="mt-2 sm:mt-4 lg:mt-5 text-center w-full">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={product.model + "-label"}
@@ -167,7 +167,7 @@ export function HeroPremium() {
 
             {/* Progress dots — centered */}
             <div
-              className="flex items-center gap-2 mt-3 sm:mt-4"
+              className="flex items-center gap-2 mt-2 sm:mt-4"
               role="tablist"
               aria-label="Productos destacados"
             >
@@ -197,18 +197,18 @@ export function HeroPremium() {
 
           {/* ── Left text (mobile: below carousel / desktop: left column) ── */}
           <div className="max-w-xl lg:order-first">
-            <h1 className="font-display text-[1.65rem] sm:text-3xl lg:text-5xl xl:text-[3.4rem] font-bold text-white leading-[1.2] lg:leading-[1.15] mb-4 lg:mb-6">
+            <h1 className="font-display text-[1.5rem] sm:text-3xl lg:text-5xl xl:text-[3.4rem] font-bold text-white leading-[1.2] lg:leading-[1.15] mb-3 lg:mb-6">
               Equipos profesionales para{" "}
               <span className="text-white/90">conteo y control</span> de efectivo
             </h1>
 
-            <p className="text-sm sm:text-base lg:text-lg text-white/60 leading-relaxed mb-6 lg:mb-8 max-w-lg">
+            <p className="text-sm sm:text-base lg:text-lg text-white/60 leading-relaxed mb-4 lg:mb-8 max-w-lg">
               Contadoras de billetes y monedas con detección avanzada, venta y
               servicio técnico especializado en Perú.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3 lg:gap-4 mb-6 lg:mb-10">
+            <div className="flex flex-wrap items-center gap-3 lg:gap-4 mb-4 lg:mb-10">
               <Link
                 href="/productos"
                 className="inline-flex items-center gap-2 px-5 py-2.5 lg:px-7 lg:py-3.5 rounded-lg bg-white text-navy font-semibold text-sm lg:text-[15px] hover:bg-white/90 transition-colors"
@@ -228,7 +228,7 @@ export function HeroPremium() {
             </div>
 
             {/* 3 stats */}
-            <dl className="flex gap-8 lg:gap-10">
+            <dl className="flex gap-6 lg:gap-10">
               {AMCCONFIG.stats.slice(0, 3).map((s) => (
                 <div key={s.label}>
                   <dt className="font-display text-xl lg:text-3xl font-bold text-white">

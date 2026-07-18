@@ -196,7 +196,7 @@ export default function ServicioTecnicoPage() {
   return (
     <PageTransition>
       {/* ===== FULL-BLEED HERO ===== */}
-      <section className="relative h-[100svh] sm:h-auto sm:min-h-[100svh] flex items-center lg:items-end overflow-hidden -mt-[62px] sm:-mt-[68px]">
+      <section className="relative h-[calc(100svh+62px)] sm:h-auto sm:min-h-[calc(100svh+68px)] flex items-center lg:items-end overflow-hidden -mt-[62px] sm:-mt-[68px]">
         {/* Background image — desktop: horizontal, mobile: vertical */}
         <picture className="absolute inset-0">
           <source
