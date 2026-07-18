@@ -3,7 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight, MessageCircle, ChevronDown } from "lucide-react";
 import { AMCCONFIG } from "@/lib/site-config";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -87,7 +87,7 @@ export function HeroPremium() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden bg-navy text-white -mt-[62px] sm:-mt-[68px] pt-[74px] sm:pt-[80px]"
+      className="relative h-[100svh] sm:h-auto sm:min-h-[100svh] flex items-center overflow-hidden bg-navy text-white -mt-[62px] sm:-mt-[68px] pt-[74px] sm:pt-[80px]"
     >
       {/* ── Background layers ── */}
       <div className="absolute inset-0">
@@ -104,7 +104,7 @@ export function HeroPremium() {
         />
       </div>
 
-      <div className="container-amc relative pb-8 sm:pb-12 lg:pb-20">
+      <div className="container-amc relative pb-16 sm:pb-12 lg:pb-20">
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-20 items-center">
 
           {/* ── Mobile: Carousel FIRST (order-first) / Desktop: carousel RIGHT (order-last) ── */}
@@ -242,6 +242,18 @@ export function HeroPremium() {
 
         </div>
       </div>
+      {/* Scroll indicator — Ver más */}
+      <button
+        onClick={() => {
+          const el = document.getElementById("confianza");
+          el?.scrollIntoView({ behavior: "smooth" });
+        }}
+        className="absolute bottom-5 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/60 hover:text-white/90 transition-colors"
+        aria-label="Ver más contenido"
+      >
+        <span className="text-[10px] tracking-widest uppercase">Ver más</span>
+        <ChevronDown className="w-5 h-5 animate-bounce" />
+      </button>
     </section>
   );
 }
