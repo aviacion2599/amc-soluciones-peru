@@ -46,6 +46,13 @@ export function Header() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
+  // Escuchar evento custom del BottomNav para abrir el menú
+  React.useEffect(() => {
+    const handler = () => setMenuOpen(true);
+    window.addEventListener("amc:open-menu", handler);
+    return () => window.removeEventListener("amc:open-menu", handler);
+  }, []);
+
   // Cerrar menú al cambiar de ruta (escucha popstate)
   const closeMenu = React.useCallback(() => setMenuOpen(false), []);
 

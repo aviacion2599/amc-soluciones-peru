@@ -22,7 +22,7 @@ export function WhatsAppFloat() {
       aria-label="Contactar por WhatsApp"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="fixed bottom-5 right-5 lg:bottom-7 lg:right-7 z-40 group"
+      className="fixed bottom-5 right-5 lg:bottom-7 lg:right-7 z-40 group hidden lg:block"
     >
       <div className="relative">
         {/* Pulse rings */}
