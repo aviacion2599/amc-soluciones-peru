@@ -1,7 +1,7 @@
 /**
  * Static fallback data for categories, products and brands.
  * Used when the database has no data (e.g. fresh Supabase instance).
- * Mirrors the seed data in prisma/seed.ts — 8 AMC products, 4 categories, 1 brand.
+ * Mirrors the seed data in prisma/seed.ts — 9 AMC products, 4 categories, 1 brand.
  * All images, videos and documents point directly to /uploads/products/{slug}/.
  */
 
@@ -15,7 +15,7 @@ export const STATIC_CATEGORIES = [
     icon: "Banknote",
     order: 1,
     image: null,
-    _count: { products: 2 },
+    _count: { products: 3 },
   },
   {
     id: "cat-2",
@@ -61,7 +61,7 @@ export const STATIC_BRANDS = [
     description: "Fabricante líder de equipos de procesamiento de efectivo: contadoras, clasificadoras y detectoras de billetes y monedas.",
     website: "",
     order: 1,
-    _count: { products: 8 },
+    _count: { products: 9 },
   },
 ];
 
@@ -72,7 +72,7 @@ export const STATIC_PRODUCTS = [
     slug: "amc-cm3400",
     name: "AMC-CM3400",
     summary:
-      "Contadora automática de monedas con pantalla LCD, teclado numérico y controles ajustables para conteo rápido y preciso.",
+      "Contadora profesional de monedas con conteo por cantidad y valor. Diseñada para ofrecer alta velocidad, precisión y confiabilidad en bancos, comercios y empresas que manejan grandes volúmenes de monedas.",
     sku: "AMC-CM3400",
     price: null,
     currency: "PEN",
@@ -90,10 +90,11 @@ export const STATIC_PRODUCTS = [
       { id: "img-1-6", url: "/uploads/products/amc-cm3400/img-06.webp", alt: "AMC-CM3400 vista completa", isPrimary: false },
     ],
     videos: [
-      { id: "vid-1-1", url: "/uploads/products/amc-cm3400/198e63d2-9c49-44df-b905-bcd2d1fe8e58.mp4", provider: "local", title: "AMC-CM3400 en operación" },
-      { id: "vid-1-2", url: "/uploads/products/amc-cm3400/42c9a359-8eb2-44f0-99a5-5dc118017ca7.mp4", provider: "local", title: "AMC-CM3400 demostración" },
+      { id: "vid-1-1", url: "/uploads/products/amc-cm3400/video-01.mp4", provider: "local", title: "AMC-CM3400 en operación" },
     ],
-    documents: [],
+    documents: [
+      { id: "doc-1-1", url: "/uploads/products/amc-cm3400/brochure.pdf", type: "ficha", title: "Brochure AMC-CM3400", size: null },
+    ],
     features: [],
     specifications: [],
     applications: [],
@@ -103,7 +104,7 @@ export const STATIC_PRODUCTS = [
     slug: "amc-cm3400-max",
     name: "AMC-CM3400 MAX",
     summary:
-      "Contadora de monedas de alta capacidad con tolva de gran formato, ruedas integradas y panel de control profesional.",
+      "Contadora profesional de monedas de alta capacidad con tolva de gran formato para operaciones continuas. Ideal para entidades financieras, transportadoras de valores y empresas con alto volumen de procesamiento.",
     sku: "AMC-CM3400-MAX",
     price: null,
     currency: "PEN",
@@ -120,9 +121,11 @@ export const STATIC_PRODUCTS = [
       { id: "img-2-5", url: "/uploads/products/amc-cm3400-max/img-05.webp", alt: "AMC-CM3400 MAX ruedas", isPrimary: false },
     ],
     videos: [
-      { id: "vid-2-1", url: "/uploads/products/amc-cm3400-max/84000fb9-ec42-4087-b987-25894a5a3a1d.mp4", provider: "local", title: "AMC-CM3400 MAX en operación" },
+      { id: "vid-2-1", url: "/uploads/products/amc-cm3400-max/video-01.mp4", provider: "local", title: "AMC-CM3400 MAX en operación" },
     ],
-    documents: [],
+    documents: [
+      { id: "doc-2-1", url: "/uploads/products/amc-cm3400-max/brochure.pdf", type: "ficha", title: "Brochure AMC-CM3400 MAX", size: null },
+    ],
     features: [],
     specifications: [],
     applications: [],
@@ -133,7 +136,7 @@ export const STATIC_PRODUCTS = [
     slug: "amc-2000",
     name: "AMC-2000",
     summary:
-      "Contadora de billetes compacta de la línea esencial con sensores IR, MG, RGB e IR-IMAGE para detección avanzada.",
+      "Contadora profesional de billetes de un bolsillo, con velocidad de hasta 1,200 billetes por minuto, capacidad de 300 billetes en la tolva (Hopper) y 200 billetes en la bandeja de recepción (Stacker). Equipada con doble sensor CIS, sistemas de autenticación UV, MT, MG e IR, escaneo de números de serie (OCR) y compatibilidad con 14 divisas, ofreciendo un conteo rápido, preciso y confiable para el procesamiento diario de efectivo.",
     sku: "AMC-2000",
     price: null,
     currency: "PEN",
@@ -145,11 +148,12 @@ export const STATIC_PRODUCTS = [
     images: [
       { id: "img-3-1", url: "/uploads/products/amc-2000/img-01.webp", alt: "AMC-2000 vista frontal", isPrimary: true },
       { id: "img-3-2", url: "/uploads/products/amc-2000/img-02.webp", alt: "AMC-2000 vista lateral", isPrimary: false },
-      { id: "img-3-3", url: "/uploads/products/amc-2000/img-03.webp", alt: "AMC-2000 detalle pantalla", isPrimary: false },
+      { id: "img-3-3", url: "/uploads/products/amc-2000/img-03.webp", alt: "AMC-2000 detalle", isPrimary: false },
+      { id: "img-3-4", url: "/uploads/products/amc-2000/img-04.webp", alt: "AMC-2000 vista completa", isPrimary: false },
     ],
     videos: [],
     documents: [
-      { id: "doc-3-1", url: "/uploads/products/amc-2000/brochure_amc-2000_ir-image_mismo_formato.pdf", type: "ficha", title: "Brochure AMC-2000 IR-IMAGE", size: null },
+      { id: "doc-3-1", url: "/uploads/products/amc-2000/brochure.pdf", type: "ficha", title: "Brochure AMC-2000", size: null },
     ],
     features: [],
     specifications: [],
@@ -161,7 +165,7 @@ export const STATIC_PRODUCTS = [
     slug: "amc-3200",
     name: "AMC-3200 2CIS",
     summary:
-      "Contadora de billetes multicurrency con doble sensor CIS, pantalla táctil TFT de 3.5\" y velocidad de hasta 1.500 billetes/min.",
+      "Contadora profesional de billetes de un bolsillo, con velocidad de hasta 1,500 billetes por minuto, capacidad para 300 billetes en la tolva (Hopper) y 200 billetes en la bandeja de recepción (Stacker). Equipada con doble sensor CIS, tecnologías de autenticación IR, MT, MG y UV, escaneo de números de serie (OCR), pantalla táctil TFT de 3.5 pulgadas y compatibilidad con hasta 60 divisas, ofreciendo un conteo rápido, preciso y confiable.",
     sku: "AMC-3200",
     price: null,
     currency: "PEN",
@@ -176,10 +180,11 @@ export const STATIC_PRODUCTS = [
       { id: "img-4-3", url: "/uploads/products/amc-3200/img-03.webp", alt: "AMC-3200 2CIS detalle pantalla", isPrimary: false },
       { id: "img-4-4", url: "/uploads/products/amc-3200/img-04.webp", alt: "AMC-3200 2CIS vista completa", isPrimary: false },
     ],
-    videos: [],
+    videos: [
+      { id: "vid-4-1", url: "/uploads/products/amc-3200/video-01.mp4", provider: "local", title: "AMC-3200 en operación" },
+    ],
     documents: [
-      { id: "doc-4-1", url: "/uploads/products/amc-3200/brochure_amc-3200_final_web.pdf", type: "ficha", title: "Brochure AMC-3200", size: null },
-      { id: "doc-4-2", url: "/uploads/products/amc-3200/brochure_amc-3200_final_web(1).pdf", type: "ficha", title: "Brochure AMC-3200 (alt)", size: null },
+      { id: "doc-4-1", url: "/uploads/products/amc-3200/brochure.pdf", type: "ficha", title: "Brochure AMC-3200", size: null },
     ],
     features: [],
     specifications: [],
@@ -190,7 +195,7 @@ export const STATIC_PRODUCTS = [
     slug: "amc-8100",
     name: "AMC-8100",
     summary:
-      "Contadora vertical de billetes con pantalla full touch de 6.9\", 2 CIS, detección MG/UV/IR/MT y más de 60 divisas.",
+      "Contadora profesional de billetes de un bolsillo, con velocidad de hasta 1,200 billetes por minuto, pantalla táctil Full Touch de 6.9 pulgadas, doble sensor CIS, detección MG, MT, UV, IR y reconocimiento de números de serie (OCR). Equipada con tolva para 500 billetes, bandeja de recepción para 200 billetes, compatibilidad con más de 60 divisas y conectividad USB, LAN, RS232, Type-C, impresora y pantalla externa, ofreciendo un conteo rápido, preciso y confiable.",
     sku: "AMC-8100",
     price: null,
     currency: "PEN",
@@ -205,9 +210,11 @@ export const STATIC_PRODUCTS = [
       { id: "img-5-3", url: "/uploads/products/amc-8100/img-03.webp", alt: "AMC-8100 detalle pantalla", isPrimary: false },
       { id: "img-5-4", url: "/uploads/products/amc-8100/img-04.webp", alt: "AMC-8100 vista completa", isPrimary: false },
     ],
-    videos: [],
+    videos: [
+      { id: "vid-5-1", url: "/uploads/products/amc-8100/video-01.mp4", provider: "local", title: "AMC-8100 en operación" },
+    ],
     documents: [
-      { id: "doc-5-1", url: "/uploads/products/amc-8100/brochure_amc-8100.pdf", type: "ficha", title: "Brochure AMC-8100", size: null },
+      { id: "doc-5-1", url: "/uploads/products/amc-8100/brochure.pdf", type: "ficha", title: "Brochure AMC-8100", size: null },
     ],
     features: [],
     specifications: [],
@@ -219,7 +226,7 @@ export const STATIC_PRODUCTS = [
     slug: "amc-8200",
     name: "AMC-8200",
     summary:
-      "Clasificadora de billetes 1+1 bolsillo con pantalla full touch de 7.8\", sensor MT de 13 canales e impresora térmica integrada.",
+      "Contadora profesional de billetes de un bolsillo más bandeja de rechazo, con velocidad de hasta 1,200 billetes por minuto, tolva para 500 billetes, apilador para 200 billetes y bandeja de rechazo para 100 billetes. Equipada con doble sensor CIS, detección MG e IR, pantalla táctil de 7.8 pulgadas y conectividad USB, LAN y RS232, ofrece un conteo rápido, continuo y confiable.",
     sku: "AMC-8200",
     price: null,
     currency: "PEN",
@@ -236,7 +243,7 @@ export const STATIC_PRODUCTS = [
     ],
     videos: [],
     documents: [
-      { id: "doc-6-1", url: "/uploads/products/amc-8200/brochure_amc-8200.pdf", type: "ficha", title: "Brochure AMC-8200", size: null },
+      { id: "doc-6-1", url: "/uploads/products/amc-8200/brochure.pdf", type: "ficha", title: "Brochure AMC-8200", size: null },
     ],
     features: [],
     specifications: [],
@@ -264,7 +271,7 @@ export const STATIC_PRODUCTS = [
     ],
     videos: [],
     documents: [
-      { id: "doc-7-1", url: "/uploads/products/amc-8300pro/brochure_amc-8300_pro_espanol_billete_peruano.pdf", type: "ficha", title: "Brochure AMC-8300 PRO", size: null },
+      { id: "doc-7-1", url: "/uploads/products/amc-8300pro/brochure.pdf", type: "ficha", title: "Brochure AMC-8300 PRO", size: null },
     ],
     features: [],
     specifications: [],
@@ -275,7 +282,7 @@ export const STATIC_PRODUCTS = [
     slug: "amc-9200",
     name: "AMC-9200",
     summary:
-      "Clasificadora Full Fitness 2+1 bolsillos con sensores CIS dual RGB, TMR de 18 canales, velocidad 1.000 billetes/min y 40 divisas.",
+      "Clasificadora profesional de billetes de dos bolsillos más bandeja de rechazo, con velocidad de hasta 1,000 billetes por minuto, tolva para 500 billetes, dos bandejas de recepción de 200 billetes cada una y bandeja de rechazo para 100 billetes. Equipada con doble sensor CIS, tecnologías de autenticación MG, MT, IR, UV, sensor TMR y detección de espesor, pantalla táctil TFT de 4.3 pulgadas, compatibilidad con hasta 40 divisas y conectividad LAN, USB, RS232, tarjeta SD e impresora, ofreciendo máxima productividad, precisión y seguridad en el procesamiento de efectivo.",
     sku: "AMC-9200",
     price: null,
     currency: "PEN",
@@ -286,13 +293,38 @@ export const STATIC_PRODUCTS = [
     brand: { slug: "amc", name: "AMC" },
     images: [
       { id: "img-8-1", url: "/uploads/products/amc-9200/img-01.webp", alt: "AMC-9200 vista frontal", isPrimary: true },
-      { id: "img-8-2", url: "/uploads/products/amc-9200/img-02.webp", alt: "AMC-9200 vista lateral", isPrimary: false },
-      { id: "img-8-3", url: "/uploads/products/amc-9200/img-03.webp", alt: "AMC-9200 detalle pantalla", isPrimary: false },
-      { id: "img-8-4", url: "/uploads/products/amc-9200/img-04.webp", alt: "AMC-9200 vista completa", isPrimary: false },
     ],
     videos: [],
     documents: [
-      { id: "doc-8-1", url: "/uploads/products/amc-9200/brochure_amc-9200.pdf", type: "ficha", title: "Brochure AMC-9200", size: null },
+      { id: "doc-8-1", url: "/uploads/products/amc-9200/brochure.pdf", type: "ficha", title: "Brochure AMC-9200", size: null },
+    ],
+    features: [],
+    specifications: [],
+    applications: [],
+  },
+  {
+    id: "prod-9",
+    slug: "amc-9100",
+    name: "AMC-9100",
+    summary:
+      "Contadora profesional de billetes de un bolsillo con bandeja de rechazo, equipada con doble sensor CIS de 201 mm y 200 dpi, 18 sensores TMR de línea completa, IR dual, imagen UV, 12 sensores de espesor, reconocimiento OCR de números de serie, clasificación por estado (Fitness) y compatibilidad con hasta 20 divisas. Con velocidad de hasta 1,000 billetes por minuto, ofrece máxima precisión y seguridad para el procesamiento profesional de efectivo.",
+    sku: "AMC-9100",
+    price: null,
+    currency: "PEN",
+    isFeatured: true,
+    isNew: true,
+    isBestSeller: false,
+    category: { slug: "contadoras-billetes", name: "Contadoras de Billetes" },
+    brand: { slug: "amc", name: "AMC" },
+    images: [
+      { id: "img-9-1", url: "/uploads/products/amc-9100/img-01.webp", alt: "AMC-9100 vista frontal", isPrimary: true },
+      { id: "img-9-2", url: "/uploads/products/amc-9100/img-02.webp", alt: "AMC-9100 vista lateral", isPrimary: false },
+    ],
+    videos: [
+      { id: "vid-9-1", url: "/uploads/products/amc-9100/video-01.mp4", provider: "local", title: "AMC-9100 en operación" },
+    ],
+    documents: [
+      { id: "doc-9-1", url: "/uploads/products/amc-9100/brochure.pdf", type: "ficha", title: "Brochure AMC-9100", size: null },
     ],
     features: [],
     specifications: [],

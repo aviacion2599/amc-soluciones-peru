@@ -201,12 +201,12 @@ export default function ServicioTecnicoPage() {
         <picture className="absolute inset-0">
           <source
             media="(min-width: 768px)"
-            srcSet="/servicio-tecnico-hero-desktop.webp"
-            type="image/webp"
+            srcSet="/servicio-tecnico-hero-desktop.png"
+            type="image/png"
           />
           <img
-            src="/servicio-tecnico-hero-mobile.webp"
-            alt="AMC Soluciones Perú — Especialistas en contadoras de billetes y monedas"
+            src="/servicio-tecnico-hero-mobile.png"
+            alt="AMC Soluciones Perú — Soluciones profesionales para manejo de efectivo"
             className="absolute inset-0 w-full h-full object-cover object-[50%_30%] sm:object-center md:object-center"
           />
         </picture>
@@ -249,9 +249,10 @@ export default function ServicioTecnicoPage() {
 
               {/* Headline */}
               <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.1] mb-5 sm:mb-6">
-                <span className="bg-gradient-to-r from-gold to-amber-300 bg-clip-text text-transparent">Especialistas en</span>{" "}
-                contadoras de billetes y monedas
+                <span className="bg-gradient-to-r from-gold to-amber-300 bg-clip-text text-transparent">Soluciones profesionales para</span>{" "}
+                manejo de efectivo
               </h1>
+              <p className="text-sm sm:text-base tracking-widest text-gold/80">Precisión · Seguridad · Confianza · Control · Respaldo Técnico</p>
 
               {/* Subtitle */}
               <p className="text-sm sm:text-base lg:text-lg text-white/70 leading-relaxed max-w-xl mb-8 sm:mb-10 mx-auto lg:mx-0">
@@ -289,7 +290,7 @@ export default function ServicioTecnicoPage() {
           className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/60 hover:text-white/90 transition-colors"
           aria-label="Ver más contenido"
         >
-          <span className="text-[10px] sm:text-xs tracking-widest uppercase">Ver más</span>
+          <span className="text-xs tracking-widest uppercase">Ver más</span>
           <ChevronDown className="w-5 h-5 animate-bounce" />
         </button>
 
@@ -338,9 +339,9 @@ export default function ServicioTecnicoPage() {
                 <ZoomIn className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8">
-                <span className="inline-block text-[10px] sm:text-xs font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-3 py-1 mb-2">Diagnóstico</span>
+                <span className="inline-block text-xs font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-3 py-1 mb-2">Diagnóstico</span>
                 <h3 className="text-sm sm:text-base lg:text-lg font-display font-bold text-white mb-1">Revisión de componentes internos</h3>
-                <p className="text-[11px] sm:text-xs text-slate-300/70 max-w-sm">Limpieza y verificación de circuitos, sensores y piezas móviles con herramientas de precisión.</p>
+                <p className="text-xs text-slate-300/70 max-w-sm">Limpieza y verificación de circuitos, sensores y piezas móviles con herramientas de precisión.</p>
               </div>
             </button>
 
@@ -361,7 +362,7 @@ export default function ServicioTecnicoPage() {
                 <ZoomIn className="w-3.5 h-3.5" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-5">
-                <span className="inline-block text-[10px] font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-2 py-0.5 mb-1.5">Reparación</span>
+                <span className="inline-block text-xs font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-2 py-0.5 mb-1.5">Reparación</span>
                 <h3 className="text-xs sm:text-sm font-display font-semibold text-white">Equipo en diagnóstico</h3>
               </div>
             </button>
@@ -383,7 +384,7 @@ export default function ServicioTecnicoPage() {
                 <ZoomIn className="w-3.5 h-3.5" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-5">
-                <span className="inline-block text-[10px] font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-2 py-0.5 mb-1.5">Mantenimiento</span>
+                <span className="inline-block text-xs font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-2 py-0.5 mb-1.5">Mantenimiento</span>
                 <h3 className="text-xs sm:text-sm font-display font-semibold text-white">Limpieza técnica</h3>
               </div>
             </button>
@@ -407,7 +408,7 @@ export default function ServicioTecnicoPage() {
             </div>
             <div className="absolute inset-0 flex items-center">
               <div className="p-6 sm:p-8 lg:p-12 max-w-lg">
-                <span className="inline-block text-[10px] sm:text-xs font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-3 py-1 mb-3">Calibración</span>
+                <span className="inline-block text-xs font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-3 py-1 mb-3">Calibración</span>
                 <h3 className="text-base sm:text-lg lg:text-xl font-display font-bold text-white mb-2">Componentes a nivel de fabricante</h3>
                 <p className="text-xs sm:text-sm text-slate-300/70 leading-relaxed">
                   Acceso directo a motores, sensores CIS/UV/MG/IR y placa principal para calibración y reemplazo de piezas con estándares de fábrica.
@@ -577,7 +578,7 @@ export default function ServicioTecnicoPage() {
                     })}
                   </ul>
                   {"footnote" in plan && plan.footnote && (
-                    <p className="text-[11px] text-muted-foreground leading-relaxed mb-4 sm:mb-5 border-t border-border pt-3 sm:pt-4">{plan.footnote}</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed mb-4 sm:mb-5 border-t border-border pt-3 sm:pt-4">{plan.footnote}</p>
                   )}
                   <Link
                     href="#cotizar-servicio"

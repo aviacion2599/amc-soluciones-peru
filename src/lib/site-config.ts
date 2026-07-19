@@ -29,8 +29,9 @@ export const AMCCONFIG = {
       "Hola, vengo desde el sitio web AMC Soluciones Perú y quiero información sobre sus productos y servicios.",
     email: "soporteamc@amcelec.com",
     emailTechnical: "soporteamc@amcelec.com",
-    address: "Punto de recepción y entrega: San Borja. Atención previa coordinación.",
+    address: "Centro de atención y recepción de equipos – San Borja",
     addressShort: "San Borja, Lima",
+    addressNote: "Atención previa coordinación",
     mapEmbed: "",
   },
   schedule: {
@@ -45,7 +46,7 @@ export const AMCCONFIG = {
     youtube: "https://youtube.com/@amcsolucionesperu",
   },
   stats: [
-    { value: "+15", label: "Años de experiencia" },
+    { value: "+7", label: "Años de experiencia" },
     { value: "+2,500", label: "Equipos atendidos" },
     { value: "24h", label: "Respuesta técnica garantizada" },
     { value: "99.8%", label: "Precisión de conteo certificada" },
@@ -83,7 +84,7 @@ export const CATEGORIES = [
     icon: "Banknote",
     title: "Contadoras de Billetes",
     description: "Conteo ultrarrápido con detección de falsos multi-sensorial UV, MG, IR, CIS y OCR.",
-    count: 2,
+    count: 3,
     featured: true,
   },
   {
@@ -323,3 +324,6 @@ export const TESTIMONIALS = [
       "Dependencias del sector público emplean nuestros equipos para garantizar transparencia, control y precisión en el manejo de efectivo institucional.",
   },
 ] as const;
+
+/** Lema oficial AMC */
+export const AMC_LEMA = "Precisión · Seguridad · Confianza · Control · Respaldo Técnico";

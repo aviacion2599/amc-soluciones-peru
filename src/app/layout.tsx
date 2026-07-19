@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AMC Soluciones Perú | Contadoras de Billetes y Servicio Técnico",
     description:
-      "Especialistas en soluciones de conteo de efectivo. Venta, servicio técnico, calibración y mantenimiento de contadoras de billetes y monedas en Perú.",
+      "Soluciones profesionales para manejo de efectivo — Contadoras de billetes y monedas con detección avanzada, venta y servicio técnico en Perú.",
     url: "https://amcsolucionesperu.com",
     siteName: "AMC Soluciones Perú",
     locale: "es_PE",
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AMC Soluciones Perú | Contadoras de Billetes y Servicio Técnico",
     description:
-      "Especialistas en soluciones de conteo de efectivo. Venta y servicio técnico de contadoras en Perú.",
+      "Soluciones profesionales para manejo de efectivo — Contadoras de billetes y monedas con detección avanzada, venta y servicio técnico en Perú.",
   },
   icons: {
     icon: [

@@ -43,7 +43,7 @@ export function TechnicalService() {
                 aria-hidden="true"
               />
               <span className="overline text-slate-200">
-                Especialistas en servicio técnico GLORY
+                Venta y servicio técnico especializado
               </span>
             </div>
             <h2 className="display-2 text-white mb-6 text-balance">

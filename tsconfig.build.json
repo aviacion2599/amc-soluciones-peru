@@ -1,0 +1,1 @@
+{"compilerOptions":{"paths":{"@/*":["./src/*"]}},"include":["src/**/*"],"exclude":["skills/**/*","node_modules/**/*",".next/**/*","scripts/**/*","drive-assets/**/*","prisma/**/*"]}

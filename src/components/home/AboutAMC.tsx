@@ -7,7 +7,7 @@ import { FadeIn } from "@/components/shared/Motion";
 
 /* ── Data ── */
 const STATS = [
-  { icon: Award, value: 15, suffix: "", display: "+15", label: "Años de experiencia" },
+  { icon: Award, value: 7, suffix: "", display: "+7", label: "Años de experiencia" },
   { icon: Package, value: 2500, suffix: "", display: "+2,500", label: "Equipos atendidos" },
   { icon: Users, value: 800, suffix: "", display: "+800", label: "Clientes activos" },
 ];
@@ -115,6 +115,11 @@ export function AboutAMC() {
                 AMC Soluciones Perú se especializa en la venta de contadoras profesionales
                 de billetes y monedas, mantenimiento preventivo y correctivo, reparación,
                 calibración y soporte técnico para equipos de procesamiento de efectivo.
+              </p>
+
+              {/* Lema oficial — 5 pilares */}
+              <p className="text-sm text-[#F5B041]/70 tracking-widest font-medium mb-6">
+                Precisión · Seguridad · Confianza · Control · Respaldo Técnico
               </p>
 
               {/* Accent line */}

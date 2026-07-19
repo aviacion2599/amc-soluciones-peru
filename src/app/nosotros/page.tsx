@@ -31,7 +31,7 @@ const STATS = [
 ];
 
 const TECHNICAL_BACKING = [
-  { icon: Award, name: "Especialistas en equipos GLORY", desc: "Experiencia en diagnóstico, mantenimiento y reparación." },
+  { icon: Award, name: "Tecnología para conteo, clasificación y detección", desc: "Experiencia en diagnóstico, mantenimiento y reparación." },
   { icon: Wrench, name: "Servicio técnico multimarca", desc: "Atención de contadoras de billetes y monedas de diferentes fabricantes." },
   { icon: ShieldCheck, name: "Soporte posventa AMC", desc: "Acompañamiento, capacitación y asistencia técnica después de la compra." },
   { icon: Globe, name: "Cobertura nacional", desc: "Atención en Lima y recepción de equipos desde provincias." },
@@ -46,12 +46,12 @@ export default function NosotrosPage() {
         <picture className="absolute inset-0">
           <source
             media="(min-width: 768px)"
-            srcSet="/nosotros-hero-desktop.webp"
-            type="image/webp"
+            srcSet="/nosotros-hero-desktop.png"
+            type="image/png"
           />
           <img
-            src="/nosotros-hero-mobile.webp"
-            alt="AMC Soluciones Perú — Especialistas en contadoras de billetes y monedas"
+            src="/nosotros-hero-mobile.png"
+            alt="AMC Soluciones Perú — Venta y servicio técnico especializado"
             className="absolute inset-0 w-full h-full object-cover object-[50%_30%] sm:object-center"
           />
         </picture>
@@ -94,9 +94,10 @@ export default function NosotrosPage() {
 
               {/* Headline */}
               <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.1] mb-5 sm:mb-6">
-                <span className="bg-gradient-to-r from-gold to-amber-300 bg-clip-text text-transparent">Especialistas en</span>{" "}
-                contadoras de billetes y monedas
+                <span className="bg-gradient-to-r from-gold to-amber-300 bg-clip-text text-transparent">Venta y servicio técnico</span>{" "}
+                especializado
               </h1>
+              <p className="text-sm sm:text-base tracking-widest text-gold/80">Precisión · Seguridad · Confianza · Control · Respaldo Técnico</p>
 
               {/* Subtitle */}
               <p className="text-sm sm:text-base lg:text-lg text-white/70 leading-relaxed max-w-xl mb-8 sm:mb-10">

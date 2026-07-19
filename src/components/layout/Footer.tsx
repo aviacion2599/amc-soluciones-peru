@@ -9,7 +9,7 @@ import {
   Linkedin,
   Youtube,
 } from "lucide-react";
-import { AMCCONFIG } from "@/lib/site-config";
+import { AMCCONFIG, AMC_LEMA } from "@/lib/site-config";
 
 /**
  * Footer corporativo AMC — 4 columnas con datos de contacto,
@@ -108,7 +108,10 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-gold/70 flex-shrink-0 mt-0.5" />
-                <span>{AMCCONFIG.contact.address}</span>
+                <div>
+                  <div>{AMCCONFIG.contact.address}</div>
+                  <div>{AMCCONFIG.contact.addressNote}</div>
+                </div>
               </li>
               <li className="flex items-start gap-3">
                 <Clock className="w-4 h-4 text-gold/70 flex-shrink-0 mt-0.5" />
@@ -158,6 +161,11 @@ export function Footer() {
           ))}
         </div>
 
+        {/* Lema */}
+        <div className="text-xs text-white/30 tracking-widest text-center py-4 border-t border-white/5">
+          {AMC_LEMA}
+        </div>
+
         {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/40">
@@ -173,6 +181,7 @@ export function Footer() {
         {/* Dirección */}
         <div className="mt-2 text-center">
           <p className="text-[10px] text-white/25">{AMCCONFIG.contact.address}</p>
+          <p className="text-[10px] text-white/25">{AMCCONFIG.contact.addressNote}</p>
         </div>
 
         {/* Creditos — FastPagePro */}

@@ -26,7 +26,7 @@ const LINES: EquipmentLine[] = [
     subtitle: "Contadoras de billetes para pequeños negocios",
     description:
       "Contadoras de billetes diseñadas para pequeños negocios que buscan una solución práctica, accesible y funcional para el control diario de efectivo. Esta línea está pensada para tiendas, minimarkets, farmacias, agentes, oficinas, bodegas y comercios con bajo a mediano movimiento de billetes. Son equipos ideales para contar de forma rápida, ordenar el efectivo diario y realizar una verificación básica de billetes.",
-    models: [],
+    models: ["AMC-2000"],
     recommendedFor: [
       "Pequeños negocios",
       "Tiendas y minimarkets",
@@ -138,7 +138,7 @@ const LINES: EquipmentLine[] = [
     subtitle: "Soluciones para conteo y procesamiento de monedas",
     description:
       "Contadoras de monedas para empresas y negocios que necesitan procesar monedas de forma rápida, ordenada y eficiente. Esta línea está orientada a clientes que manejan alto movimiento de monedas y necesitan reducir tiempos de conteo manual, mejorar el control de caja y optimizar el procesamiento diario. Soluciones para conteo rápido, ordenamiento de monedas y reducción de tiempos operativos en negocios con alto movimiento de monedas.",
-    models: [],
+    models: ["AMC-CM3400", "AMC-CM3400 MAX"],
     recommendedFor: [
       "Retail",
       "Supermercados",

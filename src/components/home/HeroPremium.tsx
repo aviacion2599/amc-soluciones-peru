@@ -4,7 +4,7 @@ import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MessageCircle, ChevronDown } from "lucide-react";
-import { AMCCONFIG } from "@/lib/site-config";
+import { AMCCONFIG, AMC_LEMA } from "@/lib/site-config";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* ────────────────────────────────────────────────
@@ -40,6 +40,21 @@ const HERO_PRODUCTS = [
     src: "/amc-cm3400max.webp",
     model: "AMC-CM3400 MAX",
     tagline: "Más velocidad para grandes cantidades.",
+  },
+  {
+    src: "/amc-2000.webp",
+    model: "AMC-2000",
+    tagline: "Solución esencial para todo negocio.",
+  },
+  {
+    src: "/amc-9100.webp",
+    model: "AMC-9100",
+    tagline: "Máxima precisión y seguridad en detección.",
+  },
+  {
+    src: "/amc-8200.webp",
+    model: "AMC-8200",
+    tagline: "Conteo rápido, continuo y confiable.",
   },
 ] as const;
 
@@ -205,6 +220,11 @@ export function HeroPremium() {
             <p className="text-sm sm:text-base lg:text-lg text-white/60 leading-relaxed mb-4 lg:mb-8 max-w-lg">
               Contadoras de billetes y monedas con detección avanzada, venta y
               servicio técnico especializado en Perú.
+            </p>
+
+            {/* Lema oficial */}
+            <p className="text-xs sm:text-sm text-gold/80 tracking-widest font-medium mb-4 lg:mb-8">
+              {AMC_LEMA}
             </p>
 
             {/* CTAs */}
