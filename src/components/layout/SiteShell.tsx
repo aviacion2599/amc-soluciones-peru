@@ -12,7 +12,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       <Footer />
       <WhatsAppFloat />
       {/* Bottom padding on mobile so last content isn't hidden behind bottom nav */}
-      <div className="h-[60px] lg:hidden" aria-hidden="true" />
+      <div className="h-[70px] lg:hidden" aria-hidden="true" />
     </MobileNavProvider>
   );
 }

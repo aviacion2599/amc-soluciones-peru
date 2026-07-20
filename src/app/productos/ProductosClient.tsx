@@ -145,7 +145,7 @@ function ProductosContent() {
   return (
     <div className="overflow-x-hidden">
       {/* ===== FULL-BLEED PRODUCT HERO ===== */}
-      <section className="relative h-[calc(100svh+62px)] sm:h-auto sm:min-h-[calc(100svh+68px)] flex items-center overflow-hidden bg-[#080e1a] -mt-[62px] sm:-mt-[68px]">
+      <section className="relative h-[calc(100svh+62px)] sm:h-auto sm:min-h-[calc(100svh+68px)] flex items-center overflow-hidden bg-[#080e1a] -mt-[62px] sm:-mt-[68px] pb-[80px] sm:pb-0">
         {/* Background image — desktop: horizontal, mobile: vertical */}
         <picture className="absolute inset-0">
           <source
