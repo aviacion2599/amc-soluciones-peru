@@ -52,7 +52,7 @@ export default function NosotrosPage() {
           <img
             src="/nosotros-hero-mobile.png"
             alt="AMC Soluciones Perú — Venta y servicio técnico especializado"
-            className="absolute inset-0 w-full h-full object-cover object-[50%_30%] sm:object-center"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
         </picture>
 

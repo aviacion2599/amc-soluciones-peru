@@ -130,9 +130,9 @@ export function HeroPremium() {
             onTouchStart={() => setIsPaused(true)}
             onTouchEnd={() => setTimeout(() => setIsPaused(false), 3000)}
           >
-            {/* Image container — mobile: square & as large as possible, flush top */}
-            <div className="relative w-full max-w-[75vw] sm:max-w-[420px] lg:max-w-xl xl:max-w-2xl">
-              <div className="relative w-full aspect-[4/3] sm:aspect-square lg:aspect-[4/3]">
+            {/* Image container — tall enough to never crop equipment */}
+            <div className="relative w-full max-w-[85vw] sm:max-w-[480px] lg:max-w-2xl xl:max-w-[700px]">
+              <div className="relative w-full aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4]">
                 <AnimatePresence custom={direction} mode="wait">
                   <motion.div
                     key={product.model}
@@ -151,7 +151,7 @@ export function HeroPremium() {
                       src={product.src}
                       alt={`${product.model} — ${product.tagline}`}
                       fill
-                      sizes="(max-width: 640px) 85vw, (max-width: 1024px) 420px, 550px"
+                      sizes="(max-width: 640px) 85vw, (max-width: 1024px) 480px, 650px"
                       className="object-contain object-center"
                       priority
                     />

@@ -201,7 +201,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
           <div className="min-w-0">
             {/* Main image */}
             <div
-              className="relative aspect-square rounded-xl overflow-hidden border border-border cursor-zoom-in product-img-bg"
+              className="relative aspect-[3/4] sm:aspect-square rounded-xl overflow-hidden border border-border cursor-zoom-in product-img-bg"
               onClick={() => p.images.length > 0 && lbOpenFn(selectedImage)}
             >
               {p.images[selectedImage] ? (
