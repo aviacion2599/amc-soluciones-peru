@@ -32,11 +32,6 @@ const HERO_PRODUCTS = [
     tagline: "Clasificación Full Fitness bancaria.",
   },
   {
-    src: "/amc-8300-pro.webp",
-    model: "AMC-8300 PRO",
-    tagline: "Tecnología superior para operaciones exigentes.",
-  },
-  {
     src: "/amc-cm3400max.webp",
     model: "AMC-CM3400 MAX",
     tagline: "Más velocidad para grandes cantidades.",
@@ -102,7 +97,7 @@ export function HeroPremium() {
   return (
     <section
       id="hero"
-      className="relative h-[calc(100svh+62px)] sm:h-auto sm:min-h-[calc(100svh+68px)] flex items-center overflow-hidden bg-navy text-white -mt-[62px] sm:-mt-[68px] pt-[74px] sm:pt-[80px] pb-[80px] sm:pb-12 lg:pb-20"
+      className="relative h-[calc(100svh+62px)] sm:h-auto sm:min-h-[calc(100svh+68px)] flex items-start sm:items-center overflow-hidden bg-navy text-white -mt-[62px] sm:-mt-[68px] pt-[74px] sm:pt-[80px] pb-[90px] sm:pb-12 lg:pb-20"
     >
       {/* ── Background layers ── */}
       <div className="absolute inset-0">
@@ -131,7 +126,7 @@ export function HeroPremium() {
             onTouchEnd={() => setTimeout(() => setIsPaused(false), 3000)}
           >
             {/* Image container — tall enough to never crop equipment */}
-            <div className="relative w-full max-w-[65vw] sm:max-w-[420px] lg:max-w-2xl xl:max-w-[700px]">
+            <div className="relative w-full max-w-[50vw] sm:max-w-[420px] lg:max-w-2xl xl:max-w-[700px]">
               <div className="relative w-full aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4]">
                 <AnimatePresence custom={direction} mode="wait">
                   <motion.div
@@ -212,23 +207,23 @@ export function HeroPremium() {
 
           {/* ── Left text (mobile: below carousel / desktop: left column) ── */}
           <div className="max-w-xl lg:order-first">
-            <h1 className="font-display text-[1.5rem] sm:text-3xl lg:text-5xl xl:text-[3.4rem] font-bold text-white leading-[1.2] lg:leading-[1.15] mb-3 lg:mb-6">
+            <h1 className="font-display text-[1.2rem] sm:text-3xl lg:text-5xl xl:text-[3.4rem] font-bold text-white leading-[1.2] lg:leading-[1.15] mb-2 lg:mb-6">
               Equipos profesionales para{" "}
               <span className="text-white/90">conteo y control</span> de efectivo
             </h1>
 
-            <p className="text-sm sm:text-base lg:text-lg text-white/60 leading-relaxed mb-4 lg:mb-8 max-w-lg">
+            <p className="text-xs sm:text-base lg:text-lg text-white/60 leading-relaxed mb-2 lg:mb-8 max-w-lg">
               Contadoras de billetes y monedas con detección avanzada, venta y
               servicio técnico especializado en Perú.
             </p>
 
             {/* Lema oficial */}
-            <p className="text-xs sm:text-sm text-gold/80 tracking-widest font-medium mb-4 lg:mb-8">
+            <p className="text-[10px] sm:text-sm text-gold/80 tracking-widest font-medium mb-2 lg:mb-8">
               {AMC_LEMA}
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3 lg:gap-4 mb-4 lg:mb-10">
+            <div className="flex flex-wrap items-center gap-2 lg:gap-4 mb-2 lg:mb-10">
               <Link
                 href="/productos"
                 className="inline-flex items-center gap-2 px-5 py-2.5 lg:px-7 lg:py-3.5 rounded-lg bg-white text-navy font-semibold text-sm lg:text-[15px] hover:bg-white/90 transition-colors"

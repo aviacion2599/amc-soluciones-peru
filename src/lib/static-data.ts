@@ -324,7 +324,7 @@ export const STATIC_PRODUCTS = [
       { id: "vid-9-1", url: "/uploads/products/amc-9100/video-01.mp4", provider: "local", title: "AMC-9100 en operación" },
     ],
     documents: [
-      { id: "doc-9-1", url: "/uploads/products/amc-9100/brochure.pdf", type: "ficha", title: "Brochure AMC-9100", size: null },
+      { id: "doc-9-1", url: "/uploads/products/amc-9100/brochure_amc-9100.pdf", type: "ficha", title: "Brochure AMC-9100", size: null },
     ],
     features: [],
     specifications: [],
