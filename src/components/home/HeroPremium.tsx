@@ -97,7 +97,7 @@ export function HeroPremium() {
   return (
     <section
       id="hero"
-      className="relative min-h-[calc(100svh-0px)] sm:min-h-[calc(100svh-0px)] flex items-center overflow-hidden bg-navy text-white pt-[80px] sm:pt-[88px] pb-[96px] sm:pb-12 lg:pb-16"
+      className="relative flex items-center overflow-hidden bg-navy text-white pt-[76px] sm:pt-[84px] pb-12 sm:pb-16 lg:pb-20"
     >
       {/* ── Background layers ── */}
       <div className="absolute inset-0">
@@ -126,7 +126,7 @@ export function HeroPremium() {
             onTouchEnd={() => setTimeout(() => setIsPaused(false), 3000)}
           >
             {/* Image container — uniform aspect ratio (3:4), centered, never cropped */}
-            <div className="relative w-full max-w-[78vw] sm:max-w-[60vw] lg:max-w-[480px] xl:max-w-[560px] mx-auto">
+            <div className="relative w-full max-w-[88vw] sm:max-w-[70vw] md:max-w-[480px] lg:max-w-[500px] xl:max-w-[600px] mx-auto">
               <div className="relative w-full aspect-[3/4]">
                 <AnimatePresence custom={direction} mode="wait">
                   <motion.div
@@ -146,8 +146,8 @@ export function HeroPremium() {
                       src={product.src}
                       alt={`${product.model} — ${product.tagline}`}
                       fill
-                      sizes="(max-width: 640px) 78vw, (max-width: 1024px) 60vw, 560px"
-                      className="object-contain object-center p-2 sm:p-3 lg:p-4"
+                      sizes="(max-width: 640px) 88vw, (max-width: 1024px) 70vw, 600px"
+                      className="object-contain object-center p-1 sm:p-2 lg:p-3"
                       priority
                     />
                   </motion.div>
@@ -263,7 +263,7 @@ export function HeroPremium() {
           const el = document.getElementById("confianza");
           el?.scrollIntoView({ behavior: "smooth" });
         }}
-        className="absolute bottom-[100px] sm:bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/60 hover:text-white/90 transition-colors"
+        className="hidden sm:flex absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-1 text-white/60 hover:text-white/90 transition-colors"
         aria-label="Ver más contenido"
       >
         <span className="text-[10px] tracking-widest uppercase">Ver más</span>
