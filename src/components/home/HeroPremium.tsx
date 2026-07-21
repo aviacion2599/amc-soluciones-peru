@@ -97,7 +97,7 @@ export function HeroPremium() {
   return (
     <section
       id="hero"
-      className="relative h-[calc(100svh+62px)] sm:h-auto sm:min-h-[calc(100svh+68px)] flex items-start sm:items-center overflow-hidden bg-navy text-white -mt-[62px] sm:-mt-[68px] pt-[74px] sm:pt-[80px] pb-[90px] sm:pb-12 lg:pb-20"
+      className="relative min-h-[calc(100svh-0px)] sm:min-h-[calc(100svh-0px)] flex items-center overflow-hidden bg-navy text-white pt-[80px] sm:pt-[88px] pb-[96px] sm:pb-12 lg:pb-16"
     >
       {/* ── Background layers ── */}
       <div className="absolute inset-0">
@@ -125,9 +125,9 @@ export function HeroPremium() {
             onTouchStart={() => setIsPaused(true)}
             onTouchEnd={() => setTimeout(() => setIsPaused(false), 3000)}
           >
-            {/* Image container — tall enough to never crop equipment */}
-            <div className="relative w-full max-w-[50vw] sm:max-w-[420px] lg:max-w-2xl xl:max-w-[700px]">
-              <div className="relative w-full aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4]">
+            {/* Image container — uniform aspect ratio (3:4), centered, never cropped */}
+            <div className="relative w-full max-w-[78vw] sm:max-w-[60vw] lg:max-w-[480px] xl:max-w-[560px] mx-auto">
+              <div className="relative w-full aspect-[3/4]">
                 <AnimatePresence custom={direction} mode="wait">
                   <motion.div
                     key={product.model}
@@ -146,8 +146,8 @@ export function HeroPremium() {
                       src={product.src}
                       alt={`${product.model} — ${product.tagline}`}
                       fill
-                      sizes="(max-width: 640px) 85vw, (max-width: 1024px) 480px, 650px"
-                      className="object-contain object-center"
+                      sizes="(max-width: 640px) 78vw, (max-width: 1024px) 60vw, 560px"
+                      className="object-contain object-center p-2 sm:p-3 lg:p-4"
                       priority
                     />
                   </motion.div>
@@ -263,7 +263,7 @@ export function HeroPremium() {
           const el = document.getElementById("confianza");
           el?.scrollIntoView({ behavior: "smooth" });
         }}
-        className="absolute bottom-[76px] sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/60 hover:text-white/90 transition-colors"
+        className="absolute bottom-[100px] sm:bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/60 hover:text-white/90 transition-colors"
         aria-label="Ver más contenido"
       >
         <span className="text-[10px] tracking-widest uppercase">Ver más</span>
