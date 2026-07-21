@@ -90,11 +90,10 @@ export const STATIC_PRODUCTS = [
       { id: "img-1-6", url: "/uploads/products/amc-cm3400/img-06.webp", alt: "AMC-CM3400 vista completa", isPrimary: false },
     ],
     videos: [
-      { id: "vid-1-1", url: "/uploads/products/amc-cm3400/video-01.mp4", provider: "local", title: "AMC-CM3400 en operación" },
+      { id: "vid-amc-cm3400-1", url: "/uploads/products/amc-cm3400/video-01.mp4", provider: "local", title: "AMC CM3400 — video 1" },
+      { id: "vid-amc-cm3400-2", url: "/uploads/products/amc-cm3400/video-02.mp4", provider: "local", title: "AMC CM3400 — video 2" },
     ],
-    documents: [
-      { id: "doc-1-1", url: "/uploads/products/amc-cm3400/brochure.pdf", type: "ficha", title: "Brochure AMC-CM3400", size: null },
-    ],
+    documents: [],
     features: [],
     specifications: [],
     applications: [],
@@ -121,11 +120,9 @@ export const STATIC_PRODUCTS = [
       { id: "img-2-5", url: "/uploads/products/amc-cm3400-max/img-05.webp", alt: "AMC-CM3400 MAX ruedas", isPrimary: false },
     ],
     videos: [
-      { id: "vid-2-1", url: "/uploads/products/amc-cm3400-max/video-01.mp4", provider: "local", title: "AMC-CM3400 MAX en operación" },
+      { id: "vid-amc-cm3400-max-1", url: "/uploads/products/amc-cm3400-max/video-01.mp4", provider: "local", title: "AMC CM3400 MAX — video 1" },
     ],
-    documents: [
-      { id: "doc-2-1", url: "/uploads/products/amc-cm3400-max/brochure.pdf", type: "ficha", title: "Brochure AMC-CM3400 MAX", size: null },
-    ],
+    documents: [],
     features: [],
     specifications: [],
     applications: [],
@@ -153,7 +150,7 @@ export const STATIC_PRODUCTS = [
     ],
     videos: [],
     documents: [
-      { id: "doc-3-1", url: "/uploads/products/amc-2000/brochure.pdf", type: "ficha", title: "Brochure AMC-2000", size: null },
+      { id: "doc-amc-2000", url: "/uploads/products/amc-2000/brochure_amc-2000_ir-image_mismo_formato.pdf", type: "ficha", title: "Brochure AMC 2000", size: null },
     ],
     features: [],
     specifications: [],
@@ -180,11 +177,9 @@ export const STATIC_PRODUCTS = [
       { id: "img-4-3", url: "/uploads/products/amc-3200/img-03.webp", alt: "AMC-3200 2CIS detalle pantalla", isPrimary: false },
       { id: "img-4-4", url: "/uploads/products/amc-3200/img-04.webp", alt: "AMC-3200 2CIS vista completa", isPrimary: false },
     ],
-    videos: [
-      { id: "vid-4-1", url: "/uploads/products/amc-3200/video-01.mp4", provider: "local", title: "AMC-3200 en operación" },
-    ],
+    videos: [],
     documents: [
-      { id: "doc-4-1", url: "/uploads/products/amc-3200/brochure.pdf", type: "ficha", title: "Brochure AMC-3200", size: null },
+      { id: "doc-amc-3200", url: "/uploads/products/amc-3200/brochure_amc-3200_final_web.pdf", type: "ficha", title: "Brochure AMC 3200", size: null },
     ],
     features: [],
     specifications: [],
@@ -210,11 +205,9 @@ export const STATIC_PRODUCTS = [
       { id: "img-5-3", url: "/uploads/products/amc-8100/img-03.webp", alt: "AMC-8100 detalle pantalla", isPrimary: false },
       { id: "img-5-4", url: "/uploads/products/amc-8100/img-04.webp", alt: "AMC-8100 vista completa", isPrimary: false },
     ],
-    videos: [
-      { id: "vid-5-1", url: "/uploads/products/amc-8100/video-01.mp4", provider: "local", title: "AMC-8100 en operación" },
-    ],
+    videos: [],
     documents: [
-      { id: "doc-5-1", url: "/uploads/products/amc-8100/brochure.pdf", type: "ficha", title: "Brochure AMC-8100", size: null },
+      { id: "doc-amc-8100", url: "/uploads/products/amc-8100/brochure_amc-8100.pdf", type: "ficha", title: "Brochure AMC 8100", size: null },
     ],
     features: [],
     specifications: [],
@@ -243,7 +236,7 @@ export const STATIC_PRODUCTS = [
     ],
     videos: [],
     documents: [
-      { id: "doc-6-1", url: "/uploads/products/amc-8200/brochure.pdf", type: "ficha", title: "Brochure AMC-8200", size: null },
+      { id: "doc-amc-8200", url: "/uploads/products/amc-8200/brochure_amc-8200.pdf", type: "ficha", title: "Brochure AMC 8200", size: null },
     ],
     features: [],
     specifications: [],
@@ -271,7 +264,7 @@ export const STATIC_PRODUCTS = [
     ],
     videos: [],
     documents: [
-      { id: "doc-7-1", url: "/uploads/products/amc-8300pro/brochure.pdf", type: "ficha", title: "Brochure AMC-8300 PRO", size: null },
+      { id: "doc-7-1", url: "/uploads/products/amc-8300pro/brochure_amc-8300_pro_espanol_billete_peruano.pdf", type: "ficha", title: "Brochure AMC-8300 PRO", size: null },
     ],
     features: [],
     specifications: [],
@@ -296,7 +289,7 @@ export const STATIC_PRODUCTS = [
     ],
     videos: [],
     documents: [
-      { id: "doc-8-1", url: "/uploads/products/amc-9200/brochure.pdf", type: "ficha", title: "Brochure AMC-9200", size: null },
+      { id: "doc-amc-9200", url: "/uploads/products/amc-9200/brochure_amc-9200.pdf", type: "ficha", title: "Brochure AMC 9200", size: null },
     ],
     features: [],
     specifications: [],
@@ -320,12 +313,8 @@ export const STATIC_PRODUCTS = [
       { id: "img-9-1", url: "/uploads/products/amc-9100/img-01.webp", alt: "AMC-9100 vista frontal", isPrimary: true },
       { id: "img-9-2", url: "/uploads/products/amc-9100/img-02.webp", alt: "AMC-9100 vista lateral", isPrimary: false },
     ],
-    videos: [
-      { id: "vid-9-1", url: "/uploads/products/amc-9100/video-01.mp4", provider: "local", title: "AMC-9100 en operación" },
-    ],
-    documents: [
-      { id: "doc-9-1", url: "/uploads/products/amc-9100/brochure_amc-9100.pdf", type: "ficha", title: "Brochure AMC-9100", size: null },
-    ],
+    videos: [],
+    documents: [],
     features: [],
     specifications: [],
     applications: [],
