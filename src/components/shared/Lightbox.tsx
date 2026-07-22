@@ -354,7 +354,7 @@ export function Lightbox({
           <AnimatePresence>
             {showInfo && current?.title && (
               <motion.div
-                className="amc-lightbox-info absolute bottom-14 sm:bottom-20 left-3 right-3 sm:left-8 sm:right-8 z-[55] max-w-lg mx-auto sm:mx-0 hidden sm:block"
+                className="amc-lightbox-info absolute bottom-32 sm:bottom-20 left-3 right-3 sm:left-8 sm:right-8 z-[55] max-w-lg mx-auto sm:mx-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
