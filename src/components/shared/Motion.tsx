@@ -55,7 +55,7 @@ export function FadeIn({
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once, margin: "-80px" }}
+      viewport={{ once: true, margin: "-10px" }}
       transition={{ duration: 0.6, ease: EASE_AMC, delay }}
     >
       {children}
@@ -81,7 +81,7 @@ export function StaggerContainer({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: "-10px" }}
       variants={{
         hidden: { opacity: 0 },
         visible: {
@@ -139,7 +139,7 @@ export function ScaleIn({
       className={className}
       initial={{ opacity: 0, scale: 0.92 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: "-10px" }}
       transition={{ duration: 0.6, ease: EASE_AMC, delay }}
     >
       {children}
@@ -169,7 +169,7 @@ export function SlideIn({
       className={className}
       initial={{ opacity: 0, x }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: "-10px" }}
       transition={{ duration: 0.7, ease: EASE_AMC, delay }}
     >
       {children}

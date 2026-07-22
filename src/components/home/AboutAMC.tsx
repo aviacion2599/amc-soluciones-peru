@@ -38,7 +38,7 @@ function useCountUp(target: number, inView: boolean, duration = 1800) {
 /* ── Stat card ── */
 function StatCard({ stat, index }: { stat: typeof STATS[number]; index: number }) {
   const ref = React.useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const inView = useInView(ref, { once: true, margin: "-10px" });
   const count = useCountUp(stat.value, inView);
   const Icon = stat.icon;
 
@@ -75,7 +75,7 @@ function StatCard({ stat, index }: { stat: typeof STATS[number]; index: number }
 /* ── Main section ── */
 export function AboutAMC() {
   const sectionRef = React.useRef<HTMLElement>(null);
-  const inView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const inView = useInView(sectionRef, { once: true, margin: "-10px" });
 
   return (
     <section
