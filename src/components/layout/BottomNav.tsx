@@ -27,6 +27,7 @@ export function BottomNav({ onSearchOpen }: BottomNavProps) {
   const pathname = usePathname();
   const [visible, setVisible] = React.useState(true);
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const [scrollY, setScrollY] = React.useState(0);
   const lastScrollY = React.useRef(0);
   const ticking = React.useRef(false);
 
@@ -37,6 +38,7 @@ export function BottomNav({ onSearchOpen }: BottomNavProps) {
       ticking.current = true;
       requestAnimationFrame(() => {
         const current = window.scrollY;
+        setScrollY(current);
         if (current > lastScrollY.current && current > 80) {
           setVisible(false);
         } else {
@@ -70,8 +72,9 @@ export function BottomNav({ onSearchOpen }: BottomNavProps) {
   const isActive = (matchPaths: readonly string[]) =>
     matchPaths.some((p) => p === "/" ? pathname === "/" : pathname.startsWith(p));
 
-  // Hide bottom nav entirely when off-canvas menu is open
-  const show = visible && !menuOpen;
+  // Hide bottom nav entirely when off-canvas menu is open, or at the top of the home page
+  const isHome = pathname === "/";
+  const show = visible && !menuOpen && !(isHome && scrollY < 50);
 
   return (
     <nav

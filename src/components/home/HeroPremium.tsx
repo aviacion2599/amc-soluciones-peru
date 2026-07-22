@@ -53,7 +53,7 @@ const HERO_PRODUCTS = [
   },
 ] as const;
 
-const INTERVAL_MS = 2500;
+const INTERVAL_MS = 4000;
 
 /* ────────────────────────────────────────────────
    Animation variants
@@ -61,15 +61,15 @@ const INTERVAL_MS = 2500;
 const imageVariants = {
   enter: (dir: number) => ({
     opacity: 0,
-    x: dir > 0 ? 30 : -30,
+    scale: 0.92,
   }),
   center: {
     opacity: 1,
-    x: 0,
+    scale: 1,
   },
   exit: (dir: number) => ({
     opacity: 0,
-    x: dir > 0 ? -30 : 30,
+    scale: 1.05,
   }),
 };
 
@@ -137,8 +137,9 @@ export function HeroPremium() {
                     animate="center"
                     exit="exit"
                     transition={{
-                      x: { type: "spring", stiffness: 280, damping: 30 },
-                      opacity: { duration: 0.3, ease: "easeInOut" },
+                      duration: 0.8,
+                      ease: [0.16, 1, 0.3, 1], // AMC ease
+                      opacity: { duration: 0.5 },
                     }}
                     className="absolute inset-0"
                   >
