@@ -334,15 +334,15 @@ export default function ServicioTecnicoPage() {
                 alt="Técnico especializado limpiando componentes internos de contadora de billetes con cepillo de precisión"
                 className="w-full h-full object-cover aspect-square lg:aspect-auto transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-[#0B132B]/80 via-40% to-transparent" />
               {/* Zoom indicator */}
               <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/0 group-hover:text-white/80 transition-all duration-300 opacity-0 group-hover:opacity-100">
                 <ZoomIn className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8">
                 <span className="inline-block text-xs font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-3 py-1 mb-2">Diagnóstico</span>
-                <h3 className="text-sm sm:text-base lg:text-lg font-display font-bold text-white mb-1">Revisión de componentes internos</h3>
-                <p className="text-xs text-slate-300/70 max-w-sm">Limpieza y verificación de circuitos, sensores y piezas móviles con herramientas de precisión.</p>
+                <h3 className="text-sm sm:text-base lg:text-lg font-display font-bold text-white mb-1 drop-shadow-md">Revisión de componentes internos</h3>
+                <p className="text-xs text-slate-200 max-w-sm drop-shadow-md">Limpieza y verificación de circuitos, sensores y piezas móviles con herramientas de precisión.</p>
               </div>
             </button>
 
@@ -358,13 +358,13 @@ export default function ServicioTecnicoPage() {
                 alt="Equipo industrial de procesamiento de efectivo en taller técnico AMC"
                 className="w-full h-full object-cover aspect-[3/5] lg:aspect-auto transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-[#0B132B]/80 via-50% to-transparent" />
               <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/0 group-hover:text-white/80 transition-all duration-300 opacity-0 group-hover:opacity-100">
                 <ZoomIn className="w-3.5 h-3.5" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-5">
                 <span className="inline-block text-xs font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-2 py-0.5 mb-1.5">Reparación</span>
-                <h3 className="text-xs sm:text-sm font-display font-semibold text-white">Equipo en diagnóstico</h3>
+                <h3 className="text-xs sm:text-sm font-display font-semibold text-white drop-shadow-md">Equipo en diagnóstico</h3>
               </div>
             </button>
 
@@ -380,13 +380,13 @@ export default function ServicioTecnicoPage() {
                 alt="Mantenimiento preventivo de clasificadora de billetes en taller AMC"
                 className="w-full h-full object-cover aspect-[3/5] lg:aspect-auto transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-[#0B132B]/80 via-50% to-transparent" />
               <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/0 group-hover:text-white/80 transition-all duration-300 opacity-0 group-hover:opacity-100">
                 <ZoomIn className="w-3.5 h-3.5" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-5">
                 <span className="inline-block text-xs font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-2 py-0.5 mb-1.5">Mantenimiento</span>
-                <h3 className="text-xs sm:text-sm font-display font-semibold text-white">Limpieza técnica</h3>
+                <h3 className="text-xs sm:text-sm font-display font-semibold text-white drop-shadow-md">Limpieza técnica</h3>
               </div>
             </button>
           </div>
@@ -403,15 +403,15 @@ export default function ServicioTecnicoPage() {
               alt="Interior de contadora de billetes mostrando motores, sensores y componentes electrónicos durante reparación"
               className="w-full h-48 sm:h-64 lg:h-80 xl:h-96 object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0B132B] via-[#0B132B]/80 via-50% to-transparent" />
             <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/0 group-hover:text-white/80 transition-all duration-300 opacity-0 group-hover:opacity-100">
               <ZoomIn className="w-3.5 h-3.5" />
             </div>
             <div className="absolute inset-0 flex items-center">
               <div className="p-6 sm:p-8 lg:p-12 max-w-lg">
                 <span className="inline-block text-xs font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-3 py-1 mb-3">Calibración</span>
-                <h3 className="text-base sm:text-lg lg:text-xl font-display font-bold text-white mb-2">Componentes a nivel de fabricante</h3>
-                <p className="text-xs sm:text-sm text-slate-300/70 leading-relaxed">
+                <h3 className="text-base sm:text-lg lg:text-xl font-display font-bold text-white mb-2 drop-shadow-md">Componentes a nivel de fabricante</h3>
+                <p className="text-xs sm:text-sm text-slate-200 leading-relaxed drop-shadow-md">
                   Acceso directo a motores, sensores CIS/UV/MG/IR y placa principal para calibración y reemplazo de piezas con estándares de fábrica.
                 </p>
               </div>
