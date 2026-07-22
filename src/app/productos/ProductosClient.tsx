@@ -145,7 +145,7 @@ function ProductosContent() {
   return (
     <div className="overflow-x-hidden">
       {/* ===== FULL-BLEED PRODUCT HERO ===== */}
-      <section className="relative h-[calc(100svh+62px)] sm:h-auto sm:min-h-[calc(100svh+68px)] flex items-center overflow-hidden bg-[#080e1a] -mt-[62px] sm:-mt-[68px] pb-[80px] sm:pb-0">
+      <section className="relative min-h-[100svh] flex items-center overflow-hidden bg-[#080e1a] pt-[62px] sm:pt-[68px] pb-[80px] sm:pb-0">
         {/* Background image — desktop: horizontal, mobile: vertical */}
         <picture className="absolute inset-0">
           <source
@@ -156,7 +156,7 @@ function ProductosContent() {
           <img
             src="/productos-hero-mobile.webp"
             alt="AMC Soluciones Perú — Equipos profesionales para manejo de efectivo"
-            className="absolute inset-0 w-full h-full object-cover object-[50%_40%]"
+            className="absolute inset-0 w-full h-full object-cover object-[50%_60%]"
           />
         </picture>
 
@@ -184,7 +184,7 @@ function ProductosContent() {
         </div>
 
         {/* Hero content */}
-        <div className="relative w-full py-24 sm:py-28 lg:py-0 lg:pb-16 pt-28 sm:pt-32 lg:pt-24 px-6 sm:px-8">
+        <div className="relative w-full py-16 sm:py-20 lg:py-0 lg:pb-16 pt-8 sm:pt-12 lg:pt-0 px-6 sm:px-8">
           <div className="container-amc">
             <div className="max-w-2xl mx-auto lg:mx-auto text-center">
               {/* Overline */}

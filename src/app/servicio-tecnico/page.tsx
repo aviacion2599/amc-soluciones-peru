@@ -196,7 +196,7 @@ export default function ServicioTecnicoPage() {
   return (
     <PageTransition>
       {/* ===== FULL-BLEED HERO ===== */}
-      <section className="relative h-[calc(100svh+62px)] sm:h-auto sm:min-h-[calc(100svh+68px)] flex items-center lg:items-end overflow-hidden -mt-[62px] sm:-mt-[68px] pb-[80px] sm:pb-0">
+      <section className="relative min-h-[100svh] flex items-center lg:items-end overflow-hidden pt-[62px] sm:pt-[68px] pb-[80px] sm:pb-0">
         {/* Background image — desktop: horizontal, mobile: vertical */}
         <picture className="absolute inset-0">
           <source
@@ -207,7 +207,7 @@ export default function ServicioTecnicoPage() {
           <img
             src="/servicio-tecnico-hero-mobile.png"
             alt="AMC Soluciones Perú — Soluciones profesionales para manejo de efectivo"
-            className="absolute inset-0 w-full h-full object-cover object-center"
+            className="absolute inset-0 w-full h-full object-cover object-[50%_60%]"
           />
         </picture>
 
@@ -237,7 +237,7 @@ export default function ServicioTecnicoPage() {
         </div>
 
         {/* Hero content — positioned at bottom-left on desktop, bottom-center on mobile */}
-        <div className="relative w-full py-24 sm:py-28 lg:py-0 lg:pb-20 pt-28 sm:pt-32 lg:pt-40 px-6 sm:px-8">
+        <div className="relative w-full py-16 sm:py-20 lg:py-0 lg:pb-20 pt-8 sm:pt-12 lg:pt-32 px-6 sm:px-8">
           <div className="container-amc">
             <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
               {/* Overline */}
