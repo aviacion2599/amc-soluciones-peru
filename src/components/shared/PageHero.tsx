@@ -29,7 +29,7 @@ export function PageHero({
 
   return (
     <section
-      className={`relative overflow-hidden -mt-[62px] sm:-mt-[68px] pt-[74px] sm:pt-[80px] ${
+      className={`relative overflow-hidden -mt-[62px] sm:-mt-[68px] pt-[90px] sm:pt-[110px] ${
         isDark ? "bg-primary-dark text-white" : "bg-background text-foreground border-b border-border"
       }`}
     >

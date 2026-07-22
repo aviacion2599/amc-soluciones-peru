@@ -8,7 +8,7 @@ import { TRUSTED_COMPANIES } from "@/lib/site-config";
  */
 export function TrustedBy() {
   return (
-    <section id="confianza" className="bg-muted/40 py-12" aria-label="Sectores atendidos">
+    <section id="confianza" className="bg-muted/40 py-8 lg:py-16" aria-label="Sectores atendidos">
       <div className="container-amc">
         <p className="overline text-muted-foreground text-center mb-3">
           Sectores atendidos

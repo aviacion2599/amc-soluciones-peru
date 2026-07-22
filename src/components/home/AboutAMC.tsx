@@ -7,7 +7,7 @@ import { FadeIn } from "@/components/shared/Motion";
 
 /* ── Data ── */
 const STATS = [
-  { icon: Award, value: 7, suffix: "", display: "+7", label: "Años de experiencia" },
+  { icon: Award, value: 8, suffix: "", display: "+8", label: "Años de experiencia" },
   { icon: Package, value: 2500, suffix: "", display: "+2,500", label: "Equipos atendidos" },
   { icon: Users, value: 800, suffix: "", display: "+800", label: "Clientes activos" },
 ];
@@ -80,7 +80,7 @@ export function AboutAMC() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 sm:py-20 lg:py-24 bg-[#0B132B] border-t border-white/5 overflow-hidden"
+      className="relative py-12 lg:py-20 bg-[#0B132B] border-t border-white/5 overflow-hidden"
     >
       {/* Subtle radial glow */}
       <div
@@ -118,8 +118,8 @@ export function AboutAMC() {
               </p>
 
               {/* Lema oficial — 5 pilares */}
-              <p className="text-sm text-[#F5B041]/70 tracking-widest font-medium mb-6">
-                Precisión · Seguridad · Confianza · Control · Respaldo Técnico
+              <p className="text-xs sm:text-sm text-[#F5B041]/70 tracking-wider sm:tracking-widest font-medium mb-6 flex flex-wrap gap-1 sm:gap-2">
+                <span>Precisión</span><span>·</span><span>Seguridad</span><span>·</span><span>Confianza</span><span>·</span><span>Control</span><span>·</span><span>Respaldo Técnico</span>
               </p>
 
               {/* Accent line */}

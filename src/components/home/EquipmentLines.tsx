@@ -109,7 +109,7 @@ const LINES: EquipmentLine[] = [
     subtitle: "Equipos para uso intensivo y operaciones exigentes",
     description:
       "Equipos de alto rendimiento para empresas que procesan grandes volúmenes de efectivo y requieren velocidad, precisión, resistencia y continuidad operativa. La Línea Alto Volumen AMC está orientada a operaciones intensivas donde el tiempo, la seguridad y la productividad son factores clave. Equipos para operaciones intensivas que necesitan mayor capacidad de procesamiento, continuidad de trabajo y control avanzado del efectivo durante la jornada.",
-    models: ["AMC-9200", "AMC-8300 PRO"],
+    models: ["AMC-9200"],
     recommendedFor: [
       "Casas de cambio de alto movimiento",
       "Retail",
@@ -270,7 +270,7 @@ function LineCard({ line, index }: { line: EquipmentLine; index: number }) {
 /* ─── Sección principal ─── */
 export function EquipmentLines() {
   return (
-    <section id="equipos" className="py-20 lg:py-28 scroll-mt-20 bg-surface-2">
+    <section id="equipos" className="py-12 lg:py-24 scroll-mt-20 bg-surface-2">
       <div className="container-amc">
         {/* Introducción */}
         <div className="max-w-3xl mx-auto text-center mb-16">

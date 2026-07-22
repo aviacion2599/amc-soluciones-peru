@@ -17,7 +17,7 @@ export function Benefits() {
   ];
 
   return (
-    <section id="beneficios" className="py-20 lg:py-28 scroll-mt-20">
+    <section id="beneficios" className="py-12 lg:py-24 scroll-mt-20">
       <div className="container-amc">
         <SectionTitle
           overline="Por qué AMC"

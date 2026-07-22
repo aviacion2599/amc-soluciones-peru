@@ -12,7 +12,7 @@ const categories = [
   {
     slug: "contadoras-billetes",
     name: "Contadoras de Billetes",
-    description: "Contadoras de billetes profesionales AMC con detección avanzada UV, MG, IR, CIS y OCR. Desde la línea esencial hasta modelos de alto rendimiento con pantalla táctil y reconocimiento de números de serie.",
+    description: "Contadoras de billetes profesionales AMC con tecnologías de detección UV, MG, IR, MT, CIS y OCR. Velocidades de hasta 1,500 billetes por minuto y soporte para múltiples divisas.",
     icon: "Banknote",
     order: 1,
     seoTitle: "Contadoras de Billetes AMC | AMC Soluciones Perú",
@@ -37,12 +37,12 @@ const categories = [
     order: 3,
     seoTitle: "Clasificadoras de Billetes AMC | AMC Soluciones Perú",
     seoDescription: "Clasificadoras de billetes AMC con Full Fitness. Detección avanzada, doble apilador, impresora térmica integrada.",
-    seoKeywords: "clasificadora billetes AMC, AMC-8200, AMC-8300 PRO, AMC-9200, clasificar billetes Perú",
+    seoKeywords: "clasificadora billetes AMC, AMC-8200, AMC-9200, clasificar billetes Perú",
   },
   {
     slug: "linea-esencial",
     name: "Línea Esencial",
-    description: "Equipos AMC de la línea esencial: soluciones accesibles y confiables para el manejo de efectivo en pequeños negocios, comercios y oficinas que necesitan rendimiento profesional a costo accesible.",
+    description: "Equipos AMC accesibles con doble CIS y tecnologías de detección IR, MG, RGB e IR-IMAGE. Una solución práctica y eficiente para pequeños negocios y comercios.",
     icon: "Star",
     order: 4,
     seoTitle: "Línea Esencial AMC | AMC Soluciones Perú",
@@ -63,8 +63,8 @@ const products = [
     name: "AMC-CM3400",
     slug: "amc-cm3400",
     sku: "AMC-CM3400",
-    summary: "Contadora automática de monedas con pantalla LCD, teclado numérico y controles ajustables para conteo rápido y preciso.",
-    description: `La AMC-CM3400 es una contadora de monedas automatizada diseñada para agilizar el proceso de conteo y clasificación de monedas en comercios, bancos y centros de cambio. Cuenta con una pantalla digital LCD, teclado numérico y diales de ajuste para la velocidad y sensibilidad de detección. Su estructura robusta con tolva de alimentación de gran capacidad y sistema de salida de monedas facilita el procesamiento de grandes volúmenes. El diseño compacto y ergonómico la hace ideal para mostradores y espacios reducidos.`,
+    summary: "Contadora profesional de monedas con conteo por cantidad y valor. Diseñada para ofrecer alta velocidad, precisión y confiabilidad en bancos, comercios y empresas que manejan grandes volúmenes de monedas.",
+    description: "La contadora de monedas AMC-CM3400 ofrece conteo ininterrumpido de alto volumen, clasificando automáticamente por denominación. Con funciones de acumulación, lotes programables y un diseño resistente, optimiza el manejo de efectivo en cajas de supermercados, bancos y retail, minimizando errores y ahorrando tiempo valioso.",
     categorySlug: "contadoras-monedas",
     brandSlug: "amc",
     isFeatured: true,
@@ -72,16 +72,18 @@ const products = [
     isBestSeller: true,
     order: 1,
     images: [
-      { url: "/uploads/products/amc-cm3400/img-01.webp", alt: "AMC-CM3400 contadora de monedas - vista frontal", isPrimary: true, order: 0 },
-      { url: "/uploads/products/amc-cm3400/img-02.webp", alt: "AMC-CM3400 - vista lateral", isPrimary: false, order: 1 },
+      { url: "/uploads/products/amc-cm3400/img-02.webp", alt: "AMC-CM3400 - vista en perspectiva", isPrimary: true, order: 0 },
+      { url: "/uploads/products/amc-cm3400/img-01.webp", alt: "AMC-CM3400 contadora de monedas - vista superior", isPrimary: false, order: 1 },
       { url: "/uploads/products/amc-cm3400/img-03.webp", alt: "AMC-CM3400 - detalle pantalla", isPrimary: false, order: 2 },
       { url: "/uploads/products/amc-cm3400/img-04.webp", alt: "AMC-CM3400 - detalle controles", isPrimary: false, order: 3 },
       { url: "/uploads/products/amc-cm3400/img-05.webp", alt: "AMC-CM3400 - tolva de alimentación", isPrimary: false, order: 4 },
       { url: "/uploads/products/amc-cm3400/img-06.webp", alt: "AMC-CM3400 - vista superior", isPrimary: false, order: 5 },
     ],
     videos: [
-      { url: "/uploads/products/amc-cm3400/198e63d2-9c49-44df-b905-bcd2d1fe8e58.mp4", title: "AMC-CM3400 en operación", order: 0 },
-      { url: "/uploads/products/amc-cm3400/42c9a359-8eb2-44f0-99a5-5dc118017ca7.mp4", title: "AMC-CM3400 demostración", order: 1 },
+      { url: "/uploads/products/amc-cm3400/video-01.mp4", title: "AMC-CM3400 en operación", order: 0 },
+    ],
+    documents: [
+      { url: "/uploads/products/amc-cm3400/brochure.pdf", type: "ficha", title: "Ficha técnica AMC-CM3400", order: 0 },
     ],
     features: [
       { title: "Conteo automático", description: "Conteo por tamaño, peso y diámetro de monedas", icon: "Zap", order: 0 },
@@ -178,6 +180,9 @@ const products = [
       { url: "/uploads/products/amc-3200/img-03.webp", alt: "AMC-3200 - detalle pantalla táctil", isPrimary: false, order: 2 },
       { url: "/uploads/products/amc-3200/img-04.webp", alt: "AMC-3200 - vista superior", isPrimary: false, order: 3 },
     ],
+    videos: [
+      { url: "/uploads/products/amc-3200/video-01.mp4", title: "AMC-3200 en operación", order: 0 },
+    ],
     documents: [
       { url: "/uploads/products/amc-3200/brochure_amc-3200_final_web.pdf", type: "ficha", title: "Ficha técnica AMC-3200", order: 0 },
       { url: "/uploads/products/amc-3200/brochure_amc-3200_final_web(1).pdf", type: "ficha", title: "Brochure AMC-3200", order: 1 },
@@ -236,8 +241,11 @@ const products = [
       { url: "/uploads/products/amc-8100/img-03.webp", alt: "AMC-8100 - detalle pantalla", isPrimary: false, order: 2 },
       { url: "/uploads/products/amc-8100/img-04.webp", alt: "AMC-8100 - vista trasera", isPrimary: false, order: 3 },
     ],
+    videos: [
+      { url: "/uploads/products/amc-8100/video-01.mp4", title: "AMC-8100 en operación", order: 0 },
+    ],
     documents: [
-      { url: "/uploads/products/amc-8100/brochure_amc-8100.pdf", type: "ficha", title: "Ficha técnica AMC-8100", order: 0 },
+      { url: "/uploads/products/amc-8100/brochure.pdf", type: "ficha", title: "Ficha técnica AMC-8100", order: 0 },
     ],
     features: [
       { title: "Pantalla 6.9\" Full Touch", description: "Interfaz intuitiva y fácil de usar", icon: "Monitor", order: 0 },
@@ -286,13 +294,13 @@ const products = [
     isBestSeller: false,
     order: 5,
     images: [
-      { url: "/uploads/products/amc-8200/img-01.webp", alt: "AMC-8200 - vista frontal", isPrimary: true, order: 0 },
-      { url: "/uploads/products/amc-8200/img-02.webp", alt: "AMC-8200 - vista lateral", isPrimary: false, order: 1 },
+      { url: "/uploads/products/amc-8200/img-02.webp", alt: "AMC-8200 - vista frontal", isPrimary: true, order: 0 },
+      { url: "/uploads/products/amc-8200/img-01.webp", alt: "AMC-8200 - vista posterior", isPrimary: false, order: 1 },
       { url: "/uploads/products/amc-8200/img-03.webp", alt: "AMC-8200 - detalle pantalla", isPrimary: false, order: 2 },
       { url: "/uploads/products/amc-8200/img-04.webp", alt: "AMC-8200 - compartimentos de salida", isPrimary: false, order: 3 },
     ],
     documents: [
-      { url: "/uploads/products/amc-8200/brochure_amc-8200.pdf", type: "ficha", title: "Ficha técnica AMC-8200", order: 0 },
+      { url: "/uploads/products/amc-8200/brochure.pdf", type: "ficha", title: "Ficha técnica AMC-8200", order: 0 },
     ],
     features: [
       { title: "Pantalla 7.8\" Full Touch", description: "Interfaz profesional de gran tamaño", icon: "Monitor", order: 0 },
@@ -328,59 +336,7 @@ const products = [
     ],
   },
 
-  // ═══════════════════════════════════════════════════════════
-  // 6. AMC-8300 PRO — Clasificadora Profesional
-  // ═══════════════════════════════════════════════════════════
-  {
-    name: "AMC-8300 PRO",
-    slug: "amc-8300-pro",
-    sku: "AMC-8300-PRO",
-    summary: "Clasificadora profesional con estructura antiestática, doble apilador, sensor de grosor de 19 canales y control dual táctil+físico.",
-    description: `La AMC-8300 PRO es una clasificadora de billetes de alta resistencia con estructura antiestática diseñada para alto volumen en bancos y centros de procesamiento de efectivo. Cuenta con sensores CIS Dual, UV, IR, MG, MT de 18 canales y sensor de grosor de 19 canales. Su diseño de canales completamente abiertos en tres módulos permite rápida extracción de atascos y mantenimiento simplificado. Ofrece control dual con botones físicos y pantalla táctil de 5 pulgadas HD a color. Con doble apilador de 200 billetes cada uno y más de 50 monedas soportadas.`,
-    categorySlug: "clasificadoras-billetes",
-    brandSlug: "amc",
-    isFeatured: true,
-    isNew: false,
-    isBestSeller: true,
-    order: 6,
-    images: [
-      { url: "/uploads/products/amc-8300pro/img-01.webp", alt: "AMC-8300 PRO - vista frontal", isPrimary: true, order: 0 },
-      { url: "/uploads/products/amc-8300pro/img-02.webp", alt: "AMC-8300 PRO - vista lateral", isPrimary: false, order: 1 },
-      { url: "/uploads/products/amc-8300pro/img-03.webp", alt: "AMC-8300 PRO - detalle sensores", isPrimary: false, order: 2 },
-      { url: "/uploads/products/amc-8300pro/img-04.webp", alt: "AMC-8300 PRO - doble apilador", isPrimary: false, order: 3 },
-    ],
-    documents: [
-      { url: "/uploads/products/amc-8300pro/brochure_amc-8300_pro_espanol_billete_peruano.pdf", type: "ficha", title: "Ficha técnica AMC-8300 PRO", order: 0 },
-    ],
-    features: [
-      { title: "Estructura antiestática", description: "Procesamiento estable especialmente con billetes plásticos", icon: "Shield", order: 0 },
-      { title: "Doble apilador (2×200)", description: "Clasificación continua sin interrupciones", icon: "Layers", order: 1 },
-      { title: "MT 18 + Grosor 19 canales", description: "Detección magnética y de grosor de máxima precisión", icon: "ScanLine", order: 2 },
-      { title: "Canales abiertos 3 módulos", description: "Mantenimiento simplificado y extracción rápida de atascos", icon: "UnfoldVertical", order: 3 },
-      { title: "Control dual", description: "Pantalla táctil 5\" HD + botones físicos", icon: "ToggleRight", order: 4 },
-      { title: "Más de 50 monedas", description: "Soporte amplio para múltiples divisas", icon: "Globe", order: 5 },
-    ],
-    specifications: [
-      { group: "General", key: "Tipo", value: "Clasificadora de billetes profesional", order: 0 },
-      { group: "Técnico", key: "Sensores", value: "CIS Dual, UV, IR, MG, MT (18 canales), Grosor (19 canales)", order: 0 },
-      { group: "Técnico", key: "Velocidad", value: "Hasta 1200 billetes/min (L/M/H)", order: 1 },
-      { group: "Técnico", key: "Cap. tolva", value: "Máximo 500 billetes", order: 2 },
-      { group: "Técnico", key: "Cap. apilador", value: "200 billetes × 2", order: 3 },
-      { group: "Técnico", key: "Cap. rechazo", value: "50-100 billetes", order: 4 },
-      { group: "Técnico", key: "Divisas", value: "Más de 50 monedas", order: 5 },
-      { group: "Técnico", key: "Pantalla", value: "Táctil a color HD, 5\"", order: 6 },
-      { group: "Técnico", key: "Conexiones", value: "USB, RS-232, COMM, LAN", order: 7 },
-      { group: "Técnico", key: "Certificaciones", value: "RoHS, CE, FC, ISO 9001, ISO 14001", order: 8 },
-      { group: "Eléctrico", key: "Alimentación", value: "AC 100-240V, 50/60 Hz", order: 0 },
-      { group: "Eléctrico", key: "Consumo", value: "≤ 150 W", order: 1 },
-    ],
-    applications: [
-      { name: "Bancos centrales", description: "Procesamiento de alto volumen", order: 0 },
-      { name: "Centros de procesamiento", description: "Clasificación masiva de efectivo", order: 1 },
-      { name: "Transporte de valores", description: "Clasificación en centros de custodia", order: 2 },
-      { name: "Casinos", description: "Procesamiento de alto volumen de billetes", order: 3 },
-    ],
-  },
+
 
   // ═══════════════════════════════════════════════════════════
   // 7. AMC-9200 — Clasificadora Full Fitness 2+1
@@ -462,7 +418,10 @@ const products = [
       { url: "/uploads/products/amc-cm3400-max/img-05.webp", alt: "AMC-CM3400 MAX - ruedas y base", isPrimary: false, order: 4 },
     ],
     videos: [
-      { url: "/uploads/products/amc-cm3400-max/84000fb9-ec42-4087-b987-25894a5a3a1d.mp4", title: "AMC-CM3400 MAX en operación", order: 0 },
+      { url: "/uploads/products/amc-cm3400-max/video-01.mp4", title: "AMC-CM3400 MAX en operación", order: 0 },
+    ],
+    documents: [
+      { url: "/uploads/products/amc-cm3400-max/brochure.pdf", type: "ficha", title: "Ficha técnica AMC-CM3400 MAX", order: 0 },
     ],
     features: [
       { title: "Alta capacidad", description: "Tolva de alimentación de gran formato", icon: "Layers", order: 0 },
@@ -484,6 +443,50 @@ const products = [
       { name: "Centros de cambio", description: "Clasificación y conteo de múltiples divisas", order: 1 },
       { name: "Supermercados", description: "Procesamiento de monedas al cierre", order: 2 },
       { name: "Casinos", description: "Conteo de fichas y monedas", order: 3 },
+    ],
+  },
+
+  // ═══════════════════════════════════════════════════════════
+  // 9. AMC-9100 — Contadora Profesional
+  // ═══════════════════════════════════════════════════════════
+  {
+    name: "AMC-9100",
+    slug: "amc-9100",
+    sku: "AMC-9100",
+    summary: "Contadora profesional de billetes con doble sensor CIS, 18 sensores TMR y reconocimiento OCR.",
+    description: "Contadora profesional de billetes de un bolsillo con bandeja de rechazo, equipada con doble sensor CIS de 201 mm y 200 dpi, 18 sensores TMR de línea completa, IR dual, imagen UV, 12 sensores de espesor, reconocimiento OCR de números de serie, clasificación por estado (Fitness) y compatibilidad con hasta 20 divisas. Con velocidad de hasta 1,000 billetes por minuto, ofrece máxima precisión y seguridad para el procesamiento profesional de efectivo.",
+    categorySlug: "contadoras-billetes",
+    brandSlug: "amc",
+    isFeatured: true,
+    isNew: true,
+    isBestSeller: false,
+    order: 9,
+    images: [
+      { url: "/uploads/products/amc-9100/img-01.webp", alt: "AMC-9100 vista frontal", isPrimary: true, order: 0 },
+      { url: "/uploads/products/amc-9100/img-02.webp", alt: "AMC-9100 vista lateral", isPrimary: false, order: 1 },
+      { url: "/uploads/products/amc-9100/img-03.webp", alt: "AMC-9100 vista superior", isPrimary: false, order: 2 },
+      { url: "/uploads/products/amc-9100/img-04.webp", alt: "AMC-9100 detalle", isPrimary: false, order: 3 },
+    ],
+    videos: [
+      { url: "/uploads/products/amc-9100/video-01.mp4", title: "AMC-9100 en operación", order: 0 },
+    ],
+    documents: [
+      { url: "/uploads/products/amc-9100/brochure.pdf", type: "ficha", title: "Ficha técnica AMC-9100", order: 0 },
+    ],
+    features: [
+      { title: "Doble CIS", description: "Escaneo de imagen de alta resolución", icon: "ScanLine", order: 0 },
+      { title: "Reconocimiento OCR", description: "Lectura de números de serie", icon: "FileText", order: 1 },
+      { title: "Clasificación Fitness", description: "Clasificación por estado del billete", icon: "Layers", order: 2 },
+      { title: "Múltiples Divisas", description: "Soporte para 20 monedas", icon: "Globe", order: 3 },
+    ],
+    specifications: [
+      { group: "Técnico", key: "Sensores", value: "2 CIS, TMR, IR, UV, Grosor", order: 0 },
+      { group: "Técnico", key: "Velocidad", value: "Hasta 1,000 billetes/min", order: 1 },
+      { group: "Técnico", key: "Divisas", value: "Hasta 20 monedas", order: 2 },
+    ],
+    applications: [
+      { name: "Bancos", description: "Procesamiento de alto volumen", order: 0 },
+      { name: "Casinos", description: "Verificación de efectivo", order: 1 },
     ],
   },
 ];
@@ -563,7 +566,6 @@ async function main() {
             type: doc.type,
             title: doc.title,
             size: 0,
-            order: doc.order,
           })),
         },
         videos: {

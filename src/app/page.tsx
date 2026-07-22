@@ -140,7 +140,7 @@ const jsonLd = {
 export default function HomePage() {
   return (
     <ScrollSpyWrapper>
-      <div className="min-h-screen flex flex-col bg-background">
+      <div className="min-h-screen flex flex-col bg-background overflow-x-hidden w-full max-w-[100vw]">
         {/* JSON-LD structured data */}
         <script
           type="application/ld+json"

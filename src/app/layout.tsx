@@ -98,7 +98,7 @@ export default function RootLayout({
   return (
     <html lang="es-PE" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${sora.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground font-sans`}
+        className={`${inter.variable} ${sora.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground font-sans overflow-x-hidden`}
       >
         <Preloader />
         <ReadingProgress />

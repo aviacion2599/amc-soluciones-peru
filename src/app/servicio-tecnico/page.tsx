@@ -238,7 +238,7 @@ export default function ServicioTecnicoPage() {
         </div>
 
         {/* Hero content — positioned at bottom-left on desktop, bottom-center on mobile */}
-        <div className="relative w-full py-16 sm:py-20 lg:py-0 lg:pb-20 pt-8 sm:pt-12 lg:pt-32 px-6 sm:px-8">
+        <div className="relative w-full py-16 sm:py-20 lg:py-0 pb-24 sm:pb-32 lg:pb-28 pt-4 sm:pt-8 lg:pt-24 px-6 sm:px-8">
           <div className="container-amc">
             <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
               {/* Overline */}
@@ -253,11 +253,13 @@ export default function ServicioTecnicoPage() {
                 <span className="bg-gradient-to-r from-gold to-amber-300 bg-clip-text text-transparent">Soluciones profesionales para</span>{" "}
                 manejo de efectivo
               </h1>
-              <p className="text-sm sm:text-base tracking-widest text-gold/80">Precisión · Seguridad · Confianza · Control · Respaldo Técnico</p>
+              <p className="text-xs sm:text-sm tracking-wider sm:tracking-[0.2em] font-medium text-gold/90 mb-5 sm:mb-6 drop-shadow-md">
+                Precisión · Seguridad · Confianza · Control · Respaldo Técnico
+              </p>
 
               {/* Subtitle */}
-              <p className="text-sm sm:text-base lg:text-lg text-white/70 leading-relaxed max-w-xl mb-8 sm:mb-10 mx-auto lg:mx-0">
-                Especializados en equipos GLORY y otras marcas de procesamiento de efectivo. Reparación, calibración, mantenimiento preventivo, actualización de divisas y soporte técnico.
+              <p className="text-sm sm:text-base lg:text-lg text-slate-100 font-medium leading-relaxed max-w-xl mb-8 sm:mb-10 mx-auto lg:mx-0 drop-shadow-md">
+                Especialistas en mantenimiento, reparación, calibración y actualización de contadoras de billetes y monedas.
               </p>
 
               {/* CTA buttons */}
@@ -271,11 +273,11 @@ export default function ServicioTecnicoPage() {
                 </Link>
                 <Link
                   href="#cotizar-servicio"
-                  className="btn-primary px-5 py-2.5 text-sm bg-white text-primary hover:bg-slate-100"
+                  className="btn-primary px-5 py-2.5 text-sm bg-white hover:bg-slate-100 flex items-center justify-center gap-2"
                   style={{ backgroundColor: "white", color: "var(--primary)" }}
                 >
                   <Wrench className="w-4 h-4" />
-                  Solicitar servicio
+                  <span>Solicitar servicio</span>
                 </Link>
               </div>
             </div>
@@ -301,7 +303,7 @@ export default function ServicioTecnicoPage() {
       {/* ===== END FULL-BLEED HERO ===== */}
 
       {/* ===== TALLER TÉCNICO — Gallery Section ===== */}
-      <section id="st-contenido" className="relative bg-[#0B132B] py-16 lg:py-24 overflow-hidden">
+      <section id="st-contenido" className="relative bg-[#0B132B] py-12 lg:py-24 overflow-hidden">
         {/* Subtle background texture */}
         <div className="absolute inset-0 opacity-[0.04]" aria-hidden="true" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)", backgroundSize: "40px 40px" }} />
 
@@ -334,14 +336,15 @@ export default function ServicioTecnicoPage() {
                 alt="Técnico especializado limpiando componentes internos de contadora de billetes con cepillo de precisión"
                 className="w-full h-full object-cover aspect-square lg:aspect-auto transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-[#0B132B]/80 via-40% to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent" />
+              <div className="absolute inset-0 bg-black/10 transition-opacity group-hover:bg-black/0" />
               {/* Zoom indicator */}
               <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/0 group-hover:text-white/80 transition-all duration-300 opacity-0 group-hover:opacity-100">
                 <ZoomIn className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8">
-                <span className="inline-block text-xs font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-3 py-1 mb-2">Diagnóstico</span>
-                <h3 className="text-sm sm:text-base lg:text-lg font-display font-bold text-white mb-1 drop-shadow-md">Revisión de componentes internos</h3>
+                <span className="inline-block text-xs font-mono text-gold bg-black/50 backdrop-blur-md border border-gold/30 rounded-full px-3 py-1 mb-2">Diagnóstico</span>
+                <h3 className="text-sm sm:text-base lg:text-lg font-display font-bold text-white mb-1 drop-shadow-lg">Revisión de componentes internos</h3>
                 <p className="text-xs text-slate-200 max-w-sm drop-shadow-md">Limpieza y verificación de circuitos, sensores y piezas móviles con herramientas de precisión.</p>
               </div>
             </button>
@@ -358,13 +361,14 @@ export default function ServicioTecnicoPage() {
                 alt="Equipo industrial de procesamiento de efectivo en taller técnico AMC"
                 className="w-full h-full object-cover aspect-[3/5] lg:aspect-auto transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-[#0B132B]/80 via-50% to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent" />
+              <div className="absolute inset-0 bg-black/10 transition-opacity group-hover:bg-black/0" />
               <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/0 group-hover:text-white/80 transition-all duration-300 opacity-0 group-hover:opacity-100">
                 <ZoomIn className="w-3.5 h-3.5" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-5">
-                <span className="inline-block text-xs font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-2 py-0.5 mb-1.5">Reparación</span>
-                <h3 className="text-xs sm:text-sm font-display font-semibold text-white drop-shadow-md">Equipo en diagnóstico</h3>
+                <span className="inline-block text-xs font-mono text-gold bg-black/50 backdrop-blur-md border border-gold/30 rounded-full px-2 py-0.5 mb-1.5">Reparación</span>
+                <h3 className="text-xs sm:text-sm font-display font-semibold text-white drop-shadow-lg">Equipo en diagnóstico</h3>
               </div>
             </button>
 
@@ -380,13 +384,14 @@ export default function ServicioTecnicoPage() {
                 alt="Mantenimiento preventivo de clasificadora de billetes en taller AMC"
                 className="w-full h-full object-cover aspect-[3/5] lg:aspect-auto transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-[#0B132B]/80 via-50% to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent" />
+              <div className="absolute inset-0 bg-black/10 transition-opacity group-hover:bg-black/0" />
               <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/0 group-hover:text-white/80 transition-all duration-300 opacity-0 group-hover:opacity-100">
                 <ZoomIn className="w-3.5 h-3.5" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-5">
-                <span className="inline-block text-xs font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-2 py-0.5 mb-1.5">Mantenimiento</span>
-                <h3 className="text-xs sm:text-sm font-display font-semibold text-white drop-shadow-md">Limpieza técnica</h3>
+                <span className="inline-block text-xs font-mono text-gold bg-black/50 backdrop-blur-md border border-gold/30 rounded-full px-2 py-0.5 mb-1.5">Mantenimiento</span>
+                <h3 className="text-xs sm:text-sm font-display font-semibold text-white drop-shadow-lg">Limpieza técnica</h3>
               </div>
             </button>
           </div>
@@ -403,14 +408,15 @@ export default function ServicioTecnicoPage() {
               alt="Interior de contadora de billetes mostrando motores, sensores y componentes electrónicos durante reparación"
               className="w-full h-48 sm:h-64 lg:h-80 xl:h-96 object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0B132B] via-[#0B132B]/80 via-50% to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-transparent" />
+            <div className="absolute inset-0 bg-black/10 transition-opacity group-hover:bg-black/0" />
             <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/0 group-hover:text-white/80 transition-all duration-300 opacity-0 group-hover:opacity-100">
               <ZoomIn className="w-3.5 h-3.5" />
             </div>
             <div className="absolute inset-0 flex items-center">
               <div className="p-6 sm:p-8 lg:p-12 max-w-lg">
-                <span className="inline-block text-xs font-mono text-gold bg-gold/10 backdrop-blur-sm border border-gold/20 rounded-full px-3 py-1 mb-3">Calibración</span>
-                <h3 className="text-base sm:text-lg lg:text-xl font-display font-bold text-white mb-2 drop-shadow-md">Componentes a nivel de fabricante</h3>
+                <span className="inline-block text-xs font-mono text-gold bg-black/50 backdrop-blur-md border border-gold/30 rounded-full px-3 py-1 mb-3">Calibración</span>
+                <h3 className="text-base sm:text-lg lg:text-xl font-display font-bold text-white mb-2 drop-shadow-lg">Componentes a nivel de fabricante</h3>
                 <p className="text-xs sm:text-sm text-slate-200 leading-relaxed drop-shadow-md">
                   Acceso directo a motores, sensores CIS/UV/MG/IR y placa principal para calibración y reemplazo de piezas con estándares de fábrica.
                 </p>
@@ -429,7 +435,7 @@ export default function ServicioTecnicoPage() {
       </div>
 
       {/* Services grid */}
-      <section id="servicios" className="container-amc py-12 scroll-mt-20">
+      <section id="servicios" className="container-amc py-10 lg:py-16 scroll-mt-20">
         <SectionTitle
           overline="Nuestros servicios"
           title="Servicios técnicos especializados"
@@ -474,7 +480,7 @@ export default function ServicioTecnicoPage() {
       </section>
 
       {/* Equipment types */}
-      <section className="bg-muted/40 border-y border-border py-16">
+      <section className="bg-muted/40 border-y border-border py-12 lg:py-20">
         <div className="container-amc">
           <SectionTitle
             overline="Equipos que reparamos"
@@ -502,7 +508,7 @@ export default function ServicioTecnicoPage() {
       </section>
 
       {/* Process */}
-      <section className="container-amc py-20">
+      <section className="container-amc py-12 lg:py-24">
         <SectionTitle
           overline="Proceso de servicio"
           title="Cuatro pasos del contacto a la entrega"
@@ -531,7 +537,7 @@ export default function ServicioTecnicoPage() {
       </section>
 
       {/* Plans */}
-      <section className="bg-muted/40 border-y border-border py-16 sm:py-20">
+      <section className="bg-muted/40 border-y border-border py-12 lg:py-20">
         <div className="container-amc">
           <SectionTitle
             overline="Planes de mantenimiento"
@@ -599,7 +605,7 @@ export default function ServicioTecnicoPage() {
       </section>
 
       {/* Why AMC service */}
-      <section className="container-amc py-20">
+      <section className="container-amc py-12 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <FadeIn>
             <div>
@@ -657,7 +663,7 @@ export default function ServicioTecnicoPage() {
       </section>
 
       {/* Contact CTA */}
-      <section id="cotizar-servicio" className="container-amc py-20 scroll-mt-20">
+      <section id="cotizar-servicio" className="container-amc py-12 lg:py-24 scroll-mt-20">
         <div className="card-base p-8 lg:p-12 bg-primary text-primary-foreground relative overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern-dark opacity-20" aria-hidden="true" />
           <div className="relative grid lg:grid-cols-[1.3fr_0.7fr] gap-8 items-center">

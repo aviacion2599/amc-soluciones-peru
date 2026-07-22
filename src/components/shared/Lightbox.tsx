@@ -301,7 +301,7 @@ export function Lightbox({
 
           {/* ---- Image container ---- */}
           <motion.div
-            className="relative w-full h-full flex items-center justify-center p-12 sm:p-16 cursor-grab active:cursor-grabbing select-none"
+            className="relative w-full h-full flex flex-col items-center justify-center p-6 sm:p-12 pb-24 sm:pb-32 cursor-grab active:cursor-grabbing select-none"
             onClick={handleTap}
             onPanEnd={zoomed ? undefined : onPanEnd}
             drag={zoomed ? false : "x"}
@@ -348,37 +348,31 @@ export function Lightbox({
                 />
               </motion.div>
             </AnimatePresence>
+            
+            {/* ---- Info panel (below image) ---- */}
+            <AnimatePresence>
+              {showInfo && current?.title && !zoomed && (
+                <motion.div
+                  className="mt-6 sm:mt-8 z-[55] max-w-2xl w-full text-center"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.2 }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <h3 className="font-display font-bold text-base sm:text-lg text-white mb-2">
+                    {current.title}
+                  </h3>
+                  {current.description && (
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto">
+                      {current.description}
+                    </p>
+                  )}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
 
-          {/* ---- Info panel ---- */}
-          <AnimatePresence>
-            {showInfo && current?.title && (
-              <motion.div
-                className="amc-lightbox-info absolute bottom-32 sm:bottom-20 left-3 right-3 sm:left-8 sm:right-8 z-[55] max-w-lg mx-auto sm:mx-0"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                transition={{ duration: 0.2, delay: 0.1 }}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="bg-black/60 backdrop-blur-xl rounded-xl sm:rounded-2xl border border-white/10 p-4 sm:p-5">
-                  <div className="flex items-start gap-3">
-                    <div className="w-1 h-10 rounded-full bg-gold flex-shrink-0 mt-0.5" />
-                    <div>
-                      <h3 className="font-display font-bold text-sm sm:text-base text-white mb-1">
-                        {current.title}
-                      </h3>
-                      {current.description && (
-                        <p className="text-xs sm:text-sm text-slate-300/80 leading-relaxed">
-                          {current.description}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
         </motion.div>
       )}
     </AnimatePresence>

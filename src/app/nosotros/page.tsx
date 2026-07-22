@@ -83,34 +83,36 @@ export default function NosotrosPage() {
         </div>
 
         {/* Hero content — centered on mobile, bottom-left on desktop */}
-        <div className="relative w-full pb-14 sm:pb-18 lg:pb-20 pt-8 sm:pt-12 lg:pt-32 px-6 sm:px-8">
+        <div className="relative w-full pb-24 sm:pb-28 lg:pb-20 pt-4 sm:pt-8 lg:pt-32 px-6 sm:px-8">
           <div className="container-amc">
-            <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+            <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left flex flex-col items-center lg:items-start">
               {/* Overline */}
-              <div className="inline-flex items-center gap-2 mb-4 sm:mb-5 justify-center lg:justify-start">
+              <div className="inline-flex items-center gap-2 mb-3 sm:mb-4 justify-center lg:justify-start">
                 <div className="w-8 h-px bg-gold" />
-                <span className="overline text-gold tracking-widest">Sobre AMC</span>
+                <span className="overline text-gold tracking-widest drop-shadow-sm">Sobre AMC</span>
                 <div className="w-8 h-px bg-gold" />
               </div>
 
               {/* Headline */}
-              <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.1] mb-5 sm:mb-6">
+              <h1 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight mb-4 sm:mb-5 drop-shadow-lg text-center lg:text-left">
                 <span className="bg-gradient-to-r from-gold to-amber-300 bg-clip-text text-transparent">Venta y servicio técnico</span>{" "}
                 especializado
               </h1>
-              <p className="text-sm sm:text-base tracking-widest text-gold/80">Precisión · Seguridad · Confianza · Control · Respaldo Técnico</p>
+              <p className="text-xs sm:text-sm tracking-wider sm:tracking-[0.2em] text-gold/90 mb-4 sm:mb-5 drop-shadow-md font-medium text-center lg:text-left">
+                Precisión · Seguridad · Confianza · Control · Respaldo Técnico
+              </p>
 
               {/* Subtitle */}
-              <p className="text-sm sm:text-base lg:text-lg text-white/70 leading-relaxed max-w-xl mb-8 sm:mb-10">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-100 font-medium leading-relaxed max-w-xl mb-6 sm:mb-8 drop-shadow-md text-center lg:text-left">
                 AMC Soluciones Perú se especializa en la venta de contadoras profesionales de billetes y monedas, mantenimiento preventivo y correctivo, reparación, calibración y soporte técnico para equipos de procesamiento de efectivo.
               </p>
 
               {/* Feature badges */}
-              <div className="flex flex-wrap gap-2.5 sm:gap-3 justify-center lg:justify-start">
+              <div className="flex flex-wrap gap-2.5 sm:gap-3 justify-center lg:justify-start w-full">
                 {STATS.slice(0, 3).map((s) => (
                   <div key={s.label} className="glass-card rounded-full px-4 py-2 flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" />
-                    <span className="text-xs sm:text-sm text-white/80">{s.value}</span>
+                    <span className="text-xs sm:text-sm text-white drop-shadow-sm font-medium">{s.value}</span>
                   </div>
                 ))}
               </div>
@@ -141,7 +143,7 @@ export default function NosotrosPage() {
       </div>
 
       {/* Misión / Visión */}
-      <section className="container-amc py-10 sm:py-14">
+      <section className="container-amc py-10 lg:py-14">
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
           <FadeIn>
             <div className="card-base p-6 sm:p-8 h-full">
@@ -177,7 +179,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* Valores */}
-      <section className="bg-muted/40 border-y border-border py-16 sm:py-20">
+      <section className="bg-muted/40 border-y border-border py-12 lg:py-20">
         <div className="container-amc">
           <SectionTitle
             overline="Nuestros valores"
@@ -201,7 +203,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* Timeline / Historia */}
-      <section className="container-amc py-12 sm:py-16">
+      <section className="container-amc py-10 lg:py-16">
         <SectionTitle
           overline="NUESTRA HISTORIA"
           title="Una trayectoria construida con experiencia y respaldo técnico"
@@ -252,7 +254,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* Stats */}
-      <section className="bg-primary-dark text-white py-14 sm:py-18 relative overflow-hidden">
+      <section className="bg-primary-dark text-white py-12 lg:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern-dark opacity-30" aria-hidden="true" />
         <div
           className="absolute inset-0"
@@ -280,7 +282,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* Respaldo Técnico */}
-      <section className="container-amc py-12 sm:py-16">
+      <section className="container-amc py-10 lg:py-16">
         <SectionTitle
           overline="RESPALDO TÉCNICO"
           title="Un servicio construido sobre experiencia real"
@@ -302,7 +304,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* CTA */}
-      <section className="container-amc pb-16 sm:pb-20">
+      <section className="container-amc pb-12 lg:pb-20">
         <ScaleIn>
           <div className="card-base p-8 lg:p-12 bg-gradient-to-br from-primary to-primary-dark text-primary-foreground text-center">
             <h2 className="display-2 text-white mb-4">
