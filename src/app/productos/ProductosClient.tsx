@@ -158,7 +158,7 @@ function ProductosContent() {
           <img
             src="/productos-hero-mobile.webp"
             alt="AMC Soluciones Perú — Equipos profesionales para manejo de efectivo"
-            className="absolute inset-0 w-full h-full object-cover object-[50%_60%]"
+            className="absolute inset-0 w-full h-full object-cover object-[center_30%] md:object-center"
           />
         </picture>
 

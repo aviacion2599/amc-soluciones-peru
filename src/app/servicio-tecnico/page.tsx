@@ -209,7 +209,7 @@ export default function ServicioTecnicoPage() {
           <img
             src="/servicio-tecnico-hero-mobile.png"
             alt="AMC Soluciones Perú — Soluciones profesionales para manejo de efectivo"
-            className="absolute inset-0 w-full h-full object-cover object-[50%_60%]"
+            className="absolute inset-0 w-full h-full object-cover object-[center_20%] md:object-center"
           />
         </picture>
 
