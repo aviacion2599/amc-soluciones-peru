@@ -241,6 +241,7 @@ export const STATIC_PRODUCTS = [
     features: [],
     specifications: [],
     applications: [],
+  },
   {
     id: "prod-8",
     slug: "amc-9200",
