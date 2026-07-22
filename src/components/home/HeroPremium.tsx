@@ -53,7 +53,44 @@ const HERO_PRODUCTS = [
   },
 ] as const;
 
-const INTERVAL_MS = 4000;
+const INTERVAL_MS = 3500;
+
+/* ────────────────────────────────────────────────
+   Premium Background Particles (Deterministic for SSR)
+   ──────────────────────────────────────────────── */
+const PARTICLES = Array.from({ length: 20 }).map((_, i) => ({
+  id: i,
+  size: 2 + (i % 4) * 2,
+  left: (i * 13) % 100,
+  top: (i * 19) % 100,
+  duration: 4 + (i % 4) * 2,
+  delay: (i % 5) * 0.5,
+}));
+
+function PremiumParticles() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {PARTICLES.map((p) => (
+        <motion.div
+          key={p.id}
+          className="absolute bg-emerald-400/20 rounded-full blur-[1px]"
+          style={{ width: p.size, height: p.size, left: `${p.left}%`, top: `${p.top}%` }}
+          animate={{
+            y: [0, -30, 0],
+            x: [0, (p.id % 2 === 0 ? 15 : -15), 0],
+            opacity: [0.1, 0.5, 0.1],
+          }}
+          transition={{
+            duration: p.duration,
+            delay: p.delay,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
 
 /* ────────────────────────────────────────────────
    Animation variants
@@ -112,6 +149,7 @@ export function HeroPremium() {
             backgroundSize: "60px 60px",
           }}
         />
+        <PremiumParticles />
       </div>
 
       <div className="container-amc relative pb-4 sm:pb-6 lg:pb-8">
@@ -125,10 +163,10 @@ export function HeroPremium() {
             onTouchStart={() => setIsPaused(true)}
             onTouchEnd={() => setTimeout(() => setIsPaused(false), 3000)}
           >
-            {/* Image container — uniform aspect ratio (3:4), centered, never cropped */}
-            <div className="relative w-full max-w-[88vw] sm:max-w-[70vw] md:max-w-[480px] lg:max-w-[500px] xl:max-w-[600px] mx-auto">
-              <div className="relative w-full aspect-[3/4]">
-                <AnimatePresence custom={direction} mode="wait">
+            {/* Image container — uniform aspect ratio, scaled down on mobile to fit the screen */}
+            <div className="relative w-full max-w-[55vw] sm:max-w-[70vw] md:max-w-[480px] lg:max-w-[500px] xl:max-w-[600px] mx-auto">
+              <div className="relative w-full aspect-[4/5] sm:aspect-[3/4]">
+                <AnimatePresence custom={direction}>
                   <motion.div
                     key={product.model}
                     custom={direction}
@@ -157,7 +195,7 @@ export function HeroPremium() {
             </div>
 
             {/* Model label — always CENTERED under image */}
-            <div className="mt-2 sm:mt-4 lg:mt-5 text-center w-full">
+            <div className="mt-1 sm:mt-4 lg:mt-5 text-center w-full min-h-[50px] sm:min-h-0">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={product.model + "-label"}
@@ -208,12 +246,12 @@ export function HeroPremium() {
 
           {/* ── Left text (mobile: below carousel / desktop: left column) ── */}
           <div className="max-w-xl lg:order-first">
-            <h1 className="font-display text-[1.2rem] sm:text-3xl lg:text-5xl xl:text-[3.4rem] font-bold text-white leading-[1.2] lg:leading-[1.15] mb-2 lg:mb-6">
+            <h1 className="font-display text-2xl sm:text-3xl lg:text-5xl xl:text-[3.4rem] font-bold text-white leading-[1.15] mb-2 lg:mb-6">
               Equipos profesionales para{" "}
               <span className="text-white/90">conteo y control</span> de efectivo
             </h1>
 
-            <p className="text-xs sm:text-base lg:text-lg text-white/60 leading-relaxed mb-2 lg:mb-8 max-w-lg">
+            <p className="text-xs sm:text-base lg:text-lg text-white/60 leading-relaxed mb-2 lg:mb-8 max-w-lg hidden sm:block">
               Contadoras de billetes y monedas con detección avanzada, venta y
               servicio técnico especializado en Perú.
             </p>
