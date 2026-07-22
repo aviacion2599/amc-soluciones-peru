@@ -148,29 +148,18 @@ function ProductosContent() {
       <section className="relative min-h-[100svh] flex items-center overflow-hidden bg-[#080e1a] pt-[62px] sm:pt-[68px] pb-[80px] sm:pb-0">
         {/* Background image — desktop: horizontal, mobile: vertical.
             Starts at the very top (behind transparent header) */}
-        {/* Dynamic Image Composition instead of static webp */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#060d1a] via-[#0c1a2e] to-[#081422]" />
-          
-          <div className="relative w-full h-full max-w-5xl mx-auto flex items-end justify-center pb-0 md:pb-0 opacity-60 md:opacity-100 md:translate-x-[25%] lg:translate-x-[30%]">
-            
-            {/* Left machine (AMC-CM3400) */}
-            <div className="absolute left-1/2 -translate-x-[110%] w-[180px] md:w-[300px] bottom-0 translate-y-12 blur-[1px] brightness-[0.4] z-0">
-               <img src="/uploads/products/amc-cm3400/img-01.webp" alt="AMC-CM3400" className="w-full h-auto object-contain drop-shadow-2xl scale-x-[-1]" />
-            </div>
-
-            {/* Right machine (AMC-9200) */}
-            <div className="absolute left-1/2 translate-x-[10%] w-[200px] md:w-[320px] bottom-0 translate-y-16 blur-[1px] brightness-[0.4] z-0">
-               <img src="/uploads/products/amc-9200/img-01.webp" alt="AMC-9200" className="w-full h-auto object-contain drop-shadow-2xl" />
-            </div>
-
-            {/* Center machine (AMC-3200) - Higher up */}
-            <div className="absolute left-1/2 -translate-x-[50%] w-[240px] md:w-[380px] bottom-0 -translate-y-4 md:-translate-y-10 z-10">
-               <img src="/uploads/products/amc-3200/img-01.webp" alt="AMC-3200" className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]" />
-            </div>
-            
-          </div>
-        </div>
+        <picture className="absolute inset-0">
+          <source
+            media="(min-width: 768px)"
+            srcSet="/productos-hero-desktop.webp"
+            type="image/webp"
+          />
+          <img
+            src="/productos-hero-mobile.webp"
+            alt="AMC Soluciones Perú — Equipos profesionales para manejo de efectivo"
+            className="absolute inset-0 w-full h-full object-cover object-[center_30%] md:object-center"
+          />
+        </picture>
 
         {/* Multi-layer overlay for depth + readability (aligned to picture area below header) */}
         <div className="absolute inset-0" aria-hidden="true">
