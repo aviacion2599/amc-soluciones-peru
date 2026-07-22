@@ -147,9 +147,8 @@ function ProductosContent() {
       {/* ===== FULL-BLEED PRODUCT HERO ===== */}
       <section className="relative min-h-[100svh] flex items-center overflow-hidden bg-[#080e1a] pt-[62px] sm:pt-[68px] pb-[80px] sm:pb-0">
         {/* Background image — desktop: horizontal, mobile: vertical.
-            Starts BELOW the sticky header (62px mobile / 68px desktop) so
-            the top of the machines is never visually clipped by the header. */}
-        <picture className="absolute top-[62px] sm:top-[68px] left-0 right-0 bottom-0">
+            Starts at the very top (behind transparent header) */}
+        <picture className="absolute inset-0">
           <source
             media="(min-width: 768px)"
             srcSet="/productos-hero-desktop.webp"
@@ -163,7 +162,7 @@ function ProductosContent() {
         </picture>
 
         {/* Multi-layer overlay for depth + readability (aligned to picture area below header) */}
-        <div className="absolute top-[62px] sm:top-[68px] left-0 right-0 bottom-0" aria-hidden="true">
+        <div className="absolute inset-0" aria-hidden="true">
           {/* Base dark veil */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/30" />
           {/* Left-to-right text readability gradient */}
