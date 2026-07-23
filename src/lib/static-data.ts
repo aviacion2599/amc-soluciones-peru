@@ -82,7 +82,7 @@ export const STATIC_PRODUCTS = [
     category: { slug: "contadoras-monedas", name: "Contadoras de Monedas" },
     brand: { slug: "amc", name: "AMC" },
     images: [
-      { id: "img-1-1", url: "/uploads/products/amc-cm3400/img-01.webp", alt: "AMC-CM3400 vista frontal", isPrimary: true },
+      { id: "img-1-1", url: "/uploads/products/amc-cm3400/img-01.webp?v=2", alt: "AMC-CM3400 vista frontal", isPrimary: true },
       { id: "img-1-2", url: "/uploads/products/amc-cm3400/img-02.webp", alt: "AMC-CM3400 vista lateral", isPrimary: false },
       { id: "img-1-3", url: "/uploads/products/amc-cm3400/img-03.webp", alt: "AMC-CM3400 vista superior", isPrimary: false },
       { id: "img-1-4", url: "/uploads/products/amc-cm3400/img-04.webp", alt: "AMC-CM3400 detalle pantalla", isPrimary: false },
@@ -113,7 +113,7 @@ export const STATIC_PRODUCTS = [
     category: { slug: "contadoras-monedas", name: "Contadoras de Monedas" },
     brand: { slug: "amc", name: "AMC" },
     images: [
-      { id: "img-2-1", url: "/uploads/products/amc-cm3400-max/img-01.webp", alt: "AMC-CM3400 MAX vista frontal", isPrimary: true },
+      { id: "img-2-1", url: "/uploads/products/amc-cm3400-max/img-01.webp?v=2", alt: "AMC-CM3400 MAX vista frontal", isPrimary: true },
       { id: "img-2-2", url: "/uploads/products/amc-cm3400-max/img-02.webp", alt: "AMC-CM3400 MAX vista lateral", isPrimary: false },
       { id: "img-2-3", url: "/uploads/products/amc-cm3400-max/img-03.webp", alt: "AMC-CM3400 MAX vista superior", isPrimary: false },
       { id: "img-2-4", url: "/uploads/products/amc-cm3400-max/img-04.webp", alt: "AMC-CM3400 MAX detalle", isPrimary: false },
@@ -172,7 +172,7 @@ export const STATIC_PRODUCTS = [
     category: { slug: "contadoras-billetes", name: "Contadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
     images: [
-      { id: "img-4-1", url: "/uploads/products/amc-3200/img-01.webp", alt: "AMC-3200 2CIS vista frontal", isPrimary: true },
+      { id: "img-4-1", url: "/uploads/products/amc-3200/img-01.webp?v=2", alt: "AMC-3200 2CIS vista frontal", isPrimary: true },
       { id: "img-4-2", url: "/uploads/products/amc-3200/img-02.webp", alt: "AMC-3200 2CIS vista lateral", isPrimary: false },
       { id: "img-4-3", url: "/uploads/products/amc-3200/img-03.webp", alt: "AMC-3200 2CIS detalle pantalla", isPrimary: false },
       { id: "img-4-4", url: "/uploads/products/amc-3200/img-04.webp", alt: "AMC-3200 2CIS vista completa", isPrimary: false },
@@ -200,7 +200,7 @@ export const STATIC_PRODUCTS = [
     category: { slug: "contadoras-billetes", name: "Contadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
     images: [
-      { id: "img-5-1", url: "/uploads/products/amc-8100/img-01.webp", alt: "AMC-8100 vista frontal", isPrimary: true },
+      { id: "img-5-1", url: "/uploads/products/amc-8100/img-01.webp?v=2", alt: "AMC-8100 vista frontal", isPrimary: true },
       { id: "img-5-2", url: "/uploads/products/amc-8100/img-02.webp", alt: "AMC-8100 vista lateral", isPrimary: false },
       { id: "img-5-3", url: "/uploads/products/amc-8100/img-03.webp", alt: "AMC-8100 detalle pantalla", isPrimary: false },
       { id: "img-5-4", url: "/uploads/products/amc-8100/img-04.webp", alt: "AMC-8100 vista completa", isPrimary: false },

@@ -9,8 +9,9 @@ import { STATIC_PRODUCTS } from "@/lib/static-data";
  */
 export async function GET(
   req: NextRequest,
-  { params }: { params: Promise<{ slug: string }> },
+  { params }: { params: Promise<{ slug: string }> }
 ) {
+  console.log("START API", req.nextUrl.pathname);
   try {
     const { slug } = await params;
 
@@ -127,8 +128,9 @@ export async function GET(
           related: STATIC_PRODUCTS.filter((p) => p.category.slug === staticProduct.category.slug && p.slug !== slug).slice(0, 4),
         });
       }
-    } catch (e) {
-      // ignore
+    } catch (e: any) {
+      console.error("[api/products/[slug]] Fallback error:", e);
+      return NextResponse.json({ error: "Error al obtener el producto", details: e?.message }, { status: 500 });
     }
     return NextResponse.json({ error: "Error al obtener el producto" }, { status: 500 });
   }
