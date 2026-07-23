@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { STATIC_PRODUCTS } from "@/lib/static-data";
 
+export const dynamic = 'force-dynamic';
+
 /**
  * GET /api/products/[slug]
  * Detalle público de un producto por slug.
