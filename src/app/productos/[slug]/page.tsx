@@ -10,25 +10,48 @@ interface PageProps {
 /** Generate static metadata for SEO. */
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const product = await db.product.findUnique({
-    where: { slug, isActive: true },
-    select: {
-      name: true,
-      summary: true,
-      seoTitle: true,
-      seoDescription: true,
-      seoKeywords: true,
-      ogImage: true,
-      canonicalUrl: true,
-      sku: true,
-    },
-  });
+  
+  let product = null;
+  try {
+    product = await db.product.findUnique({
+      where: { slug, isActive: true },
+      select: {
+        name: true,
+        summary: true,
+        seoTitle: true,
+        seoDescription: true,
+        seoKeywords: true,
+        ogImage: true,
+        canonicalUrl: true,
+        sku: true,
+      },
+    });
+  } catch (error) {
+    console.error("[generateMetadata] DB Error:", error);
+  }
 
   if (!product) {
-    return {
-      title: "Producto no encontrado",
-      robots: { index: false, follow: false },
-    };
+    // Fallback to static data if DB fails or product not found
+    const { STATIC_PRODUCTS } = await import("@/lib/static-data");
+    const staticProduct = STATIC_PRODUCTS.find((p) => p.slug === slug);
+    
+    if (staticProduct) {
+      product = {
+        name: staticProduct.name,
+        summary: staticProduct.summary,
+        seoTitle: null,
+        seoDescription: null,
+        seoKeywords: null,
+        ogImage: null,
+        canonicalUrl: null,
+        sku: staticProduct.sku,
+      };
+    } else {
+      return {
+        title: "Producto no encontrado",
+        robots: { index: false, follow: false },
+      };
+    }
   }
 
   return {

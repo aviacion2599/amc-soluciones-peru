@@ -9,13 +9,30 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const category = await db.category.findUnique({
-    where: { slug, isActive: true },
-    select: { name: true, description: true, seoTitle: true, seoDescription: true, seoKeywords: true },
-  });
+  let category = null;
+  try {
+    category = await db.category.findUnique({
+      where: { slug, isActive: true },
+      select: { name: true, description: true, seoTitle: true, seoDescription: true, seoKeywords: true },
+    });
+  } catch (error) {
+    console.error("[generateMetadata] DB Error:", error);
+  }
 
   if (!category) {
-    return { title: "Categoría no encontrada", robots: { index: false, follow: false } };
+    const { STATIC_CATEGORIES } = await import("@/lib/static-data");
+    const staticCat = STATIC_CATEGORIES.find((c) => c.slug === slug);
+    if (staticCat) {
+      category = {
+        name: staticCat.name,
+        description: staticCat.description,
+        seoTitle: null,
+        seoDescription: null,
+        seoKeywords: null,
+      };
+    } else {
+      return { title: "Categoría no encontrada", robots: { index: false, follow: false } };
+    }
   }
 
   return {
