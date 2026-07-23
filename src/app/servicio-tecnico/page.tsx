@@ -303,7 +303,7 @@ export default function ServicioTecnicoPage() {
       {/* ===== END FULL-BLEED HERO ===== */}
 
       {/* ===== TALLER TÉCNICO — Gallery Section ===== */}
-      <section id="st-contenido" className="relative bg-[#0B132B] py-12 lg:py-24 overflow-hidden">
+      <section id="st-contenido" className="relative bg-[#0B132B] py-12 lg:py-16 2xl:py-24 overflow-hidden">
         {/* Subtle background texture */}
         <div className="absolute inset-0 opacity-[0.04]" aria-hidden="true" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)", backgroundSize: "40px 40px" }} />
 
@@ -508,7 +508,7 @@ export default function ServicioTecnicoPage() {
       </section>
 
       {/* Process */}
-      <section className="container-amc py-12 lg:py-24">
+      <section className="container-amc py-12 lg:py-16 2xl:py-24">
         <SectionTitle
           overline="Proceso de servicio"
           title="Cuatro pasos del contacto a la entrega"
@@ -605,7 +605,7 @@ export default function ServicioTecnicoPage() {
       </section>
 
       {/* Why AMC service */}
-      <section className="container-amc py-12 lg:py-24">
+      <section className="container-amc py-12 lg:py-16 2xl:py-24">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <FadeIn>
             <div>
@@ -663,7 +663,7 @@ export default function ServicioTecnicoPage() {
       </section>
 
       {/* Contact CTA */}
-      <section id="cotizar-servicio" className="container-amc py-12 lg:py-24 scroll-mt-20">
+      <section id="cotizar-servicio" className="container-amc py-12 lg:py-16 2xl:py-24 scroll-mt-20">
         <div className="card-base p-8 lg:p-12 bg-primary text-primary-foreground relative overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern-dark opacity-20" aria-hidden="true" />
           <div className="relative grid lg:grid-cols-[1.3fr_0.7fr] gap-8 items-center">

@@ -11,7 +11,7 @@ import { FEATURED_PRODUCTS } from "@/lib/site-config";
  */
 export function FeaturedProducts() {
   return (
-    <section id="productos" className="py-12 lg:py-24 scroll-mt-20 bg-surface-2">
+    <section id="productos" className="py-12 lg:py-16 2xl:py-24 scroll-mt-20 bg-surface-2">
       <div className="container-amc">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
           <SectionTitle

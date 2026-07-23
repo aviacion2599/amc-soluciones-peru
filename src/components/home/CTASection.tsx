@@ -9,7 +9,7 @@ import { AMCCONFIG } from "@/lib/site-config";
  */
 export function CTASection() {
   return (
-    <section id="cotizacion" className="py-12 lg:py-24 scroll-mt-20">
+    <section id="cotizacion" className="py-12 lg:py-16 2xl:py-24 scroll-mt-20">
       <div className="container-amc">
         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary-dark via-primary to-primary-light">
           <div className="absolute inset-0 bg-grid-pattern-dark opacity-20" aria-hidden="true" />

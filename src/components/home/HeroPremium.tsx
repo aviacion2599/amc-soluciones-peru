@@ -157,7 +157,7 @@ export function HeroPremium() {
   return (
     <section
       id="hero"
-      className="relative flex items-center overflow-hidden bg-navy text-white pt-[60px] sm:pt-[70px] lg:pt-[84px] pb-10 sm:pb-12 lg:pb-16 min-h-[100svh] lg:min-h-[85vh]"
+      className="relative flex items-center overflow-hidden bg-navy text-white pt-[60px] sm:pt-[70px] lg:pt-[80px] pb-10 sm:pb-12 lg:pb-12 min-h-[100svh] lg:min-h-[580px] 2xl:min-h-[85vh]"
     >
       {/* ── Background layers ── */}
       <div className="absolute inset-0">
@@ -187,7 +187,7 @@ export function HeroPremium() {
             onTouchEnd={() => setTimeout(() => setIsPaused(false), 3000)}
           >
             {/* Image container — uniform aspect ratio, scaled down on mobile to fit the screen */}
-            <div className="relative w-full max-w-[55vw] sm:max-w-[70vw] md:max-w-[480px] lg:max-w-[500px] xl:max-w-[600px] mx-auto h-[260px] sm:h-[350px] lg:h-[450px]">
+            <div className="relative w-full max-w-[55vw] sm:max-w-[70vw] md:max-w-[480px] lg:max-w-[500px] xl:max-w-[500px] 2xl:max-w-[600px] mx-auto h-[260px] sm:h-[350px] lg:h-[380px] 2xl:h-[450px]">
               <div className="relative w-full h-full flex items-center justify-center">
                 <AnimatePresence custom={direction}>
                   <motion.div
@@ -268,7 +268,7 @@ export function HeroPremium() {
 
           {/* ── Left text (mobile: below carousel / desktop: left column) ── */}
           <div className="max-w-xl lg:order-first z-10 relative pt-4 sm:pt-6 lg:pt-0">
-            <h1 className="font-display text-[1.75rem] sm:text-4xl lg:text-5xl xl:text-[3.4rem] font-bold text-white leading-[1.2] mb-5 lg:mb-6 text-balance">
+            <h1 className="font-display text-[1.75rem] sm:text-4xl lg:text-5xl xl:text-[2.75rem] 2xl:text-[3.4rem] font-bold text-white leading-[1.2] mb-5 lg:mb-6 text-balance">
               Equipos profesionales para{" "}
               <span className="text-white/90">conteo y control</span> de efectivo
             </h1>

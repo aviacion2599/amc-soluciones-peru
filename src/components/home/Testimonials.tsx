@@ -8,7 +8,7 @@ import { TESTIMONIALS, AMCCONFIG } from "@/lib/site-config";
  */
 export function Testimonials() {
   return (
-    <section id="testimonios" className="py-12 lg:py-24 bg-surface-2">
+    <section id="testimonios" className="py-12 lg:py-16 2xl:py-24 bg-surface-2">
       <div className="container-amc">
         <SectionTitle
           overline="Sectores atendidos"

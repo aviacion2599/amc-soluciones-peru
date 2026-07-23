@@ -49,7 +49,7 @@ const PROBLEMS = [
 
 export function ProblemSection() {
   return (
-    <section id="problema" className="py-12 lg:py-24 bg-surface-2 relative overflow-hidden">
+    <section id="problema" className="py-12 lg:py-16 2xl:py-24 bg-surface-2 relative overflow-hidden">
       {/* Background subtle */}
       <div
         className="absolute inset-0"

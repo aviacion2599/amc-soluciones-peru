@@ -20,7 +20,7 @@ export function TechnicalService() {
   return (
     <section
       id="servicio-tecnico"
-      className="relative py-12 lg:py-24 bg-primary-dark text-white overflow-hidden scroll-mt-20"
+      className="relative py-12 lg:py-16 2xl:py-24 bg-primary-dark text-white overflow-hidden scroll-mt-20"
     >
       {/* Industrial background */}
       <div className="absolute inset-0 bg-grid-pattern-dark opacity-30" aria-hidden="true" />

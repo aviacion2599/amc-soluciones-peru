@@ -54,7 +54,7 @@ export function ProductCarousel({
 
   return (
     <section
-      className="relative overflow-hidden bg-[#0B132B] py-8 sm:py-12 lg:py-16"
+      className="relative overflow-hidden bg-[#0B132B] py-8 sm:py-12 lg:py-12 2xl:py-16"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={() => setPaused(true)}

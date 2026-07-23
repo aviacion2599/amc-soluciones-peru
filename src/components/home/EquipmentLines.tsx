@@ -270,7 +270,7 @@ function LineCard({ line, index }: { line: EquipmentLine; index: number }) {
 /* ─── Sección principal ─── */
 export function EquipmentLines() {
   return (
-    <section id="equipos" className="py-12 lg:py-24 scroll-mt-20 bg-surface-2">
+    <section id="equipos" className="py-12 lg:py-16 2xl:py-24 scroll-mt-20 bg-surface-2">
       <div className="container-amc">
         {/* Introducción */}
         <div className="max-w-3xl mx-auto text-center mb-16">

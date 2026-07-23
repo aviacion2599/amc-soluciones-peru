@@ -9,7 +9,7 @@ import { WORK_PROCESS } from "@/lib/site-config";
  */
 export function WorkProcess() {
   return (
-    <section id="proceso" className="py-12 lg:py-24 bg-surface-2">
+    <section id="proceso" className="py-12 lg:py-16 2xl:py-24 bg-surface-2">
       <div className="container-amc">
         <SectionTitle
           overline="Cómo trabajamos"
