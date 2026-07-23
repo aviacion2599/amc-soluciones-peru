@@ -11,7 +11,7 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   
-  let product = null;
+  let product: any = null;
   try {
     product = await db.product.findUnique({
       where: { slug, isActive: true },

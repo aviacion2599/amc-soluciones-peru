@@ -9,7 +9,7 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  let category = null;
+  let category: any = null;
   try {
     category = await db.category.findUnique({
       where: { slug, isActive: true },
