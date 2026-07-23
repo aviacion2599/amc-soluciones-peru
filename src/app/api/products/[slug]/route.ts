@@ -15,7 +15,7 @@ export async function GET(
   try {
     const { slug } = await params;
 
-    let product = null;
+    let product: any = null;
     try {
       product = await db.product.findUnique({
         where: { slug, isActive: true },
