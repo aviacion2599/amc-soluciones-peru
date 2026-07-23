@@ -82,7 +82,7 @@ export const STATIC_PRODUCTS = [
     category: { slug: "contadoras-monedas", name: "Contadoras de Monedas" },
     brand: { slug: "amc", name: "AMC" },
     images: [
-      { id: "img-1-1", url: "/uploads/products/amc-cm3400/img-01.webp?v=3", alt: "AMC-CM3400 vista frontal", isPrimary: true },
+      { id: "img-1-1", url: "/uploads/products/amc-cm3400/img-01.webp?v=4", alt: "AMC-CM3400 vista frontal", isPrimary: true },
       { id: "img-1-2", url: "/uploads/products/amc-cm3400/img-02.webp", alt: "AMC-CM3400 vista lateral", isPrimary: false },
       { id: "img-1-3", url: "/uploads/products/amc-cm3400/img-03.webp", alt: "AMC-CM3400 vista superior", isPrimary: false },
       { id: "img-1-4", url: "/uploads/products/amc-cm3400/img-04.webp", alt: "AMC-CM3400 detalle pantalla", isPrimary: false },
@@ -257,7 +257,7 @@ export const STATIC_PRODUCTS = [
     category: { slug: "clasificadoras-billetes", name: "Clasificadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
     images: [
-      { id: "img-8-1", url: "/uploads/products/amc-9200/img-01.webp?v=2", alt: "AMC-9200 vista frontal", isPrimary: true },
+      { id: "img-8-1", url: "/uploads/products/amc-9200/img-01.webp?v=3", alt: "AMC-9200 vista frontal", isPrimary: true },
     ],
     videos: [],
     documents: [
