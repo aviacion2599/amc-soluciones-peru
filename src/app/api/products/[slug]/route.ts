@@ -14,24 +14,29 @@ export async function GET(
   try {
     const { slug } = await params;
 
-    let product = await db.product.findUnique({
-      where: { slug, isActive: true },
-      include: {
-        category: {
-          select: { slug: true, name: true, description: true, icon: true },
+    let product = null;
+    try {
+      product = await db.product.findUnique({
+        where: { slug, isActive: true },
+        include: {
+          category: {
+            select: { slug: true, name: true, description: true, icon: true },
+          },
+          subcategory: { select: { slug: true, name: true } },
+          brand: { select: { slug: true, name: true, logo: true } },
+          images: {
+            orderBy: [{ isPrimary: "desc" }, { order: "asc" }],
+          },
+          videos: { orderBy: { order: "asc" } },
+          documents: { orderBy: { createdAt: "desc" } },
+          features: { orderBy: { order: "asc" } },
+          specifications: { orderBy: [{ group: "asc" }, { order: "asc" }] },
+          applications: { orderBy: { order: "asc" } },
         },
-        subcategory: { select: { slug: true, name: true } },
-        brand: { select: { slug: true, name: true, logo: true } },
-        images: {
-          orderBy: [{ isPrimary: "desc" }, { order: "asc" }],
-        },
-        videos: { orderBy: { order: "asc" } },
-        documents: { orderBy: { createdAt: "desc" } },
-        features: { orderBy: { order: "asc" } },
-        specifications: { orderBy: [{ group: "asc" }, { order: "asc" }] },
-        applications: { orderBy: { order: "asc" } },
-      },
-    });
+      });
+    } catch (dbError) {
+      console.error("[api/products/[slug]] DB Error:", dbError);
+    }
 
     if (!product) {
       // Fallback to static data
@@ -101,9 +106,30 @@ export async function GET(
     });
   } catch (error) {
     console.error("[api/products/[slug]] Error:", error);
-    return NextResponse.json(
-      { error: "Error al obtener el producto" },
-      { status: 500 },
-    );
+    try {
+      const { slug } = await params;
+      const staticProduct = STATIC_PRODUCTS.find((p) => p.slug === slug);
+      if (staticProduct) {
+        return NextResponse.json({
+          data: {
+            ...staticProduct,
+            description: staticProduct.summary,
+            category: { slug: staticProduct.category.slug, name: staticProduct.category.name, description: "", icon: "Banknote" },
+            subcategory: null,
+            brand: staticProduct.brand ? { slug: staticProduct.brand.slug, name: staticProduct.brand.name, logo: null } : null,
+            images: staticProduct.images || [],
+            videos: staticProduct.videos || [],
+            documents: staticProduct.documents || [],
+            features: staticProduct.features || [],
+            specifications: staticProduct.specifications || [],
+            applications: staticProduct.applications || [],
+          },
+          related: STATIC_PRODUCTS.filter((p) => p.category.slug === staticProduct.category.slug && p.slug !== slug).slice(0, 4),
+        });
+      }
+    } catch (e) {
+      // ignore
+    }
+    return NextResponse.json({ error: "Error al obtener el producto" }, { status: 500 });
   }
 }

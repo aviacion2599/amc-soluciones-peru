@@ -100,10 +100,23 @@ export async function GET(req: NextRequest) {
     });
   } catch (error) {
     console.error("[api/products] Error:", error);
-    // Return static data as ultimate fallback
-    return NextResponse.json({
-      data: STATIC_PRODUCTS.slice(0, 12),
-      pagination: { page: 1, limit: 12, total: STATIC_PRODUCTS.length, totalPages: 2, hasNext: true, hasPrev: false },
-    });
+    try {
+      const { searchParams } = new URL(req.url);
+      const categoria = searchParams.get("categoria");
+      let filtered = [...STATIC_PRODUCTS];
+      if (categoria) {
+        filtered = filtered.filter((p: any) => p.category?.slug === categoria);
+      }
+      return NextResponse.json({
+        data: filtered.slice(0, 50),
+        pagination: { page: 1, limit: 50, total: filtered.length, totalPages: 1, hasNext: false, hasPrev: false },
+      });
+    } catch (e) {
+      // Return static data as ultimate fallback
+      return NextResponse.json({
+        data: STATIC_PRODUCTS.slice(0, 12),
+        pagination: { page: 1, limit: 12, total: STATIC_PRODUCTS.length, totalPages: 2, hasNext: true, hasPrev: false },
+      });
+    }
   }
 }
