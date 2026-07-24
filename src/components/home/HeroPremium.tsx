@@ -12,52 +12,52 @@ import { motion, AnimatePresence } from "framer-motion";
    ──────────────────────────────────────────────── */
 const HERO_PRODUCTS = [
   {
-    src: "/uploads/products/amc-cm3400/img-01.webp",
+    src: "/uploads/products/amc-cm3400/hero-v2.webp",
     model: "AMC-CM3400",
     tagline: "Cuenta monedas en minutos, no a mano.",
-    scale: "scale-105",
+    scale: "",
   },
   {
-    src: "/uploads/products/amc-3200/img-01.webp",
+    src: "/uploads/products/amc-3200/hero-v2.webp",
     model: "AMC-3200",
     tagline: "Conteo profesional, simple y confiable.",
-    scale: "scale-90",
+    scale: "",
   },
   {
-    src: "/uploads/products/amc-8100/img-01.webp",
+    src: "/uploads/products/amc-8100/hero-v2.webp",
     model: "AMC-8100",
     tagline: "Pantalla Full Touch para contar con precisión.",
-    scale: "scale-100",
+    scale: "",
   },
   {
-    src: "/uploads/products/amc-9200/img-01.webp",
+    src: "/uploads/products/amc-9200/hero-v2.webp",
     model: "AMC-9200",
     tagline: "Clasificación Full Fitness bancaria.",
-    scale: "scale-[1.15]",
+    scale: "",
   },
   {
-    src: "/uploads/products/amc-cm3400-max/img-01.webp",
+    src: "/uploads/products/amc-cm3400-max/hero-v2.webp",
     model: "AMC-CM3400 MAX",
     tagline: "Más velocidad para grandes cantidades.",
-    scale: "scale-105",
+    scale: "",
   },
   {
-    src: "/uploads/products/amc-2000/img-01.webp",
+    src: "/uploads/products/amc-2000/hero-v2.webp",
     model: "AMC-2000",
     tagline: "Solución esencial para todo negocio.",
-    scale: "scale-95",
+    scale: "",
   },
   {
-    src: "/uploads/products/amc-9100/img-01.webp",
+    src: "/uploads/products/amc-9100/hero-v2.webp",
     model: "AMC-9100",
     tagline: "Máxima precisión y seguridad en detección.",
-    scale: "scale-110",
+    scale: "",
   },
   {
-    src: "/uploads/products/amc-8200/img-01.webp",
+    src: "/uploads/products/amc-8200/hero-v2.webp",
     model: "AMC-8200",
     tagline: "Conteo rápido, continuo y confiable.",
-    scale: "scale-[1.05]",
+    scale: "",
   },
 ] as const;
 
