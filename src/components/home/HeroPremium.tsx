@@ -12,49 +12,49 @@ import { motion, AnimatePresence } from "framer-motion";
    ──────────────────────────────────────────────── */
 const HERO_PRODUCTS = [
   {
-    src: "/uploads/products/amc-cm3400/hero-v4.webp",
+    src: "/uploads/products/amc-cm3400/hero-v5.webp",
     model: "AMC-CM3400",
     tagline: "Cuenta monedas en minutos, no a mano.",
     scale: "",
   },
   {
-    src: "/uploads/products/amc-3200/hero-v4.webp",
+    src: "/uploads/products/amc-3200/hero-v5.webp",
     model: "AMC-3200",
     tagline: "Conteo profesional, simple y confiable.",
     scale: "",
   },
   {
-    src: "/uploads/products/amc-8100/hero-v4.webp",
+    src: "/uploads/products/amc-8100/hero-v5.webp",
     model: "AMC-8100",
     tagline: "Pantalla Full Touch para contar con precisión.",
     scale: "",
   },
   {
-    src: "/uploads/products/amc-9200/hero-v4.webp",
+    src: "/uploads/products/amc-9200/hero-v5.webp",
     model: "AMC-9200",
     tagline: "Clasificación Full Fitness bancaria.",
     scale: "",
   },
   {
-    src: "/uploads/products/amc-cm3400-max/hero-v4.webp",
+    src: "/uploads/products/amc-cm3400-max/hero-v5.webp",
     model: "AMC-CM3400 MAX",
     tagline: "Más velocidad para grandes cantidades.",
     scale: "",
   },
   {
-    src: "/uploads/products/amc-2000/hero-v4.webp",
+    src: "/uploads/products/amc-2000/hero-v5.webp",
     model: "AMC-2000",
     tagline: "Solución esencial para todo negocio.",
     scale: "",
   },
   {
-    src: "/uploads/products/amc-9100/hero-v4.webp",
+    src: "/uploads/products/amc-9100/hero-v5.webp",
     model: "AMC-9100",
     tagline: "Máxima precisión y seguridad en detección.",
     scale: "",
   },
   {
-    src: "/uploads/products/amc-8200/hero-v4.webp",
+    src: "/uploads/products/amc-8200/hero-v5.webp",
     model: "AMC-8200",
     tagline: "Conteo rápido, continuo y confiable.",
     scale: "",
@@ -187,7 +187,7 @@ export function HeroPremium() {
             onTouchEnd={() => setTimeout(() => setIsPaused(false), 3000)}
           >
             {/* Image container — uniform aspect ratio, significantly larger for better visibility */}
-            <div className="relative w-full max-w-[320px] md:max-w-[450px] lg:max-w-[550px] xl:max-w-[650px] mx-auto h-[320px] md:h-[450px] lg:h-[550px] xl:h-[600px]">
+            <div className="relative w-full max-w-[280px] md:max-w-[400px] lg:max-w-[500px] xl:max-w-[550px] mx-auto h-[280px] md:h-[400px] lg:h-[500px] xl:h-[550px]">
               <div className="relative w-full h-full flex items-center justify-center">
                 <AnimatePresence custom={direction}>
                   <motion.div
