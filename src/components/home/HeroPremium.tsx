@@ -12,49 +12,49 @@ import { motion, AnimatePresence } from "framer-motion";
    ──────────────────────────────────────────────── */
 const HERO_PRODUCTS = [
   {
-    src: "/uploads/products/amc-cm3400/hero-v3.webp",
+    src: "/uploads/products/amc-cm3400/hero-v4.webp",
     model: "AMC-CM3400",
     tagline: "Cuenta monedas en minutos, no a mano.",
     scale: "",
   },
   {
-    src: "/uploads/products/amc-3200/hero-v3.webp",
+    src: "/uploads/products/amc-3200/hero-v4.webp",
     model: "AMC-3200",
     tagline: "Conteo profesional, simple y confiable.",
     scale: "",
   },
   {
-    src: "/uploads/products/amc-8100/hero-v3.webp",
+    src: "/uploads/products/amc-8100/hero-v4.webp",
     model: "AMC-8100",
     tagline: "Pantalla Full Touch para contar con precisión.",
     scale: "",
   },
   {
-    src: "/uploads/products/amc-9200/hero-v3.webp",
+    src: "/uploads/products/amc-9200/hero-v4.webp",
     model: "AMC-9200",
     tagline: "Clasificación Full Fitness bancaria.",
     scale: "",
   },
   {
-    src: "/uploads/products/amc-cm3400-max/hero-v3.webp",
+    src: "/uploads/products/amc-cm3400-max/hero-v4.webp",
     model: "AMC-CM3400 MAX",
     tagline: "Más velocidad para grandes cantidades.",
     scale: "",
   },
   {
-    src: "/uploads/products/amc-2000/hero-v3.webp",
+    src: "/uploads/products/amc-2000/hero-v4.webp",
     model: "AMC-2000",
     tagline: "Solución esencial para todo negocio.",
     scale: "",
   },
   {
-    src: "/uploads/products/amc-9100/hero-v3.webp",
+    src: "/uploads/products/amc-9100/hero-v4.webp",
     model: "AMC-9100",
     tagline: "Máxima precisión y seguridad en detección.",
     scale: "",
   },
   {
-    src: "/uploads/products/amc-8200/hero-v3.webp",
+    src: "/uploads/products/amc-8200/hero-v4.webp",
     model: "AMC-8200",
     tagline: "Conteo rápido, continuo y confiable.",
     scale: "",
