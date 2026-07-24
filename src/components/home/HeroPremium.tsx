@@ -186,8 +186,8 @@ export function HeroPremium() {
             onTouchStart={() => setIsPaused(true)}
             onTouchEnd={() => setTimeout(() => setIsPaused(false), 3000)}
           >
-            {/* Image container — uniform aspect ratio, larger as requested */}
-            <div className="relative w-full max-w-[280px] md:max-w-[350px] lg:max-w-[420px] mx-auto h-[280px] md:h-[350px] lg:h-[420px]">
+            {/* Image container — uniform aspect ratio, significantly larger for better visibility */}
+            <div className="relative w-full max-w-[320px] md:max-w-[450px] lg:max-w-[550px] xl:max-w-[650px] mx-auto h-[320px] md:h-[450px] lg:h-[550px] xl:h-[600px]">
               <div className="relative w-full h-full flex items-center justify-center">
                 <AnimatePresence custom={direction}>
                   <motion.div
@@ -207,7 +207,7 @@ export function HeroPremium() {
                       src={product.src}
                       alt={`${product.model} — ${product.tagline}`}
                       fill
-                      sizes="(max-width: 767px) 280px, (max-width: 1024px) 350px, 420px"
+                      sizes="(max-width: 767px) 320px, (max-width: 1024px) 450px, (max-width: 1280px) 550px, 650px"
                       className={`object-contain transition-transform duration-500 ${product.scale || ""}`}
                       priority
                     />
