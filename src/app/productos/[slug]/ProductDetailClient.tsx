@@ -532,13 +532,15 @@ function ProductDetailContent({ slug }: { slug: string }) {
                               allowFullScreen
                             />
                           ) : v.provider === "gdrive" ? (
-                            <iframe
-                              src={`https://drive.google.com/file/d/${v.url}/preview`}
-                              title={v.title || "Video del producto"}
-                              className="w-full h-full border-0"
-                              allow="autoplay; fullscreen; picture-in-picture"
-                              allowFullScreen
-                            />
+                            <video 
+                              controls 
+                              playsInline 
+                              className="w-full h-full object-cover sm:object-contain"
+                              preload="metadata"
+                            >
+                              <source src={`https://drive.google.com/uc?export=download&id=${v.url}`} type="video/mp4" />
+                              Tu navegador no soporta el formato de video.
+                            </video>
                           ) : (
                             <video controls className="w-full h-full">
                               <source src={v.url} />
