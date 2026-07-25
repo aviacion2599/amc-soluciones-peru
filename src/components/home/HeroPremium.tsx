@@ -157,7 +157,7 @@ export function HeroPremium() {
   return (
     <section
       id="hero"
-      className="relative flex items-center overflow-hidden bg-navy text-white pt-[60px] sm:pt-[70px] lg:pt-[80px] pb-10 sm:pb-12 lg:pb-12 min-h-[100svh] lg:min-h-[580px] 2xl:min-h-[85vh]"
+      className="relative flex items-center overflow-hidden bg-navy text-white pt-[60px] sm:pt-[70px] lg:pt-[80px] pb-10 sm:pb-12 lg:pb-12 min-h-[100svh]"
     >
       {/* ── Background layers ── */}
       <div className="absolute inset-0">
