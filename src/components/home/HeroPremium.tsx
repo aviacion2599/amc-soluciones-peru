@@ -180,14 +180,14 @@ export function HeroPremium() {
 
           {/* ── Mobile: Carousel FIRST (order-first) / Desktop: carousel RIGHT (order-last) ── */}
           <div
-            className="relative flex flex-col items-center order-first lg:order-last w-full"
+            className="relative flex flex-col items-center order-first lg:order-last w-full mt-2 sm:mt-6 lg:mt-10"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
             onTouchStart={() => setIsPaused(true)}
             onTouchEnd={() => setTimeout(() => setIsPaused(false), 3000)}
           >
-            {/* Image container — uniform aspect ratio, significantly larger for better visibility */}
-            <div className="relative w-full max-w-[280px] md:max-w-[400px] lg:max-w-[500px] xl:max-w-[550px] mx-auto h-[280px] md:h-[400px] lg:h-[500px] xl:h-[550px]">
+            {/* Image container — uniform aspect ratio, sized down ~15% */}
+            <div className="relative w-full max-w-[240px] md:max-w-[340px] lg:max-w-[425px] xl:max-w-[470px] mx-auto h-[240px] md:h-[340px] lg:h-[425px] xl:h-[470px]">
               <div className="relative w-full h-full flex items-center justify-center">
                 <AnimatePresence custom={direction}>
                   <motion.div
@@ -216,8 +216,8 @@ export function HeroPremium() {
               </div>
             </div>
 
-            {/* Model label — always CENTERED under image */}
-            <div className="relative z-10 -mt-6 sm:-mt-8 lg:-mt-10 text-center w-full min-h-[50px] sm:min-h-0">
+            {/* Model label — always CENTERED under image, fixed min height to prevent jump */}
+            <div className="relative z-10 -mt-2 sm:-mt-4 lg:-mt-4 text-center w-full min-h-[95px] sm:min-h-[105px] flex flex-col items-center justify-start">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={product.model + "-label"}
