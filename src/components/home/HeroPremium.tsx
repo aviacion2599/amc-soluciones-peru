@@ -157,7 +157,7 @@ export function HeroPremium() {
   return (
     <section
       id="hero"
-      className="relative flex items-center overflow-hidden bg-navy text-white pt-[60px] sm:pt-[70px] lg:pt-[80px] pb-10 sm:pb-12 lg:pb-12 min-h-[100svh]"
+      className="relative flex items-center overflow-hidden bg-navy text-white pt-[60px] landscape:pt-[64px] sm:pt-[70px] lg:pt-[80px] pb-10 landscape:pb-4 sm:pb-12 lg:pb-12 min-h-[100svh]"
     >
       {/* ── Background layers ── */}
       <div className="absolute inset-0">
@@ -176,18 +176,18 @@ export function HeroPremium() {
       </div>
 
       <div className="container-amc relative pb-4 sm:pb-6 lg:pb-8">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+        <div className="grid landscape:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-10 lg:gap-20 items-center">
 
           {/* ── Mobile: Carousel FIRST (order-first) / Desktop: carousel RIGHT (order-last) ── */}
           <div
-            className="relative flex flex-col items-center order-first lg:order-last w-full mt-2 sm:mt-6 lg:mt-10"
+            className="relative flex flex-col items-center order-first landscape:order-last lg:order-last w-full mt-2 landscape:mt-0 sm:mt-6 lg:mt-10"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
             onTouchStart={() => setIsPaused(true)}
             onTouchEnd={() => setTimeout(() => setIsPaused(false), 3000)}
           >
             {/* Image container — uniform aspect ratio, sized down ~15% */}
-            <div className="relative w-full max-w-[240px] md:max-w-[340px] lg:max-w-[425px] xl:max-w-[470px] mx-auto h-[240px] md:h-[340px] lg:h-[425px] xl:h-[470px]">
+            <div className="relative w-full max-w-[240px] landscape:max-w-[180px] md:max-w-[340px] lg:max-w-[425px] xl:max-w-[470px] mx-auto h-[240px] landscape:h-[180px] md:h-[340px] lg:h-[425px] xl:h-[470px]">
               <div className="relative w-full h-full flex items-center justify-center">
                 <AnimatePresence custom={direction}>
                   <motion.div
@@ -201,7 +201,7 @@ export function HeroPremium() {
                       duration: 0.6,
                       ease: [0.22, 1, 0.36, 1], // iOS style ease out
                     }}
-                    className="absolute inset-0 flex items-center justify-center"
+                    className="absolute inset-0 flex items-center justify-center p-3 sm:p-5 lg:p-6"
                   >
                     <Image
                       src={product.src}
@@ -217,7 +217,7 @@ export function HeroPremium() {
             </div>
 
             {/* Model label — always CENTERED under image, fixed min height to prevent jump */}
-            <div className="relative z-10 -mt-2 sm:-mt-4 lg:-mt-4 text-center w-full min-h-[95px] sm:min-h-[105px] flex flex-col items-center justify-start">
+            <div className="relative z-10 mt-2 sm:-mt-2 lg:-mt-4 text-center w-full min-h-[95px] sm:min-h-[105px] flex flex-col items-center justify-start">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={product.model + "-label"}
@@ -238,7 +238,7 @@ export function HeroPremium() {
 
             {/* Progress dots — centered */}
             <div
-              className="flex items-center justify-center gap-2 mt-4 sm:mt-6 w-full"
+              className="flex items-center justify-center gap-2 mt-2 landscape:mt-0 sm:mt-6 w-full"
               role="tablist"
               aria-label="Productos destacados"
             >
@@ -267,8 +267,8 @@ export function HeroPremium() {
           </div>
 
           {/* ── Left text (mobile: below carousel / desktop: left column) ── */}
-          <div className="max-w-xl lg:order-first z-10 relative pt-4 sm:pt-6 lg:pt-0">
-            <h1 className="font-display text-[1.75rem] sm:text-4xl lg:text-5xl xl:text-[2.75rem] 2xl:text-[3.4rem] font-bold text-white leading-[1.2] mb-5 lg:mb-6 text-balance">
+          <div className="max-w-xl lg:order-first z-10 relative pt-4 landscape:pt-0 sm:pt-6 lg:pt-0">
+            <h1 className="font-display text-[1.75rem] landscape:text-2xl sm:text-4xl lg:text-5xl xl:text-[2.75rem] 2xl:text-[3.4rem] font-bold text-white leading-[1.2] mb-5 lg:mb-6 text-balance">
               Equipos profesionales para{" "}
               <span className="text-white/90">conteo y control</span> de efectivo
             </h1>
@@ -284,7 +284,7 @@ export function HeroPremium() {
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-2 lg:gap-4 mb-2 lg:mb-10">
+            <div className="flex flex-wrap items-center gap-2 lg:gap-4 mb-4 lg:mb-10">
               <Link
                 href="/productos"
                 className="inline-flex items-center gap-2 px-5 py-2.5 lg:px-7 lg:py-3.5 rounded-lg bg-white text-navy font-semibold text-sm lg:text-[15px] hover:bg-white/90 transition-colors"
