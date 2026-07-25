@@ -96,7 +96,7 @@ export function AboutAMC() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-10 lg:gap-16 items-center">
 
           {/* ── Left column: Text ── */}
-          <FadeIn className="order-1">
+          <div className="order-1">
             <div className="max-w-xl">
               {/* Overline */}
               <div className="inline-flex items-center gap-2 mb-4">
@@ -125,7 +125,7 @@ export function AboutAMC() {
               {/* Accent line */}
               <div className="w-16 h-0.5 bg-gradient-to-r from-[#F5B041] to-transparent" />
             </div>
-          </FadeIn>
+          </div>
 
           {/* ── Right column: Stat cards ── */}
           <div className="order-2">
