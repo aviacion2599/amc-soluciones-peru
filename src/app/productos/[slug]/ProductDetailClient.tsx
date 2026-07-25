@@ -532,15 +532,38 @@ function ProductDetailContent({ slug }: { slug: string }) {
                               allowFullScreen
                             />
                           ) : v.provider === "gdrive" ? (
-                            <video 
-                              controls 
-                              playsInline 
-                              className="w-full h-full object-cover sm:object-contain"
-                              preload="metadata"
-                            >
-                              <source src={`https://drive.google.com/uc?export=download&id=${v.url}`} type="video/mp4" />
-                              Tu navegador no soporta el formato de video.
-                            </video>
+                            <div className="relative w-full h-full group bg-black">
+                              <video 
+                                controls 
+                                playsInline 
+                                className="w-full h-full object-contain"
+                                preload="metadata"
+                                onPlay={(e) => e.currentTarget.parentElement?.classList.add('is-playing')}
+                                onPause={(e) => e.currentTarget.parentElement?.classList.remove('is-playing')}
+                              >
+                                <source src={`https://drive.usercontent.google.com/download?id=${v.url}&export=download`} type="video/mp4" />
+                                Tu navegador no soporta el formato de video.
+                              </video>
+                              
+                              <div 
+                                className="absolute inset-0 flex items-center justify-center cursor-pointer transition-opacity duration-300 group-[.is-playing]:opacity-0 group-[.is-playing]:pointer-events-none"
+                                onClick={(e) => {
+                                   const vid = e.currentTarget.previousElementSibling as HTMLVideoElement;
+                                   if (vid) {
+                                     vid.play();
+                                     if (vid.requestFullscreen) {
+                                       vid.requestFullscreen().catch(() => {});
+                                     } else if ((vid as any).webkitRequestFullscreen) {
+                                       (vid as any).webkitRequestFullscreen();
+                                     }
+                                   }
+                                }}
+                              >
+                                <div className="w-16 h-16 bg-blue-600/90 rounded-full flex items-center justify-center text-white shadow-xl backdrop-blur-sm hover:scale-110 transition-transform">
+                                  <svg className="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                                </div>
+                              </div>
+                            </div>
                           ) : (
                             <video controls className="w-full h-full">
                               <source src={v.url} />
