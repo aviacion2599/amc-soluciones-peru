@@ -91,7 +91,6 @@ export const STATIC_PRODUCTS = [
     ],
     videos: [
       { id: "vid-amc-cm3400-1", url: "/uploads/products/amc-cm3400/video-01.mp4", provider: "local", title: "AMC CM3400 — video 1" },
-      { id: "vid-amc-cm3400-2", url: "/uploads/products/amc-cm3400/video-02.mp4", provider: "local", title: "AMC CM3400 — video 2" },
     ],
     documents: [],
     features: [],
