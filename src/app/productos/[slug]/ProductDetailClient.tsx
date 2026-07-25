@@ -531,6 +531,14 @@ function ProductDetailContent({ slug }: { slug: string }) {
                               allow="autoplay; fullscreen; picture-in-picture"
                               allowFullScreen
                             />
+                          ) : v.provider === "gdrive" ? (
+                            <iframe
+                              src={`https://drive.google.com/file/d/${v.url}/preview`}
+                              title={v.title || "Video del producto"}
+                              className="w-full h-full border-0"
+                              allow="autoplay; fullscreen; picture-in-picture"
+                              allowFullScreen
+                            />
                           ) : (
                             <video controls className="w-full h-full">
                               <source src={v.url} />
