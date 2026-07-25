@@ -540,6 +540,9 @@ function ProductDetailContent({ slug }: { slug: string }) {
                                 preload="metadata"
                                 onPlay={(e) => e.currentTarget.parentElement?.classList.add('is-playing')}
                                 onPause={(e) => e.currentTarget.parentElement?.classList.remove('is-playing')}
+                                onWaiting={(e) => e.currentTarget.parentElement?.classList.add('is-loading')}
+                                onPlaying={(e) => e.currentTarget.parentElement?.classList.remove('is-loading')}
+                                onCanPlay={(e) => e.currentTarget.parentElement?.classList.remove('is-loading')}
                               >
                                 <source src={`/api/video/${v.url}`} type="video/mp4" />
                                 Tu navegador no soporta el formato de video.
@@ -550,7 +553,10 @@ function ProductDetailContent({ slug }: { slug: string }) {
                                 onClick={(e) => {
                                    const vid = e.currentTarget.previousElementSibling as HTMLVideoElement;
                                    if (vid) {
-                                     vid.play();
+                                     const playPromise = vid.play();
+                                     if (playPromise !== undefined) {
+                                        playPromise.catch(() => { /* ignore abort errors */ });
+                                     }
                                      if (vid.requestFullscreen) {
                                        vid.requestFullscreen().catch(() => {});
                                      } else if ((vid as any).webkitRequestFullscreen) {
@@ -559,8 +565,17 @@ function ProductDetailContent({ slug }: { slug: string }) {
                                    }
                                 }}
                               >
-                                <div className="w-16 h-16 bg-blue-600/90 rounded-full flex items-center justify-center text-white shadow-xl backdrop-blur-sm hover:scale-110 transition-transform">
+                                {/* Play Button */}
+                                <div className="absolute w-16 h-16 bg-blue-600/90 rounded-full flex items-center justify-center text-white shadow-xl backdrop-blur-sm hover:scale-110 transition-transform group-[.is-loading]:hidden">
                                   <svg className="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                                </div>
+                                
+                                {/* Loading Spinner */}
+                                <div className="absolute hidden group-[.is-loading]:flex w-16 h-16 bg-black/50 rounded-full items-center justify-center text-white shadow-xl backdrop-blur-sm">
+                                  <svg className="animate-spin w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                  </svg>
                                 </div>
                               </div>
                             </div>
