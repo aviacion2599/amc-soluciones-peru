@@ -541,7 +541,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
                                 onPlay={(e) => e.currentTarget.parentElement?.classList.add('is-playing')}
                                 onPause={(e) => e.currentTarget.parentElement?.classList.remove('is-playing')}
                               >
-                                <source src={`https://drive.usercontent.google.com/download?id=${v.url}&export=download`} type="video/mp4" />
+                                <source src={`/api/video/${v.url}`} type="video/mp4" />
                                 Tu navegador no soporta el formato de video.
                               </video>
                               
