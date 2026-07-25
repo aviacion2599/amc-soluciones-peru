@@ -107,7 +107,7 @@ export function ProductCard({
           <img
             src={image}
             alt={name}
-            className="w-full h-full object-contain p-6 sm:p-7 lg:p-8 group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-contain p-5 sm:p-6 group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
           />
         ) : (
