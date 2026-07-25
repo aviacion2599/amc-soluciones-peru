@@ -86,7 +86,7 @@ export function ProductCard({
       <Link
         href={detailHref}
         className={cn(
-        "relative flex items-center justify-center product-img-bg overflow-hidden aspect-[3/4] sm:aspect-[4/5]",
+        "relative flex items-center justify-center product-img-bg overflow-hidden pt-8 pb-6 sm:pt-10 sm:pb-8",
       )}
         aria-label={`Ver detalles de ${name}`}
       >
@@ -107,7 +107,7 @@ export function ProductCard({
           <img
             src={image}
             alt={name}
-            className="w-full h-full object-contain p-5 sm:p-6 group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-[150px] sm:h-[180px] lg:h-[200px] object-contain group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
           />
         ) : (

@@ -329,7 +329,7 @@ export function Lightbox({
                   ref={imgRef}
                   src={current?.fullSrc || current?.src}
                   alt={current?.alt || ""}
-                  className={`max-w-full max-h-[80vh] object-contain rounded-lg sm:rounded-xl transition-transform duration-300 ${
+                  className={`max-w-[90vw] sm:max-w-[80vw] lg:max-w-[70vw] max-h-[65vh] sm:max-h-[70vh] object-contain rounded-lg sm:rounded-xl transition-transform duration-300 ${
                     zoomed ? "cursor-zoom-out" : "cursor-zoom-in"
                   }`}
                   style={
