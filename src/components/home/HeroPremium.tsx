@@ -15,7 +15,7 @@ const HERO_PRODUCTS = [
     src: "/uploads/products/amc-cm3400/hero-v6.webp",
     model: "AMC-CM3400",
     tagline: "Cuenta monedas en minutos, no a mano.",
-    scale: "",
+    scale: "md:scale-110 lg:scale-[1.15]",
   },
   {
     src: "/uploads/products/amc-3200/hero-v6.webp",
