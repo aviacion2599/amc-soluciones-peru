@@ -606,25 +606,23 @@ export default function ServicioTecnicoPage() {
 
       {/* Why AMC service */}
       <section className="container-amc py-12 lg:py-16 2xl:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-[1.2fr_0.8fr] xl:grid-cols-[1fr_450px] gap-8 lg:gap-12 xl:gap-20 items-center">
           <FadeIn>
             <div>
               <p className="overline text-muted-foreground mb-3">¿Por qué elegir AMC?</p>
               <h2 className="display-2 mb-6">
                 No solo reparamos.{" "}
-                <span className="text-primary">Cuidamos tu inversión.</span>
+                <span className="text-primary">Protegemos tu inversión.</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                En AMC Soluciones Perú entendemos que tu equipo de manejo de efectivo es crítico para tu operación.
-                Por eso no nos limitamos a reparar fallas: trabajamos en prevenir las, calibrar periódicamente
-                y extender la vida útil de tus equipos con repuestos originales y técnicos certificados.
+                En AMC Soluciones Perú brindamos mantenimiento preventivo y correctivo especializado para equipos de manejo de efectivo. Trabajamos con repuestos originales, procedimientos técnicos y garantía, buscando prolongar la vida útil de cada equipo y mantener la continuidad de su operación.
               </p>
               <div className="space-y-4">
                 {[
-                  { icon: Award, title: "Experiencia en equipos GLORY", desc: "Conocimiento especializado en la marca, no autodidactas." },
-                  { icon: ShieldCheck, title: "Repuestos originales", desc: "Trazabilidad desde el fabricante." },
-                  { icon: Clock, title: "Respuesta oportuna", desc: "Lima Metropolitana y provincias por coordinación." },
-                  { icon: CheckCircle2, title: "Servicio con garantía", desc: "Respaldo en todos los servicios realizados." },
+                  { icon: Award, title: "Experiencia en equipos GLORY", desc: "Conocimiento técnico especializado en la marca." },
+                  { icon: ShieldCheck, title: "Repuestos originales", desc: "Trazabilidad y procedencia verificable." },
+                  { icon: Clock, title: "Respuesta oportuna", desc: "Atención en Lima y provincias, previa coordinación." },
+                  { icon: CheckCircle2, title: "Servicio con garantía", desc: "Respaldo sobre los trabajos realizados." },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-md bg-primary-tint text-primary flex items-center justify-center flex-shrink-0">
@@ -645,11 +643,11 @@ export default function ServicioTecnicoPage() {
               <div className="grid grid-cols-2 gap-6">
                 {[
                   { value: "+2,500", label: "Equipos atendidos" },
-                  { value: "15+", label: "Años de experiencia" },
-                  { value: "24h", label: "Tiempo de respuesta" },
-                  { value: "99.8%", label: "Precisión post-servicio" },
+                  { value: "8+", label: "Años de experiencia" },
+                  { value: "24 h", label: "Tiempo de respuesta" },
                   { value: "6", label: "Marcas atendidas" },
-                  { value: "12m", label: "Garantía máxima" },
+                  { value: "12 meses", label: "Garantía máxima" },
+                  { value: "Nacional", label: "Lima y provincias" },
                 ].map((s) => (
                   <div key={s.label}>
                     <div className="font-display text-3xl font-bold text-white mb-1">{s.value}</div>
