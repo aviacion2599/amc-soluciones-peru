@@ -121,7 +121,7 @@ export function Header() {
             <div className="flex items-center gap-3">
               <a
                 href={`tel:${AMCCONFIG.contact.phoneRaw}`}
-                className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-gold hover:text-gold-light transition-colors"
+                className="hidden md:inline-flex [@media(max-height:500px)_and_(orientation:landscape)]:hidden items-center gap-2 text-sm font-medium text-gold hover:text-gold-light transition-colors"
                 aria-label={`Llamar al ${AMCCONFIG.contact.phone}`}
               >
                 <Phone className="w-4 h-4" />
