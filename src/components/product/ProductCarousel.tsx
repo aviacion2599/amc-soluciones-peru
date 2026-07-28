@@ -125,7 +125,7 @@ export function ProductCarousel({
                         src={imgSrc}
                         alt={product.name}
                         fill
-                        className="object-contain p-7 sm:p-8 lg:p-12 transition-transform duration-500 group-hover:scale-105"
+                        className="object-contain p-14 sm:p-10 lg:p-12 transition-transform duration-500 group-hover:scale-105"
                         sizes="(max-width: 640px) 75vw, (max-width: 1024px) 40vw, 22vw"
                         unoptimized={imgSrc.startsWith('/uploads/')}
                       />
