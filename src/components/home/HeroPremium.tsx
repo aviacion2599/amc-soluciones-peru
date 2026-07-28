@@ -176,18 +176,18 @@ export function HeroPremium() {
       </div>
 
       <div className="container-amc relative pb-4 sm:pb-6 lg:pb-8">
-        <div className="grid max-sm:landscape:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-10 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 max-sm:landscape:grid-cols-2 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-20 items-center">
 
           {/* ── Mobile: Carousel FIRST (order-first) / Desktop: carousel RIGHT (order-last) ── */}
           <div
-            className="relative flex flex-col items-center order-first max-sm:landscape:order-last lg:order-last w-full mt-2 max-sm:landscape:mt-0 sm:mt-6 lg:mt-10"
+            className="relative flex flex-col items-center order-first max-sm:landscape:order-last sm:order-last w-full mt-2 max-sm:landscape:mt-0 sm:mt-0 lg:mt-10"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
             onTouchStart={() => setIsPaused(true)}
             onTouchEnd={() => setTimeout(() => setIsPaused(false), 3000)}
           >
             {/* Image container — uniform aspect ratio, exact original size */}
-            <div className="relative w-full max-w-[240px] md:max-w-[340px] lg:max-w-[425px] xl:max-w-[470px] mx-auto h-[240px] md:h-[340px] lg:h-[425px] xl:h-[470px]">
+            <div className="relative w-full max-w-[240px] max-sm:landscape:max-w-[200px] md:max-w-[340px] lg:max-w-[425px] xl:max-w-[470px] mx-auto h-[240px] max-sm:landscape:h-[200px] md:h-[340px] lg:h-[425px] xl:h-[470px]">
               <div className="relative w-full h-full flex items-center justify-center">
                 <AnimatePresence custom={direction}>
                   <motion.div
@@ -266,9 +266,9 @@ export function HeroPremium() {
             </div>
           </div>
 
-          {/* ── Left text (mobile: below carousel / desktop: left column) ── */}
-          <div className="max-w-xl lg:order-first z-10 relative pt-4 max-sm:landscape:pt-0 sm:pt-6 lg:pt-0">
-            <h1 className="font-display text-[1.75rem] max-sm:landscape:text-2xl sm:text-4xl lg:text-5xl xl:text-[2.75rem] 2xl:text-[3.4rem] font-bold text-white leading-[1.2] mb-5 lg:mb-6 text-balance">
+          {/* ── Left text (mobile: below carousel / desktop, tablet, landscape: left column) ── */}
+          <div className="max-w-xl max-sm:landscape:order-first sm:order-first z-10 relative pt-4 max-sm:landscape:pt-0 sm:pt-0">
+            <h1 className="font-display text-[1.75rem] max-sm:landscape:text-[1.35rem] sm:text-[1.85rem] md:text-4xl lg:text-5xl xl:text-[2.75rem] 2xl:text-[3.4rem] font-bold text-white leading-[1.2] mb-5 lg:mb-6 text-balance">
               Equipos profesionales para{" "}
               <span className="text-white/90">conteo y control</span> de efectivo
             </h1>
