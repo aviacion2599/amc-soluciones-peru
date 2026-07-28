@@ -209,7 +209,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
                   <img
                     src={p.images[selectedImage].url}
                     alt={p.images[selectedImage].alt}
-                    className="w-full h-full object-contain p-8 sm:p-12 lg:p-16"
+                    className="w-full h-full object-contain p-4 sm:p-10 lg:p-16"
                     loading="lazy"
                   />
                   {/* Zoom hint — desktop only */}
