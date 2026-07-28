@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Phone, X } from "lucide-react";
+import { Phone, X, Menu } from "lucide-react";
 import { NAV_ITEMS, AMCCONFIG } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
@@ -128,36 +128,14 @@ export function Header() {
                 {AMCCONFIG.contact.phone}
               </a>
 
-              {/* Hamburguesa / Cerrar — con rotación 90° */}
+              {/* Hamburguesa / Cerrar */}
               <button
-                className="relative w-10 h-10 flex items-center justify-center rounded-md hover:bg-white/5 text-white transition-colors"
+                className="relative w-10 h-10 flex items-center justify-center rounded-md hover:bg-white/5 text-white transition-colors lg:hidden"
                 onClick={() => setMenuOpen(!menuOpen)}
                 aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
                 aria-expanded={menuOpen}
               >
-                {/* Líneas hamburguesa animadas a X */}
-                <div className="w-5 h-4 relative flex flex-col justify-between">
-                  <span
-                    className={cn(
-                      "block h-0.5 w-full bg-current rounded-full transition-all duration-400 origin-center",
-                      menuOpen && "rotate-45 translate-y-[7px]",
-                    )}
-                    style={{ transitionTimingFunction: "cubic-bezier(0.23, 1, 0.32, 1)" }}
-                  />
-                  <span
-                    className={cn(
-                      "block h-0.5 w-full bg-current rounded-full transition-all duration-300",
-                      menuOpen && "opacity-0 scale-x-0",
-                    )}
-                  />
-                  <span
-                    className={cn(
-                      "block h-0.5 w-full bg-current rounded-full transition-all duration-400 origin-center",
-                      menuOpen && "-rotate-45 -translate-y-[7px]",
-                    )}
-                    style={{ transitionTimingFunction: "cubic-bezier(0.23, 1, 0.32, 1)" }}
-                  />
-                </div>
+                {menuOpen ? <X className="w-6 h-6 text-gold" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
           </div>
