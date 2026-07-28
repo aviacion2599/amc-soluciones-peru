@@ -24,28 +24,22 @@ export function Footer() {
       title: "Productos",
       links: [
         { label: "Contadoras de Billetes", href: "/categorias/contadoras-de-billetes" },
+        { label: "Clasificadoras de Billetes", href: "/categorias/clasificadoras" },
         { label: "Contadoras de Monedas", href: "/categorias/contadoras-de-monedas" },
-        { label: "Clasificadoras", href: "/categorias/clasificadoras" },
-        { label: "Detectores", href: "/categorias/detectores" },
-        { label: "Todos los Productos", href: "/productos" },
       ],
     },
     {
       title: "Servicio Técnico",
       links: [
         { label: "Reparación", href: "/servicio-tecnico#servicios" },
-        { label: "Calibración", href: "/servicio-tecnico#servicios" },
         { label: "Diagnóstico", href: "/servicio-tecnico#servicios" },
         { label: "Mantenimiento Preventivo", href: "/servicio-tecnico#servicios" },
-        { label: "Garantía", href: "/servicio-tecnico#servicios" },
       ],
     },
     {
       title: "Empresa",
       links: [
         { label: "Nosotros", href: "/nosotros" },
-        { label: "Blog", href: "/blog" },
-        { label: "Preguntas Frecuentes", href: "/faq" },
         { label: "Contacto", href: "/contacto" },
         { label: "Solicitar Cotización", href: "/cotizacion" },
       ],
@@ -167,21 +161,15 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/40">
-            © {year} {AMCCONFIG.company.legalName}. Todos los derechos reservados.
+        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-white/40 text-center sm:text-left">
+            © {year} AMC Soluciones Perú. Todos los derechos reservados.
           </p>
-          <div className="flex items-center gap-5 text-xs text-white/40">
+          <div className="hidden sm:flex items-center gap-5 text-xs text-white/40">
             <span>WhatsApp: {AMCCONFIG.contact.phone}</span>
-            <span className="hidden sm:inline">·</span>
+            <span>·</span>
             <span>{AMCCONFIG.contact.email}</span>
           </div>
-        </div>
-
-        {/* Dirección */}
-        <div className="mt-2 text-center">
-          <p className="text-[10px] text-white/25">{AMCCONFIG.contact.address}</p>
-          <p className="text-[10px] text-white/25">{AMCCONFIG.contact.addressNote}</p>
         </div>
 
         {/* Creditos — FastPagePro */}
