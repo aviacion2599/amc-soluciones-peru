@@ -33,7 +33,7 @@ const SERVICES = [
     icon: Wrench,
     title: "Reparación Especializada",
     description: "Diagnóstico y reparación especializada con repuestos originales y compatibles según disponibilidad del modelo. Recuperamos la precisión y confiabilidad de tu equipo.",
-    features: ["Diagnóstico gratuito", "Repuestos originales y compatibles", "Garantía de reparación 90 días", "Reporte técnico detallado"],
+    features: ["Diagnóstico técnico especializado", "Repuestos originales y compatibles", "Garantía de reparación 90 días", "Reporte técnico detallado"],
   },
   {
     code: "S-02",
@@ -54,7 +54,7 @@ const SERVICES = [
     icon: ShieldCheck,
     title: "Mantenimiento Preventivo",
     description: "Planes programados de mantenimiento preventivo para reducir fallas, mejorar la alimentación de billetes y mantener la continuidad operativa del negocio.",
-    features: ["Visitas programadas", "Limpieza técnica profunda", "Lubricación de partes móviles", "Calibración incluida", "Descuento en repuestos"],
+    features: ["Visitas programadas", "Limpieza técnica profunda", "Lubricación de partes móviles", "Calibración incluida", "Verificación y ajuste de sensores"],
   },
   {
     code: "S-05",
@@ -105,7 +105,7 @@ const PROCESS = [
 const PLANS = [
   {
     name: "Mantenimiento Preventivo",
-    price: "Desde S/ 180 + IGV",
+    price: "Desde S/ 210",
     period: "",
     description: "Mantenimiento preventivo puntual",
     features: [
@@ -124,7 +124,7 @@ const PLANS = [
   },
   {
     name: "Plan Anual",
-    price: "S/ 480 + IGV",
+    price: "S/ 560",
     period: "",
     description: "Plan anual para equipos de uso intensivo",
     features: [

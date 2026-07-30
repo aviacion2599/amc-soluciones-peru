@@ -11,7 +11,7 @@ export const STATIC_CATEGORIES = [
     slug: "contadoras-billetes",
     name: "Contadoras de Billetes",
     description:
-      "Contadoras de billetes profesionales AMC con detección UV, MG, IR, CIS y OCR. Velocidades de hasta 1.500 billetes/minuto y soporte para más de 60 divisas.",
+      "Contadoras de billetes profesionales AMC con detección UV, MG, IR, MT, CIS y OCR. Velocidades de hasta 1.500 billetes/minuto y soporte para más de 60 divisas.",
     icon: "Banknote",
     order: 1,
     image: null,
@@ -44,7 +44,7 @@ export const STATIC_CATEGORIES = [
     slug: "linea-esencial",
     name: "Línea Esencial",
     description:
-      "Equipos AMC accesibles con detección IR, MG, RGB e IR-IMAGE. Solución práctica y eficiente para pequeños negocios y comercios.",
+      "Equipos AMC accesibles con detección doble CIS, MT, IR y UV. Solución práctica y eficiente para pequeños negocios y comercios.",
     icon: "Star",
     order: 4,
     image: null,
