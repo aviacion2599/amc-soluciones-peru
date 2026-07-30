@@ -105,8 +105,9 @@ const PROCESS = [
 const PLANS = [
   {
     name: "Mantenimiento Preventivo",
-    price: "Desde S/ 210",
-    period: "",
+    price: "Cotización",
+    period: "personalizada",
+    subtitle: "Según la marca, modelo, estado y ubicación del equipo.",
     description: "Mantenimiento preventivo puntual",
     features: [
       "Limpieza técnica del equipo",
@@ -117,15 +118,16 @@ const PLANS = [
       "Reporte técnico",
       "Garantía de 30 días sobre el servicio realizado",
     ],
-    footnote: "Precio referencial para mantenimiento preventivo de una contadora de billetes en Lima Metropolitana. No incluye repuestos ni reparaciones adicionales. El diagnóstico se cotiza según el estado del equipo.",
+    footnote: "El servicio se cotiza según las características y el estado del equipo. No incluye repuestos ni reparaciones adicionales.",
     benefitPhrase: null,
-    cta: "Agendar mantenimiento",
+    cta: "Solicitar cotización",
     highlighted: false,
   },
   {
     name: "Plan Anual",
-    price: "S/ 560",
-    period: "",
+    price: "Cotización",
+    period: "personalizada",
+    subtitle: "Según la cantidad de equipos, ubicación y frecuencia de atención.",
     description: "Plan anual para equipos de uso intensivo",
     features: [
       "3 visitas programadas durante el año",
@@ -138,13 +140,14 @@ const PLANS = [
     ],
     footnote: "El plan incluye tres mantenimientos preventivos programados durante el año. No incluye repuestos ni reparaciones adicionales.",
     benefitPhrase: "Ahorre en mantenimiento y mantenga su equipo calibrado durante todo el año.",
-    cta: "Agendar mantenimiento",
+    cta: "Cotizar plan anual",
     highlighted: true,
   },
   {
     name: "Empresarial",
     price: "Cotización",
     period: "personalizada",
+    subtitle: null,
     description: "Plan personalizado para empresas con múltiples equipos",
     features: [
       "Visitas programadas según la operación",
@@ -564,14 +567,17 @@ export default function ServicioTecnicoPage() {
                     <h3 className="font-display font-bold text-lg sm:text-xl mb-1">{plan.name}</h3>
                     <p className="text-xs text-muted-foreground">{plan.description}</p>
                   </div>
-                  <div className="mb-5 sm:mb-6">
-                    <span className="font-display text-3xl sm:text-4xl font-bold text-primary leading-tight">{plan.price}</span>
+                  <div className="mb-4 sm:mb-5">
+                    <span className="font-display text-2xl sm:text-3xl font-bold text-primary leading-tight">{plan.price}</span>
                     {plan.period && (
-                      <span className="text-sm text-muted-foreground ml-2">{plan.period}</span>
+                      <div className="text-xl sm:text-2xl font-bold text-primary mt-1 leading-tight">{plan.period}</div>
+                    )}
+                    {plan.subtitle && (
+                      <div className="text-xs sm:text-sm text-muted-foreground mt-2 leading-relaxed">{plan.subtitle}</div>
                     )}
                   </div>
                   {plan.benefitPhrase && (
-                    <p className="text-xs sm:text-sm text-primary font-medium mb-4 sm:mb-5 leading-relaxed">{plan.benefitPhrase}</p>
+                    <p className="text-sm text-primary font-medium mb-4 sm:mb-5 leading-relaxed">{plan.benefitPhrase}</p>
                   )}
                   <ul className="space-y-2.5 sm:space-y-3 mb-6 flex-1">
                     {plan.features.map((f) => {
