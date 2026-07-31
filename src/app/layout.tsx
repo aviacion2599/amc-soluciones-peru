@@ -91,7 +91,7 @@ export const metadata: Metadata = {
 };
 
 import { draftMode } from "next/headers";
-import { VisualEditing } from "next-sanity";
+import { VisualEditing } from "next-sanity/visual-editing";
 
 export default async function RootLayout({
   children,
