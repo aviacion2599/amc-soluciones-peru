@@ -121,12 +121,13 @@ export async function GET(
             applications: staticProduct.applications || [],
           },
           related: STATIC_PRODUCTS.filter((p) => p.category.slug === staticProduct.category.slug && p.slug !== slug).slice(0, 4),
+          debug_error: String(error)
         });
       }
     } catch (e: any) {
       console.error("[api/products/[slug]] Fallback error:", e);
-      return NextResponse.json({ error: "Error al obtener el producto", details: String(e) }, { status: 500 });
+      return NextResponse.json({ error: "Error al obtener el producto", details: String(e), debug_error: String(error) }, { status: 500 });
     }
-    return NextResponse.json({ error: "Error al obtener el producto", details: "No static product found" }, { status: 500 });
+    return NextResponse.json({ error: "Error al obtener el producto", details: "No static product found", debug_error: String(error) }, { status: 500 });
   }
 }
