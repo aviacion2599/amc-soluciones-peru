@@ -20,7 +20,7 @@ export async function sanityFetch<QueryResponse>({
       perspective: "previewDrafts",
     }),
     next: {
-      revalidate: isDraftMode ? 0 : 3600,
+      revalidate: 0, // 0 para que siempre muestre los cambios de inmediato
       tags,
     },
     stega: isDraftMode,
