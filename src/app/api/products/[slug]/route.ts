@@ -67,20 +67,20 @@ export async function GET(
     // if Sanity doesn't have images, categories, specs, etc. yet.
     if (staticProduct) {
       if (!product.category || !product.category.name) {
-        product.category = {
-          slug: staticProduct.category.slug,
-          name: staticProduct.category.name,
-          description: "",
-          icon: "Banknote",
-        };
+        product.category = staticProduct.category;
       }
+      if (!product.images || product.images.length === 0) {
+        product.images = staticProduct.images || [];
+      } else {
+        // Sort Sanity images so the primary one is always first
+        product.images.sort((a: any, b: any) => (b.isPrimary ? 1 : 0) - (a.isPrimary ? 1 : 0));
+      }
+      if (!product.videos || product.videos.length === 0) product.videos = staticProduct.videos || [];
       if (!product.brand || !product.brand.name) {
         product.brand = staticProduct.brand
           ? { slug: staticProduct.brand.slug, name: staticProduct.brand.name, logo: null }
           : null;
       }
-      if (!product.images || product.images.length === 0) product.images = staticProduct.images || [];
-      if (!product.videos || product.videos.length === 0) product.videos = staticProduct.videos || [];
       if (!product.documents || product.documents.length === 0) product.documents = staticProduct.documents || [];
       if (!product.features || product.features.length === 0) product.features = staticProduct.features || [];
       if (!product.specifications || product.specifications.length === 0) product.specifications = staticProduct.specifications || [];
