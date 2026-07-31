@@ -30,7 +30,7 @@ export function CategoriesGrid() {
             return (
               <Link
                 key={c.slug}
-                href={c.slug === "linea-esencial" ? "/productos/amc-2000" : `/productos?categoria=${c.slug}`}
+                href={`/productos?categoria=${c.slug}&sort=destacados&page=1&limit=50#productos-grid`}
                 className={cn(
                   "group relative overflow-hidden card-base card-hover p-7 flex flex-col text-center",
                   isFeatured && "lg:row-span-2 lg:justify-between",

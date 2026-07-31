@@ -93,11 +93,7 @@ export function SearchOverlay({
 
   const goToCategory = (slug: string) => {
     onClose();
-    if (slug === "linea-esencial") {
-      router.push("/productos/amc-2000");
-    } else {
-      router.push(`/productos?categoria=${slug}`);
-    }
+    router.push(`/productos?categoria=${slug}&sort=destacados&page=1&limit=50#productos-grid`);
   };
 
   const goToAllResults = () => {

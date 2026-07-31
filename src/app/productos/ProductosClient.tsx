@@ -266,7 +266,7 @@ function ProductosContent() {
       )}
       {/* ===== END PRODUCT IMAGE CAROUSEL ===== */}
 
-      <div id="productos-grid" className="container-amc py-6 sm:py-10">
+      <div id="productos-grid" className="scroll-mt-24 container-amc py-6 sm:py-10">
         <Breadcrumb
           items={[
             { label: "Productos" },
