@@ -90,7 +90,7 @@ export async function GET(
     // Fetch related products from Sanity (same category, exclude current)
     let related = await sanityFetch<any[]>({
       query: RELATED_PRODUCTS_QUERY,
-      params: { categorySlug: product.category?.slug || "", currentSlug: slug },
+      params: { categorySlug: product.category?.slug || "", slug: slug },
     });
     
     // If no related products in Sanity yet, fallback to static
