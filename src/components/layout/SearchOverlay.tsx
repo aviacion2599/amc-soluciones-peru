@@ -93,7 +93,11 @@ export function SearchOverlay({
 
   const goToCategory = (slug: string) => {
     onClose();
-    router.push(`/productos?categoria=${slug}`);
+    if (slug === "linea-esencial") {
+      router.push("/productos/amc-2000");
+    } else {
+      router.push(`/productos?categoria=${slug}`);
+    }
   };
 
   const goToAllResults = () => {
@@ -173,16 +177,16 @@ export function SearchOverlay({
                   <button
                     key={cat.slug}
                     onClick={() => goToCategory(cat.slug)}
-                    className="flex items-center gap-3 p-3 rounded-xl bg-muted/40 border border-border/50 hover:bg-muted/70 active:scale-[0.98] transition-all text-left"
+                    className="flex items-start gap-3 p-3 rounded-xl bg-muted/40 border border-border/50 hover:bg-muted/70 active:scale-[0.98] transition-all text-left h-[84px]"
                   >
                     <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
                       <Banknote className="w-5 h-5" />
                     </div>
-                    <div className="min-w-0">
-                      <div className="text-sm font-semibold leading-tight truncate">
+                    <div className="flex flex-col flex-1 h-full min-w-0 justify-between py-0.5">
+                      <div className="text-[13px] sm:text-sm font-semibold leading-[1.15] line-clamp-2">
                         {cat.title}
                       </div>
-                      <div className="text-[11px] text-muted-foreground mt-0.5">
+                      <div className="text-[11px] text-muted-foreground">
                         Ver equipos
                       </div>
                     </div>

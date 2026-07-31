@@ -304,7 +304,7 @@ export const STATIC_PRODUCTS = [
     isFeatured: true,
     isNew: true,
     isBestSeller: false,
-    category: { slug: "contadoras-billetes", name: "Contadoras de Billetes" },
+    category: { slug: "clasificadoras-billetes", name: "Clasificadoras de Billetes" },
     brand: { slug: "amc", name: "AMC" },
     images: [
       { id: "img-9-1", url: "/uploads/products/amc-9100/hero-v6.webp", alt: "AMC-9100 vista frontal", isPrimary: true },
