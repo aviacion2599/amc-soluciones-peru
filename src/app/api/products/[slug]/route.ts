@@ -4,6 +4,8 @@ import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import { PRODUCT_BY_SLUG_QUERY, RELATED_PRODUCTS_QUERY } from "@/sanity/lib/queries";
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+export const fetchCache = 'force-no-store';
 
 /**
  * GET /api/products/[slug]

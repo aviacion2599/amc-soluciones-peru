@@ -19,10 +19,7 @@ export async function sanityFetch<QueryResponse>({
       token: process.env.SANITY_API_TOKEN,
       perspective: "previewDrafts",
     }),
-    next: {
-      revalidate: 0, // 0 para que siempre muestre los cambios de inmediato
-      tags,
-    },
+    cache: "no-store", // Deshabilita la caché por completo
     stega: isDraftMode,
   });
 }
