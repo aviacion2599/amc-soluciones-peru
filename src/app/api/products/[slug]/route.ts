@@ -18,7 +18,7 @@ export async function GET(
     const { slug } = await params;
 
     // Try fetching from Sanity first
-    const product = await sanityFetch({
+    const product = await sanityFetch<any>({
       query: PRODUCT_BY_SLUG_QUERY,
       params: { slug },
     });
@@ -61,7 +61,7 @@ export async function GET(
     }
 
     // Fetch related products from Sanity (same category, exclude current)
-    const related = await sanityFetch({
+    const related = await sanityFetch<any[]>({
       query: RELATED_PRODUCTS_QUERY,
       params: { categorySlug: product.category.slug, currentSlug: slug },
     });
