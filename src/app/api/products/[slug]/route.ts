@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/db";
 import { STATIC_PRODUCTS } from "@/lib/static-data";
+import { sanityFetch } from "@/sanity/lib/sanityFetch";
+import { PRODUCT_BY_SLUG_QUERY, RELATED_PRODUCTS_QUERY } from "@/sanity/lib/queries";
 
 export const dynamic = 'force-dynamic';
 
 /**
  * GET /api/products/[slug]
- * Detalle público de un producto por slug.
- * Falls back to static data when DB is empty.
+ * Retrieve product details, falling back to static data when needed.
  */
 export async function GET(
   req: NextRequest,
@@ -17,32 +17,14 @@ export async function GET(
   try {
     const { slug } = await params;
 
-    let product: any = null;
-    try {
-      product = await db.product.findUnique({
-        where: { slug, isActive: true },
-        include: {
-          category: {
-            select: { slug: true, name: true, description: true, icon: true },
-          },
-          subcategory: { select: { slug: true, name: true } },
-          brand: { select: { slug: true, name: true, logo: true } },
-          images: {
-            orderBy: [{ isPrimary: "desc" }, { order: "asc" }],
-          },
-          videos: { orderBy: { order: "asc" } },
-          documents: { orderBy: { createdAt: "desc" } },
-          features: { orderBy: { order: "asc" } },
-          specifications: { orderBy: [{ group: "asc" }, { order: "asc" }] },
-          applications: { orderBy: { order: "asc" } },
-        },
-      });
-    } catch (dbError) {
-      console.error("[api/products/[slug]] DB Error:", dbError);
-    }
+    // Try fetching from Sanity first
+    const product = await sanityFetch({
+      query: PRODUCT_BY_SLUG_QUERY,
+      params: { slug },
+    });
 
     if (!product) {
-      // Fallback to static data
+      // Fallback to static data (same as before)
       const staticProduct = STATIC_PRODUCTS.find((p) => p.slug === slug);
       if (staticProduct) {
         return NextResponse.json({
@@ -78,37 +60,16 @@ export async function GET(
       );
     }
 
-    // Productos relacionados (misma categoría, excluyendo el actual)
-    const related = await db.product.findMany({
-      where: {
-        categoryId: product.categoryId,
-        isActive: true,
-        id: { not: product.id },
-      },
-      take: 4,
-      orderBy: [{ isFeatured: "desc" }, { order: "asc" }],
-      select: {
-        id: true,
-        slug: true,
-        name: true,
-        summary: true,
-        price: true,
-        isFeatured: true,
-        isNew: true,
-        images: {
-          where: { isPrimary: true },
-          take: 1,
-          select: { url: true, alt: true },
-        },
-      },
+    // Fetch related products from Sanity (same category, exclude current)
+    const related = await sanityFetch({
+      query: RELATED_PRODUCTS_QUERY,
+      params: { categorySlug: product.category.slug, currentSlug: slug },
     });
 
-    return NextResponse.json({
-      data: product,
-      related,
-    });
+    return NextResponse.json({ data: product, related });
   } catch (error) {
     console.error("[api/products/[slug]] Error:", error);
+    // Fallback to static data on any error
     try {
       const { slug } = await params;
       const staticProduct = STATIC_PRODUCTS.find((p) => p.slug === slug);
