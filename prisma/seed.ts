@@ -132,6 +132,9 @@ const products = [
       { url: "/uploads/products/amc-2000/img-02.webp", alt: "AMC-2000 - vista lateral", isPrimary: false, order: 1 },
       { url: "/uploads/products/amc-2000/img-03.webp", alt: "AMC-2000 - detalle sensores", isPrimary: false, order: 2 },
     ],
+    videos: [
+      { url: "1nb5qXk0dybRjMpIVypBbZfzBmzQEJKIx", provider: "gdrive", title: "AMC-2000 en operación", order: 0 },
+    ],
     documents: [
       { url: "/uploads/products/amc-2000/brochure_amc-2000_ir-image_mismo_formato.pdf", type: "ficha", title: "Ficha técnica AMC-2000", order: 0 },
     ],
@@ -185,7 +188,7 @@ const products = [
       { url: "/uploads/products/amc-3200/img-04.webp", alt: "AMC-3200 - vista superior", isPrimary: false, order: 3 },
     ],
     videos: [
-      { url: "/uploads/products/amc-3200/video-01.mp4", title: "AMC-3200 en operación", order: 0 },
+      { url: "16cOC7T82r3TrxrsepE8T71-tIo9dx6jw", provider: "gdrive", title: "AMC-3200 en operación", order: 0 },
     ],
     documents: [
       { url: "/uploads/products/amc-3200/brochure_amc-3200_final_web.pdf", type: "ficha", title: "Ficha técnica AMC-3200", order: 0 },

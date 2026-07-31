@@ -167,7 +167,9 @@ export const STATIC_PRODUCTS = [
       { id: "img-3-3", url: "/uploads/products/amc-2000/img-03.webp?v=6", alt: "AMC-2000 detalle", isPrimary: false },
       { id: "img-3-4", url: "/uploads/products/amc-2000/img-04.webp?v=6", alt: "AMC-2000 vista completa", isPrimary: false },
     ],
-    videos: [],
+    videos: [
+      { id: "vid-amc-2000-1", url: "1nb5qXk0dybRjMpIVypBbZfzBmzQEJKIx", provider: "gdrive", title: "AMC-2000 en operación" }
+    ],
     documents: [
       { id: "doc-amc-2000", url: "/uploads/products/amc-2000/brochure_amc-2000_ir-image_mismo_formato.pdf", type: "ficha", title: "Brochure AMC 2000", size: null },
     ],
@@ -197,7 +199,7 @@ export const STATIC_PRODUCTS = [
       { id: "img-4-4", url: "/uploads/products/amc-3200/img-04.webp?v=6", alt: "AMC-3200 2CIS vista completa", isPrimary: false },
     ],
     videos: [
-      { id: "vid-amc-3200-1", url: "1Pob2d2RFpEkuDDdOpyBS0B5c3G894lJI", provider: "gdrive", title: "AMC-3200 en operación" }
+      { id: "vid-amc-3200-1", url: "16cOC7T82r3TrxrsepE8T71-tIo9dx6jw", provider: "gdrive", title: "AMC-3200 en operación" }
     ],
     documents: [
       { id: "doc-amc-3200", url: "/uploads/products/amc-3200/brochure_amc-3200_final_web.pdf", type: "ficha", title: "Brochure AMC 3200", size: null },
