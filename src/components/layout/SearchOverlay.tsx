@@ -93,12 +93,12 @@ export function SearchOverlay({
 
   const goToCategory = (slug: string) => {
     onClose();
-    router.push(`/productos?categoria=${slug}&sort=destacados&page=1&limit=50#productos-grid`);
+    window.location.href = `/productos?categoria=${slug}&sort=destacados&page=1&limit=50#productos-grid`;
   };
 
   const goToAllResults = () => {
     onClose();
-    router.push(`/productos?q=${encodeURIComponent(debounced)}`);
+    window.location.href = `/productos?q=${encodeURIComponent(debounced)}#productos-grid`;
   };
 
   const showResults = debounced.trim().length > 0;
