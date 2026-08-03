@@ -23,9 +23,9 @@ export function Footer() {
     {
       title: "Productos",
       links: [
-        { label: "Contadoras de Billetes", href: "/categorias/contadoras-de-billetes" },
-        { label: "Clasificadoras de Billetes", href: "/categorias/clasificadoras" },
-        { label: "Contadoras de Monedas", href: "/categorias/contadoras-de-monedas" },
+        { label: "Contadoras de Billetes", href: "/productos?categoria=contadoras-billetes#productos-grid" },
+        { label: "Clasificadoras de Billetes", href: "/productos?categoria=clasificadoras-billetes#productos-grid" },
+        { label: "Contadoras de Monedas", href: "/productos?categoria=contadoras-monedas#productos-grid" },
       ],
     },
     {

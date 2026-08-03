@@ -171,25 +171,25 @@ const WORKSHOP_IMAGES: LightboxImage[] = [
     src: "/st-workshop-detail.webp",
     alt: "Técnico especializado limpiando componentes internos de contadora de billetes con cepillo de precisión",
     title: "Revisión de componentes internos",
-    description: "Limpieza y verificación de circuitos, sensores y piezas móviles con herramientas de precisión.",
+    description: "Inspección y verificación de tarjetas electrónicas, sensores, motores y mecanismos internos con herramientas de precisión.",
   },
   {
     src: "/st-workshop-machine.webp",
     alt: "Equipo industrial de procesamiento de efectivo en taller técnico AMC",
     title: "Equipo en diagnóstico",
-    description: "Diagnóstico especializado de equipos de conteo y clasificación de efectivo.",
+    description: "Diagnóstico técnico especializado para identificar fallas mecánicas, electrónicas y de sensores.",
   },
   {
     src: "/st-workshop-cleaning.webp",
     alt: "Mantenimiento preventivo de clasificadora de billetes en taller AMC",
     title: "Limpieza técnica",
-    description: "Mantenimiento preventivo con limpieza profunda de componentes internos.",
+    description: "Limpieza de sensores, rodillos y componentes internos para mantener el rendimiento y la precisión del equipo.",
   },
   {
     src: "/st-workshop-interior.webp",
     alt: "Interior de contadora de billetes mostrando motores, sensores y componentes electrónicos durante reparación",
     title: "Componentes a nivel de fabricante",
-    description: "Acceso directo a motores, sensores CIS/UV/MG/IR y placa principal para calibración con estándares de fábrica.",
+    description: "Acceso a motores, sensores CIS/UV/MG/IR, sistema de transporte y placa principal para diagnóstico, calibración y ajuste con estándares de fábrica.",
   },
 ];
 
