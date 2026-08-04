@@ -124,15 +124,53 @@ export async function GET(req: NextRequest) {
       if (categoria) {
         filtered = filtered.filter((p: any) => p.category?.slug === categoria);
       }
+
+      // Apply the exact order sort to the fallback as well!
+      const exactOrder = [
+        "amc-2000",
+        "amc-3200",
+        "amc-8100",
+        "amc-8200",
+        "amc-9100",
+        "amc-9200",
+        "amc-cm3400",
+        "amc-cm3400-max"
+      ];
+      filtered.sort((a, b) => {
+        const idxA = exactOrder.indexOf(a.slug);
+        const idxB = exactOrder.indexOf(b.slug);
+        const valA = idxA !== -1 ? idxA : 999;
+        const valB = idxB !== -1 ? idxB : 999;
+        return valA - valB;
+      });
+
       return NextResponse.json({
         data: filtered.slice(0, 50),
         pagination: { page: 1, limit: 50, total: filtered.length, totalPages: 1, hasNext: false, hasPrev: false },
       });
     } catch (e) {
       // Return static data as ultimate fallback
+      const exactOrder = [
+        "amc-2000",
+        "amc-3200",
+        "amc-8100",
+        "amc-8200",
+        "amc-9100",
+        "amc-9200",
+        "amc-cm3400",
+        "amc-cm3400-max"
+      ];
+      let finalArr = [...STATIC_PRODUCTS];
+      finalArr.sort((a, b) => {
+        const idxA = exactOrder.indexOf(a.slug);
+        const idxB = exactOrder.indexOf(b.slug);
+        const valA = idxA !== -1 ? idxA : 999;
+        const valB = idxB !== -1 ? idxB : 999;
+        return valA - valB;
+      });
       return NextResponse.json({
-        data: STATIC_PRODUCTS.slice(0, 12),
-        pagination: { page: 1, limit: 12, total: STATIC_PRODUCTS.length, totalPages: 2, hasNext: true, hasPrev: false },
+        data: finalArr.slice(0, 50),
+        pagination: { page: 1, limit: 50, total: finalArr.length, totalPages: 1, hasNext: false, hasPrev: false },
       });
     }
   }

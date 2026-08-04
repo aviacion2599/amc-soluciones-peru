@@ -7,6 +7,29 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 export const fetchCache = 'force-no-store';
 
+function getRelatedProducts(slug: string, staticProduct: any) {
+  const RELATED_MAP: Record<string, string[]> = {
+    "amc-2000": ["amc-3200", "amc-8100"],
+    "amc-3200": ["amc-2000", "amc-8100"],
+    "amc-8100": ["amc-3200", "amc-2000"],
+    "amc-8200": ["amc-9100", "amc-9200"],
+    "amc-9100": ["amc-8200", "amc-9200"],
+    "amc-9200": ["amc-9100", "amc-8200"],
+  };
+  
+  if (RELATED_MAP[slug]) {
+     return RELATED_MAP[slug].map(rs => STATIC_PRODUCTS.find(p => p.slug === rs)).filter(Boolean);
+  }
+  
+  if (staticProduct && staticProduct.category) {
+     return STATIC_PRODUCTS.filter(
+        (p) => p.category.slug === staticProduct.category.slug && p.slug !== slug,
+     ).slice(0, 4);
+  }
+  
+  return [];
+}
+
 /**
  * GET /api/products/[slug]
  * Retrieve product details, falling back to static data when needed.
@@ -15,7 +38,6 @@ export async function GET(
   req: NextRequest,
   { params }: { params: Promise<{ slug: string }> }
 ) {
-  console.log("START API", req.nextUrl.pathname);
   try {
     const { slug } = await params;
 
@@ -51,9 +73,7 @@ export async function GET(
             specifications: staticProduct.specifications || [],
             applications: staticProduct.applications || [],
           },
-          related: STATIC_PRODUCTS.filter(
-            (p) => p.category.slug === staticProduct.category.slug && p.slug !== slug,
-          ).slice(0, 4),
+          related: getRelatedProducts(slug, staticProduct),
         });
       }
 
@@ -64,7 +84,6 @@ export async function GET(
     }
 
     // Merge missing fields from static data to avoid breaking the frontend
-    // if Sanity doesn't have images, categories, specs, etc. yet.
     if (staticProduct) {
       if (!product.category || !product.category.name) {
         product.category = staticProduct.category;
@@ -87,31 +106,7 @@ export async function GET(
       if (!product.applications || product.applications.length === 0) product.applications = staticProduct.applications || [];
     }
 
-    // Fetch related products from Sanity (same category, exclude current)
-    let related = await sanityFetch<any[]>({
-      query: RELATED_PRODUCTS_QUERY,
-      params: { categorySlug: product.category?.slug || "", slug: slug },
-    });
-    
-    const RELATED_MAP: Record<string, string[]> = {
-      "amc-2000": ["amc-3200", "amc-8100"],
-      "amc-3200": ["amc-2000", "amc-8100"],
-      "amc-8100": ["amc-3200", "amc-2000"],
-      "amc-8200": ["amc-9100", "amc-9200"],
-      "amc-9100": ["amc-8200", "amc-9200"],
-      "amc-9200": ["amc-9100", "amc-8200"],
-    };
-
-    let finalRelated = related;
-    if (RELATED_MAP[slug]) {
-       finalRelated = RELATED_MAP[slug].map(rs => STATIC_PRODUCTS.find(p => p.slug === rs)).filter(Boolean) as any[];
-    } else if ((!related || related.length === 0) && staticProduct) {
-       finalRelated = STATIC_PRODUCTS.filter(
-          (p) => p.category.slug === staticProduct.category.slug && p.slug !== slug,
-       ).slice(0, 4) as any[];
-    }
-
-    return NextResponse.json({ data: product, related: finalRelated });
+    return NextResponse.json({ data: product, related: getRelatedProducts(slug, staticProduct) });
   } catch (error) {
     console.error("[api/products/[slug]] Error:", error);
     // Fallback to static data on any error
@@ -133,7 +128,7 @@ export async function GET(
             specifications: staticProduct.specifications || [],
             applications: staticProduct.applications || [],
           },
-          related: STATIC_PRODUCTS.filter((p) => p.category.slug === staticProduct.category.slug && p.slug !== slug).slice(0, 4),
+          related: getRelatedProducts(slug, staticProduct),
           debug_error: String(error)
         });
       }
