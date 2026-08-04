@@ -161,14 +161,16 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/40 text-center sm:text-left">
+        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col lg:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-white/40 text-center lg:text-left">
             © {year} AMC Soluciones Perú. Todos los derechos reservados.
           </p>
-          <div className="hidden sm:flex items-center gap-5 text-xs text-white/40">
-            <span>WhatsApp: {AMCCONFIG.contact.phone}</span>
-            <span>·</span>
-            <span>{AMCCONFIG.contact.email}</span>
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs text-white/40">
+            <Link href="/terminos-y-condiciones" className="hover:text-gold transition-colors">Términos y Condiciones</Link>
+            <span className="hidden sm:inline">·</span>
+            <Link href="/politicas-de-devolucion" className="hover:text-gold transition-colors">Políticas de Devolución</Link>
+            <span className="hidden sm:inline">·</span>
+            <span className="hidden sm:inline">WhatsApp: {AMCCONFIG.contact.phone}</span>
           </div>
         </div>
 
