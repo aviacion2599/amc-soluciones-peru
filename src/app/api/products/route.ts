@@ -73,9 +73,26 @@ export async function GET(req: NextRequest) {
     }
 
     // Sort
+    const exactOrder = [
+      "amc-2000",
+      "amc-3200",
+      "amc-8100",
+      "amc-8200",
+      "amc-9100",
+      "amc-9200",
+      "amc-cm3400",
+      "amc-cm3400-max"
+    ];
+
     const sortFns: Record<string, (a: any, b: any) => number> = {
       recientes: (a, b) => 0, // static data has no dates
-      destacados: (a, b) => (b.isFeatured ? 1 : 0) - (a.isFeatured ? 1 : 0),
+      destacados: (a, b) => {
+        const idxA = exactOrder.indexOf(a.slug);
+        const idxB = exactOrder.indexOf(b.slug);
+        const valA = idxA !== -1 ? idxA : 999;
+        const valB = idxB !== -1 ? idxB : 999;
+        return valA - valB;
+      },
       nombre: (a, b) => (a.name || "").localeCompare(b.name || ""),
       "precio-asc": (a, b) => (a.price ?? Infinity) - (b.price ?? Infinity),
       "precio-desc": (a, b) => (b.price ?? 0) - (a.price ?? 0),

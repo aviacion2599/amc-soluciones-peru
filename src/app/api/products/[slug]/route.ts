@@ -93,14 +93,25 @@ export async function GET(
       params: { categorySlug: product.category?.slug || "", slug: slug },
     });
     
-    // If no related products in Sanity yet, fallback to static
-    if ((!related || related.length === 0) && staticProduct) {
-       related = STATIC_PRODUCTS.filter(
+    const RELATED_MAP: Record<string, string[]> = {
+      "amc-2000": ["amc-3200", "amc-8100"],
+      "amc-3200": ["amc-2000", "amc-8100"],
+      "amc-8100": ["amc-3200", "amc-2000"],
+      "amc-8200": ["amc-9100", "amc-9200"],
+      "amc-9100": ["amc-8200", "amc-9200"],
+      "amc-9200": ["amc-9100", "amc-8200"],
+    };
+
+    let finalRelated = related;
+    if (RELATED_MAP[slug]) {
+       finalRelated = RELATED_MAP[slug].map(rs => STATIC_PRODUCTS.find(p => p.slug === rs)).filter(Boolean) as any[];
+    } else if ((!related || related.length === 0) && staticProduct) {
+       finalRelated = STATIC_PRODUCTS.filter(
           (p) => p.category.slug === staticProduct.category.slug && p.slug !== slug,
        ).slice(0, 4) as any[];
     }
 
-    return NextResponse.json({ data: product, related });
+    return NextResponse.json({ data: product, related: finalRelated });
   } catch (error) {
     console.error("[api/products/[slug]] Error:", error);
     // Fallback to static data on any error

@@ -21,19 +21,15 @@ export function Footer() {
 
   const cols: { title: string; links: { label: string; href: string }[] }[] = [
     {
-      title: "Productos",
+      title: "Equipos",
       links: [
-        { label: "Contadoras de Billetes", href: "/productos?categoria=contadoras-billetes#productos-grid" },
-        { label: "Clasificadoras de Billetes", href: "/productos?categoria=clasificadoras-billetes#productos-grid" },
-        { label: "Contadoras de Monedas", href: "/productos?categoria=contadoras-monedas#productos-grid" },
+        { label: "Ver todos los equipos", href: "/productos" },
       ],
     },
     {
       title: "Servicio Técnico",
       links: [
-        { label: "Reparación", href: "/servicio-tecnico#servicios" },
-        { label: "Diagnóstico", href: "/servicio-tecnico#servicios" },
-        { label: "Mantenimiento Preventivo", href: "/servicio-tecnico#servicios" },
+        { label: "Ver servicios técnicos", href: "/servicio-tecnico" },
       ],
     },
     {
