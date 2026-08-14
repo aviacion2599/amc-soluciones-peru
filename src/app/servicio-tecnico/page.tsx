@@ -648,7 +648,7 @@ export default function ServicioTecnicoPage() {
             <div className="card-base p-8 bg-gradient-to-br from-primary-dark to-primary text-white">
               <div className="grid grid-cols-2 gap-6">
                 {[
-                  { value: "+2,500", label: "Equipos atendidos" },
+                  { value: "550", label: "Equipos atendidos" },
                   { value: "8+", label: "Años de experiencia" },
                   { value: "24 h", label: "Tiempo de respuesta" },
                   { value: "6", label: "Marcas atendidas" },

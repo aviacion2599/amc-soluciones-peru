@@ -53,9 +53,7 @@ export function TechnicalService() {
               </span>
             </h2>
             <p className="text-slate-300 leading-relaxed mb-8 max-w-lg">
-              Servicio técnico especializado en equipos GLORY y otras marcas de procesamiento
-              de efectivo. Reparación, calibración, mantenimiento preventivo y actualización
-              de divisas para mantener tu equipo operando con precisión.
+              Servicio técnico especializado en equipos de procesamiento de efectivo. Diagnóstico, reparación, mantenimiento preventivo y actualización de divisas para mantener tus equipos operando con precisión, seguridad y continuidad.
             </p>
 
             {/* Checklist */}
