@@ -9,7 +9,7 @@ import { FadeIn } from "@/components/shared/Motion";
 const STATS = [
   { icon: Award, value: 8, suffix: "", display: "+8", label: "Años de experiencia" },
   { icon: Package, value: 550, suffix: "", display: "550", label: "Equipos atendidos" },
-  { icon: Users, value: 800, suffix: "", display: "+800", label: "Clientes activos" },
+  { icon: Users, value: 30, suffix: "", display: "+30", label: "Clientes activos" },
 ];
 
 /* ── Animated counter hook ── */

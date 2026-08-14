@@ -10,7 +10,7 @@ export const AMCCONFIG = {
   company: {
     legalName: "AMC Soluciones Perú",
     brandName: "AMC Soluciones",
-    legalRazonSocial: "AMC Multimedia Machine Technical Service E.I.R.L.",
+    legalRazonSocial: "AMC Multimedia Machine Tecnical Service E.I.R.L.",
     tagline: "No solo vendemos equipos, nos hacemos responsables de su funcionamiento.",
     valueProp: "Contadoras de billetes y monedas: venta y servicio técnico en Perú",
     description:
