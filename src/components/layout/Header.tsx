@@ -278,7 +278,7 @@ export function Header() {
             Solicitar Cotización
           </Link>
           <p className="text-[10px] text-white/30 text-center">
-            SERVICIO TÉCNICO AUTORIZADO GLORY · DESDE 2010
+            Servicio Técnico
           </p>
         </div>
       </nav>
