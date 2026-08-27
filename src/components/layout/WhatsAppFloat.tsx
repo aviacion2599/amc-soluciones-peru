@@ -13,13 +13,19 @@ export function WhatsAppFloat() {
   const href = `https://wa.me/${AMCCONFIG.contact.whatsapp}?text=${encodeURIComponent(
     AMCCONFIG.contact.whatsappMessage,
   )}`;
-
+const handleWhatsAppClick = () => {
+  (window as any).gtag?.("event", "conversion", {
+    send_to: "AW-18408509397/EaXSCMin75-gCEMMf7p1",
+  });
+};
+  
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
+      onClick={handleWhatsAppClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className="fixed bottom-5 right-5 lg:bottom-7 lg:right-7 z-40 group hidden lg:block"
