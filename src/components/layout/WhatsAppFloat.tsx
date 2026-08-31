@@ -15,7 +15,7 @@ export function WhatsAppFloat() {
   )}`;
 const handleWhatsAppClick = () => {
   (window as any).gtag?.("event", "conversion", {
-    send_to: "AW-18408509397/EaXSCMin75-gCEMMf7p1",
+    send_to: "AW-18408509397/EaXSCMu75-9cENMW7sIE",
   });
 };
   
