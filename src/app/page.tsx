@@ -4,7 +4,6 @@ import { TrustedBy } from "@/components/home/TrustedBy";
 import { AboutAMC } from "@/components/home/AboutAMC";
 import { EquipmentLines } from "@/components/home/EquipmentLines";
 import { TechnicalService } from "@/components/home/TechnicalService";
-import { WorkProcess } from "@/components/home/WorkProcess";
 import { Testimonials } from "@/components/home/Testimonials";
 import { CTASection } from "@/components/home/CTASection";
 import { SectionFade } from "@/components/shared/SectionFade";
@@ -156,8 +155,6 @@ export default function HomePage() {
           <EquipmentLines />
           <SectionFade />
           <TechnicalService />
-          <SectionFade />
-          <WorkProcess />
           <SectionFade />
           <Testimonials />
           <SectionFade />

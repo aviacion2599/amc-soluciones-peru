@@ -4,6 +4,12 @@ import { MessageCircle, ChevronRight, Check } from "lucide-react";
 import { AMCCONFIG } from "@/lib/site-config";
 
 /* ─── Tipos ─── */
+interface EquipmentRental {
+  title: string;
+  description: string;
+  buttonText: string;
+}
+
 interface EquipmentLine {
   id: string;
   name: string;
@@ -16,58 +22,26 @@ interface EquipmentLine {
   accentBg: string;     // tailwind bg token
   accentBorder: string; // tailwind border token
   accentText: string;   // tailwind text token
+  rental?: EquipmentRental;
 }
 
-/* ─── Datos de las 5 líneas ─── */
+/* ─── Datos de las líneas unificadas ─── */
 const LINES: EquipmentLine[] = [
   {
-    id: "esencial",
-    name: "Línea Esencial AMC",
-    subtitle: "Contadoras de billetes para pequeños negocios",
+    id: "contadoras-billetes",
+    name: "Contadoras de Billetes AMC",
+    subtitle: "Conteo profesional, simple y confiable",
     description:
-      "Contadoras de billetes diseñadas para pequeños negocios que buscan una solución práctica, accesible y funcional para el control diario de efectivo. Esta línea está pensada para tiendas, minimarkets, farmacias, agentes, oficinas, bodegas y comercios con bajo a mediano movimiento de billetes. Son equipos ideales para contar de forma rápida, ordenar el efectivo diario y realizar una verificación básica de billetes.",
-    models: ["AMC-2000"],
+      "Equipos profesionales para conteo, detección y control de efectivo, diseñados para diferentes niveles de operación.",
+    models: ["AMC-2000", "AMC-3200"],
     recommendedFor: [
-      "Pequeños negocios",
-      "Tiendas y minimarkets",
-      "Farmacias",
-      "Agentes y oficinas",
-      "Comercios con movimiento moderado de efectivo",
+      "Cajas, comercios, oficinas, empresas y negocios que requieren conteo frecuente y mayor control del efectivo.",
     ],
     benefits: [
-      "Precio más accesible",
-      "Conteo rápido de billetes",
-      "Uso simple y práctico",
-      "Verificación de billetes sospechosos según sensores del equipo",
-      "Soporte técnico local AMC",
-      "Garantía y asesoría postventa",
-    ],
-    accent: "bg-slate-600",
-    accentBg: "bg-slate-50",
-    accentBorder: "border-slate-200",
-    accentText: "text-slate-700",
-  },
-  {
-    id: "profesional",
-    name: "Línea Profesional AMC",
-    subtitle: "Mayor seguridad para negocios y empresas",
-    description:
-      "Equipos profesionales para negocios y empresas que necesitan mayor seguridad, mejor detección y un control más confiable del efectivo. La Línea Profesional AMC está orientada a clientes que buscan una contadora de billetes más robusta, con mejor desempeño, detección avanzada y respaldo técnico local. Es ideal para negocios que ya manejan un flujo constante de efectivo y necesitan reducir errores, ahorrar tiempo y mejorar el control en caja.",
-    models: ["AMC-3200", "AMC-8100"],
-    recommendedFor: [
-      "Empresas",
-      "Oficinas administrativas",
-      "Comercios con caja diaria",
-      "Minimarkets de mayor movimiento",
-      "Ferreterías, distribuidoras y negocios con flujo constante de efectivo",
-    ],
-    benefits: [
-      "Mejor detección de billetes falsos o adulterados",
-      "Mayor precisión en el conteo",
-      "Mejor estabilidad de trabajo",
-      "Ideal para uso diario",
-      "Soporte técnico especializado",
-      "Garantía y capacitación AMC",
+      "Conteo rápido",
+      "Detección de billetes sospechosos",
+      "Reducción de errores",
+      "Mayor control en las operaciones diarias",
     ],
     accent: "bg-blue-600",
     accentBg: "bg-blue-50",
@@ -75,62 +49,32 @@ const LINES: EquipmentLine[] = [
     accentText: "text-blue-700",
   },
   {
-    id: "alto-control",
-    name: "Línea Alto Control AMC",
-    subtitle: "Control avanzado para mayor movimiento de efectivo",
+    id: "corporativa",
+    name: "Línea Corporativa AMC",
+    subtitle: "Mayor continuidad, control y procesamiento intensivo",
     description:
-      "Contadoras de billetes para empresas que manejan mayor volumen de efectivo y necesitan continuidad de trabajo, control de billetes observados y mayor seguridad en cada operación. Esta línea está diseñada para negocios que no solo necesitan contar billetes, sino también mejorar el control, separar billetes sospechosos, trabajar con mayor fluidez y reducir interrupciones durante el proceso de conteo.",
-    models: ["AMC-9100", "AMC-8200"],
+      "Equipos orientados a empresas que requieren mayor continuidad, control y capacidad de procesamiento de efectivo.",
+    models: ["AMC-8200", "AMC-9100", "AMC-9200"],
     recommendedFor: [
-      "Casas de cambio",
-      "Empresas con alto movimiento de caja",
-      "Retail",
-      "Casinos",
-      "Mayoristas",
-      "Financieras",
-      "Operaciones que requieren mayor control de billetes",
+      "Empresas con mayor movimiento de efectivo, cajas de alto flujo, casas de cambio, financieras, retail, casinos, supermercados y operaciones que requieren continuidad.",
     ],
     benefits: [
-      "Mayor nivel de detección",
-      "Mejor control de billetes observados",
-      "Trabajo más continuo",
-      "Mayor seguridad en el proceso de conteo",
-      "Ideal para operaciones con billetes de diferentes estados",
-      "Respaldo técnico local AMC",
+      "Mayor productividad",
+      "Continuidad de trabajo",
+      "Mejor control del efectivo",
+      "Separación de billetes observados",
+      "Reducción del trabajo manual",
     ],
     accent: "bg-indigo-600",
     accentBg: "bg-indigo-50",
     accentBorder: "border-indigo-200",
     accentText: "text-indigo-700",
-  },
-  {
-    id: "alto-volumen",
-    name: "Línea Alto Volumen AMC",
-    subtitle: "Equipos para uso intensivo y operaciones exigentes",
-    description:
-      "Equipos de alto rendimiento para empresas que procesan grandes volúmenes de efectivo y requieren velocidad, precisión, resistencia y continuidad operativa. La Línea Alto Volumen AMC está orientada a operaciones intensivas donde el tiempo, la seguridad y la productividad son factores clave. Equipos para operaciones intensivas que necesitan mayor capacidad de procesamiento, continuidad de trabajo y control avanzado del efectivo durante la jornada.",
-    models: ["AMC-9200"],
-    recommendedFor: [
-      "Casas de cambio de alto movimiento",
-      "Retail",
-      "Financieras",
-      "Casinos",
-      "Empresas recaudadoras",
-      "Supermercados",
-      "Operaciones intensivas de efectivo",
-    ],
-    benefits: [
-      "Mayor capacidad de procesamiento",
-      "Equipos diseñados para uso exigente",
-      "Mejor continuidad de trabajo",
-      "Mayor control y seguridad",
-      "Ideal para alto volumen diario",
-      "Soporte técnico especializado",
-    ],
-    accent: "bg-primary",
-    accentBg: "bg-primary-tint",
-    accentBorder: "border-primary/20",
-    accentText: "text-primary",
+    rental: {
+      title: "Venta y Alquiler Corporativo",
+      description:
+        "Contamos con venta y alquiler de contadoras de billetes para empresas. El alquiler está sujeto a evaluación según el volumen, tipo de operación y condiciones de uso.",
+      buttonText: "Consultar alquiler",
+    },
   },
   {
     id: "monedas",
@@ -220,14 +164,14 @@ function LineCard({ line, index }: { line: EquipmentLine; index: number }) {
 
             {/* Recomendado para */}
             <div className="mb-6">
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
-                Recomendado para
+              <h4 className="text-sm font-bold text-foreground mb-2.5">
+                Recomendado para:
               </h4>
               <ul className="space-y-2">
                 {line.recommendedFor.map((r) => (
-                  <li key={r} className="flex items-start gap-2 text-sm text-foreground">
+                  <li key={r} className="flex items-start gap-2 text-sm text-foreground/90">
                     <ChevronRight className={`w-4 h-4 mt-0.5 flex-shrink-0 ${line.accentText}`} />
-                    {r}
+                    <span>{r}</span>
                   </li>
                 ))}
               </ul>
@@ -236,16 +180,16 @@ function LineCard({ line, index }: { line: EquipmentLine; index: number }) {
 
           {/* Columna derecha — beneficios */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
-              Beneficios
+            <h4 className="text-sm font-bold text-foreground mb-2.5">
+              Beneficios:
             </h4>
             <ul className="space-y-2.5">
               {line.benefits.map((b) => (
-                <li key={b} className="flex items-start gap-2.5 text-sm text-foreground">
-                  <span className={`mt-1 w-4 h-4 rounded-full ${line.accent} flex items-center justify-center flex-shrink-0`}>
+                <li key={b} className="flex items-start gap-2.5 text-sm text-foreground/90">
+                  <span className={`mt-0.5 w-4 h-4 rounded-full ${line.accent} flex items-center justify-center flex-shrink-0`}>
                     <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
                   </span>
-                  {b}
+                  <span>{b}</span>
                 </li>
               ))}
             </ul>
@@ -262,6 +206,41 @@ function LineCard({ line, index }: { line: EquipmentLine; index: number }) {
             </a>
           </div>
         </div>
+
+        {/* Sección de Alquiler Corporativo (con ancla directa #alquiler) */}
+        {line.rental && (
+          <div
+            id="alquiler"
+            className="scroll-mt-28 mt-8 pt-6 border-t border-slate-200 bg-slate-50/80 -mx-6 -mb-6 lg:-mx-8 lg:-mb-8 p-6 lg:p-8 rounded-b-2xl"
+          >
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
+              <div className="max-w-2xl">
+                <span className="inline-block px-2.5 py-1 rounded-md bg-indigo-100 text-indigo-700 text-xs font-semibold mb-2">
+                  Modalidad disponible para empresas
+                </span>
+                <h4 className="font-display text-lg lg:text-xl font-bold text-foreground">
+                  {line.rental.title}
+                </h4>
+                <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">
+                  {line.rental.description}
+                </p>
+              </div>
+              <div className="flex-shrink-0">
+                <a
+                  href={`https://wa.me/${AMCCONFIG.contact.whatsapp}?text=${encodeURIComponent(
+                    "Hola AMC Soluciones Perú, quiero consultar sobre el servicio de alquiler corporativo de contadoras de billetes."
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-sm transition-colors whitespace-nowrap"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  {line.rental.buttonText}
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -284,10 +263,10 @@ export function EquipmentLines() {
             seguridad requerido.
           </p>
           <p className="text-muted-foreground leading-relaxed text-[15px]">
-            Contamos con líneas para pequeños negocios, empresas, operaciones de
-            alto control, alto volumen y procesamiento de monedas. Nuestro
-            enfoque no es solo vender equipos, sino brindar asesoría, garantía
-            y soporte técnico local para que cada cliente elija la solución
+            Contamos con contadoras de billetes para comercios y empresas, línea
+            corporativa con venta y alquiler, y soluciones para procesamiento de
+            monedas. Nuestro enfoque no es solo vender equipos, sino brindar asesoría,
+            garantía y soporte técnico local para que cada cliente elija la solución
             adecuada.
           </p>
         </div>

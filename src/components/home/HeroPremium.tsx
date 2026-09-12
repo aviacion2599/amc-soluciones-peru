@@ -24,12 +24,6 @@ const HERO_PRODUCTS = [
     scale: "",
   },
   {
-    src: "/uploads/products/amc-8100/hero-v6.webp",
-    model: "AMC-8100",
-    tagline: "Pantalla Full Touch para contar con precisión.",
-    scale: "",
-  },
-  {
     src: "/uploads/products/amc-9200/hero-v6.webp",
     model: "AMC-9200",
     tagline: "Clasificación Full Fitness bancaria.",
@@ -274,8 +268,7 @@ export function HeroPremium() {
             </h1>
 
             <p className="text-sm sm:text-base lg:text-lg text-white/80 leading-relaxed mb-6 lg:mb-8 max-w-lg">
-              Contadoras de billetes y monedas con detección avanzada, venta y
-              servicio técnico especializado en Perú.
+              Contadoras de billetes y monedas con detección avanzada. Venta · Alquiler Corporativo · Servicio Técnico Especializado en Perú.
             </p>
 
             {/* Lema oficial */}
