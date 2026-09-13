@@ -30,7 +30,7 @@ const LINES: EquipmentLine[] = [
   {
     id: "contadoras-billetes",
     name: "Contadoras de Billetes AMC",
-    subtitle: "Conteo profesional, simple y confiable",
+    subtitle: "Conteo profesional, preciso y confiable",
     description:
       "Equipos profesionales para conteo, detección y control de efectivo, diseñados para diferentes niveles de operación.",
     models: ["AMC-2000", "AMC-3200"],
@@ -51,7 +51,7 @@ const LINES: EquipmentLine[] = [
   {
     id: "corporativa",
     name: "Línea Corporativa AMC",
-    subtitle: "Mayor continuidad, control y procesamiento intensivo",
+    subtitle: "Mayor continuidad, control y gestión de efectivo",
     description:
       "Equipos orientados a empresas que requieren mayor continuidad, control y capacidad de procesamiento de efectivo.",
     models: ["AMC-8200", "AMC-9100", "AMC-9200"],
@@ -72,7 +72,7 @@ const LINES: EquipmentLine[] = [
     rental: {
       title: "Venta y Alquiler Corporativo",
       description:
-        "Contamos con venta y alquiler de contadoras de billetes para empresas. El alquiler está sujeto a evaluación según el volumen, tipo de operación y condiciones de uso.",
+        "Contamos con venta de contadoras de billetes y modalidad de alquiler corporativo para empresas. El alquiler se ofrece con equipos seleccionados según el volumen, tipo de operación y condiciones de uso.",
       buttonText: "Consultar alquiler",
     },
   },
@@ -135,7 +135,7 @@ function LineCard({ line, index }: { line: EquipmentLine; index: number }) {
       </div>
 
       {/* Body */}
-      <div className="p-6 lg:p-8">
+      <div className="p-6 pb-8 sm:p-6 lg:p-8">
         <p className="text-muted-foreground leading-relaxed mb-6 text-[15px]">
           {line.description}
         </p>
@@ -195,15 +195,17 @@ function LineCard({ line, index }: { line: EquipmentLine; index: number }) {
             </ul>
 
             {/* WhatsApp CTA */}
-            <a
-              href={`https://wa.me/${AMCCONFIG.contact.whatsapp}?text=${whatsappMsg}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${line.accent} hover:opacity-90 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-white font-semibold text-sm mt-6 transition-opacity`}
-            >
-              <MessageCircle className="w-4 h-4" />
-              Solicitar asesoría por WhatsApp
-            </a>
+            <div className="pt-2 mb-2 sm:mb-0">
+              <a
+                href={`https://wa.me/${AMCCONFIG.contact.whatsapp}?text=${whatsappMsg}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${line.accent} hover:opacity-90 inline-flex items-center justify-center w-full sm:w-auto gap-2 px-5 py-3 rounded-lg text-white font-semibold text-sm mt-6 transition-opacity shadow-sm`}
+              >
+                <MessageCircle className="w-4 h-4" />
+                Solicitar asesoría por WhatsApp
+              </a>
+            </div>
           </div>
         </div>
 
@@ -211,7 +213,7 @@ function LineCard({ line, index }: { line: EquipmentLine; index: number }) {
         {line.rental && (
           <div
             id="alquiler"
-            className="scroll-mt-28 mt-8 pt-6 border-t border-slate-200 bg-slate-50/80 -mx-6 -mb-6 lg:-mx-8 lg:-mb-8 p-6 lg:p-8 rounded-b-2xl"
+            className="scroll-mt-28 mt-8 pt-6 border-t border-slate-200 bg-slate-50/80 -mx-6 -mb-8 sm:-mb-6 lg:-mx-8 lg:-mb-8 p-6 pb-8 sm:pb-6 lg:p-8 rounded-b-2xl"
           >
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
               <div className="max-w-2xl">
@@ -225,14 +227,14 @@ function LineCard({ line, index }: { line: EquipmentLine; index: number }) {
                   {line.rental.description}
                 </p>
               </div>
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 w-full sm:w-auto">
                 <a
                   href={`https://wa.me/${AMCCONFIG.contact.whatsapp}?text=${encodeURIComponent(
                     "Hola AMC Soluciones Perú, quiero consultar sobre el servicio de alquiler corporativo de contadoras de billetes."
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-sm transition-colors whitespace-nowrap"
+                  className="inline-flex items-center justify-center w-full sm:w-auto gap-2 px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-sm transition-colors whitespace-nowrap"
                 >
                   <MessageCircle className="w-4 h-4" />
                   {line.rental.buttonText}
@@ -249,7 +251,7 @@ function LineCard({ line, index }: { line: EquipmentLine; index: number }) {
 /* ─── Sección principal ─── */
 export function EquipmentLines() {
   return (
-    <section id="equipos" className="py-12 lg:py-16 2xl:py-24 scroll-mt-20 bg-surface-2">
+    <section id="equipos" className="pt-12 pb-24 sm:pb-16 lg:py-16 2xl:py-24 scroll-mt-24 bg-surface-2">
       <div className="container-amc">
         {/* Introducción */}
         <div className="max-w-3xl mx-auto text-center mb-16">
@@ -279,7 +281,7 @@ export function EquipmentLines() {
         </div>
 
         {/* 5 líneas */}
-        <div className="space-y-8 max-w-5xl mx-auto">
+        <div className="space-y-10 sm:space-y-8 max-w-5xl mx-auto">
           {LINES.map((line, i) => (
             <LineCard key={line.id} line={line} index={i} />
           ))}
