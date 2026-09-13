@@ -90,7 +90,7 @@ export function CTASection() {
               {[
                 "Asesoría técnica personalizada sin costo",
                 "Cotización detallada con especificaciones técnicas",
-                "Propuesta de financiamiento adaptada a tu negocio",
+                "Opciones de pago seguras y respaldo en tu compra",
                 "Garantía oficial y soporte postventa incluido",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-2 text-foreground">
