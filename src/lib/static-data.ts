@@ -171,7 +171,7 @@ export const STATIC_PRODUCTS = [
       { id: "vid-amc-2000-1", url: "1nb5qXk0dybRjMpIVypBbZfzBmzQEJKIx", provider: "gdrive", title: "AMC-2000 en operación" }
     ],
     documents: [
-      { id: "doc-amc-2000", url: "/uploads/products/amc-2000/brochure_amc-2000_ir-image_mismo_formato.pdf", type: "ficha", title: "Brochure AMC 2000", size: null },
+      { id: "doc-amc-2000", url: "/uploads/products/amc-2000/Brochure_AMC-2000_Presentacion.pdf", type: "ficha", title: "Brochure AMC 2000", size: null },
     ],
     features: [],
     specifications: [],
